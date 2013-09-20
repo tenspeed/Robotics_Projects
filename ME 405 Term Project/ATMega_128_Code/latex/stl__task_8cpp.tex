@@ -1,0 +1,58 @@
+\hypertarget{stl__task_8cpp}{\section{stl\-\_\-task.\-cpp File Reference}
+\label{stl__task_8cpp}\index{stl\-\_\-task.\-cpp@{stl\-\_\-task.\-cpp}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}base\-\_\-text\-\_\-serial.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}global\-\_\-debug.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stl\-\_\-timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stl\-\_\-task.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{stl__task_8cpp_aa4e043213ccb7a17b12bd28ec37abff3}{operator$<$$<$} (\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \&serial, \hyperlink{classstl__task}{stl\-\_\-task} \&task)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{stl__task_8cpp_a971112f12479cad8081787d443c3d875}{const \hyperlink{classtime__stamp}{time\-\_\-stamp} \hyperlink{stl__task_8cpp_a971112f12479cad8081787d443c3d875}{zero\-\_\-time} (0\-L)}\label{stl__task_8cpp_a971112f12479cad8081787d443c3d875}
+
+\begin{DoxyCompactList}\small\item\em This is just a time stamp with zeros in it for comparisions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains the definition of a task class. This class implements the tasks in a multitasking system. These tasks are intended to be run in a cooperative multitasking framework, but they can also be worked into an interrupt framework or run within an R\-T\-O\-S.
+
+Revisions \begin{DoxyItemize}
+\item 04-\/21-\/2007 J\-R\-R Original copy of this file, derived from U\-C\-B's Tran\-Run4 and simplified greatly for efficient use in A\-V\-R processors \item 05-\/07-\/2007 J\-R\-R Small bug fixes \item 06-\/01-\/2008 J\-R\-R Changed debugging/trace to take advantage of \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \item 06-\/03-\/2008 J\-R\-R Cleaned up comments, got rid of Doxygen warnings \item 12-\/19-\/2009 J\-R\-R Integrated simple execution time profiling into file, changed from $\ast$.cc to $\ast$.cpp, and set up for global serial debugging\end{DoxyItemize}
+License\-: This file released under the Lesser G\-N\-U Public License, version 2. This program is intended for educational use only, but it is not limited thereto. 
+
+Definition in file \hyperlink{stl__task_8cpp_source}{stl\-\_\-task.\-cpp}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{stl__task_8cpp_aa4e043213ccb7a17b12bd28ec37abff3}{\index{stl\-\_\-task.\-cpp@{stl\-\_\-task.\-cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!stl_task.cpp@{stl\-\_\-task.\-cpp}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial}\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf base\-\_\-text\-\_\-serial} \&}]{serial, }
+\item[{{\bf stl\-\_\-task} \&}]{task}
+\end{DoxyParamCaption}
+)}}\label{stl__task_8cpp_aa4e043213ccb7a17b12bd28ec37abff3}
+This overloaded shift operator writes the vital statistics for this task to a serial device. Just what is written depends on whether transition tracing and/or execution time profiling has been enabled. 
+\begin{DoxyParams}{Parameters}
+{\em serial} & A reference to the serial-\/type object to which to print \\
+\hline
+{\em task} & A reference to the task whose information is to be displayed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 382 of file stl\-\_\-task.\-cpp.
+
+
+
+References stl\-\_\-task\-::get\-\_\-serial\-\_\-number(), and P\-M\-S.
+

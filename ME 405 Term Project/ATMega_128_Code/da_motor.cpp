@@ -1,11 +1,6 @@
 //======================================================================================
 /** \file  da_motor.cpp
  *  
- *  Revisions:
- *            \li  04-12-11  Began tearing and hacking at our lab_2 code.
- *	          \li  04-18-11  Final iteration. This code is the bestest.
- *    
- *
  *  License:
  *    This file released under the Lesser GNU Public License. The program is intended
  *    for educational use only, but its use is not restricted thereto. 
@@ -26,12 +21,13 @@
 */
 da_motor::da_motor (base_text_serial* p_serial_port)
 {
-	ptr_to_serial = p_serial_port;          // Store the serial port pointer locally.
+	// Store the serial port pointer locally
+	ptr_to_serial = p_serial_port;          
 	
-	// Set timer1 to operate in non-inverting fast PWM mode. 
+	// Set timer1 to operate in non-inverting fast PWM mode 
 	TCCR1A |= (1<<COM1A1)|(1<<COM1B1);
-	TCCR1A &= ~(1<<COM1A0); // Set to 0 to operate in non-inverting mode.
-	TCCR1A &= ~(1<<COM1B0); // Set to 0 to operate in non-inverting mode.
+	TCCR1A &= ~(1<<COM1A0); // Set to 0 to operate in non-inverting mode
+	TCCR1A &= ~(1<<COM1B0); // Set to 0 to operate in non-inverting mode
 	
 	// Set up fast PWM and initialize timer
 
@@ -42,9 +38,9 @@ da_motor::da_motor (base_text_serial* p_serial_port)
 	TCCR1B &= ~(1<<WGM13); // Set timer1 to 8 bit fast PWM mode [step 4]
 	
 	// 10 bit
-	// TCCR1A |= (1<<WGM10)|(1<<WGM11);   // Set timer1 to 10 bit fast PWM mode [step 1].
-	// TCCR1B |= (1<<WGM12);			  // Set timer1 to 10 bit fast PWM mode [step 1].
-	// TCCR1B &= ~(1<<WGM13);			  // Set timer1 to 10 bit fast PWM mode [step 1].
+	// TCCR1A |= (1<<WGM10)|(1<<WGM11);   // Set timer1 to 10 bit fast PWM mode [step 1]
+	// TCCR1B |= (1<<WGM12);			  // Set timer1 to 10 bit fast PWM mode [step 1]
+	// TCCR1B &= ~(1<<WGM13);			  // Set timer1 to 10 bit fast PWM mode [step 1]
 	
 	// prescalar settings clk/256
 	TCCR1B |= (1<<CS10);  // Controls the prescaler bit 0
@@ -53,11 +49,11 @@ da_motor::da_motor (base_text_serial* p_serial_port)
 	
 	// miscellaneous timer options
 	TCCR1B &= ~(0b00100000); // Bit # 5 is reserved and must be set to zero.
-	TCCR1B &= ~(1<<ICNC1);   // This bit is for the input capture noise canceler. We don't care about it.
-	TCCR1B &= ~(1<<ICES1);   // This bit is for the input capture edge select. We also don't care about it.
+	TCCR1B &= ~(1<<ICNC1);   // This bit is for the input capture noise canceler. We don't care about it
+	TCCR1B &= ~(1<<ICES1);   // This bit is for the input capture edge select. We also don't care about it
 	
 	// Set up atmega ports to input for diagnostic purposes while using pull-up resistors
-	// to enable motor control chip on.
+	// to enable motor control chip on
  	DDRC &= ~(1<<PIN2); // Sets Port C Pin 2 as input
  	DDRD &= ~(1<<PIN7); // Sets Port D Pin 7 as input
  	PORTC |= (1<<PIN2); // Sets Port C Pin 2 pull-up resistor to ON

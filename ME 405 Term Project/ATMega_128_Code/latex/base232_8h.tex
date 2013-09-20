@@ -1,0 +1,68 @@
+\hypertarget{base232_8h}{\section{base232.\-h File Reference}
+\label{base232_8h}\index{base232.\-h@{base232.\-h}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classbase232}{base232}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{base232_8h_a25c8e4248c87dbab8b7636d0a87a2d49}{U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-T\-O\-U\-T}~20000
+\begin{DoxyCompactList}\small\item\em This define prevents this .h file from being included more than once in a .cc file. \end{DoxyCompactList}\item 
+\#define \hyperlink{base232_8h_aa53d8bf7f916e9570c0a5ba143c46425}{U\-A\-R\-T\-\_\-\-D\-O\-U\-B\-L\-E\-\_\-\-S\-P\-E\-E\-D}
+\item 
+\#define \hyperlink{base232_8h_aa7e23e49ee7f38ef1ba0c4fbc199f208}{calc\-\_\-baud\-\_\-div}(baud\-\_\-rate)~((F\-\_\-\-C\-P\-U) / (16\-U\-L $\ast$ (baud\-\_\-rate)))
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a set of macros which are used by several classes and class templates that interact with the asynchronous (R\-S-\/232 style) serial port on an A\-V\-R microcontroller. Classes which use this stuff include \hyperlink{classrs232}{rs232} and packet232.
+
+Revisions\-: \begin{DoxyItemize}
+\item 04-\/03-\/2006 J\-R\-R For updated version of compiler \item 06-\/10-\/2006 J\-R\-R Ported from C++ to C for use with some C-\/only projects; also serial\-\_\-avr.\-h now has defines for compatibility among lots of A\-V\-R variants \item 08-\/11-\/2006 J\-R\-R Some bug fixes \item 03-\/02-\/2007 J\-R\-R Ported back to C++. I've had it with the limitations of C. \item 04-\/16-\/2007 J\-O Added write (unsigned long) \item 07-\/19-\/2007 J\-R\-R Changed some character return values to bool, added m324p \item 01-\/12-\/2008 J\-R\-R Added code for the A\-Tmega128 using U\-S\-A\-R\-T number 1 only \item 02-\/14-\/2008 J\-R\-R Split between \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} and \hyperlink{classrs232}{rs232} files \item 05-\/31-\/2008 J\-R\-R Changed baud calculations to use C\-P\-U\-\_\-\-F\-R\-E\-Q\-\_\-\-M\-Hz from Makefile \item 06-\/01-\/2008 J\-R\-R Added getch\-\_\-tout() because it's needed by 9\-Xstream modems \item 07-\/05-\/2008 J\-R\-R Changed from 1 to 2 stop bits to placate finicky receivers \item 12-\/22-\/2008 J\-R\-R Split off stuff in \hyperlink{base232_8h}{base232.\-h} for efficiency \item 01-\/30-\/2009 J\-R\-R Added class with port setup in constructor \item 06-\/02-\/2009 J\-R\-R Changed baud rate divisor formula to work better \item 12-\/14-\/2009 J\-R\-R Changed C\-P\-U\-\_\-\-F\-R\-E\-Q\-\_\-\-Hz to F\-\_\-\-C\-P\-U to be compatible with avr-\/libc\end{DoxyItemize}
+License\-: This file is released under the Lesser G\-N\-U Public License, version 2. This program is intended for educational use only, but it is not limited thereto. 
+
+Definition in file \hyperlink{base232_8h_source}{base232.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{base232_8h_aa7e23e49ee7f38ef1ba0c4fbc199f208}{\index{base232.\-h@{base232.\-h}!calc\-\_\-baud\-\_\-div@{calc\-\_\-baud\-\_\-div}}
+\index{calc\-\_\-baud\-\_\-div@{calc\-\_\-baud\-\_\-div}!base232.h@{base232.\-h}}
+\subsubsection[{calc\-\_\-baud\-\_\-div}]{\setlength{\rightskip}{0pt plus 5cm}\#define calc\-\_\-baud\-\_\-div(
+\begin{DoxyParamCaption}
+\item[{}]{baud\-\_\-rate}
+\end{DoxyParamCaption}
+)~((F\-\_\-\-C\-P\-U) / (16\-U\-L $\ast$ (baud\-\_\-rate)))}}\label{base232_8h_aa7e23e49ee7f38ef1ba0c4fbc199f208}
+This macro computes a value for the baud rate divisor from the desired baud rate and the C\-P\-U clock frequency. The C\-P\-U clock frequency should have been set in the macro F\-\_\-\-C\-P\-U, which is normally configured in the Makefile. The divisor is calculated as (frequency, M\-Hz / (16 $\ast$ baudrate)), unless the U\-S\-A\-R\-T is running in double-\/speed mode, in which case the baud rate divisor is twice as big. 
+
+Definition at line 62 of file base232.\-h.
+
+
+
+Referenced by base232\-::base232().
+
+\hypertarget{base232_8h_aa53d8bf7f916e9570c0a5ba143c46425}{\index{base232.\-h@{base232.\-h}!U\-A\-R\-T\-\_\-\-D\-O\-U\-B\-L\-E\-\_\-\-S\-P\-E\-E\-D@{U\-A\-R\-T\-\_\-\-D\-O\-U\-B\-L\-E\-\_\-\-S\-P\-E\-E\-D}}
+\index{U\-A\-R\-T\-\_\-\-D\-O\-U\-B\-L\-E\-\_\-\-S\-P\-E\-E\-D@{U\-A\-R\-T\-\_\-\-D\-O\-U\-B\-L\-E\-\_\-\-S\-P\-E\-E\-D}!base232.h@{base232.\-h}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-D\-O\-U\-B\-L\-E\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-D\-O\-U\-B\-L\-E\-\_\-\-S\-P\-E\-E\-D}}\label{base232_8h_aa53d8bf7f916e9570c0a5ba143c46425}
+If this macro is defined, the U\-A\-R\-T will run in double-\/speed mode. This is often a good idea, as it allows higher baud rates to be used with not so high C\-P\-U clock frequencies. 
+
+Definition at line 51 of file base232.\-h.
+
+\hypertarget{base232_8h_a25c8e4248c87dbab8b7636d0a87a2d49}{\index{base232.\-h@{base232.\-h}!U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-T\-O\-U\-T@{U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-T\-O\-U\-T}}
+\index{U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-T\-O\-U\-T@{U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-T\-O\-U\-T}!base232.h@{base232.\-h}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-T\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-T\-O\-U\-T~20000}}\label{base232_8h_a25c8e4248c87dbab8b7636d0a87a2d49}
+
+
+This define prevents this .h file from being included more than once in a .cc file. 
+
+The number of tries to wait for the transmitter buffer to become empty 
+
+Definition at line 44 of file base232.\-h.
+
+
+
+Referenced by rs232\-::putchar().
+

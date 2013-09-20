@@ -29,6 +29,10 @@ void \hyperlink{classda__motor_a4327ab2965cece1442288893ec880e0c}{update\-\_\-du
 \subsection{Detailed Description}
 \hyperlink{da__motor_8cpp}{da\-\_\-motor.\-cpp} is an object class that contains a constructor and three methods which control a motor(s). The constructor initializes timers, prescalars and configures necessary i/o ports. Two of the three methods are mirror images of each other and are used to increase/decrease rotational speed. The final method sets the H bridge to achieve proper rotational direction and braking. 
 
+Definition at line 26 of file da\-\_\-motor.\-h.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classda__motor_acba4d745274fff811dd6bdfd2ce2e311}{\index{da\-\_\-motor@{da\-\_\-motor}!da\-\_\-motor@{da\-\_\-motor}}
 \index{da\-\_\-motor@{da\-\_\-motor}!da_motor@{da\-\_\-motor}}
@@ -42,6 +46,10 @@ This constructor configures the P\-W\-M timer on the A\-Tmega128 and the H-\/bri
 {\em p\-\_\-serial\-\_\-port} & A pointer to the serial port which writes debugging info. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 22 of file da\-\_\-motor.\-cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -60,6 +68,10 @@ manually decrease the duty cycle by 2\% \hyperlink{classda__motor_ac721f9ffd52d2
 {\em duty\-\_\-cycle,\-:} & a pointer to duty\-\_\-cycle allows this method to alter values in duty cycle (a variable in main) \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 164 of file da\-\_\-motor.\-cpp.
+
 \hypertarget{classda__motor_aaf09074463c510eccc78f22f7df9420e}{\index{da\-\_\-motor@{da\-\_\-motor}!increase\-\_\-duty\-\_\-cycle@{increase\-\_\-duty\-\_\-cycle}}
 \index{increase\-\_\-duty\-\_\-cycle@{increase\-\_\-duty\-\_\-cycle}!da_motor@{da\-\_\-motor}}
 \subsubsection[{increase\-\_\-duty\-\_\-cycle}]{\setlength{\rightskip}{0pt plus 5cm}void da\-\_\-motor\-::increase\-\_\-duty\-\_\-cycle (
@@ -75,6 +87,10 @@ manually increase the duty cycle by 2\% \hyperlink{classda__motor_aaf09074463c51
 {\em duty\-\_\-cycle,\-:} & a pointer to duty\-\_\-cycle allows this method to alter values in duty cycle (a variable in main) \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 131 of file da\-\_\-motor.\-cpp.
+
 \hypertarget{classda__motor_ae12199588a759b98121382bfa65470cb}{\index{da\-\_\-motor@{da\-\_\-motor}!set\-\_\-mode@{set\-\_\-mode}}
 \index{set\-\_\-mode@{set\-\_\-mode}!da_motor@{da\-\_\-motor}}
 \subsubsection[{set\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}void da\-\_\-motor\-::set\-\_\-mode (
@@ -90,6 +106,14 @@ manually increase the duty cycle by 2\% \hyperlink{classda__motor_aaf09074463c51
 {\em mode,\-:} & mode 1 = spin C\-W mode 2 = spin C\-C\-W mode 3 = unmodulated braking. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 76 of file da\-\_\-motor.\-cpp.
+
+
+
+Referenced by Go\-\_\-\-Home\-::run(), and task\-\_\-\-P\-I\-D\-::run().
+
 \hypertarget{classda__motor_a4327ab2965cece1442288893ec880e0c}{\index{da\-\_\-motor@{da\-\_\-motor}!update\-\_\-duty\-\_\-cycle@{update\-\_\-duty\-\_\-cycle}}
 \index{update\-\_\-duty\-\_\-cycle@{update\-\_\-duty\-\_\-cycle}!da_motor@{da\-\_\-motor}}
 \subsubsection[{update\-\_\-duty\-\_\-cycle}]{\setlength{\rightskip}{0pt plus 5cm}void da\-\_\-motor\-::update\-\_\-duty\-\_\-cycle (
@@ -99,6 +123,14 @@ manually increase the duty cycle by 2\% \hyperlink{classda__motor_aaf09074463c51
 \end{DoxyParamCaption}
 )}}\label{classda__motor_a4327ab2965cece1442288893ec880e0c}
 update\-\_\-duty\-\_\-cycle is a method which allows you to update the a motor's duty cycle with any 8-\/bit value you want instead of incrementally. 
+
+Definition at line 191 of file da\-\_\-motor.\-cpp.
+
+
+
+Referenced by Go\-\_\-\-Home\-::run(), and task\-\_\-\-P\-I\-D\-::run().
+
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

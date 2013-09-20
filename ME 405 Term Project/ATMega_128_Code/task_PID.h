@@ -2,26 +2,23 @@
 /** \file  task_PID.h
  *	PID.h contains specifications necessary for the Proportional Integral Differential (PID)
  *	controller. Also file scope variables and simple in line methods are defined here.
- *  Revisions:
-
- *    \li  05-10-11  Began tearing and hacking at our lab_5 code.
-*	  \li  05-22-11	 That was the hardest 12 days of our lives. It aint perfect, but it works
- *
+ * 
  *  License:
  *    This file released under the Lesser GNU Public License. The program is intended
  *    for educational use only, but its use is not restricted thereto. 
  */
 //======================================================================================
 
-/// This define prevents this .h file from being included more than once in a .cpp file
+// This define prevents this .h file from being included more than once in a .cpp file
 #ifndef _task_PID_H_
 #define _task_PID_H_
-
-
 //-------------------------------------------------------------------------------------
-
- 
-
+ /** task_PID.cpp is a class for a PID controller. task_PID is able to read the current
+ *	 encoder position on a motor, calculate the proportional, integral, and differential
+ *	 gains, and update the motor's duty cycle based on the final gain value. It can also
+ *	 manipulate certain flags via inline functions to trigger actions, such as telling a
+ *	 motor to go or stop, in other objects.
+ */
 class task_PID : public stl_task
 {
 	protected:
@@ -60,8 +57,6 @@ class task_PID : public stl_task
 		/// boolean set to true when desired position is reached
 		bool are_we_there_yet;
 		
-		
-
 	public:
 		/** The constructor task_PID creates a new PID object.
 		*	@param p_serial_port	Allows screen printouts
@@ -80,13 +75,10 @@ class task_PID : public stl_task
 		*/
 		char run(char);
 		
-		/// go sets a bool which allows motors to operate
 		void go(void);
 		
-		///	stop sets a bool low which stops motors from turning
 		void stop(void);
 		
-		/// CLEAR clears out archived feedback calculation values
 		void CLEAR(void);
 		
 		// These three in line methods allow a user to set gains from other tasks.
@@ -112,7 +104,7 @@ class task_PID : public stl_task
 		void set_setpoint(int32_t s_pt) {Set_Point = s_pt; are_we_there_yet=false;}
 		
 		/** GET_setpoint gets the current setpoint so it can be printed
-		*	@param s_pt the set point you desire
+		*	@param Set_Point the set point you desire
 		*/
 		int32_t GET_setpoint(void) {return(Set_Point);}
 		
@@ -130,5 +122,4 @@ class task_PID : public stl_task
 		void Request_Home(bool Nice_Shoes) {homing = Nice_Shoes;}
 };
 	//-------------------------------------------------------------------------------------
-
 #endif // _PID_H_

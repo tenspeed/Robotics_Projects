@@ -1,9 +1,6 @@
 	/** \file point.cpp is a task which moves a R-THETA plotter to a specific location.
 	*	it can then make a dot or not as specified.
-	
-	*  Revisions:
-	*    \li  05-10-11  Began tearing and hacking at our lab_4 code.				
-	*	 \li  05-22-11	That was the hardest 12 days of our lives. It aint perfect, but it works
+	*
 	*  License:
 	*    This file released under the Lesser GNU Public License. The program is intended
 	*    for educational use only, but its use is not restricted thereto. 
@@ -11,40 +8,37 @@
 	//======================================================================================
 
 	// System headers included with < >
-	#include <stdlib.h>							//!< Standard C library
-	#include <avr/io.h>							//!< Input-output ports, special registers
-	#include <avr/interrupt.h>					//!< Interrupt handling functions
-	#include <math.h>							//!< Contains Math Functions
+	#include <stdlib.h>							// Standard C library
+	#include <avr/io.h>							// Input-output ports, special registers
+	#include <avr/interrupt.h>					// Interrupt handling functions
+	#include <math.h>							// Contains Math Functions
 	
 	// User written headers included with " "
-	#include "rs232int.h"						//!< Include header for serial port class
-	#include "stl_timer.h"						//!< allows task_PID to be scheduled
-	#include "stl_task.h"						//!< allows task_PID to be scheduled
-	#include "Master.h"							//!< so da_motor doesn't get mad
-	#include "da_motor.h"						//!< so PID objects don't get mad
-	#include "task_PID.h"						//!< allows task_lines to call methods belonging to task_PID
-	#include "servo.h"							//!< allows pen actuation
-	#include "point.h"							//!< include own header file
-	
-	
-	
-	
-	
-	
+	#include "rs232int.h"						// Include header for serial port class
+	#include "stl_timer.h"						// allows task_PID to be scheduled
+	#include "stl_task.h"						// allows task_PID to be scheduled
+	#include "Master.h"							// so da_motor doesn't get mad
+	#include "da_motor.h"						// so PID objects don't get mad
+	#include "task_PID.h"						// allows task_lines to call methods belonging to task_PID
+	#include "servo.h"							// allows pen actuation
+	#include "point.h"							// include own header file
 	
 //-----------------------------------------------------------------------------------------
 /** The constructor saves object pointers locally and initializes necessary variables.
 *	@param	p_serial_port:	A pointer to the serial port for printing purposes
-*	@param	motor_1:	A pointer to a motor object
-*	@param	motor_2:	A pointer to a second motor object
-*	@param	Penny_Thingy: A servo object used to move a pen
+*	@param	motor_1:		A pointer to a motor object
+*	@param	motor_2:		A pointer to a second motor object
+*	@param	Penny_Thingy: 	A servo object used to move a pen
 */
 point::point(base_text_serial* p_serial_port, task_PID* motor_1, task_PID* motor_2, servo* Penny_Thingy) 
 {
-	// save object pointers locally
+	// a pointer to a serial port object
 	ptr_2_serial = p_serial_port;
+	// a pointer to a PID object allows point to initiate motion to a point
 	PID_1 = motor_1;
+	// a pointer to a PID object allows point to initiate motion to a point
 	PID_2 = motor_2;
+	// a pointer to a servo object to allow pen actuation
 	Pen_Servo = Penny_Thingy;
 	
 	// initialize variables
@@ -63,7 +57,7 @@ void point::run()
 {
 	switch (point_state)
 	{
-		/// wait state. Is a point or move requested?
+		/// State 0 is a wait state. Is a point or move requested?
 		case 0:
 			if (Make_Point || Go_To)
 			{
@@ -96,7 +90,7 @@ void point::run()
 			}
 		break;
 		
-		/// state 1 checks if correct location is achieved yet, if so, make dot if necessary
+		/// State 1 checks if correct location is achieved yet, if so, make dot if necessary
 		case 1:	
 			// if both motors are done moving ...
 			if ( (PID_1->At_Seg_End())   &&  	(PID_2->At_Seg_End()) )
@@ -121,7 +115,7 @@ void point::run()
 				
 		break;
 		
-		/// in the case of wanting to make a point, case 2 allows time for pen to get down
+		/// State 2 allows time for pen to move to the down position
 		case 2:
 			if (counting >= 5000UL)
 			{

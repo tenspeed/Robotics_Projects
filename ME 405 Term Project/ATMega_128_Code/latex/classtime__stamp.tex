@@ -1,0 +1,550 @@
+\hypertarget{classtime__stamp}{\section{time\-\_\-stamp Class Reference}
+\label{classtime__stamp}\index{time\-\_\-stamp@{time\-\_\-stamp}}
+}
+
+
+{\ttfamily \#include $<$stl\-\_\-timer.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtime__stamp_a5bbbfaa47fecf276fffc179e11871407}{time\-\_\-stamp} (void)
+\begin{DoxyCompactList}\small\item\em This constructor creates an empty time stamp. \end{DoxyCompactList}\item 
+\hyperlink{classtime__stamp_a0c3c5d4136c9722bd1646bd4418635f0}{time\-\_\-stamp} (uint32\-\_\-t)
+\begin{DoxyCompactList}\small\item\em This constructor creates a time stamp and initializes all its data. \end{DoxyCompactList}\item 
+\hyperlink{classtime__stamp_af615a1f32bae4a30ea77edca55ab3b73}{time\-\_\-stamp} (uint16\-\_\-t, uint32\-\_\-t)
+\begin{DoxyCompactList}\small\item\em This constructor creates a time stamp with the given seconds and microsec. \end{DoxyCompactList}\item 
+void \hyperlink{classtime__stamp_adc47ce998f96a557b938a41cb2b0f669}{set\-\_\-time} (uint32\-\_\-t)
+\begin{DoxyCompactList}\small\item\em This method fills the timestamp with the given value. \end{DoxyCompactList}\item 
+void \hyperlink{classtime__stamp_a5f08ec008655d2de795972a5014b8896}{set\-\_\-time} (uint16\-\_\-t, uint32\-\_\-t)
+\begin{DoxyCompactList}\small\item\em This method fills the timestamp with the given seconds and microseconds. \end{DoxyCompactList}\item 
+uint32\-\_\-t \hyperlink{classtime__stamp_a0581d7cdbe3b58088b012101c5591f84}{get\-\_\-raw\-\_\-time} (void)
+\begin{DoxyCompactList}\small\item\em This method reads out all the timestamp's data as one 32-\/bit number. \end{DoxyCompactList}\item 
+uint16\-\_\-t \hyperlink{classtime__stamp_a63ab1f864af672570c9aaa1e9c9e2166}{get\-\_\-seconds} (void)
+\begin{DoxyCompactList}\small\item\em This method returns the number of seconds in the time stamp. \end{DoxyCompactList}\item 
+uint32\-\_\-t \hyperlink{classtime__stamp_af6253676e91ecd07308ae75dfca8edcf}{get\-\_\-microsec} (void)
+\begin{DoxyCompactList}\small\item\em This method returns the number of microseconds in the time stamp. \end{DoxyCompactList}\item 
+\hyperlink{classtime__stamp}{time\-\_\-stamp} \hyperlink{classtime__stamp_aa1a6629e252ce7ca5527b552a74d1639}{operator+} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This overloaded addition operator adds two time stamps together. \end{DoxyCompactList}\item 
+\hyperlink{classtime__stamp}{time\-\_\-stamp} \hyperlink{classtime__stamp_abeb2a4c4c54d3ad01a3672cc60bda2b2}{operator-\/} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This overloaded subtraction operator finds the time between two time stamps. \end{DoxyCompactList}\item 
+void \hyperlink{classtime__stamp_af5f4c6acb42cc7a1efabb83771562d3f}{operator+=} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This overloaded addition operator adds two time stamps together. \end{DoxyCompactList}\item 
+void \hyperlink{classtime__stamp_aec9c2ba7eac71c821af33a48a118b2db}{operator-\/=} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This overloaded subtraction operator finds the time between two time stamps. \end{DoxyCompactList}\item 
+void \hyperlink{classtime__stamp_a094dabe4f6f65965c19ec2c254deff89}{operator/=} (const uint32\-\_\-t \&)
+\begin{DoxyCompactList}\small\item\em This overloaded operator divides a time stamp by the given divisor. \end{DoxyCompactList}\item 
+bool \hyperlink{classtime__stamp_a1ab1b1ef8750d35c4496b5a55dba722e}{operator==} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This overloaded equality operator tests if all time fields are the same. \end{DoxyCompactList}\item 
+bool \hyperlink{classtime__stamp_ae5916b8c7a36aeea1e8b3ca8433a8411}{operator$>$=} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This operator tests if a time stamp is greater (later) or equal to this one. \end{DoxyCompactList}\item 
+bool \hyperlink{classtime__stamp_a498c5e081bc44c2d1633c586623f5efd}{operator$>$} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This overloaded operator tests if a time stamp is greater (later) than this. \end{DoxyCompactList}\item 
+bool \hyperlink{classtime__stamp_a3e21854f649ab9b1faf17f7d35176b8d}{operator$<$=} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This operator tests if a time stamp is less (earlier) than this one. \end{DoxyCompactList}\item 
+bool \hyperlink{classtime__stamp_ae8a1b4f6e4f00cf096c662ff9eb7bfb5}{operator$<$} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em This operator tests if a time stamp is less (earlier) or equal to this one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{uniontime__data__32}{time\-\_\-data\-\_\-32} \hyperlink{classtime__stamp_a6a0f1a055f94329150a65aa32a02c1ac}{data}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classtime__stamp_aa1eb76ba0d329dae8c7ce0401574a891}{class {\bfseries task\-\_\-timer}}\label{classtime__stamp_aa1eb76ba0d329dae8c7ce0401574a891}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class holds a time stamp which is used to measure the passage of real time in the world around an A\-V\-R processor. This version of the time stamp implements a 32-\/bit time counter that runs at one megahertz. There's a 16-\/bit number which is copied directly from a 16-\/bit hardware counter and another 16-\/bit number which is incremented every time the hardware counter overflows; the combination of the two is a 32-\/bit time measurement. The time stamp is to be interpreted and printed as containing a whole number of seconds and a number of microseconds. The conversion between seconds and microseconds is determined by the C\-P\-U clock frequency, which is specified in the macro F\-\_\-\-C\-P\-U. 
+
+Definition at line 77 of file stl\-\_\-timer.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtime__stamp_a5bbbfaa47fecf276fffc179e11871407}{\index{time\-\_\-stamp@{time\-\_\-stamp}!time\-\_\-stamp@{time\-\_\-stamp}}
+\index{time\-\_\-stamp@{time\-\_\-stamp}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{time\-\_\-stamp}]{\setlength{\rightskip}{0pt plus 5cm}time\-\_\-stamp\-::time\-\_\-stamp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a5bbbfaa47fecf276fffc179e11871407}
+
+
+This constructor creates an empty time stamp. 
+
+This constructor creates a time stamp object, with the time set to zero. 
+
+Definition at line 51 of file stl\-\_\-timer.\-cpp.
+
+
+
+References set\-\_\-time().
+
+\hypertarget{classtime__stamp_a0c3c5d4136c9722bd1646bd4418635f0}{\index{time\-\_\-stamp@{time\-\_\-stamp}!time\-\_\-stamp@{time\-\_\-stamp}}
+\index{time\-\_\-stamp@{time\-\_\-stamp}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{time\-\_\-stamp}]{\setlength{\rightskip}{0pt plus 5cm}time\-\_\-stamp\-::time\-\_\-stamp (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{a\-\_\-time}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a0c3c5d4136c9722bd1646bd4418635f0}
+
+
+This constructor creates a time stamp and initializes all its data. 
+
+This constructor creates a time stamp object and fills the time stamp's variables with the given values. 
+\begin{DoxyParams}{Parameters}
+{\em a\-\_\-time} & A 32-\/bit time number with which the time stamp is filled \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file stl\-\_\-timer.\-cpp.
+
+
+
+References set\-\_\-time().
+
+\hypertarget{classtime__stamp_af615a1f32bae4a30ea77edca55ab3b73}{\index{time\-\_\-stamp@{time\-\_\-stamp}!time\-\_\-stamp@{time\-\_\-stamp}}
+\index{time\-\_\-stamp@{time\-\_\-stamp}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{time\-\_\-stamp}]{\setlength{\rightskip}{0pt plus 5cm}time\-\_\-stamp\-::time\-\_\-stamp (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{sec, }
+\item[{uint32\-\_\-t}]{microsec}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_af615a1f32bae4a30ea77edca55ab3b73}
+
+
+This constructor creates a time stamp with the given seconds and microsec. 
+
+This constructor creates a time stamp object and fills the time stamp's variables with the number of seconds and microseconds given. 
+\begin{DoxyParams}{Parameters}
+{\em sec} & A 16-\/bit number of seconds to preload into the time stamp \\
+\hline
+{\em microsec} & A 32-\/bit number of microseconds to preload into the time stamp \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file stl\-\_\-timer.\-cpp.
+
+
+
+References set\-\_\-time().
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtime__stamp_af6253676e91ecd07308ae75dfca8edcf}{\index{time\-\_\-stamp@{time\-\_\-stamp}!get\-\_\-microsec@{get\-\_\-microsec}}
+\index{get\-\_\-microsec@{get\-\_\-microsec}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{get\-\_\-microsec}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t time\-\_\-stamp\-::get\-\_\-microsec (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_af6253676e91ecd07308ae75dfca8edcf}
+
+
+This method returns the number of microseconds in the time stamp. 
+
+This method returns the number of microseconds in the time stamp, after the seconds are subtracted out. \begin{DoxyReturn}{Returns}
+The number of microseconds, that is, the fractional part of the time stamp 
+\end{DoxyReturn}
+
+
+Definition at line 135 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+
+
+Referenced by operator$<$$<$().
+
+\hypertarget{classtime__stamp_a0581d7cdbe3b58088b012101c5591f84}{\index{time\-\_\-stamp@{time\-\_\-stamp}!get\-\_\-raw\-\_\-time@{get\-\_\-raw\-\_\-time}}
+\index{get\-\_\-raw\-\_\-time@{get\-\_\-raw\-\_\-time}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{get\-\_\-raw\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t time\-\_\-stamp\-::get\-\_\-raw\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a0581d7cdbe3b58088b012101c5591f84}
+
+
+This method reads out all the timestamp's data as one 32-\/bit number. 
+
+This method allows one to get the time reading from this time stamp as a long integer containing the number of time ticks. \begin{DoxyReturn}{Returns}
+The time stamp's raw data 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_a63ab1f864af672570c9aaa1e9c9e2166}{\index{time\-\_\-stamp@{time\-\_\-stamp}!get\-\_\-seconds@{get\-\_\-seconds}}
+\index{get\-\_\-seconds@{get\-\_\-seconds}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{get\-\_\-seconds}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t time\-\_\-stamp\-::get\-\_\-seconds (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a63ab1f864af672570c9aaa1e9c9e2166}
+
+
+This method returns the number of seconds in the time stamp. 
+
+This method returns the number of seconds in the time stamp. \begin{DoxyReturn}{Returns}
+The number of whole seconds in the time stamp 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+
+
+Referenced by operator$<$$<$().
+
+\hypertarget{classtime__stamp_aa1a6629e252ce7ca5527b552a74d1639}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator+@{operator+}}
+\index{operator+@{operator+}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf time\-\_\-stamp} time\-\_\-stamp\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{addend}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_aa1a6629e252ce7ca5527b552a74d1639}
+
+
+This overloaded addition operator adds two time stamps together. 
+
+This overloaded addition operator adds another time stamp's time to this one. It can be used to find the time in the future at which some event is to be caused to happen, such as the next time a task is supposed to run. 
+\begin{DoxyParams}{Parameters}
+{\em addend} & The other time stamp which is to be added to this one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The newly created time stamp 
+\end{DoxyReturn}
+
+
+Definition at line 149 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_af5f4c6acb42cc7a1efabb83771562d3f}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}void time\-\_\-stamp\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{addend}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_af5f4c6acb42cc7a1efabb83771562d3f}
+
+
+This overloaded addition operator adds two time stamps together. 
+
+This overloaded addition operator adds another time stamp's time to this one. It can be used to find the time in the future at which some event is to be caused to happen, such as the next time a task is supposed to run. 
+\begin{DoxyParams}{Parameters}
+{\em addend} & The other time stamp which is to be added to this one \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 181 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_abeb2a4c4c54d3ad01a3672cc60bda2b2}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf time\-\_\-stamp} time\-\_\-stamp\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{previous}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_abeb2a4c4c54d3ad01a3672cc60bda2b2}
+
+
+This overloaded subtraction operator finds the time between two time stamps. 
+
+This overloaded subtraction operator finds the duration between this time stamp's recorded time and a previous one. 
+\begin{DoxyParams}{Parameters}
+{\em previous} & An earlier time stamp to be compared to the current one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The newly created time stamp 
+\end{DoxyReturn}
+
+
+Definition at line 165 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_aec9c2ba7eac71c821af33a48a118b2db}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}void time\-\_\-stamp\-::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{previous}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_aec9c2ba7eac71c821af33a48a118b2db}
+
+
+This overloaded subtraction operator finds the time between two time stamps. 
+
+This overloaded subtraction operator finds the duration between this time stamp's recorded time and a previous one. Note that the data in this timestamp is replaced with that duration. 
+\begin{DoxyParams}{Parameters}
+{\em previous} & An earlier time stamp to be compared to the current one \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 194 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_a094dabe4f6f65965c19ec2c254deff89}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator/=}]{\setlength{\rightskip}{0pt plus 5cm}void time\-\_\-stamp\-::operator/= (
+\begin{DoxyParamCaption}
+\item[{const uint32\-\_\-t \&}]{divisor}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a094dabe4f6f65965c19ec2c254deff89}
+
+
+This overloaded operator divides a time stamp by the given divisor. 
+
+This overloaded division operator divides a time stamp by the given integer. Note that the data in this timestamp is replaced by the quotient. 
+\begin{DoxyParams}{Parameters}
+{\em divisor} & The number by which the time stamp is to be divided \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 206 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_ae8a1b4f6e4f00cf096c662ff9eb7bfb5}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool time\-\_\-stamp\-::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_ae8a1b4f6e4f00cf096c662ff9eb7bfb5}
+
+
+This operator tests if a time stamp is less (earlier) or equal to this one. 
+
+This operator tests if a time stamp is greater than this one. It subtracts the other time stamp from this time stamp, then checks if the result is negative. 
+\begin{DoxyParams}{Parameters}
+{\em other} & A time stamp to be compared to this one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this time stamp is less than the other one 
+\end{DoxyReturn}
+
+
+Definition at line 306 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_a3e21854f649ab9b1faf17f7d35176b8d}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator$<$=}]{\setlength{\rightskip}{0pt plus 5cm}bool time\-\_\-stamp\-::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a3e21854f649ab9b1faf17f7d35176b8d}
+
+
+This operator tests if a time stamp is less (earlier) than this one. 
+
+This operator tests if a time stamp is less than or equal to this one. It subtracts the other time stamp from this time stamp, then checks if the result is not positive. 
+\begin{DoxyParams}{Parameters}
+{\em other} & A time stamp to be compared to this one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this time stamp is less than or equal to the other one 
+\end{DoxyReturn}
+
+
+Definition at line 285 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_a1ab1b1ef8750d35c4496b5a55dba722e}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator==@{operator==}}
+\index{operator==@{operator==}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool time\-\_\-stamp\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a1ab1b1ef8750d35c4496b5a55dba722e}
+
+
+This overloaded equality operator tests if all time fields are the same. 
+
+This overloaded equality test operator checks if all the time measurements in some other time stamp are equal to those in this one. 
+\begin{DoxyParams}{Parameters}
+{\em other} & A time stamp to be compared to this one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the time stamps contain equal data, false if they don't 
+\end{DoxyReturn}
+
+
+Definition at line 219 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_a498c5e081bc44c2d1633c586623f5efd}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator$>$}]{\setlength{\rightskip}{0pt plus 5cm}bool time\-\_\-stamp\-::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a498c5e081bc44c2d1633c586623f5efd}
+
+
+This overloaded operator tests if a time stamp is greater (later) than this. 
+
+This operator tests if a time stamp is greater than this one. It subtracts the other time stamp from this time stamp, then checks if the result is positive. 
+\begin{DoxyParams}{Parameters}
+{\em other} & A time stamp to be compared to this one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this time stamp is greater than the other one 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_ae5916b8c7a36aeea1e8b3ca8433a8411}{\index{time\-\_\-stamp@{time\-\_\-stamp}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{operator$>$=}]{\setlength{\rightskip}{0pt plus 5cm}bool time\-\_\-stamp\-::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_ae5916b8c7a36aeea1e8b3ca8433a8411}
+
+
+This operator tests if a time stamp is greater (later) or equal to this one. 
+
+This overloaded inequality operator checks if this time stamp is greater than or equal to another. The method used to check greater-\/than-\/ness needs to work across timer overflows, so the following technique is used\-: subtract the other time stamp from this one as unsigned 32-\/bit numbers, then check if the result is positive (in which case this time is greater) or not. 
+\begin{DoxyParams}{Parameters}
+{\em other} & A time stamp to be compared to this one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this time stamp is greater than or equal to the other one 
+\end{DoxyReturn}
+
+
+Definition at line 242 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+\hypertarget{classtime__stamp_adc47ce998f96a557b938a41cb2b0f669}{\index{time\-\_\-stamp@{time\-\_\-stamp}!set\-\_\-time@{set\-\_\-time}}
+\index{set\-\_\-time@{set\-\_\-time}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{set\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}void time\-\_\-stamp\-::set\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{a\-\_\-time}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_adc47ce998f96a557b938a41cb2b0f669}
+
+
+This method fills the timestamp with the given value. 
+
+This method fills the time stamp with the given value. 
+\begin{DoxyParams}{Parameters}
+{\em a\-\_\-time} & A 32-\/bit time number with which the time stamp is filled \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 87 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+
+
+Referenced by time\-\_\-stamp().
+
+\hypertarget{classtime__stamp_a5f08ec008655d2de795972a5014b8896}{\index{time\-\_\-stamp@{time\-\_\-stamp}!set\-\_\-time@{set\-\_\-time}}
+\index{set\-\_\-time@{set\-\_\-time}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{set\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}void time\-\_\-stamp\-::set\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{sec, }
+\item[{uint32\-\_\-t}]{microsec}
+\end{DoxyParamCaption}
+)}}\label{classtime__stamp_a5f08ec008655d2de795972a5014b8896}
+
+
+This method fills the timestamp with the given seconds and microseconds. 
+
+This method fills the time stamp with the given numbers of seconds and microseconds. 
+\begin{DoxyParams}{Parameters}
+{\em sec} & A 16-\/bit number of seconds to preload into the time stamp \\
+\hline
+{\em microsec} & A 32-\/bit number of microseconds to preload into the time stamp \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file stl\-\_\-timer.\-cpp.
+
+
+
+References data, and time\-\_\-data\-\_\-32\-::whole.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classtime__stamp_a6a0f1a055f94329150a65aa32a02c1ac}{\index{time\-\_\-stamp@{time\-\_\-stamp}!data@{data}}
+\index{data@{data}!time_stamp@{time\-\_\-stamp}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf time\-\_\-data\-\_\-32} time\-\_\-stamp\-::data\hspace{0.3cm}{\ttfamily [protected]}}}\label{classtime__stamp_a6a0f1a055f94329150a65aa32a02c1ac}
+This union holds the time stamp's data and allows it to be accessed as two 16-\/bit halves or one 32-\/bit whole as required by the application 
+
+Definition at line 82 of file stl\-\_\-timer.\-h.
+
+
+
+Referenced by get\-\_\-microsec(), get\-\_\-raw\-\_\-time(), get\-\_\-seconds(), task\-\_\-timer\-::get\-\_\-time\-\_\-now(), operator+(), operator+=(), operator-\/(), operator-\/=(), operator/=(), operator$<$(), operator$<$=(), operator==(), operator$>$(), operator$>$=(), task\-\_\-timer\-::save\-\_\-time\-\_\-stamp(), set\-\_\-time(), and task\-\_\-timer\-::set\-\_\-time().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stl__timer_8h}{stl\-\_\-timer.\-h}\item 
+\hyperlink{stl__timer_8cpp}{stl\-\_\-timer.\-cpp}\end{DoxyCompactItemize}

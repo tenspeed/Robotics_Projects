@@ -1,0 +1,39 @@
+\hypertarget{task__PID_8cpp}{\section{task\-\_\-\-P\-I\-D.\-cpp File Reference}
+\label{task__PID_8cpp}\index{task\-\_\-\-P\-I\-D.\-cpp@{task\-\_\-\-P\-I\-D.\-cpp}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}rs232int.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stl\-\_\-timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stl\-\_\-task.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Master.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}da\-\_\-motor.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task\-\_\-\-P\-I\-D.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{task__PID_8cpp_ac89f747a7a33b0abd7ceb06ec6334a2d}{\#define {\bfseries K\-\_\-\-P\-\_\-\-D\-I\-V\-I\-S\-O\-R}~10000}\label{task__PID_8cpp_ac89f747a7a33b0abd7ceb06ec6334a2d}
+
+\item 
+\hypertarget{task__PID_8cpp_ad1cdccda2904af3e8c6adc7e8bf60c8e}{\#define {\bfseries K\-\_\-\-I\-\_\-\-D\-I\-V\-I\-S\-O\-R}~1000000}\label{task__PID_8cpp_ad1cdccda2904af3e8c6adc7e8bf60c8e}
+
+\item 
+\hypertarget{task__PID_8cpp_ac6a8117369e7ed2f32c6405b77933985}{\#define {\bfseries K\-\_\-\-D\-\_\-\-D\-I\-V\-I\-S\-O\-R}~100}\label{task__PID_8cpp_ac6a8117369e7ed2f32c6405b77933985}
+
+\item 
+\hypertarget{task__PID_8cpp_ac77f5b8b7b646b38e51f7d92ffe8b7d8}{\#define {\bfseries I\-N\-T\-E\-G\-R\-A\-L\-\_\-\-S\-A\-T\-U\-R\-A\-T\-E}~1000}\label{task__PID_8cpp_ac77f5b8b7b646b38e51f7d92ffe8b7d8}
+
+\item 
+\hypertarget{task__PID_8cpp_a03820bd32411b5e9405de5093c2f462a}{\#define {\bfseries D\-U\-T\-Y\-\_\-\-C\-Y\-C\-L\-E\-\_\-\-S\-A\-T\-U\-R\-A\-T\-E}~255}\label{task__PID_8cpp_a03820bd32411b5e9405de5093c2f462a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+is a Proportional Integral Differential (P\-I\-D) controller. It can control two motors currently, but is best used to control one motor per P\-I\-D object.
+
+License\-: This file released under the Lesser G\-N\-U Public License. The program is intended for educational use only, but its use is not restricted thereto. 
+
+Definition in file \hyperlink{task__PID_8cpp_source}{task\-\_\-\-P\-I\-D.\-cpp}.
+

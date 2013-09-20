@@ -1,0 +1,220 @@
+\hypertarget{classqueue}{\section{queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$ Class Template Reference}
+\label{classqueue}\index{queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$@{queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$}}
+}
+
+
+These defines prevent this file from being included more than once in a $\ast$.cc file.  
+
+
+
+
+{\ttfamily \#include $<$queue.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classqueue_ad73bf015e33248a17a65e74527101064}{queue} (void)
+\item 
+bool \hyperlink{classqueue_a29534e4b988018c118ea03d585a2ccca}{put} (q\-Type)
+\item 
+bool \hyperlink{classqueue_a83554d89bcad8366782e6bae02f4d964}{jam} (q\-Type)
+\item 
+q\-Type \hyperlink{classqueue_a7bc7735524e848e7903f7165bf3bc418}{get} (void)
+\item 
+bool \hyperlink{classqueue_a6305647b7ce548efd984108695427a12}{is\-\_\-empty} (void)
+\item 
+void \hyperlink{classqueue_a005e021f06134d7749eda7738fa8d17e}{flush} (void)
+\item 
+q\-Type \hyperlink{classqueue_a16c94746931572c15682e17310b3d4b8}{operator\mbox{[}$\,$\mbox{]}} (q\-Index\-Type)
+\item 
+q\-Index\-Type \hyperlink{classqueue_a8b0ca332f166b4909213d0d95fa8cdd2}{num\-\_\-items} (void)
+\item 
+q\-Type $\ast$ \hyperlink{classqueue_a393e29cfe2c12a91c02feaa796b0c363}{get\-\_\-p\-\_\-buffer} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classqueue_a541f3aa3feb25246c2309c90dd641450}{q\-Type \hyperlink{classqueue_a541f3aa3feb25246c2309c90dd641450}{buffer} \mbox{[}q\-Size\mbox{]}}\label{classqueue_a541f3aa3feb25246c2309c90dd641450}
+
+\begin{DoxyCompactList}\small\item\em This memory buffer holds the contents. \end{DoxyCompactList}\item 
+\hypertarget{classqueue_ab1e2912499eebfd9e948a2e45820fa14}{q\-Index\-Type \hyperlink{classqueue_ab1e2912499eebfd9e948a2e45820fa14}{i\-\_\-put}}\label{classqueue_ab1e2912499eebfd9e948a2e45820fa14}
+
+\begin{DoxyCompactList}\small\item\em Index where newest data will be written. \end{DoxyCompactList}\item 
+\hypertarget{classqueue_a9c387f81706b940d86a5f9e680a114c3}{q\-Index\-Type \hyperlink{classqueue_a9c387f81706b940d86a5f9e680a114c3}{i\-\_\-get}}\label{classqueue_a9c387f81706b940d86a5f9e680a114c3}
+
+\begin{DoxyCompactList}\small\item\em Index where oldest data was written. \end{DoxyCompactList}\item 
+\hypertarget{classqueue_a99c04f193c2248a8a6c3c8b9cc370375}{q\-Index\-Type \hyperlink{classqueue_a99c04f193c2248a8a6c3c8b9cc370375}{how\-\_\-full}}\label{classqueue_a99c04f193c2248a8a6c3c8b9cc370375}
+
+\begin{DoxyCompactList}\small\item\em How many elements are full at this time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class q\-Type, class q\-Index\-Type, q\-Index\-Type q\-Size$>$class queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$}
+
+These defines prevent this file from being included more than once in a $\ast$.cc file. 
+
+This class implements a simple queue. As a template class, it can be used to create queues which hold any type of object whose data is copied in with an assignment operator. The size and type of object are determined at compile time for efficiency. 
+
+Definition at line 49 of file queue.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classqueue_ad73bf015e33248a17a65e74527101064}{\index{queue@{queue}!queue@{queue}}
+\index{queue@{queue}!queue@{queue}}
+\subsubsection[{queue}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type , class q\-Index\-Type , q\-Index\-Type q\-Size$>$ {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::{\bf queue} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classqueue_ad73bf015e33248a17a65e74527101064}
+This constructor creates a queue item. Note that it doesn't have to allocate memory because that was already done statically by the template mechanism at compile time. If no parameters are supplied, a 16-\/element queue for characters which uses 8-\/bit array indices (for a maximum of 255 elements) is created. The template parameters are as follows\-: \begin{DoxyItemize}
+\item q\-Type\-: The type of data which will be stored in the queue (default char) \item q\-Index\-Type\-: The type of data used for array indices \item q\-Size\-: The number of items in the queue's memory buffer (default 16) \end{DoxyItemize}
+
+
+Definition at line 93 of file queue.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classqueue_a005e021f06134d7749eda7738fa8d17e}{\index{queue@{queue}!flush@{flush}}
+\index{flush@{flush}!queue@{queue}}
+\subsubsection[{flush}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type , class q\-Index\-Type , q\-Index\-Type q\-Size$>$ void {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::flush (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classqueue_a005e021f06134d7749eda7738fa8d17e}
+This method empties the buffer. It doesn't actually erase everything; it just sets the indices and fill indicator all to zero as if the buffer contained nothing. 
+
+Definition at line 105 of file queue.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::transmit\-\_\-now().
+
+\hypertarget{classqueue_a7bc7735524e848e7903f7165bf3bc418}{\index{queue@{queue}!get@{get}}
+\index{get@{get}!queue@{queue}}
+\subsubsection[{get}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type , class q\-Index\-Type , q\-Index\-Type q\-Size$>$ q\-Type {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::get (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classqueue_a7bc7735524e848e7903f7165bf3bc418}
+This method returns the oldest item in the queue. If the queue was empty, this is already-\/retreived data. Somebody should have checked if there was new data available using the \hyperlink{classqueue_a6305647b7ce548efd984108695427a12}{is\-\_\-empty()} method. \begin{DoxyReturn}{Returns}
+The data which is pulled out from the queue at the current location 
+\end{DoxyReturn}
+
+
+Definition at line 177 of file queue.\-h.
+
+\hypertarget{classqueue_a393e29cfe2c12a91c02feaa796b0c363}{\index{queue@{queue}!get\-\_\-p\-\_\-buffer@{get\-\_\-p\-\_\-buffer}}
+\index{get\-\_\-p\-\_\-buffer@{get\-\_\-p\-\_\-buffer}!queue@{queue}}
+\subsubsection[{get\-\_\-p\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type, class q\-Index\-Type, q\-Index\-Type q\-Size$>$ q\-Type$\ast$ {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::get\-\_\-p\-\_\-buffer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classqueue_a393e29cfe2c12a91c02feaa796b0c363}
+This method returns a pointer to the buffer which holds the data in the queue. Normally it's not used, but in some cases (particularly queues of characters) one may need to access the data buffer directly. \begin{DoxyReturn}{Returns}
+A pointer to the buffer holding the data in the queue 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file queue.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::sd\-\_\-card().
+
+\hypertarget{classqueue_a6305647b7ce548efd984108695427a12}{\index{queue@{queue}!is\-\_\-empty@{is\-\_\-empty}}
+\index{is\-\_\-empty@{is\-\_\-empty}!queue@{queue}}
+\subsubsection[{is\-\_\-empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type , class q\-Index\-Type , q\-Index\-Type q\-Size$>$ bool {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::is\-\_\-empty (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classqueue_a6305647b7ce548efd984108695427a12}
+This method returns true if the queue is empty. Empty means that there isn't any data which hasn't previously been read. \begin{DoxyReturn}{Returns}
+True if the queue has unread data, false if it doesn't 
+\end{DoxyReturn}
+
+
+Definition at line 201 of file queue.\-h.
+
+\hypertarget{classqueue_a83554d89bcad8366782e6bae02f4d964}{\index{queue@{queue}!jam@{jam}}
+\index{jam@{jam}!queue@{queue}}
+\subsubsection[{jam}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type, class q\-Index\-Type , q\-Index\-Type q\-Size$>$ bool {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::jam (
+\begin{DoxyParamCaption}
+\item[{q\-Type}]{data}
+\end{DoxyParamCaption}
+)}}\label{classqueue_a83554d89bcad8366782e6bae02f4d964}
+This method jams an item into the queue whether the queue is empty or not. This can overwrite existing data, so it must be used with caution. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be jammed into the queue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if some data was lost, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 146 of file queue.\-h.
+
+\hypertarget{classqueue_a8b0ca332f166b4909213d0d95fa8cdd2}{\index{queue@{queue}!num\-\_\-items@{num\-\_\-items}}
+\index{num\-\_\-items@{num\-\_\-items}!queue@{queue}}
+\subsubsection[{num\-\_\-items}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type, class q\-Index\-Type, q\-Index\-Type q\-Size$>$ q\-Index\-Type {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::num\-\_\-items (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classqueue_a8b0ca332f166b4909213d0d95fa8cdd2}
+This method returns the number of items in the queue 
+
+Definition at line 70 of file queue.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::close\-\_\-file(), sd\-\_\-card\-::putchar(), and sd\-\_\-card\-::transmit\-\_\-now().
+
+\hypertarget{classqueue_a16c94746931572c15682e17310b3d4b8}{\index{queue@{queue}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!queue@{queue}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type , class q\-Index\-Type, q\-Index\-Type q\-Size$>$ q\-Type {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{q\-Index\-Type}]{index}
+\end{DoxyParamCaption}
+)}}\label{classqueue_a16c94746931572c15682e17310b3d4b8}
+This overloaded array subscript operator implements subscripts in the queue. The index is defined relative to the location at which the oldest data in the queue was written. This operator returns the (index)-\/th item in the queue, or (-\/1) typecast to the queue data type if there aren't enough items in the queue to get to the given index. The retreived data is not removed from the queue. 
+\begin{DoxyParams}{Parameters}
+{\em index} & The array index into the queue at which to get a data item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data which is at the given index 
+\end{DoxyReturn}
+
+
+Definition at line 218 of file queue.\-h.
+
+\hypertarget{classqueue_a29534e4b988018c118ea03d585a2ccca}{\index{queue@{queue}!put@{put}}
+\index{put@{put}!queue@{queue}}
+\subsubsection[{put}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class q\-Type, class q\-Index\-Type , q\-Index\-Type q\-Size$>$ bool {\bf queue}$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::put (
+\begin{DoxyParamCaption}
+\item[{q\-Type}]{data}
+\end{DoxyParamCaption}
+)}}\label{classqueue_a29534e4b988018c118ea03d585a2ccca}
+This method adds an item into the queue. If the buffer is full then nothing is written and true (meaning buffer is full) is returned. This allows the calling program to see that the data couldn't be written and try again if appropriate. 
+\begin{DoxyParams}{Parameters}
+{\em data} & The data to be written into the queue \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the buffer was full and data was not written, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file queue.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::putchar().
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{queue_8h}{queue.\-h}\end{DoxyCompactItemize}

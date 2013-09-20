@@ -1,0 +1,418 @@
+\hypertarget{classsd__card}{\section{sd\-\_\-card Class Reference}
+\label{classsd__card}\index{sd\-\_\-card@{sd\-\_\-card}}
+}
+
+
+{\ttfamily \#include $<$sd\-\_\-card.\-h$>$}
+
+Inheritance diagram for sd\-\_\-card\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsd__card}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsd__card_a53258f2e1f42807f2c9238d66b8ca5fc}{sd\-\_\-card} (void)
+\item 
+bool \hyperlink{classsd__card_ace9426af93920e3819887fec13d89adb}{ready\-\_\-to\-\_\-send} (void)
+\item 
+bool \hyperlink{classsd__card_a24780513a0db84cd83cbd5d77437981b}{putchar} (char)
+\item 
+void \hyperlink{classsd__card_afadf1e3a3b449e9ab992ac147a837562}{puts} (char const $\ast$)
+\item 
+void \hyperlink{classsd__card_ac718cadb3664d40cd96bd107470b271f}{transmit\-\_\-now} (void)
+\item 
+F\-R\-E\-S\-U\-L\-T \hyperlink{classsd__card_ad62e39a6a46a6697f511d3cbef9627ae}{mount} (unsigned char)
+\item 
+bool \hyperlink{classsd__card_aeac919f2d31c96d9e67520c28917b09e}{open\-\_\-directory} (const char $\ast$)
+\item 
+F\-R\-E\-S\-U\-L\-T \hyperlink{classsd__card_a0e81d537338e6bcb69a7623087272ca7}{open\-\_\-file\-\_\-readonly} (const char $\ast$)
+\item 
+F\-R\-E\-S\-U\-L\-T \hyperlink{classsd__card_a90cb0c0eb0dd6e91704f11329721742b}{open\-\_\-file\-\_\-overwrite} (const char $\ast$)
+\item 
+F\-R\-E\-S\-U\-L\-T \hyperlink{classsd__card_ab322608cfd9fc6ac8544d681fe09b34f}{open\-\_\-file\-\_\-append} (const char $\ast$)
+\item 
+F\-R\-E\-S\-U\-L\-T \hyperlink{classsd__card_ad8edd6731e877aed7b4cd953a5f4b78d}{close\-\_\-file} (void)
+\item 
+uint16\-\_\-t \hyperlink{classsd__card_a01bf6f40225a91995831f6341eacccbe}{open\-\_\-new\-\_\-data\-\_\-file} (char const $\ast$, char const $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classsd__card_ac4cc3b5cee55e61d8bd3cf5aca7fd45e}{uint8\-\_\-t \hyperlink{classsd__card_ac4cc3b5cee55e61d8bd3cf5aca7fd45e}{sector\-\_\-buffer} \mbox{[}\hyperlink{sd__card_8h_a451aeffb68f3ecfb82eae03c88e9e48c}{S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}\mbox{]}}\label{classsd__card_ac4cc3b5cee55e61d8bd3cf5aca7fd45e}
+
+\begin{DoxyCompactList}\small\item\em This buffer holds data which is to be saved into a block on the S\-D card. \end{DoxyCompactList}\item 
+\hypertarget{classsd__card_af621dab780f50c28cd7408fcf0ada3ec}{\hyperlink{classqueue}{queue}$<$ char, \hyperlink{sd__card_8h_aa25b1f28e3aef588379729587d2155c2}{S\-D\-\_\-\-L\-\_\-\-B\-U\-F\-\_\-\-I\-D\-X\-\_\-\-T}, \\*
+\hyperlink{sd__card_8h_a6fd92a542394e4077621133ba8a8254d}{S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E} $>$ \hyperlink{classsd__card_af621dab780f50c28cd7408fcf0ada3ec}{line\-\_\-buffer}}\label{classsd__card_af621dab780f50c28cd7408fcf0ada3ec}
+
+\begin{DoxyCompactList}\small\item\em This buffer holds one line of text to be written to the card. \end{DoxyCompactList}\item 
+\hypertarget{classsd__card_ac88ab93e401eb88fadf1f37622d87197}{uint8\-\_\-t $\ast$ \hyperlink{classsd__card_ac88ab93e401eb88fadf1f37622d87197}{p\-\_\-line\-\_\-buffer}}\label{classsd__card_ac88ab93e401eb88fadf1f37622d87197}
+
+\begin{DoxyCompactList}\small\item\em Points to buffer for lines of text. \end{DoxyCompactList}\item 
+\hypertarget{classsd__card_a7fe8c92ca05cfcbb273962f4479ea802}{int \hyperlink{classsd__card_a7fe8c92ca05cfcbb273962f4479ea802}{index}}\label{classsd__card_a7fe8c92ca05cfcbb273962f4479ea802}
+
+\begin{DoxyCompactList}\small\item\em Index into buffer at which to put data. \end{DoxyCompactList}\item 
+\hypertarget{classsd__card_ac9d4ff5187d9c35208e83f886fb3456d}{unsigned long \hyperlink{classsd__card_ac9d4ff5187d9c35208e83f886fb3456d}{write\-\_\-addr}}\label{classsd__card_ac9d4ff5187d9c35208e83f886fb3456d}
+
+\begin{DoxyCompactList}\small\item\em Address to which data is being written. \end{DoxyCompactList}\item 
+\hypertarget{classsd__card_a908c8eb86a3ed04bd4653632e508588c}{\hyperlink{struct__FATFS__}{F\-A\-T\-F\-S} \hyperlink{classsd__card_a908c8eb86a3ed04bd4653632e508588c}{the\-\_\-fat\-\_\-fs}}\label{classsd__card_a908c8eb86a3ed04bd4653632e508588c}
+
+\begin{DoxyCompactList}\small\item\em This is a filesystem data structure (see \hyperlink{ff_8h_source}{ff.\-h}). \end{DoxyCompactList}\item 
+\hypertarget{classsd__card_a8958a4296da8a494dee943b09397e9bc}{F\-R\-E\-S\-U\-L\-T \hyperlink{classsd__card_a8958a4296da8a494dee943b09397e9bc}{dir\-\_\-file\-\_\-result}}\label{classsd__card_a8958a4296da8a494dee943b09397e9bc}
+
+\begin{DoxyCompactList}\small\item\em This item holds a result code from opening a directory and/or a file. \end{DoxyCompactList}\item 
+\hypertarget{classsd__card_a06bc90f0045658fd4605a0cec4457b8c}{\hyperlink{struct__DIR__}{D\-I\-R} \hyperlink{classsd__card_a06bc90f0045658fd4605a0cec4457b8c}{the\-\_\-dir}}\label{classsd__card_a06bc90f0045658fd4605a0cec4457b8c}
+
+\begin{DoxyCompactList}\small\item\em This is a directory data structure (see \hyperlink{ff_8h_source}{ff.\-h}). \end{DoxyCompactList}\item 
+\hypertarget{classsd__card_a4e9db40386a4f7cf82131a1eb47f9960}{\hyperlink{struct__FIL__}{F\-I\-L} \hyperlink{classsd__card_a4e9db40386a4f7cf82131a1eb47f9960}{the\-\_\-file}}\label{classsd__card_a4e9db40386a4f7cf82131a1eb47f9960}
+
+\begin{DoxyCompactList}\small\item\em This data structure stores information about a file on the disk. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class implements an interface to an S\-D card. Data is stored up in a buffer, then written to the card when the buffer becomes full or when the send\-\_\-now modifier is inserted into the S\-D card object's output stream. (Alternatively, one can specify that carriage returns cause writing to the card using the macro S\-D\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-W\-\_\-\-C\-H\-A\-R in \hyperlink{sd__card_8h}{sd\-\_\-card.\-h}.) The S\-P\-I interface to the S\-D card is used, as it is much simpler and requires less wires than the full high-\/speed interface. The S\-P\-I interface is a bit slow, though.
+
+The E\-L\-M-\/\-F\-A\-T-\/\-F\-S library is used for its low-\/level and F\-A\-T file system drivers. This library can be found at \href{http://elm-chan.org/fsw/ff/00index_e.html}{\tt http\-://elm-\/chan.\-org/fsw/ff/00index\-\_\-e.\-html}. The filesystem library interfaces with the \hyperlink{classsd__card}{sd\-\_\-card} class through two sets of C functions. The first set of functions is in files \hyperlink{ff_8h_source}{ff.\-h} and \hyperlink{ff_8c_source}{ff.\-c}; these functions provide the functionality of a file system\-: initializing and mounting volumes, opening files and directories, reading and writing data, and so on. The second set of functions is a set of callback functions which are provided in sd\-\_\-card.\-cc. Written in C, these callbacks are called by the E\-L\-M-\/\-F\-A\-T-\/\-F\-S library to provide platform and media specific access; they allow the A\-V\-R processor to work with the S\-D card. Most of the C functions in sd\-\_\-card.\-cc are slightly modified versions of functions from the A\-V\-R-\/specific example files distributed with the E\-L\-M-\/\-F\-A\-T-\/\-F\-S library.\hypertarget{classsd__card_sd_prep_card}{}\subsection{Preparing an S\-D Card for Use}\label{classsd__card_sd_prep_card}
+The S\-D cards used by this program should be formatted as M\-S-\/\-D\-O\-S style volumes in the \char`\"{}floppy disk\char`\"{} style, not the \char`\"{}hard disk\char`\"{} style. This means that there should not be a partition table, with one or more partitions each having a filesystem. Instead, the disk's main volume should be formatted. Many S\-D cards come formatted in the wrong style when purchased; the following steps will help determine if a card is formatted in the right or wrong way\-: \begin{DoxyItemize}
+\item Plug the card into a Linux computer. \item Open the card in a file browser; ignore the contents and close the browser. Opening the card caused it to be automatically mounted, which is why it was worth doing. \item Open a terminal window (konsole or gnome-\/terminal) and type 'mount'. Look near the end of the bunch of text which comes up for a line that looks like this\-: \par
+ {\ttfamily /dev/sde1 on /media/disk type vfat (rw,nosuid,nodev,uhelper=hal,uid=1000,utf8,shortname=mixed,flush)} \item If the code {\ttfamily /dev/xxxx} on the left of the line ends with a number, such as {\ttfamily /dev/sde1}, you have the wrong kind of formatting; it will need to be reformatted. If the code has no number, such as {\ttfamily /dev/sdf}, then you should be able to use the card as is. \item The device name is usually {\ttfamily /dev/sdxx}, but on some computers the name may be different, such as {\ttfamily /dev/mmcblk0}. In this case, partitions may be named like {\ttfamily /dev/mmcblk0p1}, and the device name is actually {\ttfamily /dev/mmcblk0} including the \char`\"{}0\char`\"{} at the end. \item Unmount the card. In K\-D\-E, use the device mounter's \char`\"{}eject\char`\"{} button; in Gnome right-\/click on the device icon and choose unmount.\end{DoxyItemize}
+The following process will format an S\-D card in \char`\"{}floppy disk style\char`\"{} on Linux\-: \begin{DoxyItemize}
+\item Get to a Linux computer on which you have root (sudo) access. You need root access in order to write directly to the S\-D card. \item Plug the card into an S\-D/\-M\-M\-C slot in the computer. Do not open it up in a file manager or mount it. \item Repeat the steps for checking the card's formatting if necessary to find the device name {\ttfamily /dev/xxxn} for the card. Note that in {\ttfamily /dev/xxxn}, the \char`\"{}\textbackslash{}c xxx\char`\"{} is letters (for example sdf) and the \char`\"{}\textbackslash{}t n\char`\"{} is a number, almost always {\ttfamily 1}. \item {\bfseries W\-A\-R\-N\-I\-N\-G\-:} You need to be very careful in the following command\-: {\bfseries Do not enter the designation of one of your computer's hard drives}, as this command would then reformat your system drive and effectively wipe out all the data on that drive. \item Run the following command\-: \par
+ {\ttfamily sudo mkfs -\/t msdos -\/\-I /dev/xxx} \par
+ Note that the number is left off the device name. What you are doing is formatting the disk without any partitions; the numbers referred to partitions on the disk. \item Remove the card and re-\/insert it in the computer. Make sure you can open it in a file manager as usual. \item Unmount the card, remove it from the P\-C, and you're ready to use it to save some data.\end{DoxyItemize}
+\hypertarget{classsd__card_sd_card_drv}{}\subsection{Using the S\-D Card Driver Software}\label{classsd__card_sd_card_drv}
+In order to use the S\-D card driver, one must have an A\-V\-R board with an S\-D card slot, and the board must be configured to operate with Vcc at 3.\-3 volts. It is possible that multiple S\-D cards could be used on the same board, but this has not been tested, and it would be rather weird to want to do so. Hot swapping the S\-D card is possible, but it's usually not a very good idea because of hardware considerations\-: S\-D cards have big internal power supply capacitance and tend to inflict brownouts on the A\-V\-R when plugged in. Also, making sure that all your reads and writes are finished before swapping the card can be a problem.
+
+Configuration is done by modifying values in \hyperlink{sd__card_8h}{sd\-\_\-card.\-h} and \hyperlink{ffconf_8h_source}{ffconf.\-h}. Recommended settings for \hyperlink{ffconf_8h_source}{ffconf.\-h} (which configures the filesystem drivers) include the following\-: \begin{TabularC}{3}
+\hline
+\-\_\-\-F\-S\-\_\-\-T\-I\-N\-Y &0 &unless you have $>$= 4\-K S\-R\-A\-M  \\\cline{1-3}
+\-\_\-\-F\-S\-\_\-\-R\-E\-A\-D\-O\-N\-L\-Y &0 &to enable writing  \\\cline{1-3}
+\-\_\-\-F\-S\-\_\-\-M\-I\-N\-I\-M\-I\-Z\-E &1 &to save space  \\\cline{1-3}
+\-\_\-\-U\-S\-E\-\_\-\-S\-T\-R\-F\-U\-N\-C &0 &unless you need strings  \\\cline{1-3}
+\-\_\-\-U\-S\-E\-\_\-\-M\-K\-F\-S &0 &unless you need to format  \\\cline{1-3}
+\-\_\-\-U\-S\-E\-\_\-\-F\-O\-R\-W\-A\-R\-D &0 &unless you need...this  \\\cline{1-3}
+\-\_\-\-C\-O\-D\-E\-\_\-\-P\-A\-G\-E &1 &for A\-S\-C\-I\-I coding  \\\cline{1-3}
+\-\_\-\-U\-S\-E\-\_\-\-L\-F\-N &0 &to use short (8.\-3) filenames  \\\cline{1-3}
+\end{TabularC}
+
+
+Recommended settings for \hyperlink{sd__card_8h}{sd\-\_\-card.\-h} include the following\-: \begin{TabularC}{3}
+\hline
+S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E &512  &This must be 512 for all S\-D cards  \\\cline{1-3}
+S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E &256  &256 Anything from about 16 to 512 should work; this value can be adjusted to balance speed with memory usage.  \\\cline{1-3}
+\end{TabularC}
+
+
+The processs of reading or writing a file consists of the following steps\-: \begin{DoxyItemize}
+\item Mount the card. This is Unix-\/talk for getting data from the boot record about where the partitions and base directories on the card can be found. \item Open a file using a method such as \hyperlink{classsd__card_a0e81d537338e6bcb69a7623087272ca7}{open\-\_\-file\-\_\-readonly()}, \hyperlink{classsd__card_a90cb0c0eb0dd6e91704f11329721742b}{open\-\_\-file\-\_\-overwrite()}, etc. \item If lots of data is being logged, one can use the \hyperlink{classsd__card_a01bf6f40225a91995831f6341eacccbe}{open\-\_\-new\-\_\-data\-\_\-file()} method which automatically creates file names in a sequence. \item Use the overloaded shift operator \char`\"{}$<$$<$\char`\"{} to write data to the file, or use the more primitive methods \hyperlink{classbase__text__serial_a7c1fd4a7965a273cd7b24ca543f8dbae}{getchar()}, \hyperlink{classsd__card_a24780513a0db84cd83cbd5d77437981b}{putchar()}, and \hyperlink{classsd__card_afadf1e3a3b449e9ab992ac147a837562}{puts()} to read and write characters from and to the file. \item If at all possible, use the \hyperlink{classsd__card_ad8edd6731e877aed7b4cd953a5f4b78d}{close\-\_\-file()} method to make sure all the data is saved to the file. If a file is not closed properly, some data may be left in the memory buffer and not written to the disk.\end{DoxyItemize}
+\hypertarget{classsd__card_sd_tested}{}\subsection{Functions tested and working}\label{classsd__card_sd_tested}
+\begin{DoxyItemize}
+\item Opening an S\-D card formatted without a partition \item Automatically creating data files in the root directory and writing to them\end{DoxyItemize}
+\hypertarget{classsd__card_sd_bugs}{}\subsection{Bugs}\label{classsd__card_sd_bugs}
+\begin{DoxyItemize}
+\item When using S\-D cards formatted with one or more partitions, sometimes the files written by this driver aren't visible to a computer reading the card. Workaround\-: Make sure to use cards which don't have partitions on them. \item Writing to the S\-D card can be very slow, and this code does not attempt to prevent blocking of the rest of the system during card writes. \item Long file names have not been tested. They're probably not a good idea for a small embedded system anyway.\end{DoxyItemize}
+\hypertarget{classsd__card_sd_int_comp}{}\subsection{Internal stuff}\label{classsd__card_sd_int_comp}
+The D\-S\-T\-A\-T\-U\-S flag byte, given in sd\-\_\-card.\-c, holds some status bits for the disk\-: \begin{DoxyItemize}
+\item 0x01\-: S\-T\-A\-\_\-\-N\-O\-I\-N\-I\-T \item 0x02\-: S\-T\-A\-\_\-\-N\-O\-D\-I\-S\-K \item 0x04\-: S\-T\-A\-\_\-\-P\-R\-O\-T\-E\-C\-T\end{DoxyItemize}
+The F\-R\-E\-S\-U\-L\-T enumeration, given in \hyperlink{ff_8c_source}{ff.\-c}, holds the result of a file operation. Its values are\-: \begin{DoxyItemize}
+\item 0\-: F\-R\-\_\-\-O\-K \item 1\-: F\-R\-\_\-\-D\-I\-S\-K\-\_\-\-E\-R\-R \item 2\-: F\-R\-\_\-\-I\-N\-T\-\_\-\-E\-R\-R \item 3\-: F\-R\-\_\-\-N\-O\-T\-\_\-\-R\-E\-A\-D\-Y \item 4\-: F\-R\-\_\-\-N\-O\-\_\-\-F\-I\-L\-E \item 5\-: F\-R\-\_\-\-N\-O\-\_\-\-P\-A\-T\-H \item 6\-: F\-R\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-N\-A\-M\-E \item 7\-: F\-R\-\_\-\-D\-E\-N\-I\-E\-D \item 8\-: F\-R\-\_\-\-E\-X\-I\-S\-T \item 9\-: F\-R\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-O\-B\-J\-E\-C\-T \item 10\-: F\-R\-\_\-\-W\-R\-I\-T\-E\-\_\-\-P\-R\-O\-T\-E\-C\-T\-E\-D \item 11\-: F\-R\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-D\-R\-I\-V\-E \item 12\-: F\-R\-\_\-\-N\-O\-T\-\_\-\-E\-N\-A\-B\-L\-E\-D \item 13\-: F\-R\-\_\-\-N\-O\-\_\-\-F\-I\-L\-E\-S\-Y\-S\-T\-E\-M \item 14\-: F\-R\-\_\-\-M\-K\-F\-S\-\_\-\-A\-B\-O\-R\-T\-E\-D \item 15\-: F\-R\-\_\-\-T\-I\-M\-E\-O\-U\-T \end{DoxyItemize}
+
+
+Definition at line 325 of file sd\-\_\-card.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsd__card_a53258f2e1f42807f2c9238d66b8ca5fc}{\index{sd\-\_\-card@{sd\-\_\-card}!sd\-\_\-card@{sd\-\_\-card}}
+\index{sd\-\_\-card@{sd\-\_\-card}!sd_card@{sd\-\_\-card}}
+\subsubsection[{sd\-\_\-card}]{\setlength{\rightskip}{0pt plus 5cm}sd\-\_\-card\-::sd\-\_\-card (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classsd__card_a53258f2e1f42807f2c9238d66b8ca5fc}
+This constructor sets up an S\-D card interface. It calls the constructor of its base class \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} and initializes the data buffer so that the buffer is ready to accept some data. It also configures the S\-P\-I port pins so that they are ready to communicate with the card. The constructor does not initialize the card; initialization is performed in the \hyperlink{classsd__card_ad62e39a6a46a6697f511d3cbef9627ae}{mount()} method. 
+
+Definition at line 689 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result, queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::get\-\_\-p\-\_\-buffer(), line\-\_\-buffer, p\-\_\-line\-\_\-buffer, S\-D\-\_\-\-C\-S\-\_\-\-D\-D\-R, S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K, S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T, and S\-T\-A\-\_\-\-N\-O\-I\-N\-I\-T.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classsd__card_ad8edd6731e877aed7b4cd953a5f4b78d}{\index{sd\-\_\-card@{sd\-\_\-card}!close\-\_\-file@{close\-\_\-file}}
+\index{close\-\_\-file@{close\-\_\-file}!sd_card@{sd\-\_\-card}}
+\subsubsection[{close\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}F\-R\-E\-S\-U\-L\-T sd\-\_\-card\-::close\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classsd__card_ad8edd6731e877aed7b4cd953a5f4b78d}
+This method closes a file. If there is any data left in the buffer, it is written to the card. Then further writing to this file is prevented unless the file is opened again. \begin{DoxyReturn}{Returns}
+The result code from calling f\-\_\-close() to close the file 
+\end{DoxyReturn}
+
+
+Definition at line 945 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result, endl, G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, line\-\_\-buffer, queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::num\-\_\-items(), P\-M\-S, the\-\_\-file, and transmit\-\_\-now().
+
+\hypertarget{classsd__card_ad62e39a6a46a6697f511d3cbef9627ae}{\index{sd\-\_\-card@{sd\-\_\-card}!mount@{mount}}
+\index{mount@{mount}!sd_card@{sd\-\_\-card}}
+\subsubsection[{mount}]{\setlength{\rightskip}{0pt plus 5cm}F\-R\-E\-S\-U\-L\-T sd\-\_\-card\-::mount (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{part\-\_\-num}
+\end{DoxyParamCaption}
+)}}\label{classsd__card_ad62e39a6a46a6697f511d3cbef9627ae}
+This method performs an action equivalent to \char`\"{}mounting\char`\"{} the S\-D card (in P\-O\-S\-I\-X talk). This means that the card interface is initialized, then the card's boot record and partition table and all that oddball stuff is scanned so that we will be able to find files on the card. Partition number 0 is always mounted. 
+\begin{DoxyParams}{Parameters}
+{\em part\-\_\-num} & The number of the partition to mount -- ignored, we use 0 always \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result code from attempting to open the root directory; 0 means O\-K 
+\end{DoxyReturn}
+
+
+Definition at line 805 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result, disk\-\_\-initialize(), the\-\_\-dir, and the\-\_\-fat\-\_\-fs.
+
+\hypertarget{classsd__card_aeac919f2d31c96d9e67520c28917b09e}{\index{sd\-\_\-card@{sd\-\_\-card}!open\-\_\-directory@{open\-\_\-directory}}
+\index{open\-\_\-directory@{open\-\_\-directory}!sd_card@{sd\-\_\-card}}
+\subsubsection[{open\-\_\-directory}]{\setlength{\rightskip}{0pt plus 5cm}bool sd\-\_\-card\-::open\-\_\-directory (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{classsd__card_aeac919f2d31c96d9e67520c28917b09e}
+This method opens the given directory. The directory is identified by a path name which may go into several layers of subdirectories but must be less than 64 characters long. A valid path name might be \char`\"{}/data/strain.\-dat/recent\char`\"{}; note that forward slashes are used (P\-O\-S\-I\-X style), not backslashes in the Windows style, and that 8.\-3 names are required. 
+\begin{DoxyParams}{Parameters}
+{\em path} & A character string containing the full path name of the directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the directory was opened O\-K, or false if it couldn't be opened 
+\end{DoxyReturn}
+
+
+Definition at line 833 of file sd\-\_\-card.\-cpp.
+
+\hypertarget{classsd__card_ab322608cfd9fc6ac8544d681fe09b34f}{\index{sd\-\_\-card@{sd\-\_\-card}!open\-\_\-file\-\_\-append@{open\-\_\-file\-\_\-append}}
+\index{open\-\_\-file\-\_\-append@{open\-\_\-file\-\_\-append}!sd_card@{sd\-\_\-card}}
+\subsubsection[{open\-\_\-file\-\_\-append}]{\setlength{\rightskip}{0pt plus 5cm}F\-R\-E\-S\-U\-L\-T sd\-\_\-card\-::open\-\_\-file\-\_\-append (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{classsd__card_ab322608cfd9fc6ac8544d681fe09b34f}
+This method opens the given file for writing (the file can also be read). If the file doesn't yet exist, it is created; if it exists, it's opened in append mode.
+
+W\-A\-R\-N\-I\-N\-G, B\-U\-G, T\-O\-D\-O\-: This method hasn't been finished yet and doesn't work.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path\-\_\-name} & The path name to the file, including the directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result code from the f\-\_\-open() call attempting to open the file 
+\end{DoxyReturn}
+
+
+Definition at line 912 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result, endl, G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, P\-M\-S, and the\-\_\-file.
+
+\hypertarget{classsd__card_a90cb0c0eb0dd6e91704f11329721742b}{\index{sd\-\_\-card@{sd\-\_\-card}!open\-\_\-file\-\_\-overwrite@{open\-\_\-file\-\_\-overwrite}}
+\index{open\-\_\-file\-\_\-overwrite@{open\-\_\-file\-\_\-overwrite}!sd_card@{sd\-\_\-card}}
+\subsubsection[{open\-\_\-file\-\_\-overwrite}]{\setlength{\rightskip}{0pt plus 5cm}F\-R\-E\-S\-U\-L\-T sd\-\_\-card\-::open\-\_\-file\-\_\-overwrite (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{classsd__card_a90cb0c0eb0dd6e91704f11329721742b}
+This method opens the given file for writing (the file can also be read). It leaves the read/write pointer at the beginning of the file so that old data will be overwritten. 
+\begin{DoxyParams}{Parameters}
+{\em path\-\_\-name} & The path name to the file, including the directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result code from the f\-\_\-open() call attempting to open the file 
+\end{DoxyReturn}
+
+
+Definition at line 878 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result, endl, G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, P\-M\-S, and the\-\_\-file.
+
+
+
+Referenced by open\-\_\-new\-\_\-data\-\_\-file().
+
+\hypertarget{classsd__card_a0e81d537338e6bcb69a7623087272ca7}{\index{sd\-\_\-card@{sd\-\_\-card}!open\-\_\-file\-\_\-readonly@{open\-\_\-file\-\_\-readonly}}
+\index{open\-\_\-file\-\_\-readonly@{open\-\_\-file\-\_\-readonly}!sd_card@{sd\-\_\-card}}
+\subsubsection[{open\-\_\-file\-\_\-readonly}]{\setlength{\rightskip}{0pt plus 5cm}F\-R\-E\-S\-U\-L\-T sd\-\_\-card\-::open\-\_\-file\-\_\-readonly (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{classsd__card_a0e81d537338e6bcb69a7623087272ca7}
+This method opens the given file in read-\/only mode. The file must exist, and the volume in which the file exists must have already been mounted. 
+\begin{DoxyParams}{Parameters}
+{\em path\-\_\-name} & A path to the file to be opened \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An F\-R\-E\-S\-U\-L\-T value (see \hyperlink{ff_8h_source}{ff.\-h}) which tells if the file was opened successfully 
+\end{DoxyReturn}
+
+
+Definition at line 846 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result, endl, G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, P\-M\-S, and the\-\_\-file.
+
+\hypertarget{classsd__card_a01bf6f40225a91995831f6341eacccbe}{\index{sd\-\_\-card@{sd\-\_\-card}!open\-\_\-new\-\_\-data\-\_\-file@{open\-\_\-new\-\_\-data\-\_\-file}}
+\index{open\-\_\-new\-\_\-data\-\_\-file@{open\-\_\-new\-\_\-data\-\_\-file}!sd_card@{sd\-\_\-card}}
+\subsubsection[{open\-\_\-new\-\_\-data\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t sd\-\_\-card\-::open\-\_\-new\-\_\-data\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{base\-\_\-name, }
+\item[{char const $\ast$}]{extension}
+\end{DoxyParamCaption}
+)}}\label{classsd__card_a01bf6f40225a91995831f6341eacccbe}
+This function opens a new data file, in the card's root directory, with a name which hasn't yet been used. Names are made by putting together a path, base name, number, and extension as in \char`\"{}/data/file\-\_\-012.\-txt\char`\"{}. The base name variable includes the path and the file name together, separated by forward slashes. 
+\begin{DoxyParams}{Parameters}
+{\em base\-\_\-name} & The base name, including path, such as \char`\"{}/data/log\-\_\-\char`\"{} where the file name should be at most 5 characters long because 3 digits will be added. The base name should begin with a slash to be an absolute path name on a card. \\
+\hline
+{\em extension} & The 3-\/character file name extension, such as \char`\"{}txt\char`\"{} or \char`\"{}csv\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number used to make the new data file's name, or 0x\-F\-F\-F\-F for failure 
+\end{DoxyReturn}
+
+
+Definition at line 979 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result, endl, G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, open\-\_\-file\-\_\-overwrite(), P\-M\-S, and the\-\_\-file.
+
+\hypertarget{classsd__card_a24780513a0db84cd83cbd5d77437981b}{\index{sd\-\_\-card@{sd\-\_\-card}!putchar@{putchar}}
+\index{putchar@{putchar}!sd_card@{sd\-\_\-card}}
+\subsubsection[{putchar}]{\setlength{\rightskip}{0pt plus 5cm}bool sd\-\_\-card\-::putchar (
+\begin{DoxyParamCaption}
+\item[{char}]{to\-\_\-put}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsd__card_a24780513a0db84cd83cbd5d77437981b}
+This method puts one character into the buffer of data to be written to the card. If the buffer becomes full through this write, the buffer is automatically written to the card. This will take a long time, so it might be a good idea to control the times at which buffers full of data are written using the \hyperlink{classsd__card_ac718cadb3664d40cd96bd107470b271f}{transmit\-\_\-now()} method to write data and chars\-\_\-empty() to check how much space is left in the buffer. An error occurs if the buffer is full and there's no card to which to store data. 
+\begin{DoxyParams}{Parameters}
+{\em to\-\_\-put} & The character to be written into the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if everything was O\-K and false if data couldn't be stored 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbase__text__serial_a945e2929f72e578d3c4d3f5de8087567}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 741 of file sd\-\_\-card.\-cpp.
+
+
+
+References line\-\_\-buffer, queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::num\-\_\-items(), queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::put(), ready\-\_\-to\-\_\-send(), S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E, and transmit\-\_\-now().
+
+
+
+Referenced by puts().
+
+\hypertarget{classsd__card_afadf1e3a3b449e9ab992ac147a837562}{\index{sd\-\_\-card@{sd\-\_\-card}!puts@{puts}}
+\index{puts@{puts}!sd_card@{sd\-\_\-card}}
+\subsubsection[{puts}]{\setlength{\rightskip}{0pt plus 5cm}void sd\-\_\-card\-::puts (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsd__card_afadf1e3a3b449e9ab992ac147a837562}
+This method writes all the characters in a string to the card buffer until it gets to the '\textbackslash{}0' at the end. Warning\-: This function blocks until it's finished. 
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be written \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbase__text__serial_a1699dd6cb65575604f66abbf762a2131}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 768 of file sd\-\_\-card.\-cpp.
+
+
+
+References putchar().
+
+\hypertarget{classsd__card_ace9426af93920e3819887fec13d89adb}{\index{sd\-\_\-card@{sd\-\_\-card}!ready\-\_\-to\-\_\-send@{ready\-\_\-to\-\_\-send}}
+\index{ready\-\_\-to\-\_\-send@{ready\-\_\-to\-\_\-send}!sd_card@{sd\-\_\-card}}
+\subsubsection[{ready\-\_\-to\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}bool sd\-\_\-card\-::ready\-\_\-to\-\_\-send (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsd__card_ace9426af93920e3819887fec13d89adb}
+This method checks if the card is ready, with a file opened, for some data to be sent to it. If a file is opened, the status flags will have been set properly. \begin{DoxyReturn}{Returns}
+True if there's a card ready for data and false if not 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbase__text__serial_ac20fa8adfde943956f8750c4e662627c}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 724 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result.
+
+
+
+Referenced by putchar().
+
+\hypertarget{classsd__card_ac718cadb3664d40cd96bd107470b271f}{\index{sd\-\_\-card@{sd\-\_\-card}!transmit\-\_\-now@{transmit\-\_\-now}}
+\index{transmit\-\_\-now@{transmit\-\_\-now}!sd_card@{sd\-\_\-card}}
+\subsubsection[{transmit\-\_\-now}]{\setlength{\rightskip}{0pt plus 5cm}void sd\-\_\-card\-::transmit\-\_\-now (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classsd__card_ac718cadb3664d40cd96bd107470b271f}
+This method writes the data from the buffer to the card. Because there's so much data and flash cards are slow, it takes a comparatively long time to write data. 
+
+Reimplemented from \hyperlink{classbase__text__serial_ac576f366ad6546797a0b0367015b385d}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 780 of file sd\-\_\-card.\-cpp.
+
+
+
+References dir\-\_\-file\-\_\-result, queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::flush(), line\-\_\-buffer, queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$\-::num\-\_\-items(), p\-\_\-line\-\_\-buffer, and the\-\_\-file.
+
+
+
+Referenced by close\-\_\-file(), and putchar().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sd__card_8h}{sd\-\_\-card.\-h}\item 
+\hyperlink{sd__card_8cpp}{sd\-\_\-card.\-cpp}\end{DoxyCompactItemize}

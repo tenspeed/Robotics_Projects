@@ -1,0 +1,125 @@
+\hypertarget{classbase232}{\section{base232 Class Reference}
+\label{classbase232}\index{base232@{base232}}
+}
+
+
+{\ttfamily \#include $<$base232.\-h$>$}
+
+Inheritance diagram for base232\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbase232}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbase232_a3deb8426a4b5dc074dd82d23f5379278}{base232} (unsigned int=9600, unsigned char=0)
+\begin{DoxyCompactList}\small\item\em The constructor sets up the port with the given baud rate and port number. \end{DoxyCompactList}\item 
+bool \hyperlink{classbase232_a6fc5bf7b7c48a1b520609d6233a187de}{ready\-\_\-to\-\_\-send} (void)
+\begin{DoxyCompactList}\small\item\em This method checks if the serial port is ready to transmit data. \end{DoxyCompactList}\item 
+bool \hyperlink{classbase232_a1e0a84b93818b0f079866c2ba36bd6bc}{is\-\_\-sending} (void)
+\begin{DoxyCompactList}\small\item\em This method returns true if the port is currently sending a character out. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classbase232_a25ab184b8ba64e6d50f29a261e3b53dd}{volatile unsigned char $\ast$ \hyperlink{classbase232_a25ab184b8ba64e6d50f29a261e3b53dd}{p\-\_\-\-U\-D\-R}}\label{classbase232_a25ab184b8ba64e6d50f29a261e3b53dd}
+
+\begin{DoxyCompactList}\small\item\em This is a pointer to the data register used by the U\-A\-R\-T. \end{DoxyCompactList}\item 
+\hypertarget{classbase232_a06c7bd5f9fdd7e894d1811f70582deb8}{volatile unsigned char $\ast$ \hyperlink{classbase232_a06c7bd5f9fdd7e894d1811f70582deb8}{p\-\_\-\-U\-S\-R}}\label{classbase232_a06c7bd5f9fdd7e894d1811f70582deb8}
+
+\begin{DoxyCompactList}\small\item\em This is a pointer to the status register used by the U\-A\-R\-T. \end{DoxyCompactList}\item 
+\hypertarget{classbase232_a69fc096531c8253b1fd47f05c04e3372}{volatile unsigned char $\ast$ \hyperlink{classbase232_a69fc096531c8253b1fd47f05c04e3372}{p\-\_\-\-U\-C\-R}}\label{classbase232_a69fc096531c8253b1fd47f05c04e3372}
+
+\begin{DoxyCompactList}\small\item\em This is a pointer to the control register used by the U\-A\-R\-T. \end{DoxyCompactList}\item 
+\hypertarget{classbase232_aeddba516d2a987d2cb71fe808845e8a4}{unsigned char \hyperlink{classbase232_aeddba516d2a987d2cb71fe808845e8a4}{mask\-\_\-\-U\-D\-R\-E}}\label{classbase232_aeddba516d2a987d2cb71fe808845e8a4}
+
+\begin{DoxyCompactList}\small\item\em This bitmask identifies the bit for data register empty, U\-D\-R\-E. \end{DoxyCompactList}\item 
+\hypertarget{classbase232_a0a32da6009456fd0db18ad8c1fadecc9}{unsigned char \hyperlink{classbase232_a0a32da6009456fd0db18ad8c1fadecc9}{mask\-\_\-\-R\-X\-C}}\label{classbase232_a0a32da6009456fd0db18ad8c1fadecc9}
+
+\begin{DoxyCompactList}\small\item\em This bitmask identifies the bit for receive complete, R\-X\-C. \end{DoxyCompactList}\item 
+\hypertarget{classbase232_a6d2e432e9b119ffcaee6205eb792b458}{unsigned char \hyperlink{classbase232_a6d2e432e9b119ffcaee6205eb792b458}{mask\-\_\-\-T\-X\-C}}\label{classbase232_a6d2e432e9b119ffcaee6205eb792b458}
+
+\begin{DoxyCompactList}\small\item\em This bitmask identifies the bit for transmission complete, T\-X\-C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class operates the hardware on an R\-S232 port in an A\-V\-R microcontroller. It sets up the port, checks for characters, and sends characters one at a time. Its descendent classes do useful things such as sending text messages and packets. 
+
+Definition at line 74 of file base232.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbase232_a3deb8426a4b5dc074dd82d23f5379278}{\index{base232@{base232}!base232@{base232}}
+\index{base232@{base232}!base232@{base232}}
+\subsubsection[{base232}]{\setlength{\rightskip}{0pt plus 5cm}base232\-::base232 (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{baud\-\_\-rate = {\ttfamily 9600}, }
+\item[{unsigned char}]{port\-\_\-number = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classbase232_a3deb8426a4b5dc074dd82d23f5379278}
+
+
+The constructor sets up the port with the given baud rate and port number. 
+
+This method sets up the A\-V\-R U\-A\-R\-T for communications. It enables the appropriate inputs and outputs and sets the baud rate divisor, and it saves pointers to the registers which are used to operate the serial port. Since some A\-V\-R processors have dual serial ports, this method allows one to specify a port number. 
+\begin{DoxyParams}{Parameters}
+{\em baud\-\_\-rate} & The desired baud rate for serial communications. Default is 9600 \\
+\hline
+{\em port\-\_\-number} & The number of the serial port, 0 or 1 (the second port numbered 1 only exists on some processors). The default is port 0 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file base232.\-cpp.
+
+
+
+References calc\-\_\-baud\-\_\-div.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbase232_a1e0a84b93818b0f079866c2ba36bd6bc}{\index{base232@{base232}!is\-\_\-sending@{is\-\_\-sending}}
+\index{is\-\_\-sending@{is\-\_\-sending}!base232@{base232}}
+\subsubsection[{is\-\_\-sending}]{\setlength{\rightskip}{0pt plus 5cm}bool base232\-::is\-\_\-sending (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classbase232_a1e0a84b93818b0f079866c2ba36bd6bc}
+
+
+This method returns true if the port is currently sending a character out. 
+
+This method checks if the serial port is currently sending a character. Even if the buffer is ready to accept a new character, the port might still be busy sending the last one; it would be a bad idea to put the processor to sleep before the character has been sent. \begin{DoxyReturn}{Returns}
+True if the port is currently sending a character, false if it's idle 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file base232.\-cpp.
+
+\hypertarget{classbase232_a6fc5bf7b7c48a1b520609d6233a187de}{\index{base232@{base232}!ready\-\_\-to\-\_\-send@{ready\-\_\-to\-\_\-send}}
+\index{ready\-\_\-to\-\_\-send@{ready\-\_\-to\-\_\-send}!base232@{base232}}
+\subsubsection[{ready\-\_\-to\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}bool base232\-::ready\-\_\-to\-\_\-send (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classbase232_a6fc5bf7b7c48a1b520609d6233a187de}
+
+
+This method checks if the serial port is ready to transmit data. 
+
+This method checks if the serial port transmitter is ready to send data. It tests whether transmitter buffer is empty. \begin{DoxyReturn}{Returns}
+True if the serial port is ready to send, and false if not 
+\end{DoxyReturn}
+
+
+Definition at line 155 of file base232.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{base232_8h}{base232.\-h}\item 
+\hyperlink{base232_8cpp}{base232.\-cpp}\end{DoxyCompactItemize}

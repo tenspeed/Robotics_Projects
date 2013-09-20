@@ -1,0 +1,347 @@
+\hypertarget{classstl__task}{\section{stl\-\_\-task Class Reference}
+\label{classstl__task}\index{stl\-\_\-task@{stl\-\_\-task}}
+}
+
+
+{\ttfamily \#include $<$stl\-\_\-task.\-h$>$}
+
+Inheritance diagram for stl\-\_\-task\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classstl__task}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classstl__task_af8f81fb3e56c9d72b3b273ea1fe28d39}{stl\-\_\-task} (\hyperlink{classtask__timer}{task\-\_\-timer} \&, const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\item 
+void \hyperlink{classstl__task_a809314255837a6ba122bef5a03775b9a}{set\-\_\-interval} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\item 
+void \hyperlink{classstl__task_a5d06fa647b9492360a9c38fe429f7ccc}{set\-\_\-next\-\_\-run\-\_\-time} (const \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\item 
+virtual \hyperlink{stl__task_8h_ab7f098b819a25c755325d69a07030021}{task\-\_\-op\-\_\-state} \hyperlink{classstl__task_a86a54618c911663e235f07fba78c728a}{schedule} (\hyperlink{classtime__stamp}{time\-\_\-stamp} $\ast$=N\-U\-L\-L)
+\item 
+virtual char \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run} (char)
+\item 
+void \hyperlink{classstl__task_a8e49886b5ecd7479a3d09d378b09d97f}{suspend} (void)
+\item 
+void \hyperlink{classstl__task_acdec061dcd4755e8a870383433b1fc5b}{resume} (void)
+\item 
+void \hyperlink{classstl__task_a73904c3a785fbb3eb0f0041bca5926fe}{set\-\_\-initial\-\_\-state} (char)
+\item 
+char \hyperlink{classstl__task_add7d50aa3d9137e11bad5aef502aac2d}{get\-\_\-serial\-\_\-number} (void)
+\item 
+char \hyperlink{classstl__task_aacad5f6dd55902d3292c75f6baed8648}{get\-\_\-current\-\_\-state} (void)
+\item 
+\hyperlink{stl__task_8h_ab7f098b819a25c755325d69a07030021}{task\-\_\-op\-\_\-state} \hyperlink{classstl__task_abdc3f4e187b2b87aa3ce8c9fb851a27a}{get\-\_\-op\-\_\-state} (void)
+\item 
+void \hyperlink{classstl__task_aa976345c69db9b31f42442a04adda32e}{run\-\_\-again\-\_\-\-A\-S\-A\-P} (void)
+\item 
+bool \hyperlink{classstl__task_a8518939173f61a31158c29404b649a54}{ready} (void)
+\item 
+void \hyperlink{classstl__task_ab114eb46ce3bf58263d42a3528288d5d}{error\-\_\-stop} (char const $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classstl__task_a8db004322eb55d27196c332bbd1d9c4c}{\hyperlink{classtask__timer}{task\-\_\-timer} \& \hyperlink{classstl__task_a8db004322eb55d27196c332bbd1d9c4c}{the\-\_\-timer}}\label{classstl__task_a8db004322eb55d27196c332bbd1d9c4c}
+
+\begin{DoxyCompactList}\small\item\em This is a reference to the device driver which keeps track of real time. \end{DoxyCompactList}\item 
+\hypertarget{classstl__task_add87ffb2cc0649d4b3d291323c2fe47b}{\hyperlink{classtime__stamp}{time\-\_\-stamp} \hyperlink{classstl__task_add87ffb2cc0649d4b3d291323c2fe47b}{next\-\_\-run\-\_\-time}}\label{classstl__task_add87ffb2cc0649d4b3d291323c2fe47b}
+
+\begin{DoxyCompactList}\small\item\em This is the time at which the task should next be run. \end{DoxyCompactList}\item 
+\hypertarget{classstl__task_afecb442fa869e15d3c82efc19a041abe}{\hyperlink{classtime__stamp}{time\-\_\-stamp} \hyperlink{classstl__task_afecb442fa869e15d3c82efc19a041abe}{interval}}\label{classstl__task_afecb442fa869e15d3c82efc19a041abe}
+
+\begin{DoxyCompactList}\small\item\em This is the time interval between runs of the task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class implements the behavior of a task in the context of a multitasking system. Each task runs \char`\"{}simultaneously\char`\"{} with other tasks. This means, of course, that execution switches quickly from one task to another quite quickly under the control of the main execution scheduler. Since a task can be in any of several states at a given time, a task object will have a list of state methods which can be run and be able to switch between those states.\hypertarget{classstl__task_task_usage}{}\subsection{Usage}\label{classstl__task_task_usage}
+The programmer uses this class by deriving a descendent class from it. Then s/he creates a \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} method in the new class which implements the states. In the \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} method, there's a big switch statement which chooses which state code is to run when the \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} method is called. Checking the time and deciding when to run is taken care of by the \hyperlink{classstl__task_a86a54618c911663e235f07fba78c728a}{schedule()} method, which only runs the task's state code when the task's time interval has been reached; if the time interval is set to 0, the state code is run every time \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} is called. State transitions are detected and tracked by this class for testing and debugging purposes.\hypertarget{classstl__task_task_options}{}\subsection{Options}\label{classstl__task_task_options}
+\begin{DoxyItemize}
+\item Serial port debugging can be enabled by defining S\-E\-R\-I\-A\-L\-\_\-\-D\-E\-B\-U\-G and calling the constructor which is given a pointer to a uart object. The task will then write information about state transitions to the serial port during operation. This option is intended to be used during debugging, then turned off for production code, as serial device writing takes up time and memory, and of course it requires a serial device to be present and connected. \item Execution time profiling can be enabled by defining S\-T\-L\-\_\-\-P\-R\-O\-F\-I\-L\-E. This option causes the execution times of the state functions to be measured and a simple set of performance data to be kept. Performance data can be written to a serial port at a convenient time, generally after the system has been run in test for a while.\end{DoxyItemize}
+\hypertarget{classstl__task_task_intrn}{}\subsection{Internal Organization}\label{classstl__task_task_intrn}
+At any time, a task is in both a {\itshape user state} and an {\itshape operational state}. The user state is the state which the user manipulates; it chooses the action that the \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} method will take each time it is called by the scheduler. The user state is the state which appears in the user's state transition diagrams. The operational state shows how the scheduler is treating a task -\/ whether the task is running, waiting for its time to run, ready to run, suspended, etc. Operational states for all tasks follow the \char`\"{}state diagram\char`\"{} below.
+
+\begin{center}
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_1}}
+\end{DoxyImageNoCaption}
+\end{center}
+ Blocked tasks (due to resource contention) are not currently implemented.
+
+When a task is run cooperatively (rather than by interrupts), it is run when the method \hyperlink{classstl__task_a86a54618c911663e235f07fba78c728a}{schedule()} is called from within the main while loop in the main() routine. The \hyperlink{classstl__task_a86a54618c911663e235f07fba78c728a}{schedule()} method belongs to class \hyperlink{classstl__task}{stl\-\_\-task} and generally does not need to be modified by the user. 
+
+Definition at line 121 of file stl\-\_\-task.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classstl__task_af8f81fb3e56c9d72b3b273ea1fe28d39}{\index{stl\-\_\-task@{stl\-\_\-task}!stl\-\_\-task@{stl\-\_\-task}}
+\index{stl\-\_\-task@{stl\-\_\-task}!stl_task@{stl\-\_\-task}}
+\subsubsection[{stl\-\_\-task}]{\setlength{\rightskip}{0pt plus 5cm}stl\-\_\-task\-::stl\-\_\-task (
+\begin{DoxyParamCaption}
+\item[{{\bf task\-\_\-timer} \&}]{a\-\_\-timer, }
+\item[{const {\bf time\-\_\-stamp} \&}]{time\-\_\-interval}
+\end{DoxyParamCaption}
+)}}\label{classstl__task_af8f81fb3e56c9d72b3b273ea1fe28d39}
+This constructor creates a task object. It must be called by the constructor of each task which is written by the user. This constructor sets the time between runs of the \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} method (a timestamp with zero time can be used if a task needs to run via interrupt, or every single time its \hyperlink{classstl__task_a86a54618c911663e235f07fba78c728a}{schedule()} method is called). This constructor also saves a pointer to the serial port or radio object which will be used to dump debugging information, if serial debugging is being used. 
+\begin{DoxyParams}{Parameters}
+{\em a\-\_\-timer} & A reference to the timer which measures real-\/time intervals \\
+\hline
+{\em time\-\_\-interval} & The time between runs of the task's \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} method \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file stl\-\_\-task.\-cpp.
+
+
+
+References endl, G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, P\-M\-S, and T\-A\-S\-K\-\_\-\-W\-A\-I\-T\-I\-N\-G.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classstl__task_ab114eb46ce3bf58263d42a3528288d5d}{\index{stl\-\_\-task@{stl\-\_\-task}!error\-\_\-stop@{error\-\_\-stop}}
+\index{error\-\_\-stop@{error\-\_\-stop}!stl_task@{stl\-\_\-task}}
+\subsubsection[{error\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}void stl\-\_\-task\-::error\-\_\-stop (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{message}
+\end{DoxyParamCaption}
+)}}\label{classstl__task_ab114eb46ce3bf58263d42a3528288d5d}
+This method displays a message (if the program was compiled with serial debugging enabled) and then causes the processor to freeze in an infinite loop. It should be used if something awful happened and the safest thing to do is to just stop. Only use this function if there isn't a reasonable way to write an error state which handles exceptions in a more useful manner, such as by turning motors and other possibly dangerous devices off and then halting. 
+\begin{DoxyParams}{Parameters}
+{\em message} & The text to be displayed before the processor stops working \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 258 of file stl\-\_\-task.\-cpp.
+
+
+
+References endl, G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, and P\-M\-S.
+
+
+
+Referenced by schedule().
+
+\hypertarget{classstl__task_aacad5f6dd55902d3292c75f6baed8648}{\index{stl\-\_\-task@{stl\-\_\-task}!get\-\_\-current\-\_\-state@{get\-\_\-current\-\_\-state}}
+\index{get\-\_\-current\-\_\-state@{get\-\_\-current\-\_\-state}!stl_task@{stl\-\_\-task}}
+\subsubsection[{get\-\_\-current\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}char stl\-\_\-task\-::get\-\_\-current\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstl__task_aacad5f6dd55902d3292c75f6baed8648}
+This method returns the state in which the task is currently. The state cannot directly be changed by the user; it can only be changed through the returned value from the \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} method. \begin{DoxyReturn}{Returns}
+The state in which the task is when this method is called 
+\end{DoxyReturn}
+
+
+Definition at line 177 of file stl\-\_\-task.\-h.
+
+\hypertarget{classstl__task_abdc3f4e187b2b87aa3ce8c9fb851a27a}{\index{stl\-\_\-task@{stl\-\_\-task}!get\-\_\-op\-\_\-state@{get\-\_\-op\-\_\-state}}
+\index{get\-\_\-op\-\_\-state@{get\-\_\-op\-\_\-state}!stl_task@{stl\-\_\-task}}
+\subsubsection[{get\-\_\-op\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf task\-\_\-op\-\_\-state} stl\-\_\-task\-::get\-\_\-op\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstl__task_abdc3f4e187b2b87aa3ce8c9fb851a27a}
+This method returns the task's current operational state. The operational state isn't the same as the state transition logic state; it's a separate variable which controls if the task is running at a given time. \begin{DoxyReturn}{Returns}
+The task's current operational state 
+\end{DoxyReturn}
+
+
+Definition at line 184 of file stl\-\_\-task.\-h.
+
+\hypertarget{classstl__task_add7d50aa3d9137e11bad5aef502aac2d}{\index{stl\-\_\-task@{stl\-\_\-task}!get\-\_\-serial\-\_\-number@{get\-\_\-serial\-\_\-number}}
+\index{get\-\_\-serial\-\_\-number@{get\-\_\-serial\-\_\-number}!stl_task@{stl\-\_\-task}}
+\subsubsection[{get\-\_\-serial\-\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}char stl\-\_\-task\-::get\-\_\-serial\-\_\-number (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstl__task_add7d50aa3d9137e11bad5aef502aac2d}
+This method returns the task's automatically assigned serial number. \begin{DoxyReturn}{Returns}
+The task's serial number 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file stl\-\_\-task.\-h.
+
+
+
+Referenced by operator$<$$<$().
+
+\hypertarget{classstl__task_a8518939173f61a31158c29404b649a54}{\index{stl\-\_\-task@{stl\-\_\-task}!ready@{ready}}
+\index{ready@{ready}!stl_task@{stl\-\_\-task}}
+\subsubsection[{ready}]{\setlength{\rightskip}{0pt plus 5cm}bool stl\-\_\-task\-::ready (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstl__task_a8518939173f61a31158c29404b649a54}
+This method tells whether the task needs to run again as soon as possible or not. It is convenient to use when determining if the processor should be put to sleep for a while. \begin{DoxyReturn}{Returns}
+True if the task needs to run soon, false if it does not 
+\end{DoxyReturn}
+
+
+Definition at line 196 of file stl\-\_\-task.\-h.
+
+
+
+References T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G, and T\-A\-S\-K\-\_\-\-R\-U\-N\-N\-I\-N\-G.
+
+\hypertarget{classstl__task_acdec061dcd4755e8a870383433b1fc5b}{\index{stl\-\_\-task@{stl\-\_\-task}!resume@{resume}}
+\index{resume@{resume}!stl_task@{stl\-\_\-task}}
+\subsubsection[{resume}]{\setlength{\rightskip}{0pt plus 5cm}void stl\-\_\-task\-::resume (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classstl__task_acdec061dcd4755e8a870383433b1fc5b}
+This method resumes the task from suspension, so that the task can run again. The operational state which was saved at the time of suspension is restored. 
+
+Definition at line 229 of file stl\-\_\-task.\-cpp.
+
+\hypertarget{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{\index{stl\-\_\-task@{stl\-\_\-task}!run@{run}}
+\index{run@{run}!stl_task@{stl\-\_\-task}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}char stl\-\_\-task\-::run (
+\begin{DoxyParamCaption}
+\item[{char}]{a\-\_\-state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}
+This is a base method which the user should overload in each descendent of this task class. The run method is where all the user-\/defined action in the task takes place. It is either called by the task's \hyperlink{classstl__task_a86a54618c911663e235f07fba78c728a}{schedule()} method, in the case of cooperative multitasking, or by an interrupt handler, in the case of pre-\/emptive multitasking. 
+\begin{DoxyParams}{Parameters}
+{\em a\-\_\-state} & The state of the task when this run method begins running \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state to which the task will transition, or S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N if no transition is called for at this time 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classtask__PID_a6f05dcd8d4efe5ab56610e02ea814b7b}{task\-\_\-\-P\-I\-D}, \hyperlink{classtask__lines_adc52a1f1de31103830a06737db769a34}{task\-\_\-lines}, and \hyperlink{classGo__Home_ae1421efd3ca49627022675f74534ced6}{Go\-\_\-\-Home}.
+
+
+
+Definition at line 203 of file stl\-\_\-task.\-cpp.
+
+
+
+References endl, G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, P\-M\-S, and S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N.
+
+
+
+Referenced by schedule().
+
+\hypertarget{classstl__task_aa976345c69db9b31f42442a04adda32e}{\index{stl\-\_\-task@{stl\-\_\-task}!run\-\_\-again\-\_\-\-A\-S\-A\-P@{run\-\_\-again\-\_\-\-A\-S\-A\-P}}
+\index{run\-\_\-again\-\_\-\-A\-S\-A\-P@{run\-\_\-again\-\_\-\-A\-S\-A\-P}!stl_task@{stl\-\_\-task}}
+\subsubsection[{run\-\_\-again\-\_\-\-A\-S\-A\-P}]{\setlength{\rightskip}{0pt plus 5cm}void stl\-\_\-task\-::run\-\_\-again\-\_\-\-A\-S\-A\-P (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classstl__task_aa976345c69db9b31f42442a04adda32e}
+This method will cause the task to run again as soon as it can instead of waiting for the given time interval. 
+
+Definition at line 189 of file stl\-\_\-task.\-h.
+
+
+
+References T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G.
+
+\hypertarget{classstl__task_a86a54618c911663e235f07fba78c728a}{\index{stl\-\_\-task@{stl\-\_\-task}!schedule@{schedule}}
+\index{schedule@{schedule}!stl_task@{stl\-\_\-task}}
+\subsubsection[{schedule}]{\setlength{\rightskip}{0pt plus 5cm}{\bf task\-\_\-op\-\_\-state} stl\-\_\-task\-::schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf time\-\_\-stamp} $\ast$}]{til\-\_\-next\-\_\-time = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classstl__task_a86a54618c911663e235f07fba78c728a}
+This method is called by the main task loop to try to run the task. If the task is in the waiting state, it checks to see if it's time to run yet; if it's in the suspended state, it doesn't. The task shouldn't be in the running state, because this method is used by the cooperative scheduler, not the pre-\/emptive one. 
+\begin{DoxyParams}{Parameters}
+{\em til\-\_\-next\-\_\-time} & A pointer to a time stamp which will hold next time this task next needs to run, or N\-U\-L\-L (default) if this data isn't needed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The operational state of the task after it has been given this chance to run 
+\end{DoxyReturn}
+
+
+Definition at line 115 of file stl\-\_\-task.\-cpp.
+
+
+
+References endl, error\-\_\-stop(), task\-\_\-timer\-::get\-\_\-time\-\_\-now(), G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G, interval, next\-\_\-run\-\_\-time, run(), S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N, T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G, T\-A\-S\-K\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D, T\-A\-S\-K\-\_\-\-W\-A\-I\-T\-I\-N\-G, and the\-\_\-timer.
+
+\hypertarget{classstl__task_a73904c3a785fbb3eb0f0041bca5926fe}{\index{stl\-\_\-task@{stl\-\_\-task}!set\-\_\-initial\-\_\-state@{set\-\_\-initial\-\_\-state}}
+\index{set\-\_\-initial\-\_\-state@{set\-\_\-initial\-\_\-state}!stl_task@{stl\-\_\-task}}
+\subsubsection[{set\-\_\-initial\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}void stl\-\_\-task\-::set\-\_\-initial\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{char}]{init\-\_\-state}
+\end{DoxyParamCaption}
+)}}\label{classstl__task_a73904c3a785fbb3eb0f0041bca5926fe}
+This method changes the initial state in which the task begins to operate. The default initial state is state 0. It should only be used before the task begins to run, as it sets the current and next state variables and will completely mess up normal state transition operation if called at any other time. 
+
+Definition at line 242 of file stl\-\_\-task.\-cpp.
+
+\hypertarget{classstl__task_a809314255837a6ba122bef5a03775b9a}{\index{stl\-\_\-task@{stl\-\_\-task}!set\-\_\-interval@{set\-\_\-interval}}
+\index{set\-\_\-interval@{set\-\_\-interval}!stl_task@{stl\-\_\-task}}
+\subsubsection[{set\-\_\-interval}]{\setlength{\rightskip}{0pt plus 5cm}void stl\-\_\-task\-::set\-\_\-interval (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{time\-\_\-interval}
+\end{DoxyParamCaption}
+)}}\label{classstl__task_a809314255837a6ba122bef5a03775b9a}
+This method sets or changes the time interval between runs of this task. 
+\begin{DoxyParams}{Parameters}
+{\em time\-\_\-interval} & The time between runs of the task's \hyperlink{classstl__task_a35f8eccc4a9c6737d217402b3cb0ffee}{run()} method \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 83 of file stl\-\_\-task.\-cpp.
+
+
+
+References interval.
+
+\hypertarget{classstl__task_a5d06fa647b9492360a9c38fe429f7ccc}{\index{stl\-\_\-task@{stl\-\_\-task}!set\-\_\-next\-\_\-run\-\_\-time@{set\-\_\-next\-\_\-run\-\_\-time}}
+\index{set\-\_\-next\-\_\-run\-\_\-time@{set\-\_\-next\-\_\-run\-\_\-time}!stl_task@{stl\-\_\-task}}
+\subsubsection[{set\-\_\-next\-\_\-run\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}void stl\-\_\-task\-::set\-\_\-next\-\_\-run\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{const {\bf time\-\_\-stamp} \&}]{next\-\_\-time}
+\end{DoxyParamCaption}
+)}}\label{classstl__task_a5d06fa647b9492360a9c38fe429f7ccc}
+This method sets the next run time for the task. It should be used if the task timer's value is adjusted significantly, or if the task timer is started at a time long after time zero. If this isn't done, the task will run many times in quick succession, trying to catch up to the correct run time. Note that if this method is called and sets the next time far in the past, the same problem will occur. 
+\begin{DoxyParams}{Parameters}
+{\em next\-\_\-time} & A time stamp containing the next time for the task to run \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 98 of file stl\-\_\-task.\-cpp.
+
+
+
+References next\-\_\-run\-\_\-time.
+
+\hypertarget{classstl__task_a8e49886b5ecd7479a3d09d378b09d97f}{\index{stl\-\_\-task@{stl\-\_\-task}!suspend@{suspend}}
+\index{suspend@{suspend}!stl_task@{stl\-\_\-task}}
+\subsubsection[{suspend}]{\setlength{\rightskip}{0pt plus 5cm}void stl\-\_\-task\-::suspend (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classstl__task_a8e49886b5ecd7479a3d09d378b09d97f}
+This method suspends the task so that it won't run again until after somebody calls the \hyperlink{classstl__task_acdec061dcd4755e8a870383433b1fc5b}{resume()} method. The state of the task before suspension is saved so that it can be restored after suspension. 
+
+Definition at line 217 of file stl\-\_\-task.\-cpp.
+
+
+
+References T\-A\-S\-K\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stl__task_8h}{stl\-\_\-task.\-h}\item 
+\hyperlink{stl__task_8cpp}{stl\-\_\-task.\-cpp}\end{DoxyCompactItemize}

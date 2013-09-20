@@ -1,0 +1,111 @@
+\hypertarget{stl__task_8h}{\section{stl\-\_\-task.\-h File Reference}
+\label{stl__task_8h}\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}}
+}
+{\ttfamily \#include \char`\"{}stl\-\_\-timer.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classstl__task}{stl\-\_\-task}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{stl__task_8h_ab7f098b819a25c755325d69a07030021}{task\-\_\-op\-\_\-state} \{ \\*
+\hyperlink{stl__task_8h_ab7f098b819a25c755325d69a07030021a9bd2895158d9e7c8cf80b57659fcba50}{T\-A\-S\-K\-\_\-\-R\-U\-N\-N\-I\-N\-G}, 
+\hyperlink{stl__task_8h_ab7f098b819a25c755325d69a07030021a7c169d810155c026d36e14dbace569f8}{T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G}, 
+\hyperlink{stl__task_8h_ab7f098b819a25c755325d69a07030021a4a29fe6fa4920be0a639581f0d796545}{T\-A\-S\-K\-\_\-\-W\-A\-I\-T\-I\-N\-G}, 
+\hyperlink{stl__task_8h_ab7f098b819a25c755325d69a07030021a108284117a3f463352658a08930a3888}{T\-A\-S\-K\-\_\-\-B\-L\-O\-C\-K\-E\-D}, 
+\\*
+\hyperlink{stl__task_8h_ab7f098b819a25c755325d69a07030021a5627900a47535078453400aa045af93a}{T\-A\-S\-K\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{stl__task_8h_ae52dc52ab4aadd7c102f3acb11b2baa6}{operator$<$$<$} (\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \&, \hyperlink{classstl__task}{stl\-\_\-task} \&)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char \hyperlink{stl__task_8h_ac154dbfd5b43d53bd2e5d69be1eabc49}{S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N} = 0x\-F\-F
+\begin{DoxyCompactList}\small\item\em This define prevents this .h file from being included more than once in a .cc file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains the definition of a task class. This class implements the tasks in a multitasking system. These tasks are intended to be run in a cooperative multitasking framework, but they can also be worked into an interrupt framework or run within an R\-T\-O\-S.
+
+Revisions \begin{DoxyItemize}
+\item 04-\/21-\/07 J\-R\-R Original of this file, derived from U\-C\-B's Tran\-Run4 and simplified greatly for efficient use in A\-V\-R processors \item 05-\/07-\/07 J\-R\-R Small bug fixes \item 06-\/01-\/08 J\-R\-R Changed debugging/trace to take advantage of \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \item 06-\/03-\/08 J\-R\-R Cleaned up comments, got rid of Doxygen warnings\end{DoxyItemize}
+License\-: This file released under the Lesser G\-N\-U Public License, version 2. This program is intended for educational use only, but it is not limited thereto. 
+
+Definition in file \hyperlink{stl__task_8h_source}{stl\-\_\-task.\-h}.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{stl__task_8h_ab7f098b819a25c755325d69a07030021}{\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}!task\-\_\-op\-\_\-state@{task\-\_\-op\-\_\-state}}
+\index{task\-\_\-op\-\_\-state@{task\-\_\-op\-\_\-state}!stl_task.h@{stl\-\_\-task.\-h}}
+\subsubsection[{task\-\_\-op\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf task\-\_\-op\-\_\-state}}}\label{stl__task_8h_ab7f098b819a25c755325d69a07030021}
+This enumeration lists the possible operational states of a task. These states are not the same as the states which are programmed by the user; these states are only used by the task scheduler to figure out which task to run at a given time according to priorities (if used) and which tasks are ready to be run. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{T\-A\-S\-K\-\_\-\-R\-U\-N\-N\-I\-N\-G@{T\-A\-S\-K\-\_\-\-R\-U\-N\-N\-I\-N\-G}!stl\-\_\-task.\-h@{stl\-\_\-task.\-h}}\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}!T\-A\-S\-K\-\_\-\-R\-U\-N\-N\-I\-N\-G@{T\-A\-S\-K\-\_\-\-R\-U\-N\-N\-I\-N\-G}}\item[{\em 
+\hypertarget{stl__task_8h_ab7f098b819a25c755325d69a07030021a9bd2895158d9e7c8cf80b57659fcba50}{T\-A\-S\-K\-\_\-\-R\-U\-N\-N\-I\-N\-G}\label{stl__task_8h_ab7f098b819a25c755325d69a07030021a9bd2895158d9e7c8cf80b57659fcba50}
+}]The task's run() function is executing. \index{T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G@{T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G}!stl\-\_\-task.\-h@{stl\-\_\-task.\-h}}\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}!T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G@{T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G}}\item[{\em 
+\hypertarget{stl__task_8h_ab7f098b819a25c755325d69a07030021a7c169d810155c026d36e14dbace569f8}{T\-A\-S\-K\-\_\-\-P\-E\-N\-D\-I\-N\-G}\label{stl__task_8h_ab7f098b819a25c755325d69a07030021a7c169d810155c026d36e14dbace569f8}
+}]The task needs to run again as soon as possible. \index{T\-A\-S\-K\-\_\-\-W\-A\-I\-T\-I\-N\-G@{T\-A\-S\-K\-\_\-\-W\-A\-I\-T\-I\-N\-G}!stl\-\_\-task.\-h@{stl\-\_\-task.\-h}}\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}!T\-A\-S\-K\-\_\-\-W\-A\-I\-T\-I\-N\-G@{T\-A\-S\-K\-\_\-\-W\-A\-I\-T\-I\-N\-G}}\item[{\em 
+\hypertarget{stl__task_8h_ab7f098b819a25c755325d69a07030021a4a29fe6fa4920be0a639581f0d796545}{T\-A\-S\-K\-\_\-\-W\-A\-I\-T\-I\-N\-G}\label{stl__task_8h_ab7f098b819a25c755325d69a07030021a4a29fe6fa4920be0a639581f0d796545}
+}]The task is waiting for its next run time to occur. \index{T\-A\-S\-K\-\_\-\-B\-L\-O\-C\-K\-E\-D@{T\-A\-S\-K\-\_\-\-B\-L\-O\-C\-K\-E\-D}!stl\-\_\-task.\-h@{stl\-\_\-task.\-h}}\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}!T\-A\-S\-K\-\_\-\-B\-L\-O\-C\-K\-E\-D@{T\-A\-S\-K\-\_\-\-B\-L\-O\-C\-K\-E\-D}}\item[{\em 
+\hypertarget{stl__task_8h_ab7f098b819a25c755325d69a07030021a108284117a3f463352658a08930a3888}{T\-A\-S\-K\-\_\-\-B\-L\-O\-C\-K\-E\-D}\label{stl__task_8h_ab7f098b819a25c755325d69a07030021a108284117a3f463352658a08930a3888}
+}]The task cannot run because a resource is unavailable. \index{T\-A\-S\-K\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D@{T\-A\-S\-K\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D}!stl\-\_\-task.\-h@{stl\-\_\-task.\-h}}\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}!T\-A\-S\-K\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D@{T\-A\-S\-K\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D}}\item[{\em 
+\hypertarget{stl__task_8h_ab7f098b819a25c755325d69a07030021a5627900a47535078453400aa045af93a}{T\-A\-S\-K\-\_\-\-S\-U\-S\-P\-E\-N\-D\-E\-D}\label{stl__task_8h_ab7f098b819a25c755325d69a07030021a5627900a47535078453400aa045af93a}
+}]The task is turned off until its resume() is called. \end{description}
+\end{Desc}
+
+
+Definition at line 43 of file stl\-\_\-task.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{stl__task_8h_ae52dc52ab4aadd7c102f3acb11b2baa6}{\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!stl_task.h@{stl\-\_\-task.\-h}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial}\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf base\-\_\-text\-\_\-serial} \&}]{serial, }
+\item[{{\bf stl\-\_\-task} \&}]{task}
+\end{DoxyParamCaption}
+)}}\label{stl__task_8h_ae52dc52ab4aadd7c102f3acb11b2baa6}
+This overloaded shift operator writes the vital statistics for this task to a serial device. Just what is written depends on whether transition tracing and/or execution time profiling has been enabled. 
+\begin{DoxyParams}{Parameters}
+{\em serial} & A reference to the serial-\/type object to which to print \\
+\hline
+{\em task} & A reference to the task whose information is to be displayed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 382 of file stl\-\_\-task.\-cpp.
+
+
+
+References stl\-\_\-task\-::get\-\_\-serial\-\_\-number(), and P\-M\-S.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{stl__task_8h_ac154dbfd5b43d53bd2e5d69be1eabc49}{\index{stl\-\_\-task.\-h@{stl\-\_\-task.\-h}!S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N@{S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N}}
+\index{S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N@{S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N}!stl_task.h@{stl\-\_\-task.\-h}}
+\subsubsection[{S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}const char S\-T\-L\-\_\-\-N\-O\-\_\-\-T\-R\-A\-N\-S\-I\-T\-I\-O\-N = 0x\-F\-F}}\label{stl__task_8h_ac154dbfd5b43d53bd2e5d69be1eabc49}
+
+
+This define prevents this .h file from being included more than once in a .cc file. 
+
+This define specifies a no-\/transition code which means that the next state will be the same as the current state, and with no self-\/transition. 
+
+Definition at line 33 of file stl\-\_\-task.\-h.
+
+
+
+Referenced by Go\-\_\-\-Home\-::run(), task\-\_\-lines\-::run(), task\-\_\-\-P\-I\-D\-::run(), stl\-\_\-task\-::run(), and stl\-\_\-task\-::schedule().
+

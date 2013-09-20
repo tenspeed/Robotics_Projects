@@ -3,18 +3,13 @@
 }
 
 
-This define prevents this .h file from being included more than once in a .cpp file.  
-
-
-
-
 {\ttfamily \#include $<$servo.\-h$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classservo_a7b755565320b23fbbb6f503592576451}{servo} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port)
-\begin{DoxyCompactList}\small\item\em $<$ include own header file \end{DoxyCompactList}\item 
+\item 
 void \hyperlink{classservo_a0c3ccbb231e64ef9d4d594b6a257fede}{Set\-\_\-\-Angle} (uint16\-\_\-t angle)
 \item 
 \hypertarget{classservo_a0f6663b0fba3ed965886d1b7b2c096ff}{void \hyperlink{classservo_a0f6663b0fba3ed965886d1b7b2c096ff}{Pen\-\_\-\-Up} (void)}\label{classservo_a0f6663b0fba3ed965886d1b7b2c096ff}
@@ -41,9 +36,11 @@ void \hyperlink{classservo_a0c3ccbb231e64ef9d4d594b6a257fede}{Set\-\_\-\-Angle} 
 
 
 \subsection{Detailed Description}
-This define prevents this .h file from being included more than once in a .cpp file. 
+\hyperlink{servo_8cpp_source}{Servo.\-cpp} is a class with methods and inline methods for controlling a hobby servo to raise and lower the pen for making points and lines. The servo is connected to a P\-W\-M output pin on the microcontroller and the angle is related to the duty cycle of the P\-W\-M signal. 
 
-Servo.\-cpp is a simple file which allows a user to run a single hobby servo. 
+Definition at line 10 of file servo.\-h.
+
+
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classservo_a7b755565320b23fbbb6f503592576451}{\index{servo@{servo}!servo@{servo}}
@@ -53,20 +50,19 @@ Servo.\-cpp is a simple file which allows a user to run a single hobby servo.
 \item[{base\-\_\-text\-\_\-serial $\ast$}]{p\-\_\-serial\-\_\-port}
 \end{DoxyParamCaption}
 )}}\label{classservo_a7b755565320b23fbbb6f503592576451}
-
-
-$<$ include own header file 
-
 C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R initializes P\-W\-M output for a R\-C servo motor. and sets pen height to a safe value. Servo output pins are A0 \& A1 
-\begin{DoxyParams}{Parameters}
-{\em p\-\_\-serial\-\_\-port} & Serial object so we can write to screen\\
-\hline
-\end{DoxyParams}
-Servo.\-cpp is a simple file which allows a user to run a single hobby servo.$<$ Standard C library Input-\/output ports, special registers $<$ Interrupt handling functions $<$ Include header for serial port class\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R initializes P\-W\-M output for a R\-C servo motor. and sets pen height to a safe value. Servo output pins are A0 \& A1 
 \begin{DoxyParams}{Parameters}
 {\em p\-\_\-serial\-\_\-port} & Serial object so we can write to screen \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 15 of file servo.\-cpp.
+
+
+
+References ptr\-\_\-2\-\_\-serial.
+
 
 
 \subsection{Member Function Documentation}
@@ -79,14 +75,17 @@ Servo.\-cpp is a simple file which allows a user to run a single hobby servo.$<$
 )}}\label{classservo_a0c3ccbb231e64ef9d4d594b6a257fede}
 Set\-\_\-\-Angle sets the angle of the servo. 
 \begin{DoxyParams}{Parameters}
-{\em angle,\-:} & an angle from 0 to 360 degrees is accepted\\
+{\em angle,\-:} & an angle from 0 to 360 degrees is accepted \\
 \hline
 \end{DoxyParams}
-Set\-\_\-\-Angle sets the angle of the servo 
-\begin{DoxyParams}{Parameters}
-{\em angle} & sets the servo angle between 0 and 360 degrees \\
-\hline
-\end{DoxyParams}
+
+
+Definition at line 47 of file servo.\-cpp.
+
+
+
+References Servo\-Set.
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

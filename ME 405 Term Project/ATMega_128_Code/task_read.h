@@ -1,12 +1,28 @@
-/** task_read.h is the header file for task_read and includes a number of file scoped variables
-*	and a single method, run.
+/** task_read is the input section of the user interface for the polar plotter. It takes in the 
+*	following commands:
+*						[h,H,?] 	print a help screen 
+*						[o,O]		home the machine
+*						[g,G]		enable motor control
+*						[s,S]		disable motor control (stop motors)
+*                		[SPACE]		Emergency stop
+*						[r,R]		raise pen
+*						[l,L]		lower pen
+*						[p,P]		initiate K_p GAIN ENTRY MODE
+*						[i,I]		initiate K_i GAIN ENTRY MODE
+*						[d,D]		initiate K_d GAIN ENTRY MODE
+*						[c,C]		initiate COORDINATE INPUT MODE to make a line
+*						[m,M]		initiate COORDINATE INPUT MODE to make a point
+*						[q,Q]		print current values of gains, encoders and set points
+*						[z,Z]		reset PID controller (on both boards)
+*						[x,X]		Make signiture
+*	COORDINATE INPUT MODES: Allows a user to enter values from 0 to 99.9 and accept one decimal place if desired
+*	GAIN ENTRY MODE: Allows a user to enter a number up to 5 digits. User is then promted on which motor to update.
+*					 no enter key is required on this last step.
 */
-
-
 
 //-------------------------------------------------------------------------------------
 
-/// This define prevents this .h file from being included more than once in a .cpp file
+// This define prevents this .h file from being included more than once in a .cpp file
 #ifndef _task_read_H_
 #define _task_read_H_
 

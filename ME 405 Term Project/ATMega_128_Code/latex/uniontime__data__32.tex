@@ -1,0 +1,31 @@
+\hypertarget{uniontime__data__32}{\section{time\-\_\-data\-\_\-32 Union Reference}
+\label{uniontime__data__32}\index{time\-\_\-data\-\_\-32@{time\-\_\-data\-\_\-32}}
+}
+
+
+{\ttfamily \#include $<$stl\-\_\-timer.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{uniontime__data__32_ad51c9fec10324c5f817aeebf9c140794}{uint32\-\_\-t \hyperlink{uniontime__data__32_ad51c9fec10324c5f817aeebf9c140794}{whole}}\label{uniontime__data__32_ad51c9fec10324c5f817aeebf9c140794}
+
+\begin{DoxyCompactList}\small\item\em All the data as one 32-\/bit number. \end{DoxyCompactList}\item 
+\hypertarget{uniontime__data__32_afabbb69506d0c19165470a7bb0c9a8dc}{uint16\-\_\-t \hyperlink{uniontime__data__32_afabbb69506d0c19165470a7bb0c9a8dc}{half} \mbox{[}2\mbox{]}}\label{uniontime__data__32_afabbb69506d0c19165470a7bb0c9a8dc}
+
+\begin{DoxyCompactList}\small\item\em The data as an array of 16-\/bit ints. \end{DoxyCompactList}\item 
+\hypertarget{uniontime__data__32_a55b692764e8f62719ec296e681cc7864}{uint8\-\_\-t \hyperlink{uniontime__data__32_a55b692764e8f62719ec296e681cc7864}{quarters} \mbox{[}4\mbox{]}}\label{uniontime__data__32_a55b692764e8f62719ec296e681cc7864}
+
+\begin{DoxyCompactList}\small\item\em The data as an array of 8-\/bit chars. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This union holds a 32-\/bit time count. The count can be accessed as a single 32-\/bit number, as two 16-\/bit integers placed together, or as an array of 8-\/bit characters. This is helpful because the time measurement we use consists of the number in a 16-\/bit hardware counter and a 16-\/bit overflow count which should be put together into one time number. The characters are handy for looking at individual bits. 
+
+Definition at line 57 of file stl\-\_\-timer.\-h.
+
+
+
+The documentation for this union was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stl__timer_8h}{stl\-\_\-timer.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,127 @@
+\hypertarget{classtask__timer}{\section{task\-\_\-timer Class Reference}
+\label{classtask__timer}\index{task\-\_\-timer@{task\-\_\-timer}}
+}
+
+
+{\ttfamily \#include $<$stl\-\_\-timer.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtask__timer_af8d96cae8e4b94970a96df6fef2a75b8}{task\-\_\-timer} (void)
+\item 
+void \hyperlink{classtask__timer_a56c09d1da6107f284d12e079f0de62ed}{save\-\_\-time\-\_\-stamp} (\hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em Constructor creates an empty timer. \end{DoxyCompactList}\item 
+\hyperlink{classtime__stamp}{time\-\_\-stamp} \& \hyperlink{classtask__timer_a2723e16b4d9e7c4f997547a9be1820ed}{get\-\_\-time\-\_\-now} (void)
+\begin{DoxyCompactList}\small\item\em Save current time in a timestamp. \end{DoxyCompactList}\item 
+bool \hyperlink{classtask__timer_ae793fba368c36c813ae581c358c33c48}{set\-\_\-time} (\hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\begin{DoxyCompactList}\small\item\em Get the current time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classtask__timer_a8c7dab1af76b4583fa9c6a744c2dbff0}{\hyperlink{classtime__stamp}{time\-\_\-stamp} \hyperlink{classtask__timer_a8c7dab1af76b4583fa9c6a744c2dbff0}{now\-\_\-time}}\label{classtask__timer_a8c7dab1af76b4583fa9c6a744c2dbff0}
+
+\begin{DoxyCompactList}\small\item\em This time stamp object holds a most recently measured time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class implements a timer to synchronize the operation of tasks on an A\-V\-R. The timer is implemented as a combination of a 16-\/bit hardware timer (Timer 1 is the usual choice) and a 16-\/bit overflow counter. The two timers' data is combined to produce a 32-\/bit time count which is used to decide when tasks run. W\-A\-R\-N\-I\-N\-G\-: This timer does not keep track of the time of day, and it overflows after a little more than an hour of use. Another version of the stl\-\_\-timer can be used when longer time periods need to be kept track of, to lower precision. 
+
+Definition at line 155 of file stl\-\_\-timer.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtask__timer_af8d96cae8e4b94970a96df6fef2a75b8}{\index{task\-\_\-timer@{task\-\_\-timer}!task\-\_\-timer@{task\-\_\-timer}}
+\index{task\-\_\-timer@{task\-\_\-timer}!task_timer@{task\-\_\-timer}}
+\subsubsection[{task\-\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}task\-\_\-timer\-::task\-\_\-timer (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classtask__timer_af8d96cae8e4b94970a96df6fef2a75b8}
+This constructor creates a daytime task timer object. It sets up the hardware timer to count at $\sim$1 M\-Hz and interrupt on overflow. Note that this method does not enable interrupts globally, so the user must call sei() at some point to enable the timer interrupts to run and time to actually be measured. 
+
+Definition at line 328 of file stl\-\_\-timer.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtask__timer_a2723e16b4d9e7c4f997547a9be1820ed}{\index{task\-\_\-timer@{task\-\_\-timer}!get\-\_\-time\-\_\-now@{get\-\_\-time\-\_\-now}}
+\index{get\-\_\-time\-\_\-now@{get\-\_\-time\-\_\-now}!task_timer@{task\-\_\-timer}}
+\subsubsection[{get\-\_\-time\-\_\-now}]{\setlength{\rightskip}{0pt plus 5cm}{\bf time\-\_\-stamp} \& task\-\_\-timer\-::get\-\_\-time\-\_\-now (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classtask__timer_a2723e16b4d9e7c4f997547a9be1820ed}
+
+
+Save current time in a timestamp. 
+
+This method saves the current time in the internal time stamp belonging to this object, then returns a reference to the time stamp so that the caller can use it as a measurement of what the time is now. 
+
+Definition at line 375 of file stl\-\_\-timer.\-cpp.
+
+
+
+References time\-\_\-stamp\-::data, time\-\_\-data\-\_\-32\-::half, now\-\_\-time, T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G, and ust\-\_\-overflows.
+
+
+
+Referenced by operator$<$$<$(), and stl\-\_\-task\-::schedule().
+
+\hypertarget{classtask__timer_a56c09d1da6107f284d12e079f0de62ed}{\index{task\-\_\-timer@{task\-\_\-timer}!save\-\_\-time\-\_\-stamp@{save\-\_\-time\-\_\-stamp}}
+\index{save\-\_\-time\-\_\-stamp@{save\-\_\-time\-\_\-stamp}!task_timer@{task\-\_\-timer}}
+\subsubsection[{save\-\_\-time\-\_\-stamp}]{\setlength{\rightskip}{0pt plus 5cm}void task\-\_\-timer\-::save\-\_\-time\-\_\-stamp (
+\begin{DoxyParamCaption}
+\item[{{\bf time\-\_\-stamp} \&}]{the\-\_\-stamp}
+\end{DoxyParamCaption}
+)}}\label{classtask__timer_a56c09d1da6107f284d12e079f0de62ed}
+
+
+Constructor creates an empty timer. 
+
+This method grabs the current time stamp from the hardware and overflow counters. In order to prevent the data changing during the time when it's being read (which would cause invalid data to be saved), interrupts are disabled while the time data is being copied. 
+\begin{DoxyParams}{Parameters}
+{\em the\-\_\-stamp} & Reference to a time stamp variable which will hold the time \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 359 of file stl\-\_\-timer.\-cpp.
+
+
+
+References time\-\_\-stamp\-::data, time\-\_\-data\-\_\-32\-::half, T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G, and ust\-\_\-overflows.
+
+\hypertarget{classtask__timer_ae793fba368c36c813ae581c358c33c48}{\index{task\-\_\-timer@{task\-\_\-timer}!set\-\_\-time@{set\-\_\-time}}
+\index{set\-\_\-time@{set\-\_\-time}!task_timer@{task\-\_\-timer}}
+\subsubsection[{set\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}bool task\-\_\-timer\-::set\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{{\bf time\-\_\-stamp} \&}]{t\-\_\-stamp}
+\end{DoxyParamCaption}
+)}}\label{classtask__timer_ae793fba368c36c813ae581c358c33c48}
+
+
+Get the current time. 
+
+This method sets the current time to the time in the given time stamp
+
+This method sets the timer to a given value. It's not likely that this method will be used, but it is provided for compatibility with other task timer implementations that measure times of day (in hours, minutes, and seconds) and do need to be set by user programs. 
+\begin{DoxyParams}{Parameters}
+{\em t\-\_\-stamp} & A reference to a time stamp containing the time to be set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 395 of file stl\-\_\-timer.\-cpp.
+
+
+
+References time\-\_\-stamp\-::data, time\-\_\-data\-\_\-32\-::half, T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G, and ust\-\_\-overflows.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stl__timer_8h}{stl\-\_\-timer.\-h}\item 
+\hyperlink{stl__timer_8cpp}{stl\-\_\-timer.\-cpp}\end{DoxyCompactItemize}

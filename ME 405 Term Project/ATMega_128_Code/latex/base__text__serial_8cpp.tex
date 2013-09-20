@@ -1,0 +1,68 @@
+\hypertarget{base__text__serial_8cpp}{\section{base\-\_\-text\-\_\-serial.\-cpp File Reference}
+\label{base__text__serial_8cpp}\index{base\-\_\-text\-\_\-serial.\-cpp@{base\-\_\-text\-\_\-serial.\-cpp}}
+}
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}base\-\_\-text\-\_\-serial.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407}{ser\-\_\-manipulator} \hyperlink{base__text__serial_8cpp_a669aafd5405349610b6edc4835523c66}{setprecision} (unsigned char digits)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{base__text__serial_8cpp_a8025aff7aaec8ff421afd406e823eb2f}{bts\-\_\-glob\-\_\-prec} = 3
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a base class for devices which send information in text form over serial devices in an A\-V\-R microcontroller. Example devices are serial ports (both traditional R\-S-\/232 ports and U\-S\-B-\/serial adapters) and wireless modems.
+
+Revised\-: \begin{DoxyItemize}
+\item 04-\/03-\/2006 J\-R\-R For updated version of compiler \item 06-\/10-\/2006 J\-R\-R Ported from C++ to C for use with some C-\/only projects \item 08-\/11-\/2006 J\-R\-R Some bug fixes \item 03-\/02-\/2007 J\-R\-R Ported back to C++. I've had it with the limitations of C. \item 04-\/16-\/2007 J\-O Added write (unsigned long) \item 07-\/19-\/2007 J\-R\-R Changed some character return values to bool, added m324p \item 01-\/12-\/2008 J\-R\-R Added code for the A\-Tmega128 using U\-S\-A\-R\-T number 1 only \item 02-\/13-\/2008 J\-R\-R Split into base class and device specific classes; changed from write() to overloaded $<$$<$ operator in the \char`\"{}cout\char`\"{} style \item 05-\/12-\/2008 A\-L\-S Fixed bug in which signed numbers came out unsigned \item 07-\/05-\/2008 J\-R\-R Added configuration macro by which to change what \char`\"{}endl\char`\"{} is \item 07-\/05-\/2008 J\-R\-R Added 'ascii' and 'numeric' format codes \item 11-\/24-\/2009 J\-R\-R Changed operation of 'clrscr' to a function to work with L\-C\-D \item 11-\/26-\/2009 J\-R\-R Integrated floating point support into this file \item 12-\/16-\/2009 J\-R\-R Improved support for constant strings in program memory\end{DoxyItemize}
+Licenses\-: This file released under the Lesser G\-N\-U Public License, version 2. This program is intended for educational use only, but it is not limited thereto. This code incorporates elements from Xmelkov's ftoa\-\_\-engine.\-h, part of the avr-\/libc source, and users must accept and comply with the license of ftoa\-\_\-engine.\-h as well. See \hyperlink{base__text__serial_8h}{base\-\_\-text\-\_\-serial.\-h} for a copy of the relevant license terms. 
+
+Definition in file \hyperlink{base__text__serial_8cpp_source}{base\-\_\-text\-\_\-serial.\-cpp}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{base__text__serial_8cpp_a669aafd5405349610b6edc4835523c66}{\index{base\-\_\-text\-\_\-serial.\-cpp@{base\-\_\-text\-\_\-serial.\-cpp}!setprecision@{setprecision}}
+\index{setprecision@{setprecision}!base_text_serial.cpp@{base\-\_\-text\-\_\-serial.\-cpp}}
+\subsubsection[{setprecision}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ser\-\_\-manipulator} setprecision (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{digits}
+\end{DoxyParamCaption}
+)}}\label{base__text__serial_8cpp_a669aafd5405349610b6edc4835523c66}
+This function sets the global precision value, then returns a manipulator which causes a serial object to change its floating point precision (the number of digits after the decimal point which will be printed). The new precision is \char`\"{}sticky\char`\"{} in that its value persists until this function is called again to change it again. 
+\begin{DoxyParams}{Parameters}
+{\em digits} & A new value for the number of digits after the decimal point; a maximum of 7 digits are allowed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The serial manipulator called \char`\"{}manip\-\_\-set\-\_\-precision\char`\"{} 
+\end{DoxyReturn}
+
+
+Definition at line 462 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References bts\-\_\-glob\-\_\-prec, and manip\-\_\-set\-\_\-precision.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{base__text__serial_8cpp_a8025aff7aaec8ff421afd406e823eb2f}{\index{base\-\_\-text\-\_\-serial.\-cpp@{base\-\_\-text\-\_\-serial.\-cpp}!bts\-\_\-glob\-\_\-prec@{bts\-\_\-glob\-\_\-prec}}
+\index{bts\-\_\-glob\-\_\-prec@{bts\-\_\-glob\-\_\-prec}!base_text_serial.cpp@{base\-\_\-text\-\_\-serial.\-cpp}}
+\subsubsection[{bts\-\_\-glob\-\_\-prec}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char bts\-\_\-glob\-\_\-prec = 3}}\label{base__text__serial_8cpp_a8025aff7aaec8ff421afd406e823eb2f}
+This variable, accessible to any function in this file, allows the nonmember function \hyperlink{base__text__serial_8cpp_a669aafd5405349610b6edc4835523c66}{setprecision()} to communicate the number of digits after the decimal point to a specific text serial port object. The \hyperlink{base__text__serial_8cpp_a669aafd5405349610b6edc4835523c66}{setprecision()} function will return a manipulator that causes a specific serial object (the one in whose cout style output line it is called) to read the value of this variable. 
+
+Definition at line 47 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+Referenced by setprecision().
+

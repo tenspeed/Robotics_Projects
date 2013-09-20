@@ -1,0 +1,105 @@
+\hypertarget{stl__timer_8h}{\section{stl\-\_\-timer.\-h File Reference}
+\label{stl__timer_8h}\index{stl\-\_\-timer.\-h@{stl\-\_\-timer.\-h}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{uniontime__data__32}{time\-\_\-data\-\_\-32}
+\item 
+class \hyperlink{classtime__stamp}{time\-\_\-stamp}
+\item 
+class \hyperlink{classtask__timer}{task\-\_\-timer}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stl__timer_8h_ade1cdd2a2b0155d182a9fecf680d4096}{T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G}~T\-C\-N\-T1
+\begin{DoxyCompactList}\small\item\em These defines prevent this file from being included more than once in a $\ast$.cc file. \end{DoxyCompactList}\item 
+\hypertarget{stl__timer_8h_a4403e502e5a832f5cf455a8989320895}{\#define \hyperlink{stl__timer_8h_a4403e502e5a832f5cf455a8989320895}{T\-M\-R\-\_\-intr\-\_\-vect}~T\-I\-M\-E\-R1\-\_\-\-O\-V\-F\-\_\-vect}\label{stl__timer_8h_a4403e502e5a832f5cf455a8989320895}
+
+\begin{DoxyCompactList}\small\item\em The timer overflow interrupt vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{stl__timer_8h_a4615812c577c764700d9579019e871a4}{operator$<$$<$} (\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \&, \hyperlink{classtime__stamp}{time\-\_\-stamp} \&)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{stl__timer_8h_aee360bb679cdd863c6148bc0f1f01b6d}{operator$<$$<$} (\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \&, \hyperlink{classtask__timer}{task\-\_\-timer} \&)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a class which runs a task timer whose resolution is one microsecond. The timer is used to help schedule the execution of tasks' run() methods, and it is also used to keep track of real time in general. The run() methods can be run from a main loop by checking periodically if a task time has expired, or they can be called directly from a timer interrupt service routine.
+
+Revisions\-: \begin{DoxyItemize}
+\item 08-\/07-\/2007 J\-R\-R Created this file as daytimer.$\ast$ with 1 second interrupts \item 08-\/08-\/2007 J\-R\-R Added event triggers \item 12-\/23-\/2007 J\-R\-R Made more general by allowing faster interrupt rates \item 01-\/05-\/2008 J\-R\-R Converted from time-\/of-\/day version to microsecond version \item 03-\/27-\/2008 J\-R\-R Added operators + and -\/ for time stamps \item 03-\/31-\/2008 J\-R\-R Merged in stl\-\_\-us\-\_\-timer (int, long) and set\-\_\-time (int, long) \item 05-\/15-\/2008 J\-R\-R Changed to use Timer 3 so Timer 1 can run motor P\-W\-M's \item 05-\/31-\/2008 J\-R\-R Changed time calculations to use C\-P\-U\-\_\-\-F\-R\-E\-Q\-\_\-\-M\-Hz from Makefile \item 01-\/04-\/2009 J\-R\-R Now uses C\-P\-U\-\_\-\-F\-R\-E\-Q\-\_\-\-Hz (rather than M\-Hz) for better precision \item 11-\/24-\/2009 J\-R\-R Changed C\-P\-U\-\_\-\-F\-R\-E\-Q\-\_\-\-Hz to F\-\_\-\-C\-P\-U to match A\-V\-R-\/\-Lib\-C's name\end{DoxyItemize}
+License\-: This file copyright 2007 by J\-R Ridgely. It is released under the Lesser G\-N\-U public license, version 2. 
+
+Definition in file \hyperlink{stl__timer_8h_source}{stl\-\_\-timer.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stl__timer_8h_ade1cdd2a2b0155d182a9fecf680d4096}{\index{stl\-\_\-timer.\-h@{stl\-\_\-timer.\-h}!T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G@{T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G}}
+\index{T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G@{T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G}!stl_timer.h@{stl\-\_\-timer.\-h}}
+\subsubsection[{T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-R\-\_\-\-T\-C\-N\-T\-\_\-\-R\-E\-G~T\-C\-N\-T1}}\label{stl__timer_8h_ade1cdd2a2b0155d182a9fecf680d4096}
+
+
+These defines prevent this file from being included more than once in a $\ast$.cc file. 
+
+Register that holds the time count 
+
+Definition at line 44 of file stl\-\_\-timer.\-h.
+
+
+
+Referenced by task\-\_\-timer\-::get\-\_\-time\-\_\-now(), task\-\_\-timer\-::save\-\_\-time\-\_\-stamp(), and task\-\_\-timer\-::set\-\_\-time().
+
+
+
+\subsection{Function Documentation}
+\hypertarget{stl__timer_8h_a4615812c577c764700d9579019e871a4}{\index{stl\-\_\-timer.\-h@{stl\-\_\-timer.\-h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!stl_timer.h@{stl\-\_\-timer.\-h}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial}\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf base\-\_\-text\-\_\-serial} \&}]{serial, }
+\item[{{\bf time\-\_\-stamp} \&}]{stamp}
+\end{DoxyParamCaption}
+)}}\label{stl__timer_8h_a4615812c577c764700d9579019e871a4}
+This overloaded operator allows a time stamp to be printed on a serial device such as a regular serial port or radio module in text mode. This allows lines to be set up in the style of 'cout.' The timestamp is always printed as a decimal number. 
+\begin{DoxyParams}{Parameters}
+{\em serial} & A reference to the serial-\/type object to which to print \\
+\hline
+{\em stamp} & A reference to the time stamp to be displayed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 413 of file stl\-\_\-timer.\-cpp.
+
+
+
+References time\-\_\-stamp\-::get\-\_\-microsec(), time\-\_\-stamp\-::get\-\_\-seconds(), and base\-\_\-text\-\_\-serial\-::putchar().
+
+\hypertarget{stl__timer_8h_aee360bb679cdd863c6148bc0f1f01b6d}{\index{stl\-\_\-timer.\-h@{stl\-\_\-timer.\-h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!stl_timer.h@{stl\-\_\-timer.\-h}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial}\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf base\-\_\-text\-\_\-serial} \&}]{serial, }
+\item[{{\bf task\-\_\-timer} \&}]{tmr}
+\end{DoxyParamCaption}
+)}}\label{stl__timer_8h_aee360bb679cdd863c6148bc0f1f01b6d}
+This overloaded operator allows the task timer to print the current time on a serial device such as a regular serial port or radio module in text mode. This allows lines to be set up in the style of 'cout.' The printing is done by the \hyperlink{classtime__stamp}{time\-\_\-stamp} class; this method just calls the timer's get\-\_\-time\-\_\-now() method to get a time stamp, then has the time stamp print itself. 
+\begin{DoxyParams}{Parameters}
+{\em serial} & A reference to the serial-\/type object to which to print \\
+\hline
+{\em tmr} & A reference to the timer whose time is to be displayed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 444 of file stl\-\_\-timer.\-cpp.
+
+
+
+References task\-\_\-timer\-::get\-\_\-time\-\_\-now().
+

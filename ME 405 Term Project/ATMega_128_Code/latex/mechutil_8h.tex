@@ -1,0 +1,118 @@
+\hypertarget{mechutil_8h}{\section{mechutil.\-h File Reference}
+\label{mechutil_8h}\index{mechutil.\-h@{mechutil.\-h}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{mechutil_8h_a205ed048fdf5259c2e8e0cb60ee8f719}{operator new} (size\-\_\-t size)
+\item 
+void \hyperlink{mechutil_8h_a3d97a7e2a0208075b4b37328c96ed390}{operator delete} (void $\ast$ptr)
+\item 
+void $\ast$ \hyperlink{mechutil_8h_a63ce4f64887b9307317aee5baae6b18f}{operator new\mbox{[}$\,$\mbox{]}} (size\-\_\-t size)
+\item 
+void \hyperlink{mechutil_8h_a1d8b2d6f17242ae0d182b0f7a98ba54f}{operator delete\mbox{[}$\,$\mbox{]}} (void $\ast$ptr)
+\item 
+\hypertarget{mechutil_8h_aa5aa60072f4063655d5283b6d7b7ab44}{\-\_\-\-\_\-extension\-\_\-\-\_\- typedef int \-\_\-\-\_\-guard {\bfseries \-\_\-\-\_\-attribute\-\_\-\-\_\-} ((mode(\-\_\-\-\_\-\-D\-I\-\_\-\-\_\-)))}\label{mechutil_8h_aa5aa60072f4063655d5283b6d7b7ab44}
+
+\item 
+\hypertarget{mechutil_8h_a239ddd7f6e7ee1b05b59b2e56d8afb40}{int {\bfseries \-\_\-\-\_\-cxa\-\_\-guard\-\_\-acquire} (\-\_\-\-\_\-guard $\ast$)}\label{mechutil_8h_a239ddd7f6e7ee1b05b59b2e56d8afb40}
+
+\item 
+\hypertarget{mechutil_8h_aab72c37f0b3e6fc38d293bd4f8dd61ed}{void {\bfseries \-\_\-\-\_\-cxa\-\_\-guard\-\_\-release} (\-\_\-\-\_\-guard $\ast$)}\label{mechutil_8h_aab72c37f0b3e6fc38d293bd4f8dd61ed}
+
+\item 
+\hypertarget{mechutil_8h_a357afb2dc20a652447f3a529dbda60e4}{void {\bfseries \-\_\-\-\_\-cxa\-\_\-guard\-\_\-abort} (\-\_\-\-\_\-guard $\ast$)}\label{mechutil_8h_a357afb2dc20a652447f3a529dbda60e4}
+
+\item 
+void \hyperlink{mechutil_8h_a4464d4205cf92370b8d5077d93bc48a6}{\-\_\-\-\_\-cxa\-\_\-pure\-\_\-virtual} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a set of enhancements to the G\-C\-C-\/\-A\-V\-R system which support some of the more helpful C++ features that aren't present or working well in the normal G\-C\-C-\/\-A\-V\-R distribution (though I have no idea why). The information came from an A\-V\-R-\/\-Freaks posting at\-: \begin{DoxyItemize}
+\item \href{http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&p=410870}{\tt http\-://www.\-avrfreaks.\-net/index.\-php?name=\-P\-Nphp\-B\-B2\&file=viewtopic\&p=410870}\end{DoxyItemize}
+Revisions \begin{DoxyItemize}
+\item 04-\/12-\/08 J\-R\-R Original file, material from source above \end{DoxyItemize}
+
+
+Definition in file \hyperlink{mechutil_8h_source}{mechutil.\-h}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{mechutil_8h_a4464d4205cf92370b8d5077d93bc48a6}{\index{mechutil.\-h@{mechutil.\-h}!\-\_\-\-\_\-cxa\-\_\-pure\-\_\-virtual@{\-\_\-\-\_\-cxa\-\_\-pure\-\_\-virtual}}
+\index{\-\_\-\-\_\-cxa\-\_\-pure\-\_\-virtual@{\-\_\-\-\_\-cxa\-\_\-pure\-\_\-virtual}!mechutil.h@{mechutil.\-h}}
+\subsubsection[{\-\_\-\-\_\-cxa\-\_\-pure\-\_\-virtual}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-cxa\-\_\-pure\-\_\-virtual (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{mechutil_8h_a4464d4205cf92370b8d5077d93bc48a6}
+This method is said to be required to help make pure virtual methods operate correctly. It's not certain that this method works; it needs testing. 
+
+Definition at line 71 of file mechutil.\-cpp.
+
+\hypertarget{mechutil_8h_a3d97a7e2a0208075b4b37328c96ed390}{\index{mechutil.\-h@{mechutil.\-h}!operator delete@{operator delete}}
+\index{operator delete@{operator delete}!mechutil.h@{mechutil.\-h}}
+\subsubsection[{operator delete}]{\setlength{\rightskip}{0pt plus 5cm}void operator delete (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{mechutil_8h_a3d97a7e2a0208075b4b37328c96ed390}
+This is the standard \char`\"{}delete\char`\"{} operator, defined as a replacement for the one which has been left out of the avr-\/libc library. 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A pointer to the object which is to be deleted from memory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file mechutil.\-cpp.
+
+\hypertarget{mechutil_8h_a1d8b2d6f17242ae0d182b0f7a98ba54f}{\index{mechutil.\-h@{mechutil.\-h}!operator delete\mbox{[}$\,$\mbox{]}@{operator delete[]}}
+\index{operator delete\mbox{[}$\,$\mbox{]}@{operator delete[]}!mechutil.h@{mechutil.\-h}}
+\subsubsection[{operator delete[]}]{\setlength{\rightskip}{0pt plus 5cm}void operator delete\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{mechutil_8h_a1d8b2d6f17242ae0d182b0f7a98ba54f}
+This is the array form of the standard \char`\"{}delete\char`\"{} operator. 
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A pointer to the object which is to be deleted from memory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 34 of file mechutil.\-cpp.
+
+\hypertarget{mechutil_8h_a205ed048fdf5259c2e8e0cb60ee8f719}{\index{mechutil.\-h@{mechutil.\-h}!operator new@{operator new}}
+\index{operator new@{operator new}!mechutil.h@{mechutil.\-h}}
+\subsubsection[{operator new}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ operator new (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{mechutil_8h_a205ed048fdf5259c2e8e0cb60ee8f719}
+This is the standard \char`\"{}new\char`\"{} operator, defined here because it's not available in the standard avr-\/libc library. 
+\begin{DoxyParams}{Parameters}
+{\em size} & The number of bytes of memory which need to be allocated \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file mechutil.\-cpp.
+
+\hypertarget{mechutil_8h_a63ce4f64887b9307317aee5baae6b18f}{\index{mechutil.\-h@{mechutil.\-h}!operator new\mbox{[}$\,$\mbox{]}@{operator new[]}}
+\index{operator new\mbox{[}$\,$\mbox{]}@{operator new[]}!mechutil.h@{mechutil.\-h}}
+\subsubsection[{operator new[]}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ operator new\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{size\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{mechutil_8h_a63ce4f64887b9307317aee5baae6b18f}
+This is the array form of the standard \char`\"{}new\char`\"{} operator. 
+\begin{DoxyParams}{Parameters}
+{\em size} & The total number of bytes of memory which need to be allocated \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 29 of file mechutil.\-cpp.
+

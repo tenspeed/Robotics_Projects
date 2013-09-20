@@ -1,4 +1,4 @@
-/** task_read is the input section of the user interface for the ME405 term project. It takes in the 
+/** task_read is the input section of the user interface for the polar plotter. It takes in the 
 *	following commands:
 *						[h,H,?] 	print a help screen 
 *						[o,O]		home the machine
@@ -20,19 +20,19 @@
 *					 no enter key is required on this last step.
 */
 
-#include <stdlib.h>							//!< Include standard library header files
-#include <avr/io.h>							//!< You'll need this for SFR and bit names
-#include "rs232int.h"						//!< Include header for serial port class
-#include "stl_timer.h"						//!< So this can become a schedualed task when it grows up
-#include "stl_task.h"						//!< So this can become a schedualed task when it grows up
-#include "Master.h"							//!< header file for SPI master class
-#include "da_motor.h"						//!< header file for motor driver class
-#include "task_PID.h"						//!< header file for PID controller class
-#include "servo.h"							//!< allows pen actuation
-#include "point.h"							//!< point is used to make dots
-#include "task_lines.h"						//!< header file for task_lines
-#include "Go_Home.h"						//!< so user can home the plotter
-#include "task_read.h"						//!< header file for this class
+#include <stdlib.h>							// Include standard library header files
+#include <avr/io.h>							// You'll need this for SFR and bit names
+#include "rs232int.h"						// Include header for serial port class
+#include "stl_timer.h"						// So this can become a schedualed task when it grows up
+#include "stl_task.h"						// So this can become a schedualed task when it grows up
+#include "Master.h"							// header file for SPI master class
+#include "da_motor.h"						// header file for motor driver class
+#include "task_PID.h"						// header file for PID controller class
+#include "servo.h"							// allows pen actuation
+#include "point.h"							// point is used to make dots
+#include "task_lines.h"						// header file for task_lines
+#include "Go_Home.h"						// so user can home the plotter
+#include "task_read.h"						// header file for this class
 
 //-------------------------------------------------------------------------------------
 /**	The constructor creates a task_read object which handles user inputs as described above. It takes
@@ -65,21 +65,14 @@ task_read::task_read(base_text_serial* p_serial_port, task_PID* motor_1, task_PI
 	Plotter_Home = Home_Slice;
 	Make_Point = POINTY;
 	
-	
-	
-		
 	// initialize variables
 	read_state = 3;							// initialize read state to 3 (print help menu state)
 	*ptr_2_print_mode = 6;					// print out help menu at the start
 	read_mode = 0;							// read_mode tells input states where to save to
 	
-	
-	
 	// print a hello message
 	*ptr_2_serial << "task_read is online" << endl;
-	
 }
-
 /**	the run method handles all user inputs. In easy cases, actions are taken here. in longer cases, states are used
 *	and flags indicate to another task, task_print, that a message should be printed to screen. 
 *	States are as follows:
@@ -95,11 +88,10 @@ task_read::task_read(base_text_serial* p_serial_port, task_PID* motor_1, task_PI
 */
 void task_read::run(void)
 {	
-	
 	// enter switch statement where state variable read_state is controller
 	switch (read_state)
 	{
-		/** state 0 is a hub state
+		/** State 0 is a hub state
 		*/
 		case 0:
 			// has a char been entered?
@@ -120,9 +112,9 @@ void task_read::run(void)
 					// K_i entry command
 					case 'i':
 					case 'I':
-						*ptr_2_print_mode = 3;								// print prompt
-						read_state = 6;										// change state
-						read_mode = 3;										// save to correct spot
+						*ptr_2_print_mode = 3;					// print prompt
+						read_state = 6;							// change state
+						read_mode = 3;							// save to correct spot
 						K = 0;
 						index = 0;
 					break;
@@ -130,9 +122,9 @@ void task_read::run(void)
 					// K_d entry command
 					case 'd':
 					case 'D':
-						*ptr_2_print_mode = 5;								// print prompt
-						read_state = 6;										// change state
-						read_mode = 5;										// save to correct spot
+						*ptr_2_print_mode = 5;					// print prompt
+						read_state = 6;							// change state
+						read_mode = 5;							// save to correct spot
 						K = 0;
 						index = 0;
 					break;
@@ -140,9 +132,9 @@ void task_read::run(void)
 					// K_p entry command
 					case 'p':
 					case 'P':
-						*ptr_2_print_mode = 4;								// print prompt
-						read_state = 6;										// change state
-						read_mode = 4;										// save to correct spot
+						*ptr_2_print_mode = 4;					// print prompt
+						read_state = 6;							// change state
+						read_mode = 4;							// save to correct spot
 						K = 0;
 						index = 0;
 					break;
@@ -183,7 +175,7 @@ void task_read::run(void)
 					case 'h':
 					case 'H':
 					case '?':
-						*ptr_2_print_mode = 6;								// print help menu
+						*ptr_2_print_mode = 6;					// print help menu
 						read_state = 3;												
 					break;
 					
@@ -210,8 +202,8 @@ void task_read::run(void)
 						read_state = 11;
 						point_request = true;
 						index = 1; 
-						*ptr_2_print_mode = 10;							// print prompt
-						coordinate = 0;										// re-initialize temp coordinate memory
+						*ptr_2_print_mode = 10;					// print prompt
+						coordinate = 0;							// re-initialize temp coordinate memory
 					break;
 					
 					// input a line
@@ -221,8 +213,8 @@ void task_read::run(void)
 						read_state = 11;
 						coord_request = true;
 						index = 1; 
-						*ptr_2_print_mode = 12;							// print prompt
-						coordinate = 0;										// re-initialize temp coordinate memory
+						*ptr_2_print_mode = 12;					// print prompt
+						coordinate = 0;							// re-initialize temp coordinate memory
 					break;	
 					
 					case 'x':
@@ -233,21 +225,21 @@ void task_read::run(void)
 			}
 		break;
 		
-		/** state 1 is a coordinate entry mode. It expects a up to two digit integer with a tenths place 
+		/** State 1 is a coordinate entry mode. It expects a up to two digit integer with a tenths place 
 		*	decimal [ie 23.1 or 3.2]. it is always stored as number of tenths [ie 23.4 --> 234 here]
 		*/
 		case 1:
 			// has a key been pressed?
 			if (ptr_2_serial->check_for_char ())
 			{
-				input_char = ptr_2_serial->getchar ();  // get input 
+				input_char = ptr_2_serial->getchar ();  		// get input 
 				
 				if (input_char == '.') 
 				{
 					//raise decimal flag
 					dec_flag = index;
 					// echo decimal to screen
-					*ptr_2_serial << ".";										//echo to screen
+					*ptr_2_serial << ".";						//echo to screen
 				}
 				// is character an 'enter'?
 				else if (input_char == 0x0D)
@@ -257,7 +249,7 @@ void task_read::run(void)
 						// CASE 1, no numbers entered, don't save anything
 						case 1:
 							read_mode = 0;
-							*ptr_2_print_mode = 7;								// invalid input error
+							*ptr_2_print_mode = 7;				// invalid input error
 						break;
 						
 						// CASE 2, one digit entered
@@ -284,7 +276,7 @@ void task_read::run(void)
 							if (dec_flag == 0)
 							{
 								read_mode = 0;
-								*ptr_2_print_mode = 7;							// invalid input error
+								*ptr_2_print_mode = 7;			// invalid input error
 							}
 						break;
 					}
@@ -314,27 +306,27 @@ void task_read::run(void)
 							X_f = coordinate;
 							coord_num--;
 							read_state = 11;
-							*ptr_2_print_mode = 11;							// print prompt
+							*ptr_2_print_mode = 11;				// print prompt
 							index = 1;
-							coordinate = 0;										// re-initialize temp coordinate memory
+							coordinate = 0;						// re-initialize temp coordinate memory
 						break;
 						
 						case 3:
 							Y0 = coordinate;
 							coord_num--;
 							read_state = 11;
-							*ptr_2_print_mode = 10;							// print prompt
+							*ptr_2_print_mode = 10;				// print prompt
 							index = 1;
-							coordinate = 0;										// re-initialize temp coordinate memory
+							coordinate = 0;						// re-initialize temp coordinate memory
 						break;
 						
 						case 4:
 							X0 = coordinate;
 							coord_num--;
 							read_state = 11;
-							*ptr_2_print_mode = 13;							// print prompt
+							*ptr_2_print_mode = 13;				// print prompt
 							index = 1;
-							coordinate = 0;										// re-initialize temp coordinate memory
+							coordinate = 0;						// re-initialize temp coordinate memory
 						break;
 					}
 					
@@ -355,20 +347,20 @@ void task_read::run(void)
 					{
 						coordinate = (coordinate*10)+(input_char - '0');
 						index++;
-						*ptr_2_serial << ascii << input_char;								//echo to screen
+						*ptr_2_serial << ascii << input_char;	//echo to screen
 					}
 				}
 			}
 		break;
 		
-		/**	state 2 is an entry mode for gains. It expects an integer value up to 5 digits. Values are saturated to 
+		/**	State 2 is an entry mode for gains. It expects an integer value up to 5 digits. Values are saturated to 
 		*	16 bit maximum if entry is too large .
 		*/
 		case 2:
 			// has a key been pressed?
 			if (ptr_2_serial->check_for_char ())
 			{
-				input_char = ptr_2_serial->getchar ();  // get input 
+				input_char = ptr_2_serial->getchar (); 			 // get input 
 				
 				// is character an 'enter'?
 				if (input_char == 0x0D)
@@ -381,7 +373,7 @@ void task_read::run(void)
 					// new line
 					*ptr_2_serial << endl;
 					read_state = 7;
-					*ptr_2_print_mode = 8;				// ask which motor
+					*ptr_2_print_mode = 8;						// ask which motor
 					
 				}
 				// is (0 > input_char > 9) ? [ie something we dont care about] 
@@ -397,7 +389,7 @@ void task_read::run(void)
 					{
 						K = (K*10)+(input_char - '0');
 						index++;
-						*ptr_2_serial << ascii<< input_char;								//echo to screen
+						*ptr_2_serial << ascii<< input_char;	//echo to screen
 					}
 				}	
 			}
@@ -460,7 +452,7 @@ void task_read::run(void)
 			// has a key been pressed?
 			if (ptr_2_serial->check_for_char ())
 			{
-				input_char = ptr_2_serial->getchar ();  // get input 
+				input_char = ptr_2_serial->getchar ();  		// get input 
 				switch (input_char)
 				{
 					case '1':
@@ -511,7 +503,7 @@ void task_read::run(void)
 			
 		break;
 		
-		/// state 9 is the beginning of a point entry command
+		/// State 9 initiates a command to make a dot
 		case 9:
 			read_state = 0;
 //*ptr_2_serial << X_f << "  " << Y_f <<endl; //FOR DEBUGGING
@@ -519,7 +511,7 @@ void task_read::run(void)
 			point_request = false;
 	
 		break;
-		
+		/// State 10 initiates a command to set the inital and final x&y coordinates for drawing a line
 		case 10:
 			read_state = 0;
 //*ptr_2_serial << "Read  " << X0 <<"  "<<Y0 <<"  "<< X_f << "  " << Y_f <<endl; //FOR DEBUGGING
@@ -527,14 +519,14 @@ void task_read::run(void)
 			coord_request = false;
 		break;
 
-		/// state 11 handles prompt printing wait times for coord entry
+		/// State 11 handles prompt printing wait times for coord entry
 		case 11:
 			if (*ptr_2_print_mode == 0)
 			{
 				read_state = 1;
 			}
 		break;
-		
+		/// State 12 initiates a command to draw our custom signature
 		case 12:
 			if (*ptr_2_print_mode == 0)
 			{

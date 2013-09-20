@@ -1,0 +1,115 @@
+\hypertarget{sd__card_8h}{\section{sd\-\_\-card.\-h File Reference}
+\label{sd__card_8h}\index{sd\-\_\-card.\-h@{sd\-\_\-card.\-h}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}base\-\_\-text\-\_\-serial.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}global\-\_\-debug.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ff.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}diskio.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionsd__word}{sd\-\_\-word}
+\item 
+union \hyperlink{unionsd__u32}{sd\-\_\-u32}
+\item 
+class \hyperlink{classsd__card}{sd\-\_\-card}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sd__card_8h_a451aeffb68f3ecfb82eae03c88e9e48c}{S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}~512
+\begin{DoxyCompactList}\small\item\em This define prevents this .h file from being included more than once in a .cc file. \end{DoxyCompactList}\item 
+\#define \hyperlink{sd__card_8h_a6fd92a542394e4077621133ba8a8254d}{S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}~128
+\item 
+\#define \hyperlink{sd__card_8h_aa25b1f28e3aef588379729587d2155c2}{S\-D\-\_\-\-L\-\_\-\-B\-U\-F\-\_\-\-I\-D\-X\-\_\-\-T}~uint8\-\_\-t
+\item 
+\#define \hyperlink{sd__card_8h_a5f934a7642239adfef3e9607d3ad16bc}{S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T}~P\-O\-R\-T\-B
+\item 
+\#define \hyperlink{sd__card_8h_a8bf5506a98a25bf1bbccc67c08aa72a4}{S\-D\-\_\-\-C\-S\-\_\-\-D\-D\-R}~D\-D\-R\-B
+\item 
+\#define \hyperlink{sd__card_8h_a62b196d625ae221c1a83217c98b6fe25}{S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K}~(1 $<$$<$ 0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a class which allows S\-D cards to be read and written. The intent is that S\-D cards can be convenient mechanisms for the storage of lots and lots of data. In fact, the \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} class is used as an ancestor, so the S\-D card can be used to write data as text using \char`\"{}$<$$<$\char`\"{} operators.
+
+This version of the \hyperlink{classsd__card}{sd\-\_\-card} driver is based on E\-L\-M-\/\-F\-A\-T-\/\-F\-S, a package of D\-O\-S file system drivers found at \href{http://elm-chan.org/fsw/ff/00index_e.html}{\tt http\-://elm-\/chan.\-org/fsw/ff/00index\-\_\-e.\-html}. It was chosen because it is open source and is currently being maintained, while some other packages are in a more static state, their authors having presumably moved on.
+
+Revisions\-: \begin{DoxyItemize}
+\item 06-\/09-\/2008 J\-R\-R Class created, based on C program example found at \href{http://www.captain.at/electronic-atmega-mmc.php}{\tt http\-://www.\-captain.\-at/electronic-\/atmega-\/mmc.\-php} \item 08-\/17-\/2008 J\-R\-R Actually found the time to get it working \item 12-\/09-\/2008 J\-R\-R Added F\-A\-T16 filesystem support using D\-O\-S\-F\-S package from \href{http://www.larwe.com/zws/products/dosfs/index.html}{\tt http\-://www.\-larwe.\-com/zws/products/dosfs/index.\-html} \item 02-\/26-\/2009 J\-R\-R Found time to fix lots of bugs in D\-O\-S\-F\-S version \item 11-\/21-\/2009 J\-R\-R The D\-O\-S\-F\-S code is still buggy; trying E\-L\-M-\/\-F\-A\-T-\/\-F\-S version from \href{http://elm-chan.org/fsw/ff/00index_e.html}{\tt http\-://elm-\/chan.\-org/fsw/ff/00index\-\_\-e.\-html} \item 12-\/16-\/2009 J\-R\-R The E\-L\-M-\/\-F\-A\-T-\/\-F\-S version seems reasonably debugged and usable\end{DoxyItemize}
+License\-: This file is free software released under the Lesser G\-N\-U Public License, version
+\begin{DoxyEnumerate}
+\item This program is intended for educational use only, but it is not limited thereto. It is provided without any guarantee whatsoever. Because the author has no control over how this software may be used, the author cannot be responsible for any consequences of the use of this software. The E\-L\-M-\/\-F\-A\-T-\/\-F\-S package on which this program relies is subject to its own free software license, and any user of this software must agree to the terms of that license as well as the L\-G\-P\-L. See the E\-L\-M-\/\-F\-A\-T-\/\-F\-S link above for details about the license governing D\-O\-S\-F\-S use. 
+\end{DoxyEnumerate}
+
+Definition in file \hyperlink{sd__card_8h_source}{sd\-\_\-card.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{sd__card_8h_a451aeffb68f3ecfb82eae03c88e9e48c}{\index{sd\-\_\-card.\-h@{sd\-\_\-card.\-h}!S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}}
+\index{S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}!sd_card.h@{sd\-\_\-card.\-h}}
+\subsubsection[{S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-D\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E~512}}\label{sd__card_8h_a451aeffb68f3ecfb82eae03c88e9e48c}
+
+
+This define prevents this .h file from being included more than once in a .cc file. 
+
+This is the size of blocks (like sectors) in bytes on the S\-D card. All writes are done with blocks of data of this size, and the \hyperlink{classsd__card}{sd\-\_\-card} object must have a buffer which holds this many bytes. S\-D cards have a block size of 512 bytes. 
+
+Definition at line 57 of file sd\-\_\-card.\-h.
+
+\hypertarget{sd__card_8h_a8bf5506a98a25bf1bbccc67c08aa72a4}{\index{sd\-\_\-card.\-h@{sd\-\_\-card.\-h}!S\-D\-\_\-\-C\-S\-\_\-\-D\-D\-R@{S\-D\-\_\-\-C\-S\-\_\-\-D\-D\-R}}
+\index{S\-D\-\_\-\-C\-S\-\_\-\-D\-D\-R@{S\-D\-\_\-\-C\-S\-\_\-\-D\-D\-R}!sd_card.h@{sd\-\_\-card.\-h}}
+\subsubsection[{S\-D\-\_\-\-C\-S\-\_\-\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-D\-\_\-\-C\-S\-\_\-\-D\-D\-R~D\-D\-R\-B}}\label{sd__card_8h_a8bf5506a98a25bf1bbccc67c08aa72a4}
+This macro chooses the data direction register for the port to which the S\-D card's card select bit is attached. It must match the port in S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T. 
+
+Definition at line 89 of file sd\-\_\-card.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::sd\-\_\-card().
+
+\hypertarget{sd__card_8h_a62b196d625ae221c1a83217c98b6fe25}{\index{sd\-\_\-card.\-h@{sd\-\_\-card.\-h}!S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K@{S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K}}
+\index{S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K@{S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K}!sd_card.h@{sd\-\_\-card.\-h}}
+\subsubsection[{S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K~(1 $<$$<$ 0)}}\label{sd__card_8h_a62b196d625ae221c1a83217c98b6fe25}
+This macro sets a bitmask for the bit which is used as the S\-D card's card select bit. 
+
+Definition at line 96 of file sd\-\_\-card.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::sd\-\_\-card().
+
+\hypertarget{sd__card_8h_a5f934a7642239adfef3e9607d3ad16bc}{\index{sd\-\_\-card.\-h@{sd\-\_\-card.\-h}!S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T@{S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T}}
+\index{S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T@{S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T}!sd_card.h@{sd\-\_\-card.\-h}}
+\subsubsection[{S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T~P\-O\-R\-T\-B}}\label{sd__card_8h_a5f934a7642239adfef3e9607d3ad16bc}
+This macro chooses the port to which the S\-D card's card select bit is attached. 
+
+Definition at line 82 of file sd\-\_\-card.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::sd\-\_\-card().
+
+\hypertarget{sd__card_8h_aa25b1f28e3aef588379729587d2155c2}{\index{sd\-\_\-card.\-h@{sd\-\_\-card.\-h}!S\-D\-\_\-\-L\-\_\-\-B\-U\-F\-\_\-\-I\-D\-X\-\_\-\-T@{S\-D\-\_\-\-L\-\_\-\-B\-U\-F\-\_\-\-I\-D\-X\-\_\-\-T}}
+\index{S\-D\-\_\-\-L\-\_\-\-B\-U\-F\-\_\-\-I\-D\-X\-\_\-\-T@{S\-D\-\_\-\-L\-\_\-\-B\-U\-F\-\_\-\-I\-D\-X\-\_\-\-T}!sd_card.h@{sd\-\_\-card.\-h}}
+\subsubsection[{S\-D\-\_\-\-L\-\_\-\-B\-U\-F\-\_\-\-I\-D\-X\-\_\-\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-D\-\_\-\-L\-\_\-\-B\-U\-F\-\_\-\-I\-D\-X\-\_\-\-T~uint8\-\_\-t}}\label{sd__card_8h_aa25b1f28e3aef588379729587d2155c2}
+This macro sets the type of the line buffer index, which needs to be 8 bits if the line buffer is less than 256 elements in size or 16 bits if it's larger. 
+
+Definition at line 73 of file sd\-\_\-card.\-h.
+
+\hypertarget{sd__card_8h_a6fd92a542394e4077621133ba8a8254d}{\index{sd\-\_\-card.\-h@{sd\-\_\-card.\-h}!S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E@{S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}}
+\index{S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E@{S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}!sd_card.h@{sd\-\_\-card.\-h}}
+\subsubsection[{S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-D\-\_\-\-L\-I\-N\-E\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E~128}}\label{sd__card_8h_a6fd92a542394e4077621133ba8a8254d}
+This is the size of a buffer which holds the characters in one line to be written to the S\-D card. Characters are written into the line buffer until an end of line character is received (or some other character set with S\-D\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-W\-\_\-\-C\-H\-A\-R) or someone calls transmit\-\_\-now(); then the data in the buffer is written to the card. 
+
+Definition at line 65 of file sd\-\_\-card.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::putchar().
+

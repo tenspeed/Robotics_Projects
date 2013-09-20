@@ -1,5 +1,5 @@
 /** task_print is a state machine which handles the screen printout portion of the user 
-*	interface for a ME405 term project. State 0 checks to see if any prompts, errors or
+*	interface for the polar plotter. State 0 checks to see if any prompts, errors or
 *	menus need to be printed. If so, the strings are copied to a buffer. State 1 prints the 
 *	buffer one character at a time so as to be cooperative. When the string end is reached,
 *	an endline is printed and State is returned to 0. The exception to this rule is the case 
@@ -8,12 +8,12 @@
 *	then continues to print one character at a time. Normal string end procedures are then followed.
 */
 
-#include <stdlib.h>							//!< Include standard library header files
-#include <avr/io.h>							//!< You'll need this for SFR and bit names
-#include <avr/pgmspace.h>					//!< allows strings to be stored in flash memory
-#include "rs232int.h"						//!< Include header for serial port class
-#include "da_motor.h"						//!< Include header for the A/D class
-#include "task_print.h"						//!< include own header file
+#include <stdlib.h>							// Include standard library header files
+#include <avr/io.h>							// You'll need this for SFR and bit names
+#include <avr/pgmspace.h>					// allows strings to be stored in flash memory
+#include "rs232int.h"						// Include header for serial port class
+#include "da_motor.h"						// Include header for the da_motor class
+#include "task_print.h"						// include own header file
 
 
 //-------------------------------------------------------------------------------------
@@ -143,7 +143,7 @@ void task_print::run(void)
 				
 				/// case 9 is left out as a reminder that msg9 is the second part of help
 				
-				/// case 10 -13 coordinate promts
+				// case 10 -13 coordinate prompts
 				/// Message 10
 				case 10:
 					print_state = 1;

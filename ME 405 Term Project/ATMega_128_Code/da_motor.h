@@ -3,11 +3,6 @@
  *   da_motor.h contains specifications necessary for the methods within da_motor.cpp to be 
  *   called from within any main program as long as this header file is included.
  *
- *  Revisions:
- *    \li  11-04-11	 Included specification for the method "read_a_few" within avr_adc.cpp
- *    \li  04-12-11  Began tearing and hacking at our lab_2 code.
- *	  \li  04-18-11  Final iteration. This code is the bestest.
- *
  *  License:
  *    This file released under the Lesser GNU Public License. The program is intended
  *    for educational use only, but its use is not restricted thereto. 

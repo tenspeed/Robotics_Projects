@@ -1,0 +1,96 @@
+\hypertarget{global__debug_8h}{\section{global\-\_\-debug.\-h File Reference}
+\label{global__debug_8h}\index{global\-\_\-debug.\-h@{global\-\_\-debug.\-h}}
+}
+{\ttfamily \#include \char`\"{}base\-\_\-text\-\_\-serial.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{global__debug_8h_ad13336ab0652b3cf413de65b5bb4e472}{G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G}(x)~if (\hyperlink{global__debug_8h_afa4e68baf92375f655eb7f971b1f8ac6}{p\-\_\-glb\-\_\-dbg\-\_\-port}) $\ast$\hyperlink{global__debug_8h_afa4e68baf92375f655eb7f971b1f8ac6}{p\-\_\-glb\-\_\-dbg\-\_\-port} $<$$<$ x
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{global__debug_8h_a86331c5e46499a48c9b8d9ebe22b6d9a}{set\-\_\-glob\-\_\-debug\-\_\-port} (\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} $\ast$p\-\_\-port)
+\item 
+void \hyperlink{global__debug_8h_aaec6d30e3cd677829aff8a7024a30f2f}{do\-\_\-reboot} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} $\ast$ \hyperlink{global__debug_8h_afa4e68baf92375f655eb7f971b1f8ac6}{p\-\_\-glb\-\_\-dbg\-\_\-port}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a simple system to allow debugging printouts from anywhere in a simple A\-V\-R program. It sets up a global pointer to a \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} object; this pointer will be set to point to any descendent of \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial}, such as an R\-S-\/232 style serial port (U\-S\-B or classic), a radio modem, or even an S\-D card.
+
+The S\-E\-R\-I\-A\-L\-\_\-\-D\-E\-B\-U\-G macro should be defined in the Makefile so that global serial debugging is enabled. If S\-E\-R\-I\-A\-L\-\_\-\-D\-E\-B\-U\-G is not defined, the serial debugging port is not activated; this is good for production code as opposed to testing code.
+
+Revisions \begin{DoxyItemize}
+\item 01-\/31-\/2009 J\-R\-R Original file \item 02-\/08-\/2009 J\-R\-R Added code to enable this debugging under Linux \item 12-\/20-\/2009 J\-R\-R Added \hyperlink{global__debug_8cpp_aaec6d30e3cd677829aff8a7024a30f2f}{do\-\_\-reboot()} function \end{DoxyItemize}
+
+
+Definition in file \hyperlink{global__debug_8h_source}{global\-\_\-debug.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{global__debug_8h_ad13336ab0652b3cf413de65b5bb4e472}{\index{global\-\_\-debug.\-h@{global\-\_\-debug.\-h}!G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G@{G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G}}
+\index{G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G@{G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G}!global_debug.h@{global\-\_\-debug.\-h}}
+\subsubsection[{G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-L\-O\-B\-\_\-\-D\-E\-B\-U\-G(
+\begin{DoxyParamCaption}
+\item[{}]{x}
+\end{DoxyParamCaption}
+)~if ({\bf p\-\_\-glb\-\_\-dbg\-\_\-port}) $\ast${\bf p\-\_\-glb\-\_\-dbg\-\_\-port} $<$$<$ x}}\label{global__debug_8h_ad13336ab0652b3cf413de65b5bb4e472}
+This definition allows a bunch of debugging information to be printed if the S\-E\-R\-I\-A\-L\-\_\-\-D\-E\-B\-U\-G macro has been defined. If not, this macro expands to nothing. 
+
+Definition at line 37 of file global\-\_\-debug.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::close\-\_\-file(), stl\-\_\-task\-::error\-\_\-stop(), sd\-\_\-card\-::open\-\_\-file\-\_\-append(), sd\-\_\-card\-::open\-\_\-file\-\_\-overwrite(), sd\-\_\-card\-::open\-\_\-file\-\_\-readonly(), sd\-\_\-card\-::open\-\_\-new\-\_\-data\-\_\-file(), stl\-\_\-task\-::run(), stl\-\_\-task\-::schedule(), and stl\-\_\-task\-::stl\-\_\-task().
+
+
+
+\subsection{Function Documentation}
+\hypertarget{global__debug_8h_aaec6d30e3cd677829aff8a7024a30f2f}{\index{global\-\_\-debug.\-h@{global\-\_\-debug.\-h}!do\-\_\-reboot@{do\-\_\-reboot}}
+\index{do\-\_\-reboot@{do\-\_\-reboot}!global_debug.h@{global\-\_\-debug.\-h}}
+\subsubsection[{do\-\_\-reboot}]{\setlength{\rightskip}{0pt plus 5cm}void do\-\_\-reboot (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{global__debug_8h_aaec6d30e3cd677829aff8a7024a30f2f}
+This function can be called whenever some horrendous error condition is detected which is so awful that it is best handled by rebooting the system and starting over. 
+
+Definition at line 48 of file global\-\_\-debug.\-cpp.
+
+\hypertarget{global__debug_8h_a86331c5e46499a48c9b8d9ebe22b6d9a}{\index{global\-\_\-debug.\-h@{global\-\_\-debug.\-h}!set\-\_\-glob\-\_\-debug\-\_\-port@{set\-\_\-glob\-\_\-debug\-\_\-port}}
+\index{set\-\_\-glob\-\_\-debug\-\_\-port@{set\-\_\-glob\-\_\-debug\-\_\-port}!global_debug.h@{global\-\_\-debug.\-h}}
+\subsubsection[{set\-\_\-glob\-\_\-debug\-\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-glob\-\_\-debug\-\_\-port (
+\begin{DoxyParamCaption}
+\item[{{\bf base\-\_\-text\-\_\-serial} $\ast$}]{p\-\_\-port}
+\end{DoxyParamCaption}
+)}}\label{global__debug_8h_a86331c5e46499a48c9b8d9ebe22b6d9a}
+This function M\-U\-S\-T be called prior to using global debugging. It sets the global debugging device pointer to the given serial device address.
+
+This function sets the global pointer to a serial debugging device. The device can be any descendent of class \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial}. This method must be called before the pointer is used; otherwise the pointer will be N\-U\-L\-L and nothing will be printed. 
+\begin{DoxyParams}{Parameters}
+{\em p\-\_\-port} & A pointer to a serial device to be used for debugging \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file global\-\_\-debug.\-cpp.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{global__debug_8h_afa4e68baf92375f655eb7f971b1f8ac6}{\index{global\-\_\-debug.\-h@{global\-\_\-debug.\-h}!p\-\_\-glb\-\_\-dbg\-\_\-port@{p\-\_\-glb\-\_\-dbg\-\_\-port}}
+\index{p\-\_\-glb\-\_\-dbg\-\_\-port@{p\-\_\-glb\-\_\-dbg\-\_\-port}!global_debug.h@{global\-\_\-debug.\-h}}
+\subsubsection[{p\-\_\-glb\-\_\-dbg\-\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial}$\ast$ p\-\_\-glb\-\_\-dbg\-\_\-port}}\label{global__debug_8h_afa4e68baf92375f655eb7f971b1f8ac6}
+This pointer points to a serial device which handles debugging output. It is declared in global\-\_\-debug.\-cc and can be used in any $\ast$.cc file which includes this header.
+
+This is a globally accessible pointer to a debugging port. It is declared extern in \hyperlink{global__debug_8h}{global\-\_\-debug.\-h} and can therefore be used within any $\ast$.cc file which includes \hyperlink{global__debug_8h}{global\-\_\-debug.\-h}. It must be set, usually in main(), before it is used. 
+
+Definition at line 27 of file global\-\_\-debug.\-cpp.
+

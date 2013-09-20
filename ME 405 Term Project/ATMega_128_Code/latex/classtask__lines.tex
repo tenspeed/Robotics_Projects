@@ -14,7 +14,7 @@ Inheritance diagram for task\-\_\-lines\-:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classtask__lines_a0d04d45a83ecf3894cdb6c98942e97b6}{task\-\_\-lines} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port, task\-\_\-timer \&a\-\_\-timer, time\-\_\-stamp \&t\-\_\-stamp, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$\hyperlink{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{P\-I\-D\-\_\-1}, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$\hyperlink{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{P\-I\-D\-\_\-2}, \hyperlink{classpoint}{point} $\ast$get\-\_\-there, \hyperlink{classservo}{servo} $\ast$P\-E\-N)
+\hyperlink{classtask__lines_a0d04d45a83ecf3894cdb6c98942e97b6}{task\-\_\-lines} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port, task\-\_\-timer \&a\-\_\-timer, time\-\_\-stamp \&t\-\_\-stamp, \hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$\hyperlink{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{P\-I\-D\-\_\-1}, \hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$\hyperlink{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{P\-I\-D\-\_\-2}, \hyperlink{classpoint}{point} $\ast$get\-\_\-there, \hyperlink{classservo}{servo} $\ast$P\-E\-N)
 \item 
 char \hyperlink{classtask__lines_adc52a1f1de31103830a06737db769a34}{run} (char)
 \item 
@@ -29,10 +29,10 @@ char \hyperlink{classtask__lines_adc52a1f1de31103830a06737db769a34}{run} (char)
 \begin{DoxyCompactList}\small\item\em This method sets up lines to draw our signature. \end{DoxyCompactList}\item 
 \hypertarget{classtask__lines_af24660494d5ef22eb6c03a007c7347a1}{bool \hyperlink{classtask__lines_af24660494d5ef22eb6c03a007c7347a1}{wanna\-\_\-go\-\_\-home} (void)}\label{classtask__lines_af24660494d5ef22eb6c03a007c7347a1}
 
-\begin{DoxyCompactList}\small\item\em This method allows \hyperlink{class_go___home}{Go\-\_\-\-Home} to see if we want to home (after each line). \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This method allows \hyperlink{classGo__Home}{Go\-\_\-\-Home} to see if we want to home (after each line). \end{DoxyCompactList}\item 
 \hypertarget{classtask__lines_aef4c5d6e9c67d040a398c2d1791e5f19}{void \hyperlink{classtask__lines_aef4c5d6e9c67d040a398c2d1791e5f19}{ok\-\_\-were\-\_\-home} (void)}\label{classtask__lines_aef4c5d6e9c67d040a398c2d1791e5f19}
 
-\begin{DoxyCompactList}\small\item\em This method allows \hyperlink{class_go___home}{Go\-\_\-\-Home} to lower the homing flag once home is reached. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This method allows \hyperlink{classGo__Home}{Go\-\_\-\-Home} to lower the homing flag once home is reached. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,10 +45,10 @@ char \hyperlink{classtask__lines_adc52a1f1de31103830a06737db769a34}{run} (char)
 \hypertarget{classtask__lines_ac6c15e2f9c29419c3790196ad18b24dd}{\hyperlink{classservo}{servo} $\ast$ \hyperlink{classtask__lines_ac6c15e2f9c29419c3790196ad18b24dd}{operate\-\_\-pen}}\label{classtask__lines_ac6c15e2f9c29419c3790196ad18b24dd}
 
 \begin{DoxyCompactList}\small\item\em servo object used to raise lower pen \end{DoxyCompactList}\item 
-\hypertarget{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{P\-I\-D\-\_\-1}}\label{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}
+\hypertarget{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{\hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{P\-I\-D\-\_\-1}}\label{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}
 
 \begin{DoxyCompactList}\small\item\em P\-I\-D object used to control motor 1. \end{DoxyCompactList}\item 
-\hypertarget{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{P\-I\-D\-\_\-2}}\label{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}
+\hypertarget{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{\hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{P\-I\-D\-\_\-2}}\label{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}
 
 \begin{DoxyCompactList}\small\item\em P\-I\-D object used to control motor 2. \end{DoxyCompactList}\item 
 \hypertarget{classtask__lines_a2cb987744a37b733479a1766a61a7734}{bool \hyperlink{classtask__lines_a2cb987744a37b733479a1766a61a7734}{send\-\_\-home}}\label{classtask__lines_a2cb987744a37b733479a1766a61a7734}
@@ -122,6 +122,10 @@ char \hyperlink{classtask__lines_adc52a1f1de31103830a06737db769a34}{run} (char)
 \subsection{Detailed Description}
 \hyperlink{task__lines_8cpp}{task\-\_\-lines.\-cpp} is a task which cuts lines into bitty pieces and moves sequentially through the line by moving the setpoint and feeding it to the point task. 
 
+Definition at line 23 of file task\-\_\-lines.\-h.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classtask__lines_a0d04d45a83ecf3894cdb6c98942e97b6}{\index{task\-\_\-lines@{task\-\_\-lines}!task\-\_\-lines@{task\-\_\-lines}}
 \index{task\-\_\-lines@{task\-\_\-lines}!task_lines@{task\-\_\-lines}}
@@ -153,6 +157,14 @@ The constructor initializes variables, and saves object pointers locally.
 {\em P\-E\-N} & Servo Object to raise/lower pen \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 45 of file task\-\_\-lines.\-cpp.
+
+
+
+References divide\-\_\-lines, Initial\-\_\-\-Point, moving, operate\-\_\-pen, P\-I\-D\-\_\-1, P\-I\-D\-\_\-2, ptr\-\_\-2\-\_\-serial, send\-\_\-home, sig\-\_\-count, signature, x0, xf, y0, and yf.
+
 
 
 \subsection{Member Function Documentation}
@@ -187,6 +199,14 @@ state 7 draws horizontal lines
 State 8 draws our signature!
 
 State 9 sends the plotter home after each line in our signature 
+
+Definition at line 81 of file task\-\_\-lines.\-cpp.
+
+
+
+References point\-::\-Are\-\_\-\-We\-\_\-\-There(), counter, current\-\_\-segment, divide\-\_\-lines, dx, dy, servo\-::\-Fine\-\_\-\-Line(), point\-::\-Get\-\_\-\-There(), Initial\-\_\-\-Point, line\-\_\-type, moving, operate\-\_\-pen, servo\-::\-Pen\-\_\-\-Up(), P\-I\-D\-\_\-1, P\-I\-D\-\_\-2, Seg\-\_\-\-Total, send\-\_\-home, set\-\_\-coords(), sig\-\_\-count, signature, slope, task\-\_\-\-P\-I\-D\-::stop(), S\-U\-Mdx, S\-U\-Mdx\-\_\-16, S\-U\-Mdy, S\-U\-Mdy\-\_\-16, S\-U\-Mx\-\_\-squared, S\-U\-My\-\_\-squared, x0, xf, y0, and yf.
+
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

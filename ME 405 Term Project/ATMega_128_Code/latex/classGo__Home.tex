@@ -1,0 +1,159 @@
+\hypertarget{classGo__Home}{\section{Go\-\_\-\-Home Class Reference}
+\label{classGo__Home}\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}}
+}
+
+
+{\ttfamily \#include $<$Go\-\_\-\-Home.\-h$>$}
+
+Inheritance diagram for Go\-\_\-\-Home\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGo__Home}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGo__Home_a080085bcc6207561d5309d5f861b10cf}{Go\-\_\-\-Home} (base\-\_\-text\-\_\-serial $\ast$, task\-\_\-timer \&, time\-\_\-stamp \&, \hyperlink{classda__motor}{da\-\_\-motor} $\ast$, \hyperlink{classMaster}{Master} $\ast$, \hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$, \hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$, \hyperlink{classtask__lines}{task\-\_\-lines} $\ast$)
+\item 
+char \hyperlink{classGo__Home_ae1421efd3ca49627022675f74534ced6}{run} (char state)
+\item 
+void \hyperlink{classGo__Home_a1c22463a7cca8fd6a8ab4c5c9ecee6ff}{S\-E\-T\-\_\-\-Home\-\_\-\-Request} (void)
+\item 
+bool \hyperlink{classGo__Home_a23ee51618c74f918af0ddf4555c7ff04}{Is\-\_\-\-Home} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classGo__Home_aaf0a0c125f002315ced04f6a2520faff}{base\-\_\-text\-\_\-serial $\ast$ {\bfseries ptr\-\_\-2\-\_\-serial}}\label{classGo__Home_aaf0a0c125f002315ced04f6a2520faff}
+
+\item 
+\hypertarget{classGo__Home_a27906c7ed2cef0678fe85e7024252795}{\hyperlink{classda__motor}{da\-\_\-motor} $\ast$ {\bfseries Vtec\-\_\-wins}}\label{classGo__Home_a27906c7ed2cef0678fe85e7024252795}
+
+\item 
+\hypertarget{classGo__Home_a43872cca289815689ac830135c3d58f1}{\hyperlink{classMaster}{Master} $\ast$ {\bfseries Wipe\-\_\-\-Slave}}\label{classGo__Home_a43872cca289815689ac830135c3d58f1}
+
+\item 
+\hypertarget{classGo__Home_a57ef328cc70eabbb8668c048aad96a8d}{\hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$ {\bfseries Wipe\-\_\-\-Master1}}\label{classGo__Home_a57ef328cc70eabbb8668c048aad96a8d}
+
+\item 
+\hypertarget{classGo__Home_adf786b11550fc9149035ed7edc398133}{\hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$ {\bfseries Wipe\-\_\-\-Master2}}\label{classGo__Home_adf786b11550fc9149035ed7edc398133}
+
+\item 
+\hypertarget{classGo__Home_a5e9d6df4b4ee935e5266487bc9ce2fda}{\hyperlink{classtask__lines}{task\-\_\-lines} $\ast$ {\bfseries L\-I\-N\-E\-S}}\label{classGo__Home_a5e9d6df4b4ee935e5266487bc9ce2fda}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{Go__Home_8cpp}{Go\-\_\-\-Home.\-cpp} is a class with methods to send the carriage and arm to their home positions and reset both motor encoders. Two bump-\/stop switches connected to pin interrupts tell the microcontroller to stop the motors when the carriage and arm reach their respective home positions. 
+
+Definition at line 23 of file Go\-\_\-\-Home.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classGo__Home_a080085bcc6207561d5309d5f861b10cf}{\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!Go\-\_\-\-Home@{Go\-\_\-\-Home}}
+\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!Go_Home@{Go\-\_\-\-Home}}
+\subsubsection[{Go\-\_\-\-Home}]{\setlength{\rightskip}{0pt plus 5cm}Go\-\_\-\-Home\-::\-Go\-\_\-\-Home (
+\begin{DoxyParamCaption}
+\item[{base\-\_\-text\-\_\-serial $\ast$}]{p\-\_\-serial\-\_\-port, }
+\item[{task\-\_\-timer \&}]{a\-\_\-timer, }
+\item[{time\-\_\-stamp \&}]{t\-\_\-stamp, }
+\item[{{\bf da\-\_\-motor} $\ast$}]{Vortec, }
+\item[{{\bf Master} $\ast$}]{Clear\-\_\-\-Slave, }
+\item[{{\bf task\-\_\-\-P\-I\-D} $\ast$}]{Clear\-\_\-\-Master1, }
+\item[{{\bf task\-\_\-\-P\-I\-D} $\ast$}]{Clear\-\_\-\-Master2, }
+\item[{{\bf task\-\_\-lines} $\ast$}]{liner}
+\end{DoxyParamCaption}
+)}}\label{classGo__Home_a080085bcc6207561d5309d5f861b10cf}
+This constructor enables the interrupts necessary for the bump stop switches on our plotter to operate, initializes control booleans, and saves object pointers locally. 
+\begin{DoxyParams}{Parameters}
+{\em p\-\_\-serial\-\_\-port} & Allows screen printouts \\
+\hline
+{\em a\-\_\-timer,\-:} & A Timer object to assist with sceduling \\
+\hline
+{\em t\-\_\-stamp,\-:} & A Time Stamp object to assist with sceduling \\
+\hline
+{\em Vortec,\-:} & A motor object \\
+\hline
+{\em Clear\-\_\-\-Slave} & An S\-P\-I master object \\
+\hline
+{\em Clear\-\_\-\-Master1} & P\-I\-D object for motor 1 \\
+\hline
+{\em Clear\-\_\-\-Master2} & P\-I\-D object for motor 2 \\
+\hline
+{\em liner} & task lines object so it can call home \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file Go\-\_\-\-Home.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classGo__Home_a23ee51618c74f918af0ddf4555c7ff04}{\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!Is\-\_\-\-Home@{Is\-\_\-\-Home}}
+\index{Is\-\_\-\-Home@{Is\-\_\-\-Home}!Go_Home@{Go\-\_\-\-Home}}
+\subsubsection[{Is\-\_\-\-Home}]{\setlength{\rightskip}{0pt plus 5cm}bool Go\-\_\-\-Home\-::\-Is\-\_\-\-Home (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classGo__Home_a23ee51618c74f918af0ddf4555c7ff04}
+Is\-\_\-\-Home returns a flag which is true if machine is done homing. 
+
+Definition at line 154 of file Go\-\_\-\-Home.\-cpp.
+
+
+
+References Home\-\_\-\-Request.
+
+\hypertarget{classGo__Home_ae1421efd3ca49627022675f74534ced6}{\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!run@{run}}
+\index{run@{run}!Go_Home@{Go\-\_\-\-Home}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}char Go\-\_\-\-Home\-::run (
+\begin{DoxyParamCaption}
+\item[{char}]{state}
+\end{DoxyParamCaption}
+)}}\label{classGo__Home_ae1421efd3ca49627022675f74534ced6}
+run is the main method in \hyperlink{classGo__Home}{Go\-\_\-\-Home} and it performs the actual homing operation of the 2 degree of freedom system. 
+\begin{DoxyParams}{Parameters}
+{\em state,\-:} & S\-T\-L\-\_\-task is used for scheduling \\
+\hline
+\end{DoxyParams}
+State 0 does nothing unless homing is requested by user key press or \hyperlink{classtask__lines}{task\-\_\-lines}
+
+State 1 initiates movement of the arm towards home if cart has reached r=0
+
+State 2 concludes homing once arm reaches T\-H\-E\-T\-A=0. 
+
+Definition at line 71 of file Go\-\_\-\-Home.\-cpp.
+
+
+
+References arm\-\_\-switch, cart\-\_\-switch, Master\-::\-C\-L\-E\-A\-R(), task\-\_\-\-P\-I\-D\-::\-C\-L\-E\-A\-R(), Home\-\_\-\-Request, task\-\_\-lines\-::ok\-\_\-were\-\_\-home(), task\-\_\-\-P\-I\-D\-::\-Request\-\_\-\-Home(), da\-\_\-motor\-::set\-\_\-mode(), da\-\_\-motor\-::update\-\_\-duty\-\_\-cycle(), and task\-\_\-lines\-::wanna\-\_\-go\-\_\-home().
+
+\hypertarget{classGo__Home_a1c22463a7cca8fd6a8ab4c5c9ecee6ff}{\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!S\-E\-T\-\_\-\-Home\-\_\-\-Request@{S\-E\-T\-\_\-\-Home\-\_\-\-Request}}
+\index{S\-E\-T\-\_\-\-Home\-\_\-\-Request@{S\-E\-T\-\_\-\-Home\-\_\-\-Request}!Go_Home@{Go\-\_\-\-Home}}
+\subsubsection[{S\-E\-T\-\_\-\-Home\-\_\-\-Request}]{\setlength{\rightskip}{0pt plus 5cm}void Go\-\_\-\-Home\-::\-S\-E\-T\-\_\-\-Home\-\_\-\-Request (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classGo__Home_a1c22463a7cca8fd6a8ab4c5c9ecee6ff}
+S\-E\-T\-\_\-\-Home\-\_\-\-Request allows homing to be initiated by other tasks 
+
+Definition at line 147 of file Go\-\_\-\-Home.\-cpp.
+
+
+
+References Home\-\_\-\-Request.
+
+
+
+Referenced by task\-\_\-read\-::run().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Go\-\_\-\-Home.\-h\item 
+\hyperlink{Go__Home_8cpp}{Go\-\_\-\-Home.\-cpp}\end{DoxyCompactItemize}

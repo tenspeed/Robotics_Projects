@@ -3,17 +3,12 @@
 }
 
 
-This define prevents this .h file from being included more than once in a .cpp file.  
-
-
-
-
 {\ttfamily \#include $<$task\-\_\-read.\-h$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classtask__read_a6e7da4895a28c1cbb2572364a15fdaff}{task\-\_\-read} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$motor\-\_\-1, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$motor\-\_\-2, uint8\-\_\-t $\ast$p\-\_\-print\-\_\-mode, \hyperlink{class_master}{Master} $\ast$S\-P\-I, \hyperlink{classtask__lines}{task\-\_\-lines} $\ast$L\-I\-N\-E\-S, \hyperlink{classservo}{servo} $\ast$Tom\-\_\-\-Servo, \hyperlink{class_go___home}{Go\-\_\-\-Home} $\ast$Home\-\_\-\-Slice, \hyperlink{classpoint}{point} $\ast$P\-O\-I\-N\-T\-Y)
+\hyperlink{classtask__read_a6e7da4895a28c1cbb2572364a15fdaff}{task\-\_\-read} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port, \hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$motor\-\_\-1, \hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$motor\-\_\-2, uint8\-\_\-t $\ast$p\-\_\-print\-\_\-mode, \hyperlink{classMaster}{Master} $\ast$S\-P\-I, \hyperlink{classtask__lines}{task\-\_\-lines} $\ast$L\-I\-N\-E\-S, \hyperlink{classservo}{servo} $\ast$Tom\-\_\-\-Servo, \hyperlink{classGo__Home}{Go\-\_\-\-Home} $\ast$Home\-\_\-\-Slice, \hyperlink{classpoint}{point} $\ast$P\-O\-I\-N\-T\-Y)
 \item 
 void \hyperlink{classtask__read_af2face98d4feb25a296ab079706d41fd}{run} (void)
 \end{DoxyCompactItemize}
@@ -23,13 +18,13 @@ void \hyperlink{classtask__read_af2face98d4feb25a296ab079706d41fd}{run} (void)
 \hypertarget{classtask__read_a2c44e2c5f153938a1db87c277ae6476c}{base\-\_\-text\-\_\-serial $\ast$ \hyperlink{classtask__read_a2c44e2c5f153938a1db87c277ae6476c}{ptr\-\_\-2\-\_\-serial}}\label{classtask__read_a2c44e2c5f153938a1db87c277ae6476c}
 
 \begin{DoxyCompactList}\small\item\em This input driver class needs a pointer to the serial port used to echo inputs to the terminal. \end{DoxyCompactList}\item 
-\hypertarget{classtask__read_a7ca1336ab22aaffc1a5d2c8d7d426d25}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__read_a7ca1336ab22aaffc1a5d2c8d7d426d25}{P\-I\-D\-\_\-1}}\label{classtask__read_a7ca1336ab22aaffc1a5d2c8d7d426d25}
+\hypertarget{classtask__read_a7ca1336ab22aaffc1a5d2c8d7d426d25}{\hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__read_a7ca1336ab22aaffc1a5d2c8d7d426d25}{P\-I\-D\-\_\-1}}\label{classtask__read_a7ca1336ab22aaffc1a5d2c8d7d426d25}
 
 \begin{DoxyCompactList}\small\item\em this input driver class needs pointers to each P\-I\-D object it is expected to interface with \end{DoxyCompactList}\item 
-\hypertarget{classtask__read_a5b9f8ebc163883379819589d378f3ad6}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__read_a5b9f8ebc163883379819589d378f3ad6}{P\-I\-D\-\_\-2}}\label{classtask__read_a5b9f8ebc163883379819589d378f3ad6}
+\hypertarget{classtask__read_a5b9f8ebc163883379819589d378f3ad6}{\hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__read_a5b9f8ebc163883379819589d378f3ad6}{P\-I\-D\-\_\-2}}\label{classtask__read_a5b9f8ebc163883379819589d378f3ad6}
 
 \begin{DoxyCompactList}\small\item\em this input driver class needs pointers to each P\-I\-D object it is expected to interface with \end{DoxyCompactList}\item 
-\hypertarget{classtask__read_abb8403f54a536520302a191b105c1aa3}{\hyperlink{class_master}{Master} $\ast$ \hyperlink{classtask__read_abb8403f54a536520302a191b105c1aa3}{M\-A\-S\-T\-E\-R}}\label{classtask__read_abb8403f54a536520302a191b105c1aa3}
+\hypertarget{classtask__read_abb8403f54a536520302a191b105c1aa3}{\hyperlink{classMaster}{Master} $\ast$ \hyperlink{classtask__read_abb8403f54a536520302a191b105c1aa3}{M\-A\-S\-T\-E\-R}}\label{classtask__read_abb8403f54a536520302a191b105c1aa3}
 
 \begin{DoxyCompactList}\small\item\em this input driver class needs a pointer to the S\-P\-I master object for reset purposes \end{DoxyCompactList}\item 
 \hypertarget{classtask__read_a081e0558ca0461e26aa722a86708ab85}{\hyperlink{classtask__lines}{task\-\_\-lines} $\ast$ \hyperlink{classtask__read_a081e0558ca0461e26aa722a86708ab85}{M\-A\-K\-E\-\_\-\-P\-A\-T\-H}}\label{classtask__read_a081e0558ca0461e26aa722a86708ab85}
@@ -41,9 +36,9 @@ void \hyperlink{classtask__read_af2face98d4feb25a296ab079706d41fd}{run} (void)
 \hypertarget{classtask__read_aa7e34e9247996ada93680d9d8a487d5f}{\hyperlink{classservo}{servo} $\ast$ \hyperlink{classtask__read_aa7e34e9247996ada93680d9d8a487d5f}{You\-\_\-\-Just\-\_\-\-Got\-\_\-\-Servoed}}\label{classtask__read_aa7e34e9247996ada93680d9d8a487d5f}
 
 \begin{DoxyCompactList}\small\item\em servo object allowing pen to be actuated \end{DoxyCompactList}\item 
-\hypertarget{classtask__read_a0b170938e3179e2d810ea7f95ae37a75}{\hyperlink{class_go___home}{Go\-\_\-\-Home} $\ast$ \hyperlink{classtask__read_a0b170938e3179e2d810ea7f95ae37a75}{Plotter\-\_\-\-Home}}\label{classtask__read_a0b170938e3179e2d810ea7f95ae37a75}
+\hypertarget{classtask__read_a0b170938e3179e2d810ea7f95ae37a75}{\hyperlink{classGo__Home}{Go\-\_\-\-Home} $\ast$ \hyperlink{classtask__read_a0b170938e3179e2d810ea7f95ae37a75}{Plotter\-\_\-\-Home}}\label{classtask__read_a0b170938e3179e2d810ea7f95ae37a75}
 
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_go___home}{Go\-\_\-\-Home} object allows \hyperlink{classtask__read}{task\-\_\-read} to initiate homing procedure. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \hyperlink{classGo__Home}{Go\-\_\-\-Home} object allows \hyperlink{classtask__read}{task\-\_\-read} to initiate homing procedure. \end{DoxyCompactList}\item 
 \hypertarget{classtask__read_a9493b50784b9d5077ed9a8994fb1e58d}{\hyperlink{classpoint}{point} $\ast$ \hyperlink{classtask__read_a9493b50784b9d5077ed9a8994fb1e58d}{Make\-\_\-\-Point}}\label{classtask__read_a9493b50784b9d5077ed9a8994fb1e58d}
 
 \begin{DoxyCompactList}\small\item\em point object so make point operation can be initialized \end{DoxyCompactList}\item 
@@ -92,9 +87,11 @@ void \hyperlink{classtask__read_af2face98d4feb25a296ab079706d41fd}{run} (void)
 
 
 \subsection{Detailed Description}
-This define prevents this .h file from being included more than once in a .cpp file. 
+\hyperlink{classtask__read}{task\-\_\-read} is the input section of the user interface for the polar plotter. It takes in the following commands\-: \mbox{[}h,H,?\mbox{]} print a help screen \mbox{[}o,O\mbox{]} home the machine \mbox{[}g,G\mbox{]} enable motor control \mbox{[}s,S\mbox{]} disable motor control (stop motors) \mbox{[}S\-P\-A\-C\-E\mbox{]} Emergency stop \mbox{[}r,R\mbox{]} raise pen \mbox{[}l,L\mbox{]} lower pen \mbox{[}p,P\mbox{]} initiate K\-\_\-p G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}i,I\mbox{]} initiate K\-\_\-i G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}d,D\mbox{]} initiate K\-\_\-d G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}c,C\mbox{]} initiate C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E to make a line \mbox{[}m,M\mbox{]} initiate C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E to make a point \mbox{[}q,Q\mbox{]} print current values of gains, encoders and set points \mbox{[}z,Z\mbox{]} reset P\-I\-D controller (on both boards) \mbox{[}x,X\mbox{]} Make signiture C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E\-S\-: Allows a user to enter values from 0 to 99.\-9 and accept one decimal place if desired G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E\-: Allows a user to enter a number up to 5 digits. User is then promted on which motor to update. no enter key is required on this last step. 
 
-\hyperlink{task__read_8h_source}{task\-\_\-read.\-h} is the header file for \hyperlink{classtask__read}{task\-\_\-read} and includes a number of file scoped variables and a single method, run. 
+Definition at line 32 of file task\-\_\-read.\-h.
+
+
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classtask__read_a6e7da4895a28c1cbb2572364a15fdaff}{\index{task\-\_\-read@{task\-\_\-read}!task\-\_\-read@{task\-\_\-read}}
@@ -128,12 +125,12 @@ The constructor creates a \hyperlink{classtask__read}{task\-\_\-read} object whi
 \hline
 {\em Tom\-\_\-\-Servo} & A servo object so pen can be raised/lowered \\
 \hline
-{\em Home\-\_\-\-Slice} & A \hyperlink{class_go___home}{Go\-\_\-\-Home} object so homing can be initiated \\
+{\em Home\-\_\-\-Slice} & A \hyperlink{classGo__Home}{Go\-\_\-\-Home} object so homing can be initiated \\
 \hline
 {\em P\-O\-I\-N\-T\-Y} & A point object so make a point command can be initiated\\
 \hline
 \end{DoxyParams}
-\hyperlink{classtask__read}{task\-\_\-read} is the input section of the user interface for the M\-E405 term project. It takes in the following commands\-: \mbox{[}h,H,?\mbox{]} print a help screen \mbox{[}o,O\mbox{]} home the machine \mbox{[}g,G\mbox{]} enable motor control \mbox{[}s,S\mbox{]} disable motor control (stop motors) \mbox{[}S\-P\-A\-C\-E\mbox{]} Emergency stop \mbox{[}r,R\mbox{]} raise pen \mbox{[}l,L\mbox{]} lower pen \mbox{[}p,P\mbox{]} initiate K\-\_\-p G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}i,I\mbox{]} initiate K\-\_\-i G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}d,D\mbox{]} initiate K\-\_\-d G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}c,C\mbox{]} initiate C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E to make a line \mbox{[}m,M\mbox{]} initiate C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E to make a point \mbox{[}q,Q\mbox{]} print current values of gains, encoders and set points \mbox{[}z,Z\mbox{]} reset P\-I\-D controller (on both boards) \mbox{[}x,X\mbox{]} Make signiture C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E\-S\-: Allows a user to enter values from 0 to 99.\-9 and accept one decimal place if desired G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E\-: Allows a user to enter a number up to 5 digits. User is then promted on which motor to update. no enter key is required on this last step.$<$ Include standard library header files You'll need this for S\-F\-R and bit names $<$ Include header for serial port class So this can become a schedualed task when it grows up So this can become a schedualed task when it grows up $<$ header file for S\-P\-I master class $<$ header file for motor driver class header file for P\-I\-D controller class $<$ allows pen actuation point is used to make dots $<$ header file for \hyperlink{classtask__lines}{task\-\_\-lines} so user can home the plotter header file for this class The constructor creates a \hyperlink{classtask__read}{task\-\_\-read} object which handles user inputs as described above. It takes in pointers to necessary objects and variables, saves them locally and initializes necessary variables. Of note, read\-\_\-state and print\-\_\-mode are initialized to 3 and 6 respectively so that the help menu will print out as soon as all constructors run. 
+\hyperlink{classtask__read}{task\-\_\-read} is the input section of the user interface for the polar plotter. It takes in the following commands\-: \mbox{[}h,H,?\mbox{]} print a help screen \mbox{[}o,O\mbox{]} home the machine \mbox{[}g,G\mbox{]} enable motor control \mbox{[}s,S\mbox{]} disable motor control (stop motors) \mbox{[}S\-P\-A\-C\-E\mbox{]} Emergency stop \mbox{[}r,R\mbox{]} raise pen \mbox{[}l,L\mbox{]} lower pen \mbox{[}p,P\mbox{]} initiate K\-\_\-p G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}i,I\mbox{]} initiate K\-\_\-i G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}d,D\mbox{]} initiate K\-\_\-d G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E \mbox{[}c,C\mbox{]} initiate C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E to make a line \mbox{[}m,M\mbox{]} initiate C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E to make a point \mbox{[}q,Q\mbox{]} print current values of gains, encoders and set points \mbox{[}z,Z\mbox{]} reset P\-I\-D controller (on both boards) \mbox{[}x,X\mbox{]} Make signiture C\-O\-O\-R\-D\-I\-N\-A\-T\-E I\-N\-P\-U\-T M\-O\-D\-E\-S\-: Allows a user to enter values from 0 to 99.\-9 and accept one decimal place if desired G\-A\-I\-N E\-N\-T\-R\-Y M\-O\-D\-E\-: Allows a user to enter a number up to 5 digits. User is then promted on which motor to update. no enter key is required on this last step.\-The constructor creates a \hyperlink{classtask__read}{task\-\_\-read} object which handles user inputs as described above. It takes in pointers to necessary objects and variables, saves them locally and initializes necessary variables. Of note, read\-\_\-state and print\-\_\-mode are initialized to 3 and 6 respectively so that the help menu will print out as soon as all constructors run. 
 \begin{DoxyParams}{Parameters}
 {\em p\-\_\-serial\-\_\-port,\-:} & A pointer to the serial port for printing purposes \\
 \hline
@@ -149,11 +146,19 @@ The constructor creates a \hyperlink{classtask__read}{task\-\_\-read} object whi
 \hline
 {\em Tom\-\_\-\-Servo} & A servo object so pen can be raised/lowered \\
 \hline
-{\em Home\-\_\-\-Slice} & A \hyperlink{class_go___home}{Go\-\_\-\-Home} object so homing can be initiated \\
+{\em Home\-\_\-\-Slice} & A \hyperlink{classGo__Home}{Go\-\_\-\-Home} object so homing can be initiated \\
 \hline
 {\em P\-O\-I\-N\-T\-Y} & A point object so make a point command can be initiated \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 53 of file task\-\_\-read.\-cpp.
+
+
+
+References M\-A\-K\-E\-\_\-\-P\-A\-T\-H, Make\-\_\-\-Point, M\-A\-S\-T\-E\-R, P\-I\-D\-\_\-1, P\-I\-D\-\_\-2, Plotter\-\_\-\-Home, ptr\-\_\-2\-\_\-print\-\_\-mode, ptr\-\_\-2\-\_\-serial, read\-\_\-mode, read\-\_\-state, and You\-\_\-\-Just\-\_\-\-Got\-\_\-\-Servoed.
+
 
 
 \subsection{Member Function Documentation}
@@ -166,11 +171,11 @@ The constructor creates a \hyperlink{classtask__read}{task\-\_\-read} object whi
 )}}\label{classtask__read_af2face98d4feb25a296ab079706d41fd}
 the run method handles all user inputs. In easy cases, actions are taken here. in longer cases, states are used and flags indicate to another task, \hyperlink{classtask__print}{task\-\_\-print}, that a message should be printed to screen.
 
-the run method handles all user inputs. In easy cases, actions are taken here. in longer cases, states are used and flags indicate to another task, \hyperlink{classtask__print}{task\-\_\-print}, that a message should be printed to screen. States are as follows\-: 0) Hub state\-: get char if input, check for valid command, initiate action 1) Coordinate entry mode 2) Gain value entry mode 3) Help Menu (wait for it to print) 4) Reset 5) Wait for coordinate value prompt 6) Wait for gain value prompt 7) Wait for prompt asking which motor to apply gain to 8) Apply entered to gain to correct memory location state 0 is a hub state
+the run method handles all user inputs. In easy cases, actions are taken here. in longer cases, states are used and flags indicate to another task, \hyperlink{classtask__print}{task\-\_\-print}, that a message should be printed to screen. States are as follows\-: 0) Hub state\-: get char if input, check for valid command, initiate action 1) Coordinate entry mode 2) Gain value entry mode 3) Help Menu (wait for it to print) 4) Reset 5) Wait for coordinate value prompt 6) Wait for gain value prompt 7) Wait for prompt asking which motor to apply gain to 8) Apply entered to gain to correct memory location State 0 is a hub state
 
-state 1 is a coordinate entry mode. It expects a up to two digit integer with a tenths place decimal \mbox{[}ie 23.\-1 or 3.\-2\mbox{]}. it is always stored as number of tenths \mbox{[}ie 23.\-4 --$>$ 234 here\mbox{]}
+State 1 is a coordinate entry mode. It expects a up to two digit integer with a tenths place decimal \mbox{[}ie 23.\-1 or 3.\-2\mbox{]}. it is always stored as number of tenths \mbox{[}ie 23.\-4 --$>$ 234 here\mbox{]}
 
-state 2 is an entry mode for gains. It expects an integer value up to 5 digits. Values are saturated to 16 bit maximum if entry is too large .
+State 2 is an entry mode for gains. It expects an integer value up to 5 digits. Values are saturated to 16 bit maximum if entry is too large .
 
 State 3 prints the help menu. Since that takes a bit the task waits until print out is done
 
@@ -184,9 +189,21 @@ State 7 allows \hyperlink{classtask__print}{task\-\_\-print} enough time to ask 
 
 State 8 saves gain information to the proper K location
 
-state 9 is the beginning of a point entry command
+State 9 initiates a command to make a dot
 
-state 11 handles prompt printing wait times for coord entry 
+State 10 initiates a command to set the inital and final x\&y coordinates for drawing a line
+
+State 11 handles prompt printing wait times for coord entry
+
+State 12 initiates a command to draw our custom signature 
+
+Definition at line 89 of file task\-\_\-read.\-cpp.
+
+
+
+References coord\-\_\-num, coord\-\_\-request, coordinate, dec\-\_\-flag, task\-\_\-lines\-::draw\-\_\-signature(), servo\-::\-Fine\-\_\-\-Line(), task\-\_\-lines\-::go(), point\-::\-Go\-\_\-\-Make\-\_\-\-A\-\_\-\-Dot(), index, input\-\_\-char, K, M\-A\-K\-E\-\_\-\-P\-A\-T\-H, Make\-\_\-\-Point, M\-A\-S\-T\-E\-R, servo\-::\-Pen\-\_\-\-Up(), P\-I\-D\-\_\-1, P\-I\-D\-\_\-2, Plotter\-\_\-\-Home, point\-\_\-request, ptr\-\_\-2\-\_\-print\-\_\-mode, ptr\-\_\-2\-\_\-serial, read\-\_\-mode, read\-\_\-state, task\-\_\-\-P\-I\-D\-::\-Request\-\_\-\-Home(), task\-\_\-lines\-::set\-\_\-coords(), Go\-\_\-\-Home\-::\-S\-E\-T\-\_\-\-Home\-\_\-\-Request(), task\-\_\-\-P\-I\-D\-::stop(), X0, X\-\_\-f, Y0, Y\-\_\-f, and You\-\_\-\-Just\-\_\-\-Got\-\_\-\-Servoed.
+
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

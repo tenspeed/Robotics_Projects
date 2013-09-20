@@ -1,11 +1,12 @@
-/** Servo.cpp is a simple file which allows a user to run a single hobby servo.
-*/
-
-/// This define prevents this .h file from being included more than once in a .cpp file
+// This define prevents this .h file from being included more than once in a .cpp file
 #ifndef _servo_H_
 #define _servo_H_
 //-------------------------------------------------------------------------------------
-
+/** Servo.cpp is a class with methods and inline methods for controlling a hobby servo
+*	to raise and lower the pen for making points and lines. The servo is connected to
+*	a PWM output pin on the microcontroller and the angle is related to the duty cycle
+*	of the PWM signal.
+*/
 class servo
 {
 	protected:

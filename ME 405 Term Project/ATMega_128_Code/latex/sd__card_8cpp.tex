@@ -1,0 +1,424 @@
+\hypertarget{sd__card_8cpp}{\section{sd\-\_\-card.\-cpp File Reference}
+\label{sd__card_8cpp}\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}sd\-\_\-card.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{sd__card_8cpp_abd6503c70d862b979a3f7080a59e9acd}{\#define \hyperlink{sd__card_8cpp_abd6503c70d862b979a3f7080a59e9acd}{S\-T\-A\-\_\-\-N\-O\-I\-N\-I\-T}~0x01}\label{sd__card_8cpp_abd6503c70d862b979a3f7080a59e9acd}
+
+\begin{DoxyCompactList}\small\item\em Drive not initialized code in D\-S\-T\-A\-T\-U\-S. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aec625080763d6cf487e550a6c9a2dd19}{\#define \hyperlink{sd__card_8cpp_aec625080763d6cf487e550a6c9a2dd19}{S\-T\-A\-\_\-\-N\-O\-D\-I\-S\-K}~0x02}\label{sd__card_8cpp_aec625080763d6cf487e550a6c9a2dd19}
+
+\begin{DoxyCompactList}\small\item\em No medium in the drive code in D\-S\-T\-A\-T\-U\-S. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a9ec6dc5f6620a33fabe388d3a111ca8c}{\#define \hyperlink{sd__card_8cpp_a9ec6dc5f6620a33fabe388d3a111ca8c}{S\-T\-A\-\_\-\-P\-R\-O\-T\-E\-C\-T}~0x04}\label{sd__card_8cpp_a9ec6dc5f6620a33fabe388d3a111ca8c}
+
+\begin{DoxyCompactList}\small\item\em Write protected code in D\-S\-T\-A\-T\-U\-S. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a1b3c492f9aec325f0655941b75256f3c}{\#define \hyperlink{sd__card_8cpp_a1b3c492f9aec325f0655941b75256f3c}{C\-T\-R\-L\-\_\-\-S\-Y\-N\-C}~0}\label{sd__card_8cpp_a1b3c492f9aec325f0655941b75256f3c}
+
+\begin{DoxyCompactList}\small\item\em Sync command for write fns. in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a570216006f6a8fc4e1698b1bbb2d1dde}{\#define \hyperlink{sd__card_8cpp_a570216006f6a8fc4e1698b1bbb2d1dde}{G\-E\-T\-\_\-\-S\-E\-C\-T\-O\-R\-\_\-\-C\-O\-U\-N\-T}~1}\label{sd__card_8cpp_a570216006f6a8fc4e1698b1bbb2d1dde}
+
+\begin{DoxyCompactList}\small\item\em Command used in f\-\_\-mkfs() in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_ac73b5cf2135cbd459d109b96c9aa346a}{\#define \hyperlink{sd__card_8cpp_ac73b5cf2135cbd459d109b96c9aa346a}{G\-E\-T\-\_\-\-S\-E\-C\-T\-O\-R\-\_\-\-S\-I\-Z\-E}~2}\label{sd__card_8cpp_ac73b5cf2135cbd459d109b96c9aa346a}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aec3bb4dfe075d0ba2f3b07b300a95500}{\#define \hyperlink{sd__card_8cpp_aec3bb4dfe075d0ba2f3b07b300a95500}{G\-E\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}~3}\label{sd__card_8cpp_aec3bb4dfe075d0ba2f3b07b300a95500}
+
+\begin{DoxyCompactList}\small\item\em Mandatory for only f\-\_\-mkfs() in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a345531a07462afbd999f414708e3b65b}{\#define \hyperlink{sd__card_8cpp_a345531a07462afbd999f414708e3b65b}{C\-T\-R\-L\-\_\-\-P\-O\-W\-E\-R}~4}\label{sd__card_8cpp_a345531a07462afbd999f414708e3b65b}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_af40e5cf3000553a978ff6e30dae70858}{\#define \hyperlink{sd__card_8cpp_af40e5cf3000553a978ff6e30dae70858}{C\-T\-R\-L\-\_\-\-L\-O\-C\-K}~5}\label{sd__card_8cpp_af40e5cf3000553a978ff6e30dae70858}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a5e40e16d2d7ce196858950f070b9ec03}{\#define \hyperlink{sd__card_8cpp_a5e40e16d2d7ce196858950f070b9ec03}{C\-T\-R\-L\-\_\-\-E\-J\-E\-C\-T}~6}\label{sd__card_8cpp_a5e40e16d2d7ce196858950f070b9ec03}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aba3a81a9a47c7d1bf3ac7749bc72dcfd}{\#define \hyperlink{sd__card_8cpp_aba3a81a9a47c7d1bf3ac7749bc72dcfd}{M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-T\-Y\-P\-E}~10}\label{sd__card_8cpp_aba3a81a9a47c7d1bf3ac7749bc72dcfd}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_ae3b858b81287929f7c7bea3b7aec3087}{\#define \hyperlink{sd__card_8cpp_ae3b858b81287929f7c7bea3b7aec3087}{M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-C\-S\-D}~11}\label{sd__card_8cpp_ae3b858b81287929f7c7bea3b7aec3087}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a17ad303dd18b19a4c90ab30a8a1c14c4}{\#define \hyperlink{sd__card_8cpp_a17ad303dd18b19a4c90ab30a8a1c14c4}{M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-C\-I\-D}~12}\label{sd__card_8cpp_a17ad303dd18b19a4c90ab30a8a1c14c4}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aff118ba6bd7a9fe7699cee049cff5d6c}{\#define \hyperlink{sd__card_8cpp_aff118ba6bd7a9fe7699cee049cff5d6c}{M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-O\-C\-R}~13}\label{sd__card_8cpp_aff118ba6bd7a9fe7699cee049cff5d6c}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a5cc43c8449b872e16ea5ab42592f793e}{\#define \hyperlink{sd__card_8cpp_a5cc43c8449b872e16ea5ab42592f793e}{M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-S\-D\-S\-T\-A\-T}~14}\label{sd__card_8cpp_a5cc43c8449b872e16ea5ab42592f793e}
+
+\begin{DoxyCompactList}\small\item\em Command code in disk\-\_\-ioctrl() \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a938c1466755f12fb04ac0d1b775584d1}{\#define \hyperlink{sd__card_8cpp_a938c1466755f12fb04ac0d1b775584d1}{C\-M\-D0}~(0x40+0)}\label{sd__card_8cpp_a938c1466755f12fb04ac0d1b775584d1}
+
+\begin{DoxyCompactList}\small\item\em G\-O\-\_\-\-I\-D\-L\-E\-\_\-\-S\-T\-A\-T\-E command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aca9979f299fa78c1128d778084478673}{\#define \hyperlink{sd__card_8cpp_aca9979f299fa78c1128d778084478673}{C\-M\-D1}~(0x40+1)}\label{sd__card_8cpp_aca9979f299fa78c1128d778084478673}
+
+\begin{DoxyCompactList}\small\item\em S\-E\-N\-D\-\_\-\-O\-P\-\_\-\-C\-O\-N\-D (M\-M\-C) command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a9b6fdfed1b57ac31269b6b9987e0761b}{\#define \hyperlink{sd__card_8cpp_a9b6fdfed1b57ac31269b6b9987e0761b}{A\-C\-M\-D41}~(0x\-C0+41)}\label{sd__card_8cpp_a9b6fdfed1b57ac31269b6b9987e0761b}
+
+\begin{DoxyCompactList}\small\item\em S\-E\-N\-D\-\_\-\-O\-P\-\_\-\-C\-O\-N\-D (S\-D\-C) command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_ac75b3e0ad1fb013ea946fb49bbe65668}{\#define \hyperlink{sd__card_8cpp_ac75b3e0ad1fb013ea946fb49bbe65668}{C\-M\-D8}~(0x40+8)}\label{sd__card_8cpp_ac75b3e0ad1fb013ea946fb49bbe65668}
+
+\begin{DoxyCompactList}\small\item\em S\-E\-N\-D\-\_\-\-I\-F\-\_\-\-C\-O\-N\-D command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a1fac6a251d7e7dc204d21639bf521459}{\#define \hyperlink{sd__card_8cpp_a1fac6a251d7e7dc204d21639bf521459}{C\-M\-D9}~(0x40+9)}\label{sd__card_8cpp_a1fac6a251d7e7dc204d21639bf521459}
+
+\begin{DoxyCompactList}\small\item\em S\-E\-N\-D\-\_\-\-C\-S\-D command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_ae7b800ed8e7bd52e6f570a5ce72b8104}{\#define \hyperlink{sd__card_8cpp_ae7b800ed8e7bd52e6f570a5ce72b8104}{C\-M\-D10}~(0x40+10)}\label{sd__card_8cpp_ae7b800ed8e7bd52e6f570a5ce72b8104}
+
+\begin{DoxyCompactList}\small\item\em S\-E\-N\-D\-\_\-\-C\-I\-D command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a8d6283c9b060afbaa0e6d1ff7e5ea7b8}{\#define \hyperlink{sd__card_8cpp_a8d6283c9b060afbaa0e6d1ff7e5ea7b8}{C\-M\-D12}~(0x40+12)}\label{sd__card_8cpp_a8d6283c9b060afbaa0e6d1ff7e5ea7b8}
+
+\begin{DoxyCompactList}\small\item\em S\-T\-O\-P\-\_\-\-T\-R\-A\-N\-S\-M\-I\-S\-S\-I\-O\-N command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a4be8f501d86d24b02923846db618fc71}{\#define \hyperlink{sd__card_8cpp_a4be8f501d86d24b02923846db618fc71}{A\-C\-M\-D13}~(0x\-C0+13)}\label{sd__card_8cpp_a4be8f501d86d24b02923846db618fc71}
+
+\begin{DoxyCompactList}\small\item\em S\-D\-\_\-\-S\-T\-A\-T\-U\-S (S\-D\-C) command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aaeab261b94f2031ba41a1d4d857c3541}{\#define \hyperlink{sd__card_8cpp_aaeab261b94f2031ba41a1d4d857c3541}{C\-M\-D16}~(0x40+16)}\label{sd__card_8cpp_aaeab261b94f2031ba41a1d4d857c3541}
+
+\begin{DoxyCompactList}\small\item\em S\-E\-T\-\_\-\-B\-L\-O\-C\-K\-L\-E\-N command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a6bbfe7dc16a19b7f40efcf554b5666ad}{\#define \hyperlink{sd__card_8cpp_a6bbfe7dc16a19b7f40efcf554b5666ad}{C\-M\-D17}~(0x40+17)}\label{sd__card_8cpp_a6bbfe7dc16a19b7f40efcf554b5666ad}
+
+\begin{DoxyCompactList}\small\item\em R\-E\-A\-D\-\_\-\-S\-I\-N\-G\-L\-E\-\_\-\-B\-L\-O\-C\-K command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a3d32c27a6be061b865ba539127278f14}{\#define \hyperlink{sd__card_8cpp_a3d32c27a6be061b865ba539127278f14}{C\-M\-D18}~(0x40+18)}\label{sd__card_8cpp_a3d32c27a6be061b865ba539127278f14}
+
+\begin{DoxyCompactList}\small\item\em R\-E\-A\-D\-\_\-\-M\-U\-L\-T\-I\-P\-L\-E\-\_\-\-B\-L\-O\-C\-K command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a14506e981f38b6177bc36f72c2ca18b1}{\#define \hyperlink{sd__card_8cpp_a14506e981f38b6177bc36f72c2ca18b1}{C\-M\-D23}~(0x40+23)}\label{sd__card_8cpp_a14506e981f38b6177bc36f72c2ca18b1}
+
+\begin{DoxyCompactList}\small\item\em S\-E\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-C\-O\-U\-N\-T (M\-M\-C) command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aa38144d651e2880f92c65bb683621f78}{\#define \hyperlink{sd__card_8cpp_aa38144d651e2880f92c65bb683621f78}{A\-C\-M\-D23}~(0x\-C0+23)}\label{sd__card_8cpp_aa38144d651e2880f92c65bb683621f78}
+
+\begin{DoxyCompactList}\small\item\em S\-E\-T\-\_\-\-W\-R\-\_\-\-B\-L\-K\-\_\-\-E\-R\-A\-S\-E\-\_\-\-C\-O\-U\-N\-T (S\-D\-C) command for card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a252300302c6f7960df547a7f5c25be85}{\#define \hyperlink{sd__card_8cpp_a252300302c6f7960df547a7f5c25be85}{C\-M\-D24}~(0x40+24)}\label{sd__card_8cpp_a252300302c6f7960df547a7f5c25be85}
+
+\begin{DoxyCompactList}\small\item\em W\-R\-I\-T\-E\-\_\-\-B\-L\-O\-C\-K command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aee2c673fba987178f4642531fdeefe9e}{\#define \hyperlink{sd__card_8cpp_aee2c673fba987178f4642531fdeefe9e}{C\-M\-D25}~(0x40+25)}\label{sd__card_8cpp_aee2c673fba987178f4642531fdeefe9e}
+
+\begin{DoxyCompactList}\small\item\em W\-R\-I\-T\-E\-\_\-\-M\-U\-L\-T\-I\-P\-L\-E\-\_\-\-B\-L\-O\-C\-K command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a78289a7a85ffcfddd626694105dc0780}{\#define \hyperlink{sd__card_8cpp_a78289a7a85ffcfddd626694105dc0780}{C\-M\-D55}~(0x40+55)}\label{sd__card_8cpp_a78289a7a85ffcfddd626694105dc0780}
+
+\begin{DoxyCompactList}\small\item\em A\-P\-P\-\_\-\-C\-M\-D command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_aa7a26b2cf17e1ff5967820a1fa41a7aa}{\#define \hyperlink{sd__card_8cpp_aa7a26b2cf17e1ff5967820a1fa41a7aa}{C\-M\-D58}~(0x40+58)}\label{sd__card_8cpp_aa7a26b2cf17e1ff5967820a1fa41a7aa}
+
+\begin{DoxyCompactList}\small\item\em R\-E\-A\-D\-\_\-\-O\-C\-R command for S\-D/\-M\-M\-C card. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_ac52ec66c278308382fdf7b2c57f0ad8c}{\#define \hyperlink{sd__card_8cpp_ac52ec66c278308382fdf7b2c57f0ad8c}{C\-T\-\_\-\-M\-M\-C}~0x01}\label{sd__card_8cpp_ac52ec66c278308382fdf7b2c57f0ad8c}
+
+\begin{DoxyCompactList}\small\item\em M\-M\-C ver 3 card type flag. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_ad1c9fc863ec15d3320b3850dc571626e}{\#define \hyperlink{sd__card_8cpp_ad1c9fc863ec15d3320b3850dc571626e}{C\-T\-\_\-\-S\-D1}~0x02}\label{sd__card_8cpp_ad1c9fc863ec15d3320b3850dc571626e}
+
+\begin{DoxyCompactList}\small\item\em S\-D ver 1 card type flag. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a0db1b71113e73184a5ba511e7020a922}{\#define \hyperlink{sd__card_8cpp_a0db1b71113e73184a5ba511e7020a922}{C\-T\-\_\-\-S\-D2}~0x04}\label{sd__card_8cpp_a0db1b71113e73184a5ba511e7020a922}
+
+\begin{DoxyCompactList}\small\item\em S\-D ver 2 card type flag. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_ae76d94ac83c68d1f025cb0bcad77fa5d}{\#define \hyperlink{sd__card_8cpp_ae76d94ac83c68d1f025cb0bcad77fa5d}{C\-T\-\_\-\-S\-D\-C}~(\hyperlink{sd__card_8cpp_ad1c9fc863ec15d3320b3850dc571626e}{C\-T\-\_\-\-S\-D1}$|$\hyperlink{sd__card_8cpp_a0db1b71113e73184a5ba511e7020a922}{C\-T\-\_\-\-S\-D2})}\label{sd__card_8cpp_ae76d94ac83c68d1f025cb0bcad77fa5d}
+
+\begin{DoxyCompactList}\small\item\em S\-D card type flag. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a7d48ce54c27f4f60666309e8627fab47}{\#define \hyperlink{sd__card_8cpp_a7d48ce54c27f4f60666309e8627fab47}{C\-T\-\_\-\-B\-L\-O\-C\-K}~0x08}\label{sd__card_8cpp_a7d48ce54c27f4f60666309e8627fab47}
+
+\begin{DoxyCompactList}\small\item\em Block addressing card type flag. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a56e8d2ffde94d0c5fdf14b772a32a77f}{\#define \hyperlink{sd__card_8cpp_a56e8d2ffde94d0c5fdf14b772a32a77f}{S\-E\-L\-E\-C\-T}()~\hyperlink{sd__card_8h_a5f934a7642239adfef3e9607d3ad16bc}{S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T} \&= $\sim$\hyperlink{sd__card_8h_a62b196d625ae221c1a83217c98b6fe25}{S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K}}\label{sd__card_8cpp_a56e8d2ffde94d0c5fdf14b772a32a77f}
+
+\begin{DoxyCompactList}\small\item\em This macro causes the S\-D card to be selected by lowering its chip select bit. \end{DoxyCompactList}\item 
+\hypertarget{sd__card_8cpp_a1cbd972fc333e07d29999e284020c362}{\#define \hyperlink{sd__card_8cpp_a1cbd972fc333e07d29999e284020c362}{D\-E\-S\-E\-L\-E\-C\-T}()~\hyperlink{sd__card_8h_a5f934a7642239adfef3e9607d3ad16bc}{S\-D\-\_\-\-C\-S\-\_\-\-P\-O\-R\-T} $|$= \hyperlink{sd__card_8h_a62b196d625ae221c1a83217c98b6fe25}{S\-D\-\_\-\-C\-S\-\_\-\-M\-A\-S\-K}}\label{sd__card_8cpp_a1cbd972fc333e07d29999e284020c362}
+
+\begin{DoxyCompactList}\small\item\em This macro causes the S\-D card to be deselected by raising its chip select bit. \end{DoxyCompactList}\item 
+\#define \hyperlink{sd__card_8cpp_a664c3d000760b8eddac30e40456f0643}{M\-M\-\_\-power\-\_\-on}()
+\item 
+\#define \hyperlink{sd__card_8cpp_a291fa48839d766ae9b979458aa62d04f}{M\-M\-\_\-power\-\_\-off}()
+\item 
+\#define \hyperlink{sd__card_8cpp_ae3d9176798d1718d779e2db397de4bb5}{F\-C\-L\-K\-\_\-\-S\-L\-O\-W}()
+\item 
+\#define \hyperlink{sd__card_8cpp_a1ffcdd6f111fd9b4229f49a5e37046b7}{F\-C\-L\-K\-\_\-\-F\-A\-S\-T}()
+\item 
+\#define \hyperlink{sd__card_8cpp_a495d5bdb434b115bf1cb36ee55cb9ef2}{M\-M\-\_\-xmit\-\_\-spi}(dat)~S\-P\-D\-R = (dat); loop\-\_\-until\-\_\-bit\-\_\-is\-\_\-set (S\-P\-S\-R, S\-P\-I\-F)
+\item 
+\#define \hyperlink{sd__card_8cpp_a5a7c0d1b3329756cd82a0b233fbf0d36}{M\-M\-\_\-rcvr\-\_\-spi\-\_\-m}(dst)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef B\-Y\-T\-E \hyperlink{sd__card_8cpp_adba6790898ce4029c20a34b898ce73c1}{D\-S\-T\-A\-T\-U\-S}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sd__card_8cpp_adba6790898ce4029c20a34b898ce73c1}{D\-S\-T\-A\-T\-U\-S} \hyperlink{sd__card_8cpp_af94ed294ea10bac97a92806b1d589858}{disk\-\_\-initialize} (B\-Y\-T\-E drive\-\_\-number)
+\item 
+\hyperlink{sd__card_8cpp_adba6790898ce4029c20a34b898ce73c1}{D\-S\-T\-A\-T\-U\-S} \hyperlink{sd__card_8cpp_a21ad8e9a107ea2000705a3edfebaaa2d}{disk\-\_\-status} (B\-Y\-T\-E drv)
+\item 
+D\-R\-E\-S\-U\-L\-T \hyperlink{sd__card_8cpp_a916840298eb6e4b7ab481b1ffe8b7416}{disk\-\_\-read} (B\-Y\-T\-E drive\-\_\-number, B\-Y\-T\-E $\ast$buff, D\-W\-O\-R\-D sector, B\-Y\-T\-E count)
+\item 
+D\-R\-E\-S\-U\-L\-T \hyperlink{sd__card_8cpp_adc184f9ce9e43f409579dbe25c6ae12e}{disk\-\_\-write} (B\-Y\-T\-E drive\-\_\-number, const B\-Y\-T\-E $\ast$buff, D\-W\-O\-R\-D sector, B\-Y\-T\-E count)
+\item 
+D\-R\-E\-S\-U\-L\-T \hyperlink{sd__card_8cpp_a90b9b7773d9f969990f80bcae9da400c}{disk\-\_\-ioctl} (B\-Y\-T\-E drive\-\_\-number, B\-Y\-T\-E ctrl, void $\ast$buff)
+\item 
+D\-W\-O\-R\-D \hyperlink{sd__card_8cpp_af58b536abfd30f77213f4ecaf2ac52f5}{get\-\_\-fattime} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a class which allows S\-D cards to be read and written. The intent is that S\-D cards can be convenient mechanisms for the storage of lots and lots of data. In fact, the \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} class is used as an ancestor, so the S\-D card can be used to write data as text using \char`\"{}$<$$<$\char`\"{} operators.
+
+This version of the \hyperlink{classsd__card}{sd\-\_\-card} driver is based on E\-L\-M-\/\-F\-A\-T-\/\-F\-S, a package of D\-O\-S file system drivers found at \href{http://elm-chan.org/fsw/ff/00index_e.html}{\tt http\-://elm-\/chan.\-org/fsw/ff/00index\-\_\-e.\-html}. It was chosen because it is open source and is currently being maintained, while some other packages are in a more static state, their authors having presumably moved on.
+
+Revisions\-: \begin{DoxyItemize}
+\item 06-\/09-\/2008 J\-R\-R Class created, based on C program example found at \href{http://www.captain.at/electronic-atmega-mmc.php}{\tt http\-://www.\-captain.\-at/electronic-\/atmega-\/mmc.\-php} \item 08-\/17-\/2008 J\-R\-R Actually found the time to get it working \item 12-\/09-\/2008 J\-R\-R Added F\-A\-T16 filesystem support using D\-O\-S\-F\-S package from \href{http://www.larwe.com/zws/products/dosfs/index.html}{\tt http\-://www.\-larwe.\-com/zws/products/dosfs/index.\-html} \item 02-\/26-\/2009 J\-R\-R Found time to fix lots of bugs in D\-O\-S\-F\-S version \item 11-\/21-\/2009 J\-R\-R The D\-O\-S\-F\-S code is still buggy; trying E\-L\-M-\/\-F\-A\-T-\/\-F\-S version from \href{http://elm-chan.org/fsw/ff/00index_e.html}{\tt http\-://elm-\/chan.\-org/fsw/ff/00index\-\_\-e.\-html} \item 12-\/16-\/2009 J\-R\-R The E\-L\-M-\/\-F\-A\-T-\/\-F\-S version seems reasonably debugged and usable\end{DoxyItemize}
+License\-: This file is free software released under the Lesser G\-N\-U Public License, version
+\begin{DoxyEnumerate}
+\item This program is intended for educational use only, but it is not limited thereto. It is provided without any guarantee whatsoever. Because the author has no control over how this software may be used, the author cannot be responsible for any consequences of the use of this software. The E\-L\-M-\/\-F\-A\-T-\/\-F\-S package on which this program relies is subject to its own free software license, and any user of this software must agree to the terms of that license as well as the L\-G\-P\-L. See the E\-L\-M-\/\-F\-A\-T-\/\-F\-S link above for details about the license governing D\-O\-S\-F\-S use. 
+\end{DoxyEnumerate}
+
+Definition in file \hyperlink{sd__card_8cpp_source}{sd\-\_\-card.\-cpp}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{sd__card_8cpp_a1ffcdd6f111fd9b4229f49a5e37046b7}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!F\-C\-L\-K\-\_\-\-F\-A\-S\-T@{F\-C\-L\-K\-\_\-\-F\-A\-S\-T}}
+\index{F\-C\-L\-K\-\_\-\-F\-A\-S\-T@{F\-C\-L\-K\-\_\-\-F\-A\-S\-T}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{F\-C\-L\-K\-\_\-\-F\-A\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-C\-L\-K\-\_\-\-F\-A\-S\-T(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_a1ffcdd6f111fd9b4229f49a5e37046b7}
+This macro is defined to set a fast S\-P\-I clock speed, but it does nothing because it's not actually needed. 
+
+Definition at line 112 of file sd\-\_\-card.\-cpp.
+
+
+
+Referenced by disk\-\_\-initialize().
+
+\hypertarget{sd__card_8cpp_ae3d9176798d1718d779e2db397de4bb5}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!F\-C\-L\-K\-\_\-\-S\-L\-O\-W@{F\-C\-L\-K\-\_\-\-S\-L\-O\-W}}
+\index{F\-C\-L\-K\-\_\-\-S\-L\-O\-W@{F\-C\-L\-K\-\_\-\-S\-L\-O\-W}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{F\-C\-L\-K\-\_\-\-S\-L\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-C\-L\-K\-\_\-\-S\-L\-O\-W(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_ae3d9176798d1718d779e2db397de4bb5}
+This macro is defined to set a slow S\-P\-I clock speed, but it does nothing because it's not actually needed. 
+
+Definition at line 107 of file sd\-\_\-card.\-cpp.
+
+
+
+Referenced by disk\-\_\-initialize().
+
+\hypertarget{sd__card_8cpp_a291fa48839d766ae9b979458aa62d04f}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!M\-M\-\_\-power\-\_\-off@{M\-M\-\_\-power\-\_\-off}}
+\index{M\-M\-\_\-power\-\_\-off@{M\-M\-\_\-power\-\_\-off}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{M\-M\-\_\-power\-\_\-off}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-M\-\_\-power\-\_\-off(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_a291fa48839d766ae9b979458aa62d04f}
+This macro is specified to turn S\-D card power off, but it does nothing because the S\-D card in the current design has no socket power control. 
+
+Definition at line 102 of file sd\-\_\-card.\-cpp.
+
+
+
+Referenced by disk\-\_\-initialize().
+
+\hypertarget{sd__card_8cpp_a664c3d000760b8eddac30e40456f0643}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!M\-M\-\_\-power\-\_\-on@{M\-M\-\_\-power\-\_\-on}}
+\index{M\-M\-\_\-power\-\_\-on@{M\-M\-\_\-power\-\_\-on}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{M\-M\-\_\-power\-\_\-on}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-M\-\_\-power\-\_\-on(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_a664c3d000760b8eddac30e40456f0643}
+This macro is specified to turn S\-D card power on, but it does nothing because the S\-D card in the current design has no socket power control. 
+
+Definition at line 97 of file sd\-\_\-card.\-cpp.
+
+
+
+Referenced by disk\-\_\-initialize().
+
+\hypertarget{sd__card_8cpp_a5a7c0d1b3329756cd82a0b233fbf0d36}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!M\-M\-\_\-rcvr\-\_\-spi\-\_\-m@{M\-M\-\_\-rcvr\-\_\-spi\-\_\-m}}
+\index{M\-M\-\_\-rcvr\-\_\-spi\-\_\-m@{M\-M\-\_\-rcvr\-\_\-spi\-\_\-m}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{M\-M\-\_\-rcvr\-\_\-spi\-\_\-m}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-M\-\_\-rcvr\-\_\-spi\-\_\-m(
+\begin{DoxyParamCaption}
+\item[{}]{dst}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_a5a7c0d1b3329756cd82a0b233fbf0d36}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+SPDR = 0xFF; \(\backslash\)
+                            loop\_until\_bit\_is\_set (SPSR, SPIF); \(\backslash\)
+                            *(dst) = SPDR
+\end{DoxyCode}
+This macro receives a byte through the S\-P\-I interface. It is intended to be a bit faster than calling the M\-M\-\_\-rcvr\-\_\-spi() function. 
+\begin{DoxyParams}{Parameters}
+{\em dst} & A pointer to a byte in which to store the received data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file sd\-\_\-card.\-cpp.
+
+\hypertarget{sd__card_8cpp_a495d5bdb434b115bf1cb36ee55cb9ef2}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!M\-M\-\_\-xmit\-\_\-spi@{M\-M\-\_\-xmit\-\_\-spi}}
+\index{M\-M\-\_\-xmit\-\_\-spi@{M\-M\-\_\-xmit\-\_\-spi}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{M\-M\-\_\-xmit\-\_\-spi}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-M\-\_\-xmit\-\_\-spi(
+\begin{DoxyParamCaption}
+\item[{}]{dat}
+\end{DoxyParamCaption}
+)~S\-P\-D\-R = (dat); loop\-\_\-until\-\_\-bit\-\_\-is\-\_\-set (S\-P\-S\-R, S\-P\-I\-F)}}\label{sd__card_8cpp_a495d5bdb434b115bf1cb36ee55cb9ef2}
+This macro transmits a byte to the S\-D card via the S\-P\-I interface. 
+\begin{DoxyParams}{Parameters}
+{\em dat} & The data byte to be transmitted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 131 of file sd\-\_\-card.\-cpp.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{sd__card_8cpp_adba6790898ce4029c20a34b898ce73c1}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!D\-S\-T\-A\-T\-U\-S@{D\-S\-T\-A\-T\-U\-S}}
+\index{D\-S\-T\-A\-T\-U\-S@{D\-S\-T\-A\-T\-U\-S}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{D\-S\-T\-A\-T\-U\-S}]{\setlength{\rightskip}{0pt plus 5cm}typedef B\-Y\-T\-E D\-S\-T\-A\-T\-U\-S}}\label{sd__card_8cpp_adba6790898ce4029c20a34b898ce73c1}
+This typedef defines a status byte which holds information about the state of a drive. If it's 0, the drive is working and ready for use; when one or more bits are 1, different exception conditions defined as S\-T\-A\-\_\-xxx are indicated. 
+
+Definition at line 44 of file sd\-\_\-card.\-cpp.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{sd__card_8cpp_af94ed294ea10bac97a92806b1d589858}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!disk\-\_\-initialize@{disk\-\_\-initialize}}
+\index{disk\-\_\-initialize@{disk\-\_\-initialize}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{disk\-\_\-initialize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\-S\-T\-A\-T\-U\-S} disk\-\_\-initialize (
+\begin{DoxyParamCaption}
+\item[{B\-Y\-T\-E}]{drive\-\_\-number}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_af94ed294ea10bac97a92806b1d589858}
+This function initializes the S\-D card. 
+\begin{DoxyParams}{Parameters}
+{\em drive\-\_\-number} & The drive number; this function works with one S\-D card only, so the drive number is ignored \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 335 of file sd\-\_\-card.\-cpp.
+
+
+
+References A\-C\-M\-D41, C\-M\-D0, C\-M\-D1, C\-M\-D16, C\-M\-D58, C\-M\-D8, C\-T\-\_\-\-B\-L\-O\-C\-K, C\-T\-\_\-\-M\-M\-C, C\-T\-\_\-\-S\-D1, C\-T\-\_\-\-S\-D2, D\-E\-S\-E\-L\-E\-C\-T, F\-C\-L\-K\-\_\-\-F\-A\-S\-T, F\-C\-L\-K\-\_\-\-S\-L\-O\-W, M\-M\-\_\-power\-\_\-off, M\-M\-\_\-power\-\_\-on, and S\-T\-A\-\_\-\-N\-O\-I\-N\-I\-T.
+
+
+
+Referenced by sd\-\_\-card\-::mount().
+
+\hypertarget{sd__card_8cpp_a90b9b7773d9f969990f80bcae9da400c}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!disk\-\_\-ioctl@{disk\-\_\-ioctl}}
+\index{disk\-\_\-ioctl@{disk\-\_\-ioctl}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{disk\-\_\-ioctl}]{\setlength{\rightskip}{0pt plus 5cm}D\-R\-E\-S\-U\-L\-T disk\-\_\-ioctl (
+\begin{DoxyParamCaption}
+\item[{B\-Y\-T\-E}]{drive\-\_\-number, }
+\item[{B\-Y\-T\-E}]{ctrl, }
+\item[{void $\ast$}]{buff}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_a90b9b7773d9f969990f80bcae9da400c}
+This function is used to carry out various miscellaneous I/\-O functions with the S\-D card. The functions which are supported are the following\-: \begin{DoxyItemize}
+\item C\-T\-R\-L\-\_\-\-S\-Y\-N\-C -\/ Ensure that any pending write process has finished \item G\-E\-T\-\_\-\-S\-E\-C\-T\-O\-R\-\_\-\-C\-O\-U\-N\-T -\/ Get the number of sectors on the disk \item G\-E\-T\-\_\-\-S\-E\-C\-T\-O\-R\-\_\-\-S\-I\-Z\-E -\/ Get the sector size \item G\-E\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E -\/ Get the block size (should always be 512 for S\-D cards) \item M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-C\-S\-D -\/ \item M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-C\-I\-D -\/ \item M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-O\-C\-R -\/ \item M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-S\-D\-S\-T\-A\-T -\/\end{DoxyItemize}
+
+\begin{DoxyParams}{Parameters}
+{\em drive\-\_\-number} & The drive number; this function works with one S\-D card only, so the drive number is ignored \\
+\hline
+{\em ctrl} & The control code which tells which function is called for \\
+\hline
+{\em buff} & A pointer to a buffer used for sector I/\-O to and from the disk \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 535 of file sd\-\_\-card.\-cpp.
+
+
+
+References A\-C\-M\-D13, C\-M\-D10, C\-M\-D58, C\-M\-D9, C\-T\-\_\-\-S\-D1, C\-T\-\_\-\-S\-D2, C\-T\-R\-L\-\_\-\-S\-Y\-N\-C, G\-E\-T\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E, G\-E\-T\-\_\-\-S\-E\-C\-T\-O\-R\-\_\-\-C\-O\-U\-N\-T, G\-E\-T\-\_\-\-S\-E\-C\-T\-O\-R\-\_\-\-S\-I\-Z\-E, M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-C\-I\-D, M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-C\-S\-D, M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-O\-C\-R, M\-M\-C\-\_\-\-G\-E\-T\-\_\-\-S\-D\-S\-T\-A\-T, S\-E\-L\-E\-C\-T, and S\-T\-A\-\_\-\-N\-O\-I\-N\-I\-T.
+
+\hypertarget{sd__card_8cpp_a916840298eb6e4b7ab481b1ffe8b7416}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!disk\-\_\-read@{disk\-\_\-read}}
+\index{disk\-\_\-read@{disk\-\_\-read}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{disk\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}D\-R\-E\-S\-U\-L\-T disk\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{B\-Y\-T\-E}]{drive\-\_\-number, }
+\item[{B\-Y\-T\-E $\ast$}]{buff, }
+\item[{D\-W\-O\-R\-D}]{sector, }
+\item[{B\-Y\-T\-E}]{count}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_a916840298eb6e4b7ab481b1ffe8b7416}
+This function reads one or more sector(s) from the S\-D card. 
+\begin{DoxyParams}{Parameters}
+{\em drive\-\_\-number} & The drive number; this function works with one S\-D card only, so the drive number is ignored \\
+\hline
+{\em buff} & A pointer to the data buffer to store read data \\
+\hline
+{\em sector} & Starting sector number (L\-B\-A) \\
+\hline
+{\em count} & The sector count (1..255) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 437 of file sd\-\_\-card.\-cpp.
+
+
+
+References C\-M\-D12, C\-M\-D17, C\-M\-D18, C\-T\-\_\-\-B\-L\-O\-C\-K, and S\-T\-A\-\_\-\-N\-O\-I\-N\-I\-T.
+
+\hypertarget{sd__card_8cpp_a21ad8e9a107ea2000705a3edfebaaa2d}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!disk\-\_\-status@{disk\-\_\-status}}
+\index{disk\-\_\-status@{disk\-\_\-status}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{disk\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\-S\-T\-A\-T\-U\-S} disk\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{B\-Y\-T\-E}]{drv}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_a21ad8e9a107ea2000705a3edfebaaa2d}
+This function returns the status of a given physical drive. The status is held in a byte of type D\-S\-T\-A\-T\-U\-S which holds bits that indicate drive not initialized and other exception conditions. 
+\begin{DoxyParams}{Parameters}
+{\em drv} & The physical drive number. Since this implementation uses only one drive, this parameter is ignored. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 419 of file sd\-\_\-card.\-cpp.
+
+\hypertarget{sd__card_8cpp_adc184f9ce9e43f409579dbe25c6ae12e}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!disk\-\_\-write@{disk\-\_\-write}}
+\index{disk\-\_\-write@{disk\-\_\-write}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{disk\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}D\-R\-E\-S\-U\-L\-T disk\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{B\-Y\-T\-E}]{drive\-\_\-number, }
+\item[{const B\-Y\-T\-E $\ast$}]{buff, }
+\item[{D\-W\-O\-R\-D}]{sector, }
+\item[{B\-Y\-T\-E}]{count}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_adc184f9ce9e43f409579dbe25c6ae12e}
+This function writes one or more sector(s) to the S\-D card. 
+\begin{DoxyParams}{Parameters}
+{\em drive\-\_\-number} & The drive number; this function works with one S\-D card only, so the drive number is ignored \\
+\hline
+{\em buff} & A pointer to the buffer holding the data to be written \\
+\hline
+{\em sector} & Starting sector number (L\-B\-A) \\
+\hline
+{\em count} & The sector count (1..255) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 476 of file sd\-\_\-card.\-cpp.
+
+
+
+References C\-M\-D23, C\-M\-D24, C\-M\-D25, C\-M\-D55, C\-T\-\_\-\-B\-L\-O\-C\-K, C\-T\-\_\-\-S\-D\-C, S\-T\-A\-\_\-\-N\-O\-I\-N\-I\-T, and S\-T\-A\-\_\-\-P\-R\-O\-T\-E\-C\-T.
+
+\hypertarget{sd__card_8cpp_af58b536abfd30f77213f4ecaf2ac52f5}{\index{sd\-\_\-card.\-cpp@{sd\-\_\-card.\-cpp}!get\-\_\-fattime@{get\-\_\-fattime}}
+\index{get\-\_\-fattime@{get\-\_\-fattime}!sd_card.cpp@{sd\-\_\-card.\-cpp}}
+\subsubsection[{get\-\_\-fattime}]{\setlength{\rightskip}{0pt plus 5cm}D\-W\-O\-R\-D get\-\_\-fattime (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{sd__card_8cpp_af58b536abfd30f77213f4ecaf2ac52f5}
+This is a real time clock service to be called from the Fat\-Fs module. Any valid time must be returned even if the system does not support a real time clock. This is not required in read-\/only configuration. 
+
+Definition at line 668 of file sd\-\_\-card.\-cpp.
+

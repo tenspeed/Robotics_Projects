@@ -1,0 +1,198 @@
+\hypertarget{classrs232}{\section{rs232 Class Reference}
+\label{classrs232}\index{rs232@{rs232}}
+}
+
+
+{\ttfamily \#include $<$rs232int.\-h$>$}
+
+Inheritance diagram for rs232\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrs232}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrs232_ad56e2f28cf22cf06575b2a7d48cf4008}{rs232} (unsigned int=9600, unsigned char=0)
+\item 
+bool \hyperlink{classrs232_affe1fefe275bc096bf4c3b40b7337aa9}{putchar} (char)
+\begin{DoxyCompactList}\small\item\em This method writes one character to the serial port. \end{DoxyCompactList}\item 
+void \hyperlink{classrs232_a419947805ca5bfe9b3d3181af653b2b8}{puts} (char const $\ast$)
+\item 
+bool \hyperlink{classrs232_a66aea4f98b929ce8ba8991bcaab480c8}{check\-\_\-for\-\_\-char} (void)
+\item 
+char \hyperlink{classrs232_a301cf4f396edd33e1e1b9af74d28c481}{getchar} (void)
+\item 
+void \hyperlink{classrs232_a5e17a9e3a1b26e91c55cdd535116dc74}{clear\-\_\-screen} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classrs232_a48034d9132dfba0f9e99c88bce4b06cd}{uint8\-\_\-t \hyperlink{classrs232_a48034d9132dfba0f9e99c88bce4b06cd}{port\-\_\-num}}\label{classrs232_a48034d9132dfba0f9e99c88bce4b06cd}
+
+\begin{DoxyCompactList}\small\item\em The U\-S\-A\-R\-T number, 0 or 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class controls a U\-A\-R\-T (Universal Asynchronous Receiver Transmitter), a common serial interface. It talks to old-\/style R\-S232 serial ports (through a voltage converter chip such as a M\-A\-X232) or through a U\-S\-B to serial converter such as a F\-T232\-R\-L chip. The U\-A\-R\-T is also sometimes used to communicate directly with other microcontrollers, sensors, or wireless modems. 
+
+Definition at line 68 of file rs232int.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classrs232_ad56e2f28cf22cf06575b2a7d48cf4008}{\index{rs232@{rs232}!rs232@{rs232}}
+\index{rs232@{rs232}!rs232@{rs232}}
+\subsubsection[{rs232}]{\setlength{\rightskip}{0pt plus 5cm}rs232\-::rs232 (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{baud\-\_\-rate = {\ttfamily 9600}, }
+\item[{unsigned char}]{port\-\_\-number = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classrs232_ad56e2f28cf22cf06575b2a7d48cf4008}
+This method sets up the A\-V\-R U\-A\-R\-T for communications. It calls the \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} constructor, which prepares to convert numbers to text strings, and the \hyperlink{classbase232}{base232} constructor, which does the work of setting up the serial port. Note that the user program must call sei() somewhere to enable global interrupts so that this driver will work. It is not called in this constructor because it's common to construct many drivers which use interrupts, including this one, and then enable interrupts globally using sei() after all the constructors have been called. 
+\begin{DoxyParams}{Parameters}
+{\em baud\-\_\-rate} & The desired baud rate for serial communications. Default is 9600 \\
+\hline
+{\em port\-\_\-number} & The number of the serial port, 0 or 1 (the second port numbered 1 only exists on some processors). The default is port 0 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file rs232int.\-cpp.
+
+
+
+References port\-\_\-num, rcv0\-\_\-buffer, rcv0\-\_\-read\-\_\-index, rcv0\-\_\-write\-\_\-index, and R\-S\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classrs232_a66aea4f98b929ce8ba8991bcaab480c8}{\index{rs232@{rs232}!check\-\_\-for\-\_\-char@{check\-\_\-for\-\_\-char}}
+\index{check\-\_\-for\-\_\-char@{check\-\_\-for\-\_\-char}!rs232@{rs232}}
+\subsubsection[{check\-\_\-for\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}bool rs232\-::check\-\_\-for\-\_\-char (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classrs232_a66aea4f98b929ce8ba8991bcaab480c8}
+This method checks if there is a character in the serial port's receiver queue. The queue will have been filled if a character came in through the serial port and caused an interrupt. It returns 1 if there's a character available, and 0 if not. \begin{DoxyReturn}{Returns}
+True for character available, false for no character available 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbase__text__serial_aaaee97155296a26975e060ea230084ea}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 218 of file rs232int.\-cpp.
+
+
+
+References port\-\_\-num, rcv0\-\_\-read\-\_\-index, and rcv0\-\_\-write\-\_\-index.
+
+\hypertarget{classrs232_a5e17a9e3a1b26e91c55cdd535116dc74}{\index{rs232@{rs232}!clear\-\_\-screen@{clear\-\_\-screen}}
+\index{clear\-\_\-screen@{clear\-\_\-screen}!rs232@{rs232}}
+\subsubsection[{clear\-\_\-screen}]{\setlength{\rightskip}{0pt plus 5cm}void rs232\-::clear\-\_\-screen (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classrs232_a5e17a9e3a1b26e91c55cdd535116dc74}
+This method sends the A\-S\-C\-I\-I code to clear a display screen. It is called when the format modifier 'clrscr' is inserted in a line of \char`\"{}$<$$<$\char`\"{} stuff. 
+
+Reimplemented from \hyperlink{classbase__text__serial_a1cb835087fb3dec71c044a2da373bba9}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 236 of file rs232int.\-cpp.
+
+
+
+References C\-L\-R\-S\-C\-R\-\_\-\-S\-T\-Y\-L\-E, and putchar().
+
+\hypertarget{classrs232_a301cf4f396edd33e1e1b9af74d28c481}{\index{rs232@{rs232}!getchar@{getchar}}
+\index{getchar@{getchar}!rs232@{rs232}}
+\subsubsection[{getchar}]{\setlength{\rightskip}{0pt plus 5cm}char rs232\-::getchar (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classrs232_a301cf4f396edd33e1e1b9af74d28c481}
+This method gets one character from the serial port, if one is there. If not, it waits until there is a character available. This can sometimes take a long time (even forever), so use this function carefully. One should almost always use \hyperlink{classrs232_a66aea4f98b929ce8ba8991bcaab480c8}{check\-\_\-for\-\_\-char()} to ensure that there's data available first. \begin{DoxyReturn}{Returns}
+The character which was found in the serial port receive buffer 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbase__text__serial_a7c1fd4a7965a273cd7b24ca543f8dbae}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 177 of file rs232int.\-cpp.
+
+
+
+References port\-\_\-num, rcv0\-\_\-buffer, rcv0\-\_\-read\-\_\-index, rcv0\-\_\-write\-\_\-index, and R\-S\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E.
+
+\hypertarget{classrs232_affe1fefe275bc096bf4c3b40b7337aa9}{\index{rs232@{rs232}!putchar@{putchar}}
+\index{putchar@{putchar}!rs232@{rs232}}
+\subsubsection[{putchar}]{\setlength{\rightskip}{0pt plus 5cm}bool rs232\-::putchar (
+\begin{DoxyParamCaption}
+\item[{char}]{chout}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classrs232_affe1fefe275bc096bf4c3b40b7337aa9}
+
+
+This method writes one character to the serial port. 
+
+This method sends one character to the serial port. It waits until the port is ready, so it can hold up the system for a while. It times out if it waits too long to send the character; you can check the return value to see if the character was successfully sent, or just cross your fingers and ignore the return value. Note 1\-: It's possible that at slower baud rates and/or higher processor speeds, this routine might time out even when the port is working fine. A solution would be to change the count variable to an integer and use a larger starting number. Note 2\-: Fixed! The count is now an integer and it works at lower baud rates. 
+\begin{DoxyParams}{Parameters}
+{\em chout} & The character to be sent out \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if everything was O\-K and false if there was a timeout 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classbase__text__serial_a945e2929f72e578d3c4d3f5de8087567}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 137 of file rs232int.\-cpp.
+
+
+
+References base232\-::mask\-\_\-\-T\-X\-C, base232\-::mask\-\_\-\-U\-D\-R\-E, base232\-::p\-\_\-\-U\-D\-R, base232\-::p\-\_\-\-U\-S\-R, and U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-T\-O\-U\-T.
+
+
+
+Referenced by clear\-\_\-screen(), and puts().
+
+\hypertarget{classrs232_a419947805ca5bfe9b3d3181af653b2b8}{\index{rs232@{rs232}!puts@{puts}}
+\index{puts@{puts}!rs232@{rs232}}
+\subsubsection[{puts}]{\setlength{\rightskip}{0pt plus 5cm}void rs232\-::puts (
+\begin{DoxyParamCaption}
+\item[{char const $\ast$}]{str}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classrs232_a419947805ca5bfe9b3d3181af653b2b8}
+This method writes all the characters in a string until it gets to the '\textbackslash{}0' at the end. Warning\-: This function blocks until it's finished. 
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to be written \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbase__text__serial_a1699dd6cb65575604f66abbf762a2131}{base\-\_\-text\-\_\-serial}.
+
+
+
+Definition at line 163 of file rs232int.\-cpp.
+
+
+
+References putchar().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{rs232int_8h}{rs232int.\-h}\item 
+\hyperlink{rs232int_8cpp}{rs232int.\-cpp}\end{DoxyCompactItemize}

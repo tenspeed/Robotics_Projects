@@ -1,12 +1,9 @@
-/** Servo.cpp is a simple file which allows a user to run a single hobby servo.
-*/
-
 // System headers included with < >
-	#include <stdlib.h>							//!< Standard C library
-	#include <avr/io.h>							//!< Input-output ports, special registers
-	#include <avr/interrupt.h>					//!< Interrupt handling functions
-	#include "rs232int.h"						//!< Include header for serial port class
-	#include "servo.h"							//!< include own header file
+	#include <stdlib.h>							// Standard C library
+	#include <avr/io.h>							// Input-output ports, special registers
+	#include <avr/interrupt.h>					// Interrupt handling functions
+	#include "rs232int.h"						// Include header for serial port class
+	#include "servo.h"							// include own header file
 
 
 //-------------------------------------------------------------------------------------
@@ -47,9 +44,6 @@ servo::servo(base_text_serial* p_serial_port)
 	OCR3AL = 5;			// initialize servo duty cycle
 }
 
-/** Set_Angle sets the angle of the servo
-*	@param angle sets the servo angle between 0 and 360 degrees
-*/
 void servo::Set_Angle(uint16_t angle)
 {
 	if (angle <= 360)

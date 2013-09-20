@@ -1,0 +1,438 @@
+\hypertarget{classbase__text__serial}{\section{base\-\_\-text\-\_\-serial Class Reference}
+\label{classbase__text__serial}\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}}
+}
+
+
+{\ttfamily \#include $<$base\-\_\-text\-\_\-serial.\-h$>$}
+
+Inheritance diagram for base\-\_\-text\-\_\-serial\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbase__text__serial}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbase__text__serial_a621b070a779b138b2dab34b3e33616fe}{base\-\_\-text\-\_\-serial} (void)
+\item 
+virtual bool \hyperlink{classbase__text__serial_ac20fa8adfde943956f8750c4e662627c}{ready\-\_\-to\-\_\-send} (void)
+\item 
+\hypertarget{classbase__text__serial_a945e2929f72e578d3c4d3f5de8087567}{virtual bool \hyperlink{classbase__text__serial_a945e2929f72e578d3c4d3f5de8087567}{putchar} (char)}\label{classbase__text__serial_a945e2929f72e578d3c4d3f5de8087567}
+
+\begin{DoxyCompactList}\small\item\em Virtual and not defined in base class. \end{DoxyCompactList}\item 
+\hypertarget{classbase__text__serial_a1699dd6cb65575604f66abbf762a2131}{virtual void \hyperlink{classbase__text__serial_a1699dd6cb65575604f66abbf762a2131}{puts} (char const $\ast$)}\label{classbase__text__serial_a1699dd6cb65575604f66abbf762a2131}
+
+\begin{DoxyCompactList}\small\item\em Virtual and not defined in base class. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{classbase__text__serial_aaaee97155296a26975e060ea230084ea}{check\-\_\-for\-\_\-char} (void)
+\item 
+virtual char \hyperlink{classbase__text__serial_a7c1fd4a7965a273cd7b24ca543f8dbae}{getchar} (void)
+\item 
+virtual void \hyperlink{classbase__text__serial_ac576f366ad6546797a0b0367015b385d}{transmit\-\_\-now} (void)
+\item 
+virtual void \hyperlink{classbase__text__serial_a1cb835087fb3dec71c044a2da373bba9}{clear\-\_\-screen} (void)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_ad84dcb7707510b48f35fb279bad4e4d5}{operator$<$$<$} (bool)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_ab47d2d832ae5218199b86d6dde1cecc9}{operator$<$$<$} (const char $\ast$)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_a2ed7145ba442a8aaddc127ec6a6c3e42}{operator$<$$<$} (unsigned char)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_aa1f0b7ddcc7ba49d948c112701990499}{operator$<$$<$} (char num)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_ac6e7c3adbfd07474322036cb9c321039}{operator$<$$<$} (unsigned int)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_ad50c16ab5d5e5a308dd3a261700cb222}{operator$<$$<$} (int)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_a37eb2df4a84ff7af1c80e74a6f188f83}{operator$<$$<$} (unsigned long)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_aaca5651e37bcd704e69d9f9569dfbd14}{operator$<$$<$} (long)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_abde40cbd2f57b19fc3e0ef5f7a178a2d}{operator$<$$<$} (unsigned long long)
+\item 
+\hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} \& \hyperlink{classbase__text__serial_a51a9ffbd4ba8b557c7b61babf04e2e32}{operator$<$$<$} (\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407}{ser\-\_\-manipulator})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classbase__text__serial_a8f253aae58f8897edee505b4118afed0}{unsigned char \hyperlink{classbase__text__serial_a8f253aae58f8897edee505b4118afed0}{base}}\label{classbase__text__serial_a8f253aae58f8897edee505b4118afed0}
+
+\begin{DoxyCompactList}\small\item\em This is the currently used base for converting numbers to text. \end{DoxyCompactList}\item 
+bool \hyperlink{classbase__text__serial_acf570e2dd8b2f818f2728c22945f1955}{print\-\_\-ascii}
+\item 
+bool \hyperlink{classbase__text__serial_a613572e10c2d70d44bdb44c451f6fc6b}{pgm\-\_\-string}
+\item 
+char \hyperlink{classbase__text__serial_a0927f9b976981a7f38a4445083ec6f34}{precision}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a base class for lots of serial devices which send text over some type of communication interface. Descendents of this class will be able to send text over serial lines, radio modems or modules, and whatever other communication devices might be appropriate.
+
+The most important methods of this class are the overloaded \char`\"{}$<$$<$\char`\"{} operators which convert different types of numbers into printable strings, then print them using methods which are overloaded by descendent classes. Methods are provided which transmit most types of integers and floating point numbers; floating point numbers are only handled if $<$math.\-h$>$ is defined near the beginning of \hyperlink{base__text__serial_8h}{base\-\_\-text\-\_\-serial.\-h} because one often wants to turn off floating point support in order to save memory. Other classes may implement methods to print themselves to any descendent of this class; see \hyperlink{stl__timer_8h}{stl\-\_\-timer.\-h}/cc for examples in which time stamps print the time conveniently to any serial device.
+
+The ability to transmit characters is provided by descendent classes. Methods which will be inherited or overridden by descendents include the following\-: \begin{DoxyItemize}
+\item ready\-\_\-to\-\_\-send () -\/ Checks if the port is ready to transmit a character \item \hyperlink{classbase__text__serial_a945e2929f72e578d3c4d3f5de8087567}{putchar()} -\/ Sends a single character over the communications line \item \hyperlink{classbase__text__serial_a1699dd6cb65575604f66abbf762a2131}{puts()} -\/ Sends a character string Other methods may optionally be overridden; for example \hyperlink{classbase__text__serial_a1cb835087fb3dec71c044a2da373bba9}{clear\-\_\-screen()} is only needed by devices which have a screen, and some devices may be read-\/only or write-\/only, and some methods may not be needed. \end{DoxyItemize}
+
+
+Definition at line 172 of file base\-\_\-text\-\_\-serial.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbase__text__serial_a621b070a779b138b2dab34b3e33616fe}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}}
+\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{base\-\_\-text\-\_\-serial}]{\setlength{\rightskip}{0pt plus 5cm}base\-\_\-text\-\_\-serial\-::base\-\_\-text\-\_\-serial (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_a621b070a779b138b2dab34b3e33616fe}
+This constructor sets up the base serial port object. It sets the default base for the conversion of numbers to text and the default format for converting chars. 
+
+Definition at line 55 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References base, pgm\-\_\-string, precision, and print\-\_\-ascii.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbase__text__serial_aaaee97155296a26975e060ea230084ea}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!check\-\_\-for\-\_\-char@{check\-\_\-for\-\_\-char}}
+\index{check\-\_\-for\-\_\-char@{check\-\_\-for\-\_\-char}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{check\-\_\-for\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}bool base\-\_\-text\-\_\-serial\-::check\-\_\-for\-\_\-char (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classbase__text__serial_aaaee97155296a26975e060ea230084ea}
+This method checks if there is a character in the serial port's receiver buffer. There isn't, as this base class isn't connected to a buffer; descendent classes will override this method and check a real buffer for real characters. \begin{DoxyReturn}{Returns}
+False, because no character will ever be available 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classrs232_a66aea4f98b929ce8ba8991bcaab480c8}{rs232}.
+
+
+
+Definition at line 97 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+Referenced by task\-\_\-read\-::run().
+
+\hypertarget{classbase__text__serial_a1cb835087fb3dec71c044a2da373bba9}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!clear\-\_\-screen@{clear\-\_\-screen}}
+\index{clear\-\_\-screen@{clear\-\_\-screen}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{clear\-\_\-screen}]{\setlength{\rightskip}{0pt plus 5cm}void base\-\_\-text\-\_\-serial\-::clear\-\_\-screen (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classbase__text__serial_a1cb835087fb3dec71c044a2da373bba9}
+This is a base method to clear a display screen, if there is one. It is called when the format modifier 'clrscr' is inserted in an output line. Descendant classes which send things to displays should respond by clearing themselves. 
+
+Reimplemented in \hyperlink{classrs232_a5e17a9e3a1b26e91c55cdd535116dc74}{rs232}.
+
+
+
+Definition at line 121 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+Referenced by operator$<$$<$().
+
+\hypertarget{classbase__text__serial_a7c1fd4a7965a273cd7b24ca543f8dbae}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!getchar@{getchar}}
+\index{getchar@{getchar}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{getchar}]{\setlength{\rightskip}{0pt plus 5cm}char base\-\_\-text\-\_\-serial\-::getchar (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classbase__text__serial_a7c1fd4a7965a273cd7b24ca543f8dbae}
+This base method just returns zero, because it shouldn't be called. There might be classes which only send characters and don't ever receive them, and this method could be left as a placeholder for those classes. \begin{DoxyReturn}{Returns}
+A zero (null character) which means nothing 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classrs232_a301cf4f396edd33e1e1b9af74d28c481}{rs232}.
+
+
+
+Definition at line 84 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+Referenced by task\-\_\-read\-::run().
+
+\hypertarget{classbase__text__serial_ad84dcb7707510b48f35fb279bad4e4d5}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_ad84dcb7707510b48f35fb279bad4e4d5}
+This method writes a boolean value to the serial port as a character, either \char`\"{}\-T\char`\"{} or \char`\"{}\-F\char`\"{} depending on the value. 
+\begin{DoxyParams}{Parameters}
+{\em value} & The boolean value to be written \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References putchar().
+
+\hypertarget{classbase__text__serial_ab47d2d832ae5218199b86d6dde1cecc9}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_ab47d2d832ae5218199b86d6dde1cecc9}
+This method writes the string whose first character is pointed to by the given character pointer to the serial device. It acts in about the same way as \hyperlink{classbase__text__serial_a1699dd6cb65575604f66abbf762a2131}{puts()}. As with \hyperlink{classbase__text__serial_a1699dd6cb65575604f66abbf762a2131}{puts()}, the string must have a null character (A\-S\-C\-I\-I zero) at the end. 
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the string to be written \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References pgm\-\_\-string, and putchar().
+
+\hypertarget{classbase__text__serial_a2ed7145ba442a8aaddc127ec6a6c3e42}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{num}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_a2ed7145ba442a8aaddc127ec6a6c3e42}
+This method writes a character to the serial port as a text string showing the 8-\/bit unsigned number in that character. If the format control term 'ascii' was called prior to this printing, the character will be printed as an A\-S\-C\-I\-I character. 
+\begin{DoxyParams}{Parameters}
+{\em num} & The 8-\/bit number or character to be sent out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 179 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References base, print\-\_\-ascii, putchar(), and puts().
+
+\hypertarget{classbase__text__serial_aa1f0b7ddcc7ba49d948c112701990499}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{char}]{num}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_aa1f0b7ddcc7ba49d948c112701990499}
+This method writes a character to the serial port as a text string showing the 8-\/bit signed number in that character, unless the 'ascii' manipulator has been used to put the port in ascii text mode, in which case the character is printed directly. 
+\begin{DoxyParams}{Parameters}
+{\em num} & The 8-\/bit number to be sent out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 221 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References base, print\-\_\-ascii, putchar(), and puts().
+
+\hypertarget{classbase__text__serial_ac6e7c3adbfd07474322036cb9c321039}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{num}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_ac6e7c3adbfd07474322036cb9c321039}
+This method writes an integer to the serial port as a text string showing the 16-\/bit unsigned number in that integer. 
+\begin{DoxyParams}{Parameters}
+{\em num} & The 16-\/bit number to be sent out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 248 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References base, and puts().
+
+\hypertarget{classbase__text__serial_ad50c16ab5d5e5a308dd3a261700cb222}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_ad50c16ab5d5e5a308dd3a261700cb222}
+This method writes an integer to the serial port as a text string showing the 16-\/bit signed number in that integer. 
+\begin{DoxyParams}{Parameters}
+{\em num} & The 16-\/bit number to be sent out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 276 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References base, and puts().
+
+\hypertarget{classbase__text__serial_a37eb2df4a84ff7af1c80e74a6f188f83}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{num}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_a37eb2df4a84ff7af1c80e74a6f188f83}
+This method writes an unsigned long integer to the serial port as a text string showing the 32-\/bit unsigned number in that long integer. 
+\begin{DoxyParams}{Parameters}
+{\em num} & The 32-\/bit number to be sent out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 300 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References base, and puts().
+
+\hypertarget{classbase__text__serial_aaca5651e37bcd704e69d9f9569dfbd14}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{long}]{num}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_aaca5651e37bcd704e69d9f9569dfbd14}
+This method writes a long integer to the serial port as a text string showing the 32-\/bit signed number in that long integer. 
+\begin{DoxyParams}{Parameters}
+{\em num} & The 32-\/bit number to be sent out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 328 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References base, and puts().
+
+\hypertarget{classbase__text__serial_abde40cbd2f57b19fc3e0ef5f7a178a2d}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{unsigned long long}]{num}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_abde40cbd2f57b19fc3e0ef5f7a178a2d}
+This method writes a long long (64-\/bit) unsigned integer to the serial port as a text string. It only writes such numbers in unsigned hexadecimal format. The number is written by breaking it into two unsigned longs, writing them in order. 
+\begin{DoxyParams}{Parameters}
+{\em num} & The 64-\/bit number to be sent out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 352 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+\hypertarget{classbase__text__serial_a51a9ffbd4ba8b557c7b61babf04e2e32}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf base\-\_\-text\-\_\-serial} \& base\-\_\-text\-\_\-serial\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{{\bf ser\-\_\-manipulator}}]{new\-\_\-manip}
+\end{DoxyParamCaption}
+)}}\label{classbase__text__serial_a51a9ffbd4ba8b557c7b61babf04e2e32}
+This overload allows manipulators to be used to change the base of displayed numbers to binary, octal, decimal, or hexadecimal. Also, and endline is provided with the name \char`\"{}endl\char`\"{} and the code \char`\"{}send\-\_\-now\char`\"{} causes immediate transmission by devices which save stuff to be transmitted in buffers. 
+\begin{DoxyParams}{Parameters}
+{\em new\-\_\-manip} & The serial manipulator which was given \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 479 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References \-\_\-p\-\_\-str, ascii, base, bin, clear\-\_\-screen(), clrscr, dec, endl, E\-N\-D\-L\-\_\-\-S\-T\-Y\-L\-E, hex, numeric, oct, pgm\-\_\-string, print\-\_\-ascii, puts(), send\-\_\-now, and transmit\-\_\-now().
+
+\hypertarget{classbase__text__serial_ac20fa8adfde943956f8750c4e662627c}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!ready\-\_\-to\-\_\-send@{ready\-\_\-to\-\_\-send}}
+\index{ready\-\_\-to\-\_\-send@{ready\-\_\-to\-\_\-send}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{ready\-\_\-to\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}bool base\-\_\-text\-\_\-serial\-::ready\-\_\-to\-\_\-send (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classbase__text__serial_ac20fa8adfde943956f8750c4e662627c}
+This function checks if the serial port transmitter is ready to send data. It's an empty base method, overridden by most serial devices. Some serial devices might always be ready to send data; those can not bother to override this method. \begin{DoxyReturn}{Returns}
+True if the serial port is ready to send, and false if not 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classsd__card_ace9426af93920e3819887fec13d89adb}{sd\-\_\-card}.
+
+
+
+Definition at line 71 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+\hypertarget{classbase__text__serial_ac576f366ad6546797a0b0367015b385d}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!transmit\-\_\-now@{transmit\-\_\-now}}
+\index{transmit\-\_\-now@{transmit\-\_\-now}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{transmit\-\_\-now}]{\setlength{\rightskip}{0pt plus 5cm}void base\-\_\-text\-\_\-serial\-::transmit\-\_\-now (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classbase__text__serial_ac576f366ad6546797a0b0367015b385d}
+This is a base method for causing immediate transmission of a buffer full of data. The base method doesn't do anything, because it will be implemented in descendent classes which have no buffers, send everything immediately by default, and don't need to respond to calls for immediate transmission. 
+
+Reimplemented in \hyperlink{classsd__card_ac718cadb3664d40cd96bd107470b271f}{sd\-\_\-card}.
+
+
+
+Definition at line 110 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+Referenced by operator$<$$<$().
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbase__text__serial_a613572e10c2d70d44bdb44c451f6fc6b}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!pgm\-\_\-string@{pgm\-\_\-string}}
+\index{pgm\-\_\-string@{pgm\-\_\-string}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{pgm\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}bool base\-\_\-text\-\_\-serial\-::pgm\-\_\-string\hspace{0.3cm}{\ttfamily [protected]}}}\label{classbase__text__serial_a613572e10c2d70d44bdb44c451f6fc6b}
+If this variable is true, the next string to be printed will be found in program (flash) memory, not data memory. 
+
+Definition at line 190 of file base\-\_\-text\-\_\-serial.\-h.
+
+
+
+Referenced by base\-\_\-text\-\_\-serial(), and operator$<$$<$().
+
+\hypertarget{classbase__text__serial_a0927f9b976981a7f38a4445083ec6f34}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!precision@{precision}}
+\index{precision@{precision}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{precision}]{\setlength{\rightskip}{0pt plus 5cm}char base\-\_\-text\-\_\-serial\-::precision\hspace{0.3cm}{\ttfamily [protected]}}}\label{classbase__text__serial_a0927f9b976981a7f38a4445083ec6f34}
+This is the number of digits after a decimal point to be printed when a floating point number is being converted to text. 
+
+Definition at line 194 of file base\-\_\-text\-\_\-serial.\-h.
+
+
+
+Referenced by base\-\_\-text\-\_\-serial().
+
+\hypertarget{classbase__text__serial_acf570e2dd8b2f818f2728c22945f1955}{\index{base\-\_\-text\-\_\-serial@{base\-\_\-text\-\_\-serial}!print\-\_\-ascii@{print\-\_\-ascii}}
+\index{print\-\_\-ascii@{print\-\_\-ascii}!base_text_serial@{base\-\_\-text\-\_\-serial}}
+\subsubsection[{print\-\_\-ascii}]{\setlength{\rightskip}{0pt plus 5cm}bool base\-\_\-text\-\_\-serial\-::print\-\_\-ascii\hspace{0.3cm}{\ttfamily [protected]}}}\label{classbase__text__serial_acf570e2dd8b2f818f2728c22945f1955}
+If this variable is set true, print characters as A\-S\-C\-I\-I characters, not as numbers. 
+
+Definition at line 186 of file base\-\_\-text\-\_\-serial.\-h.
+
+
+
+Referenced by base\-\_\-text\-\_\-serial(), and operator$<$$<$().
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{base__text__serial_8h}{base\-\_\-text\-\_\-serial.\-h}\item 
+\hyperlink{base__text__serial_8cpp}{base\-\_\-text\-\_\-serial.\-cpp}\end{DoxyCompactItemize}

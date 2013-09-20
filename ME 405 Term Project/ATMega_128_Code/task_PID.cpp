@@ -1,10 +1,7 @@
 //======================================================================================
 	/** \file task_PID.cpp is a Proportional Integral Differential (PID) controller. It can
 	* 	control two motors currently, but is best used to control one motor per PID object.
-	
-	*  Revisions:
-	*    \li  05-10-11  Began tearing and hacking at our lab_4 code.				
-	*	 \li  05-22-11	That was the hardest 12 days of our lives. It aint perfect, but it works
+	*
 	*  License:
 	*    This file released under the Lesser GNU Public License. The program is intended
 	*    for educational use only, but its use is not restricted thereto. 
@@ -12,24 +9,24 @@
 	//======================================================================================
 
 	// System headers included with < >
-	#include <stdlib.h>							//!< Standard C library
-	#include <avr/io.h>							//!< Input-output ports, special registers
-	#include <avr/interrupt.h>					//!< Interrupt handling functions
+	#include <stdlib.h>							// Standard C library
+	#include <avr/io.h>							// Input-output ports, special registers
+	#include <avr/interrupt.h>					// Interrupt handling functions
 	
 	// User written headers included with " "
-	#include "rs232int.h"						//!< Include header for serial port class
-	#include "stl_timer.h"						//!< allows task_PID to be scheduled
-	#include "stl_task.h"						//!< allows task_PID to be scheduled
-	#include "Master.h"							//!< allows SPI communications to operate
-	#include "da_motor.h"						//!< allows motor control to occur
-	#include "task_PID.h"						//!< include own header file
+	#include "rs232int.h"						// Include header for serial port class
+	#include "stl_timer.h"						// allows task_PID to be scheduled
+	#include "stl_task.h"						// allows task_PID to be scheduled
+	#include "Master.h"							// allows SPI communications to operate
+	#include "da_motor.h"						// allows motor control to occur
+	#include "task_PID.h"						// include own header file
 	
 	// Define tuning values here for ease fo adjustment, names explain all.
-	#define K_P_DIVISOR 10000 					//!< Just like it sounds			
-	#define K_I_DIVISOR 1000000  				//!< Just like it sounds
-	#define K_D_DIVISOR 100 					//!< Just like it sounds
-	#define INTEGRAL_SATURATE 1000				//!< Saturate integral error
-	#define DUTY_CYCLE_SATURATE 255				//!< Saturate duty cycle
+	#define K_P_DIVISOR 10000 					// Just like it sounds			
+	#define K_I_DIVISOR 1000000  				// Just like it sounds
+	#define K_D_DIVISOR 100 					// Just like it sounds
+	#define INTEGRAL_SATURATE 1000				// Saturate integral error
+	#define DUTY_CYCLE_SATURATE 255				// Saturate duty cycle
 //-----------------------------------------------------------------------------------------
 /** The constructor task_PID creates a new Proportional Integral Differential (PID) controller object.
 		*	@param p_serial_port	Allows screen printouts

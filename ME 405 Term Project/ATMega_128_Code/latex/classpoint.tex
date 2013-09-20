@@ -1,20 +1,11 @@
 \hypertarget{classpoint}{\section{point Class Reference}
 \label{classpoint}\index{point@{point}}
 }
-
-
-This define prevents this .h file from being included more than once in a .cpp file.  
-
-
-
-
-{\ttfamily \#include $<$point.\-h$>$}
-
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classpoint_a74f05b63149c2931870fdb68a10c6ba9}{point} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$motor\-\_\-1, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$motor\-\_\-2, \hyperlink{classservo}{servo} $\ast$Penny\-\_\-\-Thingy)
-\begin{DoxyCompactList}\small\item\em $<$ Contains Math Functions \end{DoxyCompactList}\item 
+\hyperlink{classpoint_a74f05b63149c2931870fdb68a10c6ba9}{point} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port, \hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$motor\-\_\-1, \hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$motor\-\_\-2, \hyperlink{classservo}{servo} $\ast$Penny\-\_\-\-Thingy)
+\item 
 void \hyperlink{classpoint_ab52a800806170858caf2ad323e2dce55}{run} (void)
 \item 
 void \hyperlink{classpoint_a5ced7e6ba6d4ee79d48bd762ac5f3fee}{Get\-\_\-\-There} (uint16\-\_\-t Xcoord, uint16\-\_\-t Ycoord)
@@ -27,18 +18,18 @@ void \hyperlink{classpoint_a67895bcb2b18dd568041f66c201a5943}{Go\-\_\-\-Make\-\_
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classpoint_a0faaab9d77ce6901394cc600031dbd68}{base\-\_\-text\-\_\-serial $\ast$ \hyperlink{classpoint_a0faaab9d77ce6901394cc600031dbd68}{ptr\-\_\-2\-\_\-serial}}\label{classpoint_a0faaab9d77ce6901394cc600031dbd68}
+\hypertarget{classpoint_a0faaab9d77ce6901394cc600031dbd68}{base\-\_\-text\-\_\-serial $\ast$ {\bfseries ptr\-\_\-2\-\_\-serial}}\label{classpoint_a0faaab9d77ce6901394cc600031dbd68}
 
-\begin{DoxyCompactList}\small\item\em serial object so tas\-\_\-read can echo stuff to screen \end{DoxyCompactList}\item 
-\hypertarget{classpoint_a182d5d53e4670536ad7c33429d26d2fd}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classpoint_a182d5d53e4670536ad7c33429d26d2fd}{P\-I\-D\-\_\-1}}\label{classpoint_a182d5d53e4670536ad7c33429d26d2fd}
+\item 
+\hypertarget{classpoint_a182d5d53e4670536ad7c33429d26d2fd}{\hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$ {\bfseries P\-I\-D\-\_\-1}}\label{classpoint_a182d5d53e4670536ad7c33429d26d2fd}
 
-\begin{DoxyCompactList}\small\item\em allows point to initiate motion to a point \end{DoxyCompactList}\item 
-\hypertarget{classpoint_a044c64d033c5037d047e9e9284dbc0f6}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classpoint_a044c64d033c5037d047e9e9284dbc0f6}{P\-I\-D\-\_\-2}}\label{classpoint_a044c64d033c5037d047e9e9284dbc0f6}
+\item 
+\hypertarget{classpoint_a044c64d033c5037d047e9e9284dbc0f6}{\hyperlink{classtask__PID}{task\-\_\-\-P\-I\-D} $\ast$ {\bfseries P\-I\-D\-\_\-2}}\label{classpoint_a044c64d033c5037d047e9e9284dbc0f6}
 
-\begin{DoxyCompactList}\small\item\em allows point to initiate motion to a point \end{DoxyCompactList}\item 
-\hypertarget{classpoint_a145a99706897943b3fd67e82bedfc67d}{\hyperlink{classservo}{servo} $\ast$ \hyperlink{classpoint_a145a99706897943b3fd67e82bedfc67d}{Pen\-\_\-\-Servo}}\label{classpoint_a145a99706897943b3fd67e82bedfc67d}
+\item 
+\hypertarget{classpoint_a145a99706897943b3fd67e82bedfc67d}{\hyperlink{classservo}{servo} $\ast$ {\bfseries Pen\-\_\-\-Servo}}\label{classpoint_a145a99706897943b3fd67e82bedfc67d}
 
-\begin{DoxyCompactList}\small\item\em allows pen actuation \end{DoxyCompactList}\item 
+\item 
 \hypertarget{classpoint_af084bab290868a439d2e50d8bec319f8}{bool \hyperlink{classpoint_af084bab290868a439d2e50d8bec319f8}{Go\-\_\-\-To}}\label{classpoint_af084bab290868a439d2e50d8bec319f8}
 
 \begin{DoxyCompactList}\small\item\em puts point into go-\/to mode \end{DoxyCompactList}\item 
@@ -78,7 +69,11 @@ void \hyperlink{classpoint_a67895bcb2b18dd568041f66c201a5943}{Go\-\_\-\-Make\-\_
 
 
 \subsection{Detailed Description}
-This define prevents this .h file from being included more than once in a .cpp file. 
+
+
+Definition at line 13 of file point.\-h.
+
+
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classpoint_a74f05b63149c2931870fdb68a10c6ba9}{\index{point@{point}!point@{point}}
@@ -91,22 +86,7 @@ This define prevents this .h file from being included more than once in a .cpp f
 \item[{{\bf servo} $\ast$}]{Penny\-\_\-\-Thingy}
 \end{DoxyParamCaption}
 )}}\label{classpoint_a74f05b63149c2931870fdb68a10c6ba9}
-
-
-$<$ Contains Math Functions 
-
 The constructor saves object pointers locally and initializes necessary variables. 
-\begin{DoxyParams}{Parameters}
-{\em p\-\_\-serial\-\_\-port,\-:} & A pointer to the serial port for printing purposes \\
-\hline
-{\em motor\-\_\-1,\-:} & A pointer to a motor object \\
-\hline
-{\em motor\-\_\-2,\-:} & A pointer to a second motor object \\
-\hline
-{\em Penny\-\_\-\-Thingy,\-:} & A servo object used to move a pen\\
-\hline
-\end{DoxyParams}
-$<$ Standard C library Input-\/output ports, special registers $<$ Interrupt handling functions$<$ Include header for serial port class allows \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} to be scheduled allows \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} to be scheduled $<$ so \hyperlink{classda__motor}{da\-\_\-motor} doesn't get mad $<$ so P\-I\-D objects don't get mad allows \hyperlink{classtask__lines}{task\-\_\-lines} to call methods belonging to \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $<$ allows pen actuation include own header file The constructor saves object pointers locally and initializes necessary variables. 
 \begin{DoxyParams}{Parameters}
 {\em p\-\_\-serial\-\_\-port,\-:} & A pointer to the serial port for printing purposes \\
 \hline
@@ -117,6 +97,14 @@ $<$ Standard C library Input-\/output ports, special registers $<$ Interrupt han
 {\em Penny\-\_\-\-Thingy,\-:} & A servo object used to move a pen \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 33 of file point.\-cpp.
+
+
+
+References Go\-\_\-\-To, Make\-\_\-\-Point, and point\-\_\-state.
+
 
 
 \subsection{Member Function Documentation}
@@ -135,6 +123,18 @@ This method initiates a cairrage go to. This is how lines moves the pen around.
 {\em Ycoord,\-:} & An y coordinate to go to \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 136 of file point.\-cpp.
+
+
+
+References Go\-\_\-\-To, X, and Y.
+
+
+
+Referenced by task\-\_\-lines\-::run().
+
 \hypertarget{classpoint_a67895bcb2b18dd568041f66c201a5943}{\index{point@{point}!Go\-\_\-\-Make\-\_\-\-A\-\_\-\-Dot@{Go\-\_\-\-Make\-\_\-\-A\-\_\-\-Dot}}
 \index{Go\-\_\-\-Make\-\_\-\-A\-\_\-\-Dot@{Go\-\_\-\-Make\-\_\-\-A\-\_\-\-Dot}!point@{point}}
 \subsubsection[{Go\-\_\-\-Make\-\_\-\-A\-\_\-\-Dot}]{\setlength{\rightskip}{0pt plus 5cm}void point\-::\-Go\-\_\-\-Make\-\_\-\-A\-\_\-\-Dot (
@@ -150,6 +150,18 @@ This method initiates a go to and then makes a point there.
 {\em Ycoord,\-:} & An y coordinate to go to \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 154 of file point.\-cpp.
+
+
+
+References Make\-\_\-\-Point, X, and Y.
+
+
+
+Referenced by task\-\_\-read\-::run().
+
 \hypertarget{classpoint_ab52a800806170858caf2ad323e2dce55}{\index{point@{point}!run@{run}}
 \index{run@{run}!point@{point}}
 \subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}void point\-::run (
@@ -157,11 +169,19 @@ This method initiates a go to and then makes a point there.
 \item[{void}]{}
 \end{DoxyParamCaption}
 )}}\label{classpoint_ab52a800806170858caf2ad323e2dce55}
-The run method moves the pen to a specific location. It has two modes. It can just move the pen somewhere or it can move the pen somewhere and then make a dot. wait state. Is a point or move requested?
+The run method moves the pen to a specific location. It has two modes. It can just move the pen somewhere or it can move the pen somewhere and then make a dot. State 0 is a wait state. Is a point or move requested?
 
-state 1 checks if correct location is achieved yet, if so, make dot if necessary
+State 1 checks if correct location is achieved yet, if so, make dot if necessary
 
-in the case of wanting to make a point, case 2 allows time for pen to get down 
+State 2 allows time for pen to move to the down position 
+
+Definition at line 56 of file point.\-cpp.
+
+
+
+References task\-\_\-\-P\-I\-D\-::\-At\-\_\-\-Seg\-\_\-\-End(), counting, encoder\-\_\-goal\-\_\-r, encoder\-\_\-goal\-\_\-theta, servo\-::\-Fine\-\_\-\-Line(), task\-\_\-\-P\-I\-D\-::go(), Go\-\_\-\-To, Make\-\_\-\-Point, servo\-::\-Pen\-\_\-\-Up(), point\-\_\-state, task\-\_\-\-P\-I\-D\-::set\-\_\-setpoint(), task\-\_\-\-P\-I\-D\-::stop(), X, x\-\_\-squared, Y, and y\-\_\-squared.
+
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

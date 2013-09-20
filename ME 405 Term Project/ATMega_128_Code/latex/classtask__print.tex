@@ -3,11 +3,6 @@
 }
 
 
-This define prevents this .h file from being included more than once in a .cpp file.  
-
-
-
-
 {\ttfamily \#include $<$task\-\_\-print.\-h$>$}
 
 \subsection*{Public Member Functions}
@@ -38,9 +33,11 @@ void \hyperlink{classtask__print_a568efc42203ca707a55ec464c6f420b9}{run} (void)
 
 
 \subsection{Detailed Description}
-This define prevents this .h file from being included more than once in a .cpp file. 
+\hyperlink{classtask__print}{task\-\_\-print} is a state machine which handles the screen printout portion of the user interface for the polar plotter. State 0 checks to see if any prompts, errors or menus need to be printed. If so, the strings are copied to a buffer. State 1 prints the buffer one character at a time so as to be cooperative. When the string end is reached, an endline is printed and State is returned to 0. The exception to this rule is the case of the help menu. Because the menu is so long, it is divided into two strings. State two detects the end of the first half of the menu, copies the second half to the buffer and then continues to print one character at a time. Normal string end procedures are then followed. 
 
-\hyperlink{classtask__print}{task\-\_\-print} is a state machine which handles the screen printout portion of the user interface for a M\-E405 term project. State 0 checks to see if any prompts, errors or menus need to be printed. If so, the strings are copied to a buffer. State 1 prints the buffer one character at a time so as to be cooperative. When the string end is reached, an endline is printed and State is returned to 0. The exception to this rule is the case of the help menu. Because the menu is so long, it is divided into two strings. State two detects the end of the first half of the menu, copies the second half to the buffer and then continues to print one character at a time. Normal string end procedures are then followed.\-Following are the headers of the constructor and methods contained in task\-\_\-print.\-cpp. 
+Definition at line 18 of file task\-\_\-print.\-h.
+
+
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{classtask__print_a40c98a0ed4664ffe410da702ea0d3311}{\index{task\-\_\-print@{task\-\_\-print}!task\-\_\-print@{task\-\_\-print}}
@@ -58,6 +55,14 @@ The constructor creates a \hyperlink{classtask__print}{task\-\_\-print} object.
 {\em p\-\_\-print\-\_\-mode,\-:} & A variable which tells \hyperlink{classtask__print}{task\-\_\-print} which message to print and also tells \hyperlink{classtask__read}{task\-\_\-read} when the printing has been completed. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 39 of file task\-\_\-print.\-cpp.
+
+
+
+References print\-\_\-state, ptr\-\_\-2\-\_\-serial, and ptr\-\_\-2\-\_\-\-Which\-\_\-\-Msg.
+
 
 
 \subsection{Member Function Documentation}
@@ -86,7 +91,7 @@ Message 8 is a prompt asking which motor to apply an entered gain to
 
 case 9 is left out as a reminder that msg9 is the second part of help
 
-case 10 -\/13 coordinate promts Message 10
+Message 10
 
 Message 11
 
@@ -95,6 +100,14 @@ Message 12
 Message 13
 
 State 1 is the actual print state. it keeps track of its progress via index and prints until a nul character is encountered. The exception to this rule is in printing the help menu. Because of it's length, the menu is divided into halves. When the first string ends, this state automatically transitions to the second half of the menu. At the end of any message or menu an endline is printed before returning to state 0.
+
+Definition at line 55 of file task\-\_\-print.\-cpp.
+
+
+
+References buffer, index, print\-\_\-state, ptr\-\_\-2\-\_\-serial, and ptr\-\_\-2\-\_\-\-Which\-\_\-\-Msg.
+
+
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 

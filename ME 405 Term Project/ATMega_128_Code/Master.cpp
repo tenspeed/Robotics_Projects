@@ -11,12 +11,12 @@
 	*/
 	//======================================================================================
 
-	#include <stdlib.h>							//!< Include standard library header files
-	#include <avr/io.h>							//!< You'll need this for SFR and bit names
-	#include "rs232int.h"						//!< Include header for serial port class
-	#include "Master.h"							//!< Include header for SPI driver class
+	#include <stdlib.h>							// Include standard library header files
+	#include <avr/io.h>							// You'll need this for SFR and bit names
+	#include "rs232int.h"						// Include header for serial port class
+	#include "Master.h"							// Include header for SPI driver class
 	
-	#define WAIT 150							//!< WAIT is used as a delay to allow proper SPI communication
+	#define WAIT 150							/// WAIT is used as a delay to allow proper SPI communication
 	//-------------------------------------------------------------------------------------
 	/** The constructor takes in a serial pointer and saves it locally and constructs a
 	*	Master object. The object sets up SPI communications as a master.
@@ -24,7 +24,7 @@
 	*/
 	Master::Master (base_text_serial* p_serial_port)
 	{
-		ptr_to_serial = p_serial_port;          //!< Store the serial port pointer locally
+		ptr_to_serial = p_serial_port;          // Store the serial port pointer locally
 		
 		// say hello
 		*ptr_to_serial << "The Master Cometh" << endl;
@@ -39,7 +39,7 @@
 		SPCR |= (1<<SPR1);						//SPR1, SPR0 set the frequency of SCK (prescale by 64)
 		SPCR &= ~(1<<SPR0);
 
-		//DDRA  |= (1<<PIN6)|(1<<PIN5);           // configure PORTA PIN5 and PIN6 as outputs for LED debugging
+		//DDRA  |= (1<<PIN6)|(1<<PIN5);         // configure PORTA PIN5 and PIN6 as outputs for LED debugging
 		
 		// reset encoder ticks on 164
 		CLEAR (1);
@@ -98,9 +98,13 @@
 		}
 	}
 	
-	/** Initiate communicates with another SPI device using a state machine format. State
-	*	variable Initiate_State determines position in switch case structure where the state variable 
-	*	here and the encoder channel is alternated via pointer ptr_encoder_select.
+	/** Initiate communicates with another SPI device. Each encoder value is 32 bits or 4 bytes. The data
+	*	transfer across the SPI bus happens one byte at a time. Each byte is stored in the union encoder_data.
+	*	After the complete encoder value has been recieved, one more data transfer occurs to get the checksum
+	*	from the slave device. The checksum for the received data is calculated and then compared to the checksum
+	*	sent by the slave. If the checksums don't match, there has been a transfer error and the pointer to the
+	*	encoder variable in PID_test is not updated. If the checksums match, then the pointer to the encoder
+	*	variable gets updated with the new encoder position.
 	*	@param encoder_select Initiate must be fed which channel (motor) you desire encoder ticks from
 	*/
 	void Master::Initiate (uint8_t encoder_select)
@@ -158,18 +162,18 @@
 		Slave_Sum = SPDR;									
 		if (Check_Sum_Master == Slave_Sum)
 		{
-			error_flag = false;						// no error occurred
+			error_flag = false;							// no error occurred
 			encoder = encoder_data.whole;
 		}
 		else
 		{
-			error_flag = true; 						// transmission error occurred!
+			error_flag = true; 							// transmission error occurred!
 			Checksum_Error++;
 		}
 		PORTA |= (1<<PIN7);								// Drive SS high, disableing 
 		Check_Sum_Master = 0;							// Reset Check_Sum_Master before exiting
-		Slave_Sum = 0;								// Reset Slave_Sum before exiting
-		encoder_data.whole = 0;						// Reset the union before exiting
+		Slave_Sum = 0;									// Reset Slave_Sum before exiting
+		encoder_data.whole = 0;							// Reset the union before exiting
 	}	
 	
 	/** Get_Encoder gets an encoder reading

@@ -1,0 +1,21 @@
+\hypertarget{queue_8h}{\section{queue.\-h File Reference}
+\label{queue_8h}\index{queue.\-h@{queue.\-h}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classqueue}{queue$<$ q\-Type, q\-Index\-Type, q\-Size $>$}
+\begin{DoxyCompactList}\small\item\em These defines prevent this file from being included more than once in a $\ast$.cc file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file implements a simple queue (or circular buffer). Data which is placed in the queue is saved for future reading. The queue class is implemented as a template; this means that a queue can be configured to store data of almost any type.
+
+Usage\-: The template specifies the type of data being stored as q\-Type, the type of integer used for the index as q\-Index\-Type, and the number of data items in the queue as q\-Size. First choose the type of data being stored; this may be simple data types such as characters or integers, but it may also be something more complex such as objects of a class (if there's enough memory to hold them all). Then look at the number of items in the queue. If there are less than 255, use a character as q\-Index\-Type; otherwise use a regular 16-\/bit integer. For example, a queue holding 100 long integers (which would use 400 bytes for the data plus a few more bytes for the indices) could be declared as \char`\"{}queue$<$long, char, 100$>$ my\-\_\-queue\char`\"{}.
+
+Revisions\-: \begin{DoxyItemize}
+\item 08-\/28-\/03 J\-R\-R Reference\-: www.\-yureu.\-com/logo\-\_\-plotter/queue\-\_\-code.htm \item 08-\/28-\/03 J\-R\-R Ported to C++ from C \item 12-\/14-\/07 J\-R\-R Doxygen comments added \item 02-\/17-\/08 J\-R\-R Changed index type from define to template parameter \item 08-\/12-\/08 J\-R\-R Added overloaded array subscript operator\end{DoxyItemize}
+License\-: This file copyright 2007-\/2008 by J\-R Ridgely. It is released under the Lesser G\-N\-U public license, version 2. It is intended for educational use only, but the user is free to use it for any purpose permissible under the L\-G\-P\-L. The author has no control over the use of this file and cannot take any responsibility for any consequences of this use. 
+
+Definition in file \hyperlink{queue_8h_source}{queue.\-h}.
+

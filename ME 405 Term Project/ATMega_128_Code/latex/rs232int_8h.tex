@@ -1,0 +1,31 @@
+\hypertarget{rs232int_8h}{\section{rs232int.\-h File Reference}
+\label{rs232int_8h}\index{rs232int.\-h@{rs232int.\-h}}
+}
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}base232.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}base\-\_\-text\-\_\-serial.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classrs232}{rs232}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{rs232int_8h_a060dde53cdbb3adee4184790b96de285}{\#define \hyperlink{rs232int_8h_a060dde53cdbb3adee4184790b96de285}{R\-S\-I\-\_\-\-C\-H\-A\-R\-\_\-\-R\-E\-C\-V\-\_\-\-I\-N\-T\-\_\-0}~U\-S\-A\-R\-T\-\_\-\-R\-X\-C\-\_\-vect}\label{rs232int_8h_a060dde53cdbb3adee4184790b96de285}
+
+\begin{DoxyCompactList}\small\item\em This define prevents this .h file from being included more than once in a .cc file. \end{DoxyCompactList}\item 
+\hypertarget{rs232int_8h_a8ee5a6fe8e131cb007c71139d92653aa}{\#define \hyperlink{rs232int_8h_a8ee5a6fe8e131cb007c71139d92653aa}{R\-S\-I\-N\-T\-\_\-\-B\-U\-F\-\_\-\-S\-I\-Z\-E}~128}\label{rs232int_8h_a8ee5a6fe8e131cb007c71139d92653aa}
+
+\begin{DoxyCompactList}\small\item\em This is the size of the buffer which holds characters received by the serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a class which allows the use of a serial port on an A\-V\-R microcontroller. This version of the class uses the serial port receiver interrupt and a buffer to allow characters to be received in the background. The port is used in \char`\"{}text mode\char`\"{}; that is, the information which is sent and received is expected to be plain A\-S\-C\-I\-I text, and the set of overloaded left-\/shift operators \char`\"{}$<$$<$\char`\"{} in \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial}.$\ast$ can be used to easily send all sorts of data to the serial port in a manner similar to iostreams (like \char`\"{}cout\char`\"{}) in regular C++.
+
+Revised\-: \begin{DoxyItemize}
+\item 04-\/03-\/2006 J\-R\-R For updated version of compiler \item 06-\/10-\/2006 J\-R\-R Ported from C++ to C for use with some C-\/only projects; also serial\-\_\-avr.\-h now has defines for compatibility among lots of A\-V\-R variants \item 08-\/11-\/2006 J\-R\-R Some bug fixes \item 03-\/02-\/2007 J\-R\-R Ported back to C++. I've had it with the limitations of C. \item 04-\/16-\/2007 J\-O Added write (unsigned long) \item 07-\/19-\/2007 J\-R\-R Changed some character return values to bool, added m324p \item 01-\/12-\/2008 J\-R\-R Added code for the A\-Tmega128 using U\-S\-A\-R\-T number 1 only \item 02-\/14-\/2008 J\-R\-R Split between \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} and \hyperlink{classrs232}{rs232} files \item 05-\/31-\/2008 J\-R\-R Changed baud calculations to use C\-P\-U\-\_\-\-F\-R\-E\-Q\-\_\-\-M\-Hz from Makefile \item 06-\/01-\/2008 J\-R\-R Added getch\-\_\-tout() because it's needed by 9\-Xstream modems \item 07-\/05-\/2008 J\-R\-R Changed from 1 to 2 stop bits to placate finicky receivers \item 12-\/22-\/2008 J\-R\-R Split off stuff in \hyperlink{base232_8h}{base232.\-h} for efficiency \item 06-\/30-\/2009 J\-R\-R Received data interrupt and buffer added\end{DoxyItemize}
+License\-: This file is released under the Lesser G\-N\-U Public License, version 2. This program is intended for educational use only, but it is not limited thereto. 
+
+Definition in file \hyperlink{rs232int_8h_source}{rs232int.\-h}.
+

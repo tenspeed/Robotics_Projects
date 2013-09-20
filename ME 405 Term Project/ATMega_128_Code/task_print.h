@@ -1,5 +1,5 @@
 /** task_print is a state machine which handles the screen printout portion of the user 
-*	interface for a ME405 term project. State 0 checks to see if any prompts, errors or
+*	interface for the polar plotter. State 0 checks to see if any prompts, errors or
 *	menus need to be printed. If so, the strings are copied to a buffer. State 1 prints the 
 *	buffer one character at a time so as to be cooperative. When the string end is reached,
 *	an endline is printed and State is returned to 0. The exception to this rule is the case 
@@ -9,16 +9,12 @@
 */
 //-------------------------------------------------------------------------------------
 
-/// This define prevents this .h file from being included more than once in a .cpp file
+// This define prevents this .h file from being included more than once in a .cpp file
 #ifndef _task_print_H_
 #define _task_print_H_
 
 
 //-------------------------------------------------------------------------------------
-/**  Following are the headers of the constructor and methods contained in task_print.cpp.
-*/
- 
-
 class task_print
 {
 	protected:
@@ -51,11 +47,6 @@ class task_print
 		*	copies the second half to the buffer and then continues to print one character at a time.
 		*	Normal string end procedures are then followed.
 		*/
-		void run(void);
-			   
-		
-		
+		void run(void);	
 };
-
-
 #endif // _task_print_H_

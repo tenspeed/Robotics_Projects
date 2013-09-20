@@ -1,11 +1,5 @@
 //======================================================================================
 /** \file  Go_Home.cpp is a task which finds home (R=0, THETA=0) for our plotter
- 
- *
- *  Revisions:
- *            \li  05-26-11  Began tearing and hacking at our lab_5 code.
- *	       
- *    
  *
  *  License:
  *    This file released under the Lesser GNU Public License. The program is intended
@@ -38,28 +32,28 @@ bool arm_switch = false;
 /** This constructor enables the interrupts necessary for the bump stop switches on our
 *	plotter to operate, initializes control booleans, and saves object pointers locally.
 *	@param p_serial_port	Allows screen printouts
-*	@param a_timer:			Assists in sceduling
-*	@param t_stamp:			Assists in sceduling
+*	@param a_timer:			A Timer object to assist with sceduling
+*	@param t_stamp:			A Time Stamp object to assist with sceduling
 *	@param Vortec:			A motor object
 *	@param Clear_Slave		An SPI master object
-*	@param Clear_Massah1 	PID object for motor 1
-*	@param Clear_Massah2 	PID object for motor 2
+*	@param Clear_Master1 	PID object for motor 1
+*	@param Clear_Master2 	PID object for motor 2
 *	@param liner			task lines object so it can call home
 */
 
 Go_Home::Go_Home (base_text_serial* p_serial_port, task_timer& a_timer, time_stamp& t_stamp,
-				  da_motor* Vortec, Master* Clear_Slave, task_PID* Clear_Massah1, task_PID* 
-				  Clear_Massah2, task_lines* liner) : stl_task (a_timer, t_stamp)
+				  da_motor* Vortec, Master* Clear_Slave, task_PID* Clear_Master1, task_PID* 
+				  Clear_Master2, task_lines* liner) : stl_task (a_timer, t_stamp)
 {
-	// save object pointers locally
+	// save object pointers locally.
 	ptr_2_serial = p_serial_port;
 	Vtec_wins = Vortec;
 	Wipe_Slave = Clear_Slave;
-	Wipe_Master1 = Clear_Massah1;
-	Wipe_Master2 = Clear_Massah2;
+	Wipe_Master1 = Clear_Master1;
+	Wipe_Master2 = Clear_Master2;
 	LINES = liner;
 	
-	//enable pins E4 and E5 as inputs with pull ups on. (mommy wow!)
+	//enable pins E4 and E5 as inputs with pull ups on.
 	DDRE &= ~( (1<<PIN4)|(1<<PIN5) );
 	PORTE |= (1<<PIN4)|(1<<PIN5);
 	
@@ -70,7 +64,7 @@ Go_Home::Go_Home (base_text_serial* p_serial_port, task_timer& a_timer, time_sta
 	// say hello
 	*ptr_2_serial << "Bad dog. Go Home!"<<endl;
 }
-/** run is the main method in Go_Home and it performs the actual homing operation of the two degree
+/** run is the main method in Go_Home and it performs the actual homing operation of the 2 degree
 *	of freedom system.
 *	@param state: STL_task is used for scheduling
 */
@@ -78,7 +72,7 @@ char Go_Home::run(char state)
 {
 	switch (state)
 	{
-		/// state 0 does nothing unless homing is requested by user key press or task_lines
+		/// State 0 does nothing unless homing is requested by user key press or task_lines
 		case 0:
 			if ((Home_Request) || (LINES->wanna_go_home()))
 			{
@@ -100,7 +94,7 @@ char Go_Home::run(char state)
 				return(STL_NO_TRANSITION);
 		break;
 		
-		/// state 1 initiates movement of the arm towards home if cart has reached r=0
+		/// State 1 initiates movement of the arm towards home if cart has reached r=0
 		case 1:
 			// when cart is home, shut off cart motor, engage arm motor towards home, and disable arm's PID
 			if (cart_switch)
@@ -121,7 +115,7 @@ char Go_Home::run(char state)
 			return(STL_NO_TRANSITION);
 		break;
 		
-		/// state 2 concludes homing once arm reaches THETA=0.
+		/// State 2 concludes homing once arm reaches THETA=0.
 		case 2:
 			if (arm_switch)
 			{
@@ -148,14 +142,14 @@ char Go_Home::run(char state)
 	}	
 }
 
-/** Set home request allows homing to be initiated by other tasks
+/** SET_Home_Request allows homing to be initiated by other tasks
 */
 void Go_Home::SET_Home_Request(void)
 {
 	Home_Request = true;
 }
 
-/** Is_home returns a flag which is true if machine is done homing.
+/** Is_Home returns a flag which is true if machine is done homing.
 */
 bool Go_Home::Is_Home(void)
 {

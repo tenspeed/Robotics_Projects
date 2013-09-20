@@ -1,0 +1,158 @@
+\hypertarget{base__text__serial_8h}{\section{base\-\_\-text\-\_\-serial.\-h File Reference}
+\label{base__text__serial_8h}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}
+}
+{\ttfamily \#include $<$avr/pgmspace.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{base__text__serial_8h_a05ff31f02c334a6729e6d768de721eb0}{E\-N\-D\-L\-\_\-\-S\-T\-Y\-L\-E}~\char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}
+\begin{DoxyCompactList}\small\item\em This define prevents this .h file from being included more than once in a .cc file. \end{DoxyCompactList}\item 
+\hypertarget{base__text__serial_8h_addb19a39c5f07b2af76670f678f70661}{\#define \hyperlink{base__text__serial_8h_addb19a39c5f07b2af76670f678f70661}{C\-L\-R\-S\-C\-R\-\_\-\-S\-T\-Y\-L\-E}~((unsigned char)12)}\label{base__text__serial_8h_addb19a39c5f07b2af76670f678f70661}
+
+\begin{DoxyCompactList}\small\item\em This define selects the character which asks a terminal to clear its screen. This is usually a control-\/\-L, which is A\-S\-C\-I\-I character number 12. \end{DoxyCompactList}\item 
+\#define \hyperlink{base__text__serial_8h_a076d1892c2e1133e4cc5469015af6423}{P\-M\-S}(s)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407}{ser\-\_\-manipulator} \{ \\*
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407ad843ac028b91abce26e3d42b2e27eae0}{bin}, 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a8f2c05194d91776b033f24e214c6e9df}{oct}, 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a82022a5c9021c54619b7b00d1fede0ad}{dec}, 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a6000f7a8e67e4e0beb7b8ebe93452243}{hex}, 
+\\*
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a1fc467976b8e2979150a99beb709443e}{ascii}, 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a1b5484703e716389553255e6f11f12ec}{numeric}, 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a5cbad4ad24fd9b8c066cdad096cd2f18}{endl}, 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407ab6ca2a7533366acce99cc85a1da20008}{clrscr}, 
+\\*
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a90718791e807ebb8af4ebc39df0b98f7}{send\-\_\-now}, 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a2b6bb413c07a0678c5603fde1bb7226f}{manip\-\_\-set\-\_\-precision}, 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a71e5ad580f4e82a56ae0fbef231f678b}{\-\_\-p\-\_\-str}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407}{ser\-\_\-manipulator} \hyperlink{base__text__serial_8h_af2f403eed86ac0c7b71247685f62736e}{setprecision} (unsigned char)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains a base class for devices which send information in text form over serial devices in an A\-V\-R microcontroller. Example devices are serial ports (both traditional R\-S-\/232 ports and U\-S\-B-\/serial adapters) and wireless modems.
+
+Revised\-: \begin{DoxyItemize}
+\item 04-\/03-\/2006 J\-R\-R For updated version of compiler \item 06-\/10-\/2006 J\-R\-R Ported from C++ to C for use with some C-\/only projects \item 08-\/11-\/2006 J\-R\-R Some bug fixes \item 03-\/02-\/2007 J\-R\-R Ported back to C++. I've had it with the limitations of C. \item 04-\/16-\/2007 J\-O Added write (unsigned long) \item 07-\/19-\/2007 J\-R\-R Changed some character return values to bool, added m324p \item 01-\/12-\/2008 J\-R\-R Added code for the A\-Tmega128 using U\-S\-A\-R\-T number 1 only \item 02-\/13-\/2008 J\-R\-R Split into base class and device specific classes; changed from write() to overloaded $<$$<$ operator in the \char`\"{}cout\char`\"{} style \item 05-\/12-\/2008 A\-L\-S Fixed bug in which signed numbers came out unsigned \item 07-\/05-\/2008 J\-R\-R Added configuration macro by which to change what \char`\"{}endl\char`\"{} is \item 07-\/05-\/2008 J\-R\-R Added 'ascii' and 'numeric' format codes \item 11-\/24-\/2009 J\-R\-R Changed operation of 'clrscr' to a function to work with L\-C\-D \item 11-\/26-\/2009 J\-R\-R Integrated floating point support into this file \item 12-\/16-\/2009 J\-R\-R Improved support for constant strings in program memory\end{DoxyItemize}
+Licenses\-: This file released under the Lesser G\-N\-U Public License, version 2. This program is intended for educational use only, but it is not limited thereto. This code incorporates elements from Xmelkov's ftoa\-\_\-engine.\-h, part of the avr-\/libc source, and users must accept and comply with the license of ftoa\-\_\-engine.\-h as well. 
+
+Definition in file \hyperlink{base__text__serial_8h_source}{base\-\_\-text\-\_\-serial.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{base__text__serial_8h_a05ff31f02c334a6729e6d768de721eb0}{\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!E\-N\-D\-L\-\_\-\-S\-T\-Y\-L\-E@{E\-N\-D\-L\-\_\-\-S\-T\-Y\-L\-E}}
+\index{E\-N\-D\-L\-\_\-\-S\-T\-Y\-L\-E@{E\-N\-D\-L\-\_\-\-S\-T\-Y\-L\-E}!base_text_serial.h@{base\-\_\-text\-\_\-serial.\-h}}
+\subsubsection[{E\-N\-D\-L\-\_\-\-S\-T\-Y\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-D\-L\-\_\-\-S\-T\-Y\-L\-E~\char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{}}}\label{base__text__serial_8h_a05ff31f02c334a6729e6d768de721eb0}
+
+
+This define prevents this .h file from being included more than once in a .cc file. 
+
+This define selects what will be sent when a program sends out \char`\"{}endl\char`\"{}. Different recieving programs want different end-\/of-\/line markers. Traditionally, U\-N\-I\-X uses \char`\"{}\textbackslash{}r\char`\"{} while P\-C's use \char`\"{}\textbackslash{}r\textbackslash{}n\char`\"{} and Macs use \char`\"{}\textbackslash{}n\char`\"{} (I think). 
+
+Definition at line 91 of file base\-\_\-text\-\_\-serial.\-h.
+
+
+
+Referenced by base\-\_\-text\-\_\-serial\-::operator$<$$<$().
+
+\hypertarget{base__text__serial_8h_a076d1892c2e1133e4cc5469015af6423}{\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!P\-M\-S@{P\-M\-S}}
+\index{P\-M\-S@{P\-M\-S}!base_text_serial.h@{base\-\_\-text\-\_\-serial.\-h}}
+\subsubsection[{P\-M\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-M\-S(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}}\label{base__text__serial_8h_a076d1892c2e1133e4cc5469015af6423}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a71e5ad580f4e82a56ae0fbef231f678b}{\_p\_str} << \(\backslash\)
+    \_\_extension\_\_(\{\textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char} \_\_c[] PROGMEM = s; &\_\_c[0]; \})
+\end{DoxyCode}
+This define allows strings to be created in program memory and tells the puts() method to find them in program memory. This saves memory compared to copying all the strings to S\-R\-A\-M, which is the rather wasteful default treatment. See link(s), noting that you'll have to paste some multi-\/part links together because we run out of space in the comment box in the source code... \begin{DoxyItemize}
+\item \href{http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&t=57011}{\tt http\-://www.\-avrfreaks.\-net/index.\-php?name=\-P\-Nphp\-B\-B2\&file=viewtopic\&t=57011} \&start=all\&postdays=0\&postorder=asc \end{DoxyItemize}
+
+
+Definition at line 108 of file base\-\_\-text\-\_\-serial.\-h.
+
+
+
+Referenced by sd\-\_\-card\-::close\-\_\-file(), stl\-\_\-task\-::error\-\_\-stop(), sd\-\_\-card\-::open\-\_\-file\-\_\-append(), sd\-\_\-card\-::open\-\_\-file\-\_\-overwrite(), sd\-\_\-card\-::open\-\_\-file\-\_\-readonly(), sd\-\_\-card\-::open\-\_\-new\-\_\-data\-\_\-file(), operator$<$$<$(), stl\-\_\-task\-::run(), and stl\-\_\-task\-::stl\-\_\-task().
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407}{\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!ser\-\_\-manipulator@{ser\-\_\-manipulator}}
+\index{ser\-\_\-manipulator@{ser\-\_\-manipulator}!base_text_serial.h@{base\-\_\-text\-\_\-serial.\-h}}
+\subsubsection[{ser\-\_\-manipulator}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ser\-\_\-manipulator}}}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407}
+This enumeration is used to change the display base for the output stream from the default of 10 (decimal) to and from 2 (binary), 8 (octal), or 16 (hexadecimal). Also defined are endl for end-\/of-\/line and send\-\_\-now to tell packet based devices to transmit a packet as soon as possible. The base is changed for the next printing of one number only, then the base reverts to the default value of base 10. Codes are also provided to allow printing of 8-\/bit numbers as A\-S\-C\-I\-I characters and to tell some devices to send packets of data immediately. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{bin@{bin}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!bin@{bin}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407ad843ac028b91abce26e3d42b2e27eae0}{bin}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407ad843ac028b91abce26e3d42b2e27eae0}
+}]Print following numbers in base 2 (binary) \index{oct@{oct}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!oct@{oct}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a8f2c05194d91776b033f24e214c6e9df}{oct}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a8f2c05194d91776b033f24e214c6e9df}
+}]Print following numbers in base 8 (octal) \index{dec@{dec}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!dec@{dec}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a82022a5c9021c54619b7b00d1fede0ad}{dec}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a82022a5c9021c54619b7b00d1fede0ad}
+}]Print following numbers in base 10 (decimal) \index{hex@{hex}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!hex@{hex}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a6000f7a8e67e4e0beb7b8ebe93452243}{hex}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a6000f7a8e67e4e0beb7b8ebe93452243}
+}]Print following numbers in base 16 (hexadecimal) \index{ascii@{ascii}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!ascii@{ascii}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a1fc467976b8e2979150a99beb709443e}{ascii}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a1fc467976b8e2979150a99beb709443e}
+}]Print an A\-S\-C\-I\-I character rather than an 8-\/bit number. \index{numeric@{numeric}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!numeric@{numeric}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a1b5484703e716389553255e6f11f12ec}{numeric}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a1b5484703e716389553255e6f11f12ec}
+}]Print 8-\/bit numbers as numeric values, not A\-S\-C\-I\-I. \index{endl@{endl}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!endl@{endl}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a5cbad4ad24fd9b8c066cdad096cd2f18}{endl}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a5cbad4ad24fd9b8c066cdad096cd2f18}
+}]Print a carriage return and linefeed. \index{clrscr@{clrscr}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!clrscr@{clrscr}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407ab6ca2a7533366acce99cc85a1da20008}{clrscr}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407ab6ca2a7533366acce99cc85a1da20008}
+}]Send a control-\/\-L which clears some terminal screens. \index{send\-\_\-now@{send\-\_\-now}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!send\-\_\-now@{send\-\_\-now}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a90718791e807ebb8af4ebc39df0b98f7}{send\-\_\-now}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a90718791e807ebb8af4ebc39df0b98f7}
+}]Tell some devices to send or save data immediately. \index{manip\-\_\-set\-\_\-precision@{manip\-\_\-set\-\_\-precision}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!manip\-\_\-set\-\_\-precision@{manip\-\_\-set\-\_\-precision}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a2b6bb413c07a0678c5603fde1bb7226f}{manip\-\_\-set\-\_\-precision}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a2b6bb413c07a0678c5603fde1bb7226f}
+}]Set the precision for printing floating point numbers. \index{\-\_\-p\-\_\-str@{\-\_\-p\-\_\-str}!base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}}\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!\-\_\-p\-\_\-str@{\-\_\-p\-\_\-str}}\item[{\em 
+\hypertarget{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a71e5ad580f4e82a56ae0fbef231f678b}{\-\_\-p\-\_\-str}\label{base__text__serial_8h_a5582483c459c0f48e51d96478d5b3407a71e5ad580f4e82a56ae0fbef231f678b}
+}]The following string is in program (flash) memory. \end{description}
+\end{Desc}
+
+
+Definition at line 124 of file base\-\_\-text\-\_\-serial.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{base__text__serial_8h_af2f403eed86ac0c7b71247685f62736e}{\index{base\-\_\-text\-\_\-serial.\-h@{base\-\_\-text\-\_\-serial.\-h}!setprecision@{setprecision}}
+\index{setprecision@{setprecision}!base_text_serial.h@{base\-\_\-text\-\_\-serial.\-h}}
+\subsubsection[{setprecision}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ser\-\_\-manipulator} setprecision (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{digits}
+\end{DoxyParamCaption}
+)}}\label{base__text__serial_8h_af2f403eed86ac0c7b71247685f62736e}
+This function sets the global precision value, then returns a manipulator which causes a serial object to change its floating point precision (the number of digits after the decimal point which will be printed). The new precision is \char`\"{}sticky\char`\"{} in that its value persists until this function is called again to change it again. 
+\begin{DoxyParams}{Parameters}
+{\em digits} & A new value for the number of digits after the decimal point; a maximum of 7 digits are allowed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The serial manipulator called \char`\"{}manip\-\_\-set\-\_\-precision\char`\"{} 
+\end{DoxyReturn}
+
+
+Definition at line 462 of file base\-\_\-text\-\_\-serial.\-cpp.
+
+
+
+References bts\-\_\-glob\-\_\-prec, and manip\-\_\-set\-\_\-precision.
+

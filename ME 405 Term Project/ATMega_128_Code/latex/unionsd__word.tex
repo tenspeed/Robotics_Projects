@@ -1,0 +1,33 @@
+\hypertarget{unionsd__word}{\section{sd\-\_\-word Union Reference}
+\label{unionsd__word}\index{sd\-\_\-word@{sd\-\_\-word}}
+}
+
+
+{\ttfamily \#include $<$sd\-\_\-card.\-h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{unionsd__word_a37ba33e7e3e76e030121f52a01f273e0}{unsigned short int \hyperlink{unionsd__word_a37ba33e7e3e76e030121f52a01f273e0}{word}}\label{unionsd__word_a37ba33e7e3e76e030121f52a01f273e0}
+
+\begin{DoxyCompactList}\small\item\em The whole 16 bits. \end{DoxyCompactList}\item 
+\hypertarget{unionsd__word_acc3a05788a859346e6768310165065cd}{unsigned char \hyperlink{unionsd__word_acc3a05788a859346e6768310165065cd}{byte} \mbox{[}2\mbox{]}}\label{unionsd__word_acc3a05788a859346e6768310165065cd}
+
+\begin{DoxyCompactList}\small\item\em The bytes in the word as an array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a character which will cause a line of data to be written to the S\-D card. If, for example, it is set to '\par
+', then whenever a newline character is written the data will be flushed to the card. Set this macro if data is written infrequently to the card; this will help prevent data loss if power goes out after some data is taken but before the data can be written. However, if data is to be written frequently or in high volume, it is best to undef this macro because writing small amounts of data to the card wastes a lot of time and power and tends to wear out flash cards prematurely.\-This definition enables the correct port pins for the S\-P\-I port. The M\-I\-S\-O pin is set as an input; M\-O\-S\-I, S\-C\-K, and S\-S are outputs. Note that even though S\-S is often not used by this routine, it needs to be set as an output, otherwise if anything drives it low, the S\-P\-I port automatically reconfigures itself as a slave and stops working as an interface to the S\-D card. Things seem more reliable with the pullup on M\-I\-S\-O turned on also.
+
+The pins may vary by chip, so we define which pins are set as inputs and outputs on a chip by chip basis. The current list of recognized chips\-: \begin{DoxyItemize}
+\item A\-T90\-S2313, A\-Tmega8, A\-Tmega8535\-: Not enough R\-A\-M and can't be used with this version; the no-\/filesystem version might be usable on chips with R\-A\-M $>$= 1\-K\-B \item A\-Tmega32, A\-Tmega324(\-P), A\-Tmega644(\-P)\-: These work, but only very small programs can fit on the 32 and 324(P); chips such as the 644, with 4\-K\-B R\-A\-M, are best \item A\-Tmega128\-: Not supported yet but should work well\-This union type helps to easily access the bytes in a 16-\/bit unsigned short integer. \end{DoxyItemize}
+
+
+Definition at line 151 of file sd\-\_\-card.\-h.
+
+
+
+The documentation for this union was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sd__card_8h}{sd\-\_\-card.\-h}\end{DoxyCompactItemize}

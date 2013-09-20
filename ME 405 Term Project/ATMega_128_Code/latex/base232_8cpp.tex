@@ -1,0 +1,17 @@
+\hypertarget{base232_8cpp}{\section{base232.\-cpp File Reference}
+\label{base232_8cpp}\index{base232.\-cpp@{base232.\-cpp}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}global\-\_\-debug.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}base232.\-h\char`\"{}}\\*
+
+
+\subsection{Detailed Description}
+This file contains a class which operates an asynchronous (R\-S-\/232 style) serial port on an A\-V\-R microcontroller. Classes which use this stuff include \hyperlink{classrs232}{rs232} and packet232.
+
+Revisions\-: \begin{DoxyItemize}
+\item 04-\/03-\/2006 J\-R\-R For updated version of compiler \item 06-\/10-\/2006 J\-R\-R Ported from C++ to C for use with some C-\/only projects; also serial\-\_\-avr.\-h now has defines for compatibility among lots of A\-V\-R variants \item 08-\/11-\/2006 J\-R\-R Some bug fixes \item 03-\/02-\/2007 J\-R\-R Ported back to C++. I've had it with the limitations of C. \item 04-\/16-\/2007 J\-O Added write (unsigned long) \item 07-\/19-\/2007 J\-R\-R Changed some character return values to bool, added m324p \item 01-\/12-\/2008 J\-R\-R Added code for the A\-Tmega128 using U\-S\-A\-R\-T number 1 only \item 02-\/14-\/2008 J\-R\-R Split between \hyperlink{classbase__text__serial}{base\-\_\-text\-\_\-serial} and \hyperlink{classrs232}{rs232} files \item 05-\/31-\/2008 J\-R\-R Changed baud calculations to use C\-P\-U\-\_\-\-F\-R\-E\-Q\-\_\-\-M\-Hz from Makefile \item 06-\/01-\/2008 J\-R\-R Added getch\-\_\-tout() because it's needed by 9\-Xstream modems \item 07-\/05-\/2008 J\-R\-R Changed from 1 to 2 stop bits to placate finicky receivers \item 12-\/22-\/2008 J\-R\-R Split off stuff in \hyperlink{base232_8h}{base232.\-h} for efficiency \item 01-\/30-\/2009 J\-R\-R Added class with port setup in constructor \item 06-\/02-\/2009 J\-R\-R Changed baud rate divisor formula to work better\end{DoxyItemize}
+License\-: This file is released under the Lesser G\-N\-U Public License, version 2. This program is intended for educational use only, but it is not limited thereto. 
+
+Definition in file \hyperlink{base232_8cpp_source}{base232.\-cpp}.
+

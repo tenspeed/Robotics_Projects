@@ -1,0 +1,47 @@
+\hypertarget{Go__Home_8cpp}{\section{Go\-\_\-\-Home.\-cpp File Reference}
+\label{Go__Home_8cpp}\index{Go\-\_\-\-Home.\-cpp@{Go\-\_\-\-Home.\-cpp}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}rs232int.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stl\-\_\-timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stl\-\_\-task.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Master.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}da\-\_\-motor.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task\-\_\-\-P\-I\-D.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}servo.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}point.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task\-\_\-lines.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Go\-\_\-\-Home.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Go__Home_8cpp_a98a290ada01eb27fd2ff4564371566e5}{\hyperlink{Go__Home_8cpp_a98a290ada01eb27fd2ff4564371566e5}{I\-S\-R} (I\-N\-T4\-\_\-vect)}\label{Go__Home_8cpp_a98a290ada01eb27fd2ff4564371566e5}
+
+\begin{DoxyCompactList}\small\item\em Cart switch is attached to pin E4. \end{DoxyCompactList}\item 
+\hypertarget{Go__Home_8cpp_a6225c50fbafa01589351ed487223aacb}{\hyperlink{Go__Home_8cpp_a6225c50fbafa01589351ed487223aacb}{I\-S\-R} (I\-N\-T5\-\_\-vect)}\label{Go__Home_8cpp_a6225c50fbafa01589351ed487223aacb}
+
+\begin{DoxyCompactList}\small\item\em Arm switch is attached to pin E5. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{Go__Home_8cpp_a1a86d1fb39f2f090a750796fc9e7a8f2}{bool \hyperlink{Go__Home_8cpp_a1a86d1fb39f2f090a750796fc9e7a8f2}{Home\-\_\-\-Request}}\label{Go__Home_8cpp_a1a86d1fb39f2f090a750796fc9e7a8f2}
+
+\begin{DoxyCompactList}\small\item\em externally settable bool triggers homing operation \end{DoxyCompactList}\item 
+\hypertarget{Go__Home_8cpp_a3c23a7cea2de48ee42dd23dffa2e344d}{bool \hyperlink{Go__Home_8cpp_a3c23a7cea2de48ee42dd23dffa2e344d}{cart\-\_\-switch} = false}\label{Go__Home_8cpp_a3c23a7cea2de48ee42dd23dffa2e344d}
+
+\begin{DoxyCompactList}\small\item\em interrupt driven switch tells whether cart is at r=0 \end{DoxyCompactList}\item 
+\hypertarget{Go__Home_8cpp_af65a64fdc999fc8d8b0dc4f8c5ce5fbf}{bool \hyperlink{Go__Home_8cpp_af65a64fdc999fc8d8b0dc4f8c5ce5fbf}{arm\-\_\-switch} = false}\label{Go__Home_8cpp_af65a64fdc999fc8d8b0dc4f8c5ce5fbf}
+
+\begin{DoxyCompactList}\small\item\em interrupt driven switch tells whether arm is at Theta=0. (note\-: r must be zero also!) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+is a task which finds home (R=0, T\-H\-E\-T\-A=0) for our plotter
+
+License\-: This file released under the Lesser G\-N\-U Public License. The program is intended for educational use only, but its use is not restricted thereto. 
+
+Definition in file \hyperlink{Go__Home_8cpp_source}{Go\-\_\-\-Home.\-cpp}.
+
