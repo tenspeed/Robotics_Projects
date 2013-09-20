@@ -1,0 +1,194 @@
+\hypertarget{classtask__lines}{\section{task\-\_\-lines Class Reference}
+\label{classtask__lines}\index{task\-\_\-lines@{task\-\_\-lines}}
+}
+
+
+{\ttfamily \#include $<$task\-\_\-lines.\-h$>$}
+
+Inheritance diagram for task\-\_\-lines\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classtask__lines}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtask__lines_a0d04d45a83ecf3894cdb6c98942e97b6}{task\-\_\-lines} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port, task\-\_\-timer \&a\-\_\-timer, time\-\_\-stamp \&t\-\_\-stamp, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$\hyperlink{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{P\-I\-D\-\_\-1}, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$\hyperlink{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{P\-I\-D\-\_\-2}, \hyperlink{classpoint}{point} $\ast$get\-\_\-there, \hyperlink{classservo}{servo} $\ast$P\-E\-N)
+\item 
+char \hyperlink{classtask__lines_adc52a1f1de31103830a06737db769a34}{run} (char)
+\item 
+\hypertarget{classtask__lines_a58abf21c099eba3afd75e01a41aac160}{void \hyperlink{classtask__lines_a58abf21c099eba3afd75e01a41aac160}{go} (void)}\label{classtask__lines_a58abf21c099eba3afd75e01a41aac160}
+
+\begin{DoxyCompactList}\small\item\em This method sets a bool allowing \hyperlink{classtask__lines}{task\-\_\-lines} to operate. \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_aa4d45fa38ffb509df4587afaf920f5d1}{void \hyperlink{classtask__lines_aa4d45fa38ffb509df4587afaf920f5d1}{set\-\_\-coords} (int16\-\_\-t X0, int16\-\_\-t Y0, int16\-\_\-t X\-\_\-f, int16\-\_\-t Y\-\_\-f)}\label{classtask__lines_aa4d45fa38ffb509df4587afaf920f5d1}
+
+\begin{DoxyCompactList}\small\item\em Set\-\_\-coords updates the initial and final x\&y coordinates when a new line needs to be drawn. \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a8182baeb4e6d6608bb0b9d5bf7ee02d1}{void \hyperlink{classtask__lines_a8182baeb4e6d6608bb0b9d5bf7ee02d1}{draw\-\_\-signature} (void)}\label{classtask__lines_a8182baeb4e6d6608bb0b9d5bf7ee02d1}
+
+\begin{DoxyCompactList}\small\item\em This method sets up lines to draw our signature. \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_af24660494d5ef22eb6c03a007c7347a1}{bool \hyperlink{classtask__lines_af24660494d5ef22eb6c03a007c7347a1}{wanna\-\_\-go\-\_\-home} (void)}\label{classtask__lines_af24660494d5ef22eb6c03a007c7347a1}
+
+\begin{DoxyCompactList}\small\item\em This method allows \hyperlink{class_go___home}{Go\-\_\-\-Home} to see if we want to home (after each line). \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_aef4c5d6e9c67d040a398c2d1791e5f19}{void \hyperlink{classtask__lines_aef4c5d6e9c67d040a398c2d1791e5f19}{ok\-\_\-were\-\_\-home} (void)}\label{classtask__lines_aef4c5d6e9c67d040a398c2d1791e5f19}
+
+\begin{DoxyCompactList}\small\item\em This method allows \hyperlink{class_go___home}{Go\-\_\-\-Home} to lower the homing flag once home is reached. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classtask__lines_acdace444a5715561b80dd929aabb6813}{base\-\_\-text\-\_\-serial $\ast$ \hyperlink{classtask__lines_acdace444a5715561b80dd929aabb6813}{ptr\-\_\-2\-\_\-serial}}\label{classtask__lines_acdace444a5715561b80dd929aabb6813}
+
+\begin{DoxyCompactList}\small\item\em pointer to a serial port object for printing purposes \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_adf126ba6072b70e5525f470bc0d5fd90}{\hyperlink{classpoint}{point} $\ast$ \hyperlink{classtask__lines_adf126ba6072b70e5525f470bc0d5fd90}{Initial\-\_\-\-Point}}\label{classtask__lines_adf126ba6072b70e5525f470bc0d5fd90}
+
+\begin{DoxyCompactList}\small\item\em point object used to move machine \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_ac6c15e2f9c29419c3790196ad18b24dd}{\hyperlink{classservo}{servo} $\ast$ \hyperlink{classtask__lines_ac6c15e2f9c29419c3790196ad18b24dd}{operate\-\_\-pen}}\label{classtask__lines_ac6c15e2f9c29419c3790196ad18b24dd}
+
+\begin{DoxyCompactList}\small\item\em servo object used to raise lower pen \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}{P\-I\-D\-\_\-1}}\label{classtask__lines_af20c4404da342292d6e8e8a7a6004af2}
+
+\begin{DoxyCompactList}\small\item\em P\-I\-D object used to control motor 1. \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}{P\-I\-D\-\_\-2}}\label{classtask__lines_ac53057e78b84eeb3576ee7ffb2380981}
+
+\begin{DoxyCompactList}\small\item\em P\-I\-D object used to control motor 2. \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a2cb987744a37b733479a1766a61a7734}{bool \hyperlink{classtask__lines_a2cb987744a37b733479a1766a61a7734}{send\-\_\-home}}\label{classtask__lines_a2cb987744a37b733479a1766a61a7734}
+
+\begin{DoxyCompactList}\small\item\em boolean used to request homing \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a741d9e704cb8842d8b5f18b88c386cb9}{bool \hyperlink{classtask__lines_a741d9e704cb8842d8b5f18b88c386cb9}{divide\-\_\-lines}}\label{classtask__lines_a741d9e704cb8842d8b5f18b88c386cb9}
+
+\begin{DoxyCompactList}\small\item\em boolean which allows lines to begin \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a7abff223287d4d2e921b71c39bd179ba}{bool \hyperlink{classtask__lines_a7abff223287d4d2e921b71c39bd179ba}{moving}}\label{classtask__lines_a7abff223287d4d2e921b71c39bd179ba}
+
+\begin{DoxyCompactList}\small\item\em boolean used to wait while movement occurs \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_aea9f2c1abc6285bb1131b2098dd2a567}{bool \hyperlink{classtask__lines_aea9f2c1abc6285bb1131b2098dd2a567}{signature}}\label{classtask__lines_aea9f2c1abc6285bb1131b2098dd2a567}
+
+\begin{DoxyCompactList}\small\item\em boolean used to initiate and continue signiture process \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a67c3830a872bf2d6d2215eec15156e51}{uint8\-\_\-t \hyperlink{classtask__lines_a67c3830a872bf2d6d2215eec15156e51}{sig\-\_\-count}}\label{classtask__lines_a67c3830a872bf2d6d2215eec15156e51}
+
+\begin{DoxyCompactList}\small\item\em sub state variable keeps track of where in signiture we are \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_ae33211839ee44fdf75ba2aef43c8a566}{uint8\-\_\-t \hyperlink{classtask__lines_ae33211839ee44fdf75ba2aef43c8a566}{line\-\_\-type}}\label{classtask__lines_ae33211839ee44fdf75ba2aef43c8a566}
+
+\begin{DoxyCompactList}\small\item\em sub state variable used to transition between line types \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a90808cf8391311e526bf7a647e499afc}{int8\-\_\-t \hyperlink{classtask__lines_a90808cf8391311e526bf7a647e499afc}{dx}}\label{classtask__lines_a90808cf8391311e526bf7a647e499afc}
+
+\begin{DoxyCompactList}\small\item\em incremental x distance in tenths of an inch \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a0f086520fb9bfd448685708910d06fe1}{int8\-\_\-t \hyperlink{classtask__lines_a0f086520fb9bfd448685708910d06fe1}{dy}}\label{classtask__lines_a0f086520fb9bfd448685708910d06fe1}
+
+\begin{DoxyCompactList}\small\item\em incremental y distance in tenths of an inch \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a23ff1336daefdf449e36ae03266dfe0e}{uint16\-\_\-t \hyperlink{classtask__lines_a23ff1336daefdf449e36ae03266dfe0e}{current\-\_\-segment}}\label{classtask__lines_a23ff1336daefdf449e36ae03266dfe0e}
+
+\begin{DoxyCompactList}\small\item\em keeps track of when a line is done \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_aa686a708aa641201a447f31d13a4351b}{uint16\-\_\-t \hyperlink{classtask__lines_aa686a708aa641201a447f31d13a4351b}{Seg\-\_\-\-Total}}\label{classtask__lines_aa686a708aa641201a447f31d13a4351b}
+
+\begin{DoxyCompactList}\small\item\em total number of segments in a line \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_ab160679fe7aa75496e0e4a27789cb6d2}{uint16\-\_\-t \hyperlink{classtask__lines_ab160679fe7aa75496e0e4a27789cb6d2}{counter}}\label{classtask__lines_ab160679fe7aa75496e0e4a27789cb6d2}
+
+\begin{DoxyCompactList}\small\item\em dumb counter used to let pen get down befor next step happens \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_aa7134592021b616761cad2811618aa5c}{int32\-\_\-t \hyperlink{classtask__lines_aa7134592021b616761cad2811618aa5c}{S\-U\-Mdx}}\label{classtask__lines_aa7134592021b616761cad2811618aa5c}
+
+\begin{DoxyCompactList}\small\item\em total change in x \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a89408d73e8e7a9b53586c55418fd2710}{int32\-\_\-t \hyperlink{classtask__lines_a89408d73e8e7a9b53586c55418fd2710}{S\-U\-Mdy}}\label{classtask__lines_a89408d73e8e7a9b53586c55418fd2710}
+
+\begin{DoxyCompactList}\small\item\em total change in y \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a4eb29ee98cb4b6a555ddd43804054179}{int16\-\_\-t \hyperlink{classtask__lines_a4eb29ee98cb4b6a555ddd43804054179}{x0}}\label{classtask__lines_a4eb29ee98cb4b6a555ddd43804054179}
+
+\begin{DoxyCompactList}\small\item\em initial x coordinate of a line \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a0748460c610b0bb8e9cfd8b698206ec1}{int16\-\_\-t \hyperlink{classtask__lines_a0748460c610b0bb8e9cfd8b698206ec1}{y0}}\label{classtask__lines_a0748460c610b0bb8e9cfd8b698206ec1}
+
+\begin{DoxyCompactList}\small\item\em initial y coordinate of a line \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a13189d18f9ae3bce0e07b23bb9831325}{int16\-\_\-t \hyperlink{classtask__lines_a13189d18f9ae3bce0e07b23bb9831325}{xf}}\label{classtask__lines_a13189d18f9ae3bce0e07b23bb9831325}
+
+\begin{DoxyCompactList}\small\item\em final x coordinate of a line \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a8cff318f4dc88da0621ba31acbd44d3d}{int16\-\_\-t \hyperlink{classtask__lines_a8cff318f4dc88da0621ba31acbd44d3d}{yf}}\label{classtask__lines_a8cff318f4dc88da0621ba31acbd44d3d}
+
+\begin{DoxyCompactList}\small\item\em final y coordinate of a line \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a51332b7495541314d657391dcffd6481}{float \hyperlink{classtask__lines_a51332b7495541314d657391dcffd6481}{slope}}\label{classtask__lines_a51332b7495541314d657391dcffd6481}
+
+\begin{DoxyCompactList}\small\item\em to detect lines we can do really well! (through origin) \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a2d1f5a2952f88bf379e03ec7bdc4b818}{float \hyperlink{classtask__lines_a2d1f5a2952f88bf379e03ec7bdc4b818}{S\-U\-Mx\-\_\-squared}}\label{classtask__lines_a2d1f5a2952f88bf379e03ec7bdc4b818}
+
+\begin{DoxyCompactList}\small\item\em partitioning pythagorean theorum helped math errors stop \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a1cc6ee26543dbfe85b3500dfdc1712d1}{float \hyperlink{classtask__lines_a1cc6ee26543dbfe85b3500dfdc1712d1}{S\-U\-My\-\_\-squared}}\label{classtask__lines_a1cc6ee26543dbfe85b3500dfdc1712d1}
+
+\begin{DoxyCompactList}\small\item\em partitioning pythagorean theorum helped math errors stop \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_abc0d3f3dbce125e7b35fc116ecf05350}{uint16\-\_\-t \hyperlink{classtask__lines_abc0d3f3dbce125e7b35fc116ecf05350}{S\-U\-Mdx\-\_\-16}}\label{classtask__lines_abc0d3f3dbce125e7b35fc116ecf05350}
+
+\begin{DoxyCompactList}\small\item\em extra variable to help avoid math errors \end{DoxyCompactList}\item 
+\hypertarget{classtask__lines_a29bac5ba1aef89204d59be10188508e8}{uint16\-\_\-t \hyperlink{classtask__lines_a29bac5ba1aef89204d59be10188508e8}{S\-U\-Mdy\-\_\-16}}\label{classtask__lines_a29bac5ba1aef89204d59be10188508e8}
+
+\begin{DoxyCompactList}\small\item\em extra variable to help avoid math errors \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{task__lines_8cpp}{task\-\_\-lines.\-cpp} is a task which cuts lines into bitty pieces and moves sequentially through the line by moving the setpoint and feeding it to the point task. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtask__lines_a0d04d45a83ecf3894cdb6c98942e97b6}{\index{task\-\_\-lines@{task\-\_\-lines}!task\-\_\-lines@{task\-\_\-lines}}
+\index{task\-\_\-lines@{task\-\_\-lines}!task_lines@{task\-\_\-lines}}
+\subsubsection[{task\-\_\-lines}]{\setlength{\rightskip}{0pt plus 5cm}task\-\_\-lines\-::task\-\_\-lines (
+\begin{DoxyParamCaption}
+\item[{base\-\_\-text\-\_\-serial $\ast$}]{p\-\_\-serial\-\_\-port, }
+\item[{task\-\_\-timer \&}]{a\-\_\-timer, }
+\item[{time\-\_\-stamp \&}]{t\-\_\-stamp, }
+\item[{{\bf task\-\_\-\-P\-I\-D} $\ast$}]{motor\-\_\-1, }
+\item[{{\bf task\-\_\-\-P\-I\-D} $\ast$}]{motor\-\_\-2, }
+\item[{{\bf point} $\ast$}]{get\-\_\-there, }
+\item[{{\bf servo} $\ast$}]{P\-E\-N}
+\end{DoxyParamCaption}
+)}}\label{classtask__lines_a0d04d45a83ecf3894cdb6c98942e97b6}
+The constructor initializes variables, and saves object pointers locally. 
+\begin{DoxyParams}{Parameters}
+{\em p\-\_\-serial\-\_\-port} & Serial object so we can write to screen \\
+\hline
+{\em a\-\_\-timer} & Time value used for S\-T\-L scheduling \\
+\hline
+{\em t\-\_\-stamp} & Time stamp used for S\-T\-L scheduling \\
+\hline
+{\em motor\-\_\-1} & P\-I\-D object for motor 1 \\
+\hline
+{\em motor\-\_\-2} & P\-I\-D object for motor 2 \\
+\hline
+{\em get\-\_\-there} & Point object used to move from setpoint to setpoint \\
+\hline
+{\em P\-E\-N} & Servo Object to raise/lower pen \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtask__lines_adc52a1f1de31103830a06737db769a34}{\index{task\-\_\-lines@{task\-\_\-lines}!run@{run}}
+\index{run@{run}!task_lines@{task\-\_\-lines}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}char task\-\_\-lines\-::run (
+\begin{DoxyParamCaption}
+\item[{char}]{state}
+\end{DoxyParamCaption}
+)}}\label{classtask__lines_adc52a1f1de31103830a06737db769a34}
+run is the main method in \hyperlink{classtask__lines}{task\-\_\-lines}. It takes care of the math involved in cutting a line into segments. It first takes the initial and final x\&y coordinates, uses the pythagorean theorem to find the length of the actual line, determins how many segments to break the line up into based on it's overall length, calculates the slope of the line, and then uses the slope along with the change in the x\&y coordinates to determine if the line passes through the origin (type 1), is vertical (type 2), is horizontal (type 4), or general and none of the above (type 3). The reason for categorizing what type of line you're drawing is because the algorithm is slightly different for each line type and certain lines can be drawn much faster by using a different algorithm, especially lines which pass through the origin. \hyperlink{classtask__lines}{task\-\_\-lines} then breaks the line into smaller segments, keeps track of what segment the polar plotter is currently on, increments setpoints as each one is reached, and uses the point object to physically move the pen to the next setpoint. All of this is accomplished using a switch-\/case structure and flags which are raised and lowered depending on what needs to happen. 
+\begin{DoxyParams}{Parameters}
+{\em state} & This method uses S\-T\-L\-\_\-task to transition its state \\
+\hline
+\end{DoxyParams}
+State 0 is a wait state. Is a new line requested?
+
+State 1 does some initial x-\/y to r-\/theta calculations
+
+State 2 starts movement towards initial point
+
+State 3 waits for attainment of initial point
+
+state 4 draws line which would pass through origin
+
+state 5 draws vertical lines
+
+state 6 draws general lines
+
+state 7 draws horizontal lines
+
+State 8 draws our signature!
+
+State 9 sends the plotter home after each line in our signature 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{task__lines_8h}{task\-\_\-lines.\-h}\item 
+\hyperlink{task__lines_8cpp}{task\-\_\-lines.\-cpp}\end{DoxyCompactItemize}

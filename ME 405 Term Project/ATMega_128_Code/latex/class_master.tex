@@ -1,0 +1,147 @@
+\hypertarget{class_master}{\section{Master Class Reference}
+\label{class_master}\index{Master@{Master}}
+}
+
+
+This define prevents this .h file from being included more than once in a .cpp file.  
+
+
+
+
+{\ttfamily \#include $<$Master.\-h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{union_master_1_1packet1}{packet1}
+\begin{DoxyCompactList}\small\item\em $<$ encoder\-\_\-data allows easy partitioning of encoder data \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_master_a39589d526331f8b5abf9d405a5ea7fe7}{Master} (base\-\_\-text\-\_\-serial $\ast$)
+\item 
+void \hyperlink{class_master_ad85c13cad19e5600c6d2dff28aaa0a52}{C\-L\-E\-A\-R} (uint8\-\_\-t)
+\item 
+void \hyperlink{class_master_af507aba60a24105be4b58a441780fa28}{Initiate} (uint8\-\_\-t)
+\item 
+bool \hyperlink{class_master_af5baf3043c5c903472a906cd29643725}{Get\-\_\-\-Checksum\-\_\-flag} (void)
+\item 
+uint8\-\_\-t \hyperlink{class_master_ac93f188774888e736f1bcb3345e6f208}{Get\-\_\-\-Checksum\-\_\-\-Error} (void)
+\item 
+int32\-\_\-t \hyperlink{class_master_ac6036259c4c2c8f4f3a11fd36ae23a6b}{Get\-\_\-\-Encoder} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_master_a826ae7a92e5910b4bf275a128a5aafc0}{base\-\_\-text\-\_\-serial $\ast$ \hyperlink{class_master_a826ae7a92e5910b4bf275a128a5aafc0}{ptr\-\_\-to\-\_\-serial}}\label{class_master_a826ae7a92e5910b4bf275a128a5aafc0}
+
+\begin{DoxyCompactList}\small\item\em The encoder driver class needs a pointer to the serial port used to output to the terminal. \end{DoxyCompactList}\item 
+\hypertarget{class_master_a4c51d672c465103b0e3a85ff5ae68d79}{bool \hyperlink{class_master_a4c51d672c465103b0e3a85ff5ae68d79}{error\-\_\-flag}}\label{class_master_a4c51d672c465103b0e3a85ff5ae68d79}
+
+\begin{DoxyCompactList}\small\item\em flag indicating transfer error on encoder 1 \end{DoxyCompactList}\item 
+\hypertarget{class_master_a3183754384c4bfd6a920c82e5e3b1618}{int32\-\_\-t \hyperlink{class_master_a3183754384c4bfd6a920c82e5e3b1618}{encoder}}\label{class_master_a3183754384c4bfd6a920c82e5e3b1618}
+
+\begin{DoxyCompactList}\small\item\em encoder value received from Slave\-\_\-\-Driver \end{DoxyCompactList}\item 
+\hypertarget{class_master_a65e5841164cc7b6e5c5501c12e5a797a}{uint8\-\_\-t \hyperlink{class_master_a65e5841164cc7b6e5c5501c12e5a797a}{Checksum\-\_\-\-Error}}\label{class_master_a65e5841164cc7b6e5c5501c12e5a797a}
+
+\begin{DoxyCompactList}\small\item\em encoder transfer error 1 \end{DoxyCompactList}\item 
+\hypertarget{class_master_a1d30123857f1025903e8b6d8a30cff95}{uint8\-\_\-t \hyperlink{class_master_a1d30123857f1025903e8b6d8a30cff95}{Check\-\_\-\-Sum\-\_\-\-Master}}\label{class_master_a1d30123857f1025903e8b6d8a30cff95}
+
+\begin{DoxyCompactList}\small\item\em check sum computed here in master for encoder 1 \end{DoxyCompactList}\item 
+\hypertarget{class_master_a7231699fbe88393c0d0ff693253f983a}{uint8\-\_\-t \hyperlink{class_master_a7231699fbe88393c0d0ff693253f983a}{Slave\-\_\-\-Sum}}\label{class_master_a7231699fbe88393c0d0ff693253f983a}
+
+\begin{DoxyCompactList}\small\item\em check sum computed in slave for encoder 1 \end{DoxyCompactList}\item 
+\hypertarget{class_master_a113205aa4218d33663faeeede6b1e8a9}{uint8\-\_\-t \hyperlink{class_master_a113205aa4218d33663faeeede6b1e8a9}{dummy}}\label{class_master_a113205aa4218d33663faeeede6b1e8a9}
+
+\begin{DoxyCompactList}\small\item\em counter used to delay so S\-P\-I works \end{DoxyCompactList}\item 
+\hypertarget{class_master_a1e3e8189d315b4bf7415fe03f4035a10}{uint8\-\_\-t \hyperlink{class_master_a1e3e8189d315b4bf7415fe03f4035a10}{encoder\-\_\-num}}\label{class_master_a1e3e8189d315b4bf7415fe03f4035a10}
+
+\begin{DoxyCompactList}\small\item\em integer to tell \hyperlink{class_master}{Master} which encoder reading to get from Slave\-\_\-\-Driver \end{DoxyCompactList}\item 
+\hypertarget{class_master_a96b723e105507a410c9d0e56398174f0}{union \hyperlink{union_master_1_1packet1}{Master\-::packet1} {\bfseries encoder\-\_\-data}}\label{class_master_a96b723e105507a410c9d0e56398174f0}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This define prevents this .h file from being included more than once in a .cpp file. 
+
+Following are the headers of the constructor and methods contained in da\-\_\-encoder.\-cpp. Also included is aheader for a serial port object which allows da\-\_\-encoder's methods to print to i/o devices. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_master_a39589d526331f8b5abf9d405a5ea7fe7}{\index{Master@{Master}!Master@{Master}}
+\index{Master@{Master}!Master@{Master}}
+\subsubsection[{Master}]{\setlength{\rightskip}{0pt plus 5cm}Master\-::\-Master (
+\begin{DoxyParamCaption}
+\item[{base\-\_\-text\-\_\-serial $\ast$}]{p\-\_\-serial\-\_\-port}
+\end{DoxyParamCaption}
+)}}\label{class_master_a39589d526331f8b5abf9d405a5ea7fe7}
+The constructor takes in a serial pointer and saves it locally and constructs a \hyperlink{class_master}{Master} object. The object sets up S\-P\-I communications as a master. 
+\begin{DoxyParams}{Parameters}
+{\em p\-\_\-serial\-\_\-port} & serial object to allow printing \\
+\hline
+\end{DoxyParams}
+$<$ Store the serial port pointer locally 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_master_ad85c13cad19e5600c6d2dff28aaa0a52}{\index{Master@{Master}!C\-L\-E\-A\-R@{C\-L\-E\-A\-R}}
+\index{C\-L\-E\-A\-R@{C\-L\-E\-A\-R}!Master@{Master}}
+\subsubsection[{C\-L\-E\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}void Master\-::\-C\-L\-E\-A\-R (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{motor\-\_\-num}
+\end{DoxyParamCaption}
+)}}\label{class_master_ad85c13cad19e5600c6d2dff28aaa0a52}
+Clear is a method to clear a pair of counters located on another chip. 
+\begin{DoxyParams}{Parameters}
+{\em motor\-\_\-num} & pass in the value of which motor's encoder you would like to reset. motor\-\_\-num=1 corresponds to command 3 and motor\-\_\-num=2 sends command 4.\\
+\hline
+\end{DoxyParams}
+Clear is a method to clear a pair of counters located on another chip. Associated values in this class are also cleared 
+\begin{DoxyParams}{Parameters}
+{\em motor\-\_\-num} & pass in the value of which motor's encoder you would like to reset. motor\-\_\-num=1 corresponds to command 3 and motor\-\_\-num=2 sends command 4. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_master_ac93f188774888e736f1bcb3345e6f208}{\index{Master@{Master}!Get\-\_\-\-Checksum\-\_\-\-Error@{Get\-\_\-\-Checksum\-\_\-\-Error}}
+\index{Get\-\_\-\-Checksum\-\_\-\-Error@{Get\-\_\-\-Checksum\-\_\-\-Error}!Master@{Master}}
+\subsubsection[{Get\-\_\-\-Checksum\-\_\-\-Error}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t Master\-::\-Get\-\_\-\-Checksum\-\_\-\-Error (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_master_ac93f188774888e736f1bcb3345e6f208}
+Get\-\_\-\-Checksum\-\_\-\-Error is a method which returns the number of S\-P\-I transfer errors encountered
+
+Get\-\_\-\-Checksum\-\_\-\-Error gets the number of encoder transfer errors experienced \hypertarget{class_master_af5baf3043c5c903472a906cd29643725}{\index{Master@{Master}!Get\-\_\-\-Checksum\-\_\-flag@{Get\-\_\-\-Checksum\-\_\-flag}}
+\index{Get\-\_\-\-Checksum\-\_\-flag@{Get\-\_\-\-Checksum\-\_\-flag}!Master@{Master}}
+\subsubsection[{Get\-\_\-\-Checksum\-\_\-flag}]{\setlength{\rightskip}{0pt plus 5cm}bool Master\-::\-Get\-\_\-\-Checksum\-\_\-flag (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_master_af5baf3043c5c903472a906cd29643725}
+Get\-\_\-\-Checksum\-\_\-flag is a method which returns true if the specified channel has experienced S\-P\-I transfer error and false if the channel's transfer went well. \hypertarget{class_master_ac6036259c4c2c8f4f3a11fd36ae23a6b}{\index{Master@{Master}!Get\-\_\-\-Encoder@{Get\-\_\-\-Encoder}}
+\index{Get\-\_\-\-Encoder@{Get\-\_\-\-Encoder}!Master@{Master}}
+\subsubsection[{Get\-\_\-\-Encoder}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t Master\-::\-Get\-\_\-\-Encoder (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_master_ac6036259c4c2c8f4f3a11fd36ae23a6b}
+Get\-\_\-\-Encoder returns the current value of the encoder,
+
+Get\-\_\-\-Encoder gets an encoder reading \hypertarget{class_master_af507aba60a24105be4b58a441780fa28}{\index{Master@{Master}!Initiate@{Initiate}}
+\index{Initiate@{Initiate}!Master@{Master}}
+\subsubsection[{Initiate}]{\setlength{\rightskip}{0pt plus 5cm}void Master\-::\-Initiate (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{encoder\-\_\-select}
+\end{DoxyParamCaption}
+)}}\label{class_master_af507aba60a24105be4b58a441780fa28}
+Initiate communicates with another S\-P\-I device using a state machine format. State variable Initiate\-\_\-\-State determines position in switch case structure where the state variable here and the encoder channel is alternated via pointer ptr\-\_\-encoder\-\_\-select.
+
+Initiate communicates with another S\-P\-I device using a state machine format. State variable Initiate\-\_\-\-State determines position in switch case structure where the state variable here and the encoder channel is alternated via pointer ptr\-\_\-encoder\-\_\-select. 
+\begin{DoxyParams}{Parameters}
+{\em encoder\-\_\-select} & Initiate must be fed which channel (motor) you desire encoder ticks from \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_master_8h}{Master.\-h}\item 
+\hyperlink{_master_8cpp}{Master.\-cpp}\end{DoxyCompactItemize}

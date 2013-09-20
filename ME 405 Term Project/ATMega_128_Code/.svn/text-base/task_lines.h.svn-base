@@ -1,0 +1,97 @@
+//======================================================================================
+/** \file  task_lines.h/ is a class header for a task which cuts lines into bitty pieces and moves 
+*	sequentially through the line by moving the setpoint and feeding it to the point task.
+
+ *    \li  05-10-11  Began tearing and hacking at our lab_5 code.
+*	  \li  05-22-11	 That was the hardest 12 days of our lives. It aint perfect, but it works
+ *
+ *  License:
+ *    This file released under the Lesser GNU Public License. The program is intended
+ *    for educational use only, but its use is not restricted thereto. 
+ */
+//======================================================================================
+
+/// This define prevents this .h file from being included more than once in a .cpp file
+#ifndef _task_lines_H_
+#define _task_lines_H_
+
+
+//-------------------------------------------------------------------------------------
+
+ 
+
+class task_lines : public stl_task
+{
+	protected:
+		
+		// object pointers
+		base_text_serial* ptr_2_serial;						//!< pointer to a serial port object for printing purposes
+		point* Initial_Point;								//!< point object used to move machine
+		servo* operate_pen;									//!< servo object used to raise lower pen
+		task_PID* PID_1;									//!< PID object used to control motor 1
+		task_PID* PID_2;									//!< PID object used to control motor 2
+
+		// variables
+		bool send_home;										//!< boolean used to request homing
+		bool divide_lines;									//!< boolean which allows lines to begin
+		bool moving;										//!< boolean used to wait while movement occurs
+		bool signature;										//!< boolean used to initiate and continue signiture process
+		uint8_t sig_count;									//!< sub state variable keeps track of where in signiture we are
+		uint8_t line_type;									//!< sub state variable used to transition between line types
+		int8_t dx;											//!< incremental x distance in tenths of an inch
+		int8_t dy;											//!< incremental y distance in tenths of an inch
+		uint16_t current_segment;							//!< keeps track of when a line is done
+		uint16_t Seg_Total;									//!< total  number of segments in a line
+		uint16_t counter;									//!< dumb counter used to let pen get down befor next step happens
+		int32_t SUMdx;										//!< total change in x
+		int32_t SUMdy;										//!<total change in y
+		int16_t x0;											//!< initial x of line
+		int16_t y0; 										//!< initial y of line
+		int16_t xf;											//!< final x of line
+		int16_t yf;											//!< final y of line
+		float slope;										//!< to detect lines we can do really well! (through origin)
+		float SUMx_squared;									//!< partitioning pythagorean theorum helped math errors stop
+		float SUMy_squared;									//!< partitioning pythagorean theorum helped math errors stop
+		uint16_t SUMdx_16;									//!< extra variable to help avoid math errors
+		uint16_t SUMdy_16;									//!< extra variable to help avoid math errors
+
+		
+	public:
+		/** The constructor initializes variables, saves object pointers locally and says hello
+		*	@param p_serial_port Serial object so we can write to screen
+		*	@param a_timer Time value used for STL scheduling
+		*	@param t_stamp Time stamp used for STL scheduling
+		*	@param motor_1 PID object for motor 1
+		*	@param motor_2 PID object for motor 2
+		*	@param get_there Point object used to move from setpoint to setpoint
+		*	@param PEN Servo Object to raise/lower pen
+		*/
+		task_lines (base_text_serial* p_serial_port, task_timer& a_timer, time_stamp& t_stamp, task_PID* PID_1, task_PID* PID_2, 
+					point* get_there, servo* PEN);
+		
+		/** run is the main method in task_lines. It takes care of the math involved in cutting a line into segments. It keeps
+		*	track of where in a line you are, increments setpoints as each one is reached, and uses point to physically move the 
+		*	pen.
+		* 	@param state This method uses STL_task to transition its state
+		*/
+		char run(char);
+		
+		/// this method sets a bool allowing task_lines to operate
+		void go(void){divide_lines = true;}
+		
+		/// set_coords does what it says
+		void set_coords(int16_t X0, int16_t Y0, int16_t X_f, int16_t Y_f){x0=X0; y0=Y0; xf=X_f; yf=Y_f;}
+		
+		/// this method sets up lines to draw our signature
+		void draw_signature(void) {divide_lines = true; signature = true;}
+		
+		/// this method allows Go_Home to see if we want to home (after each line)
+		bool wanna_go_home(void){return(send_home);}
+		
+		/// This method allows Go_Home to lower the homing flag once home is reached
+		void ok_were_home(void) {send_home = false;}
+};
+
+	//-------------------------------------------------------------------------------------
+
+#endif // _task_lines_H_

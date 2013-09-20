@@ -1,0 +1,396 @@
+	/** \file task_lines.cpp is a task which cuts lines into bitty pieces and moves sequentially 
+	*	through the line by moving the setpoint and feeding it to the point task.
+	*
+	*  Revisions:
+	*    \li  05-10-11  Began tearing and hacking at our lab_4 code.				
+	*	 \li  05-22-11	That was the hardest 12 days of our lives. It aint perfect, but it works
+	*  License:
+	*    This file released under the Lesser GNU Public License. The program is intended
+	*    for educational use only, but its use is not restricted thereto. 
+	*/
+	//======================================================================================
+
+	// System headers included with < >
+	#include <stdlib.h>							//!< Standard C library
+	#include <avr/io.h>							//!< Input-output ports, special registers
+	#include <avr/interrupt.h>					//!< Interrupt handling functions
+	#include <math.h>							//!< Contains Math Functions
+	
+	// User written headers included with " "
+	#include "rs232int.h"						//!< Include header for serial port class
+	#include "stl_timer.h"						//!< allows task_PID to be scheduled
+	#include "stl_task.h"						//!< allows task_PID to be scheduled
+	#include "Master.h"							//!< keeps PID from etting mad
+	#include "da_motor.h"						//!< keeps PID from etting mad
+	#include "task_PID.h"						//!< allows task_lines to call methods belonging to task_PID
+	#include "servo.h"							//!< allows pen actuation
+	#include "point.h"							//!< point is used to move between set points
+	#include "task_lines.h"						//!< include own header file
+	
+	
+	
+
+	
+		
+//-----------------------------------------------------------------------------------------
+/** The constructor initializes variables, saves object pointers locally and says hello
+*	@param p_serial_port Serial object so we can write to screen
+*	@param a_timer Time value used for STL scheduling
+*	@param t_stamp Time stamp used for STL scheduling
+*	@param motor_1 PID object for motor 1
+*	@param motor_2 PID object for motor 2
+*	@param get_there Point object used to move from setpoint to setpoint
+*	@param PEN Servo Object to raise/lower pen
+*/
+
+task_lines::task_lines(base_text_serial* p_serial_port, task_timer& a_timer, time_stamp& t_stamp, task_PID* motor_1, 
+					   task_PID* motor_2, point* get_there, servo* PEN) : stl_task (a_timer, t_stamp)
+{
+	// save object pointers locally
+	ptr_2_serial = p_serial_port;
+	PID_1 = motor_1;
+	PID_2 = motor_2;
+	Initial_Point = get_there;
+	operate_pen = PEN;
+	
+	// initialize variables
+	x0 = 0;
+	y0 = 0; 
+	xf = 0;
+	yf = 0;
+	divide_lines = false;
+	moving = false;
+	signature = false; 							// signature is set to true if printing our signature and
+	send_home = false;
+	sig_count = 0;
+	
+	// Say hello
+	*ptr_2_serial << "Bout to cut some lines" << endl;
+}
+
+/** run is the main method in task_lines. It takes care of the math involved in cutting a line into segments. It keeps
+*	track of where in a line you are, increments setpoints as each one is reached, and uses point to physically move the 
+*	pen.
+* 	@param state This method uses STL_task to transition its state
+*/
+char task_lines::run(char state)
+{
+	switch (state)
+	{
+		/// State 0 is a wait state. Is a new line requested?
+		case 0:
+			// start a new line
+			if (divide_lines == true)
+			{
+				current_segment = 0;
+				divide_lines = false; 
+				if (signature == true)
+				{
+					send_home = true;
+					return(9);
+				}
+				else
+				{
+					return(1);
+				}
+			}
+			// do nothing
+			else
+			{
+				return (STL_NO_TRANSITION);
+			}
+		break;
+		
+		/// State 1 does some initial x-y to r-theta calcs
+		case 1:
+			// calculate total change in x and y
+			SUMdx = ((int32_t)(xf - x0));
+			SUMdy = ((int32_t)(yf - y0));
+			
+			// prepare for pythagorean theorum
+			SUMx_squared = pow((float)SUMdx, 2L);
+			SUMy_squared = pow((float)SUMdy, 2L);
+			
+			//length of line in tenths of inches
+			Seg_Total = (uint16_t)sqrt(SUMx_squared + SUMy_squared);  
+
+			// calculate segment lengths
+			dx = ((1000*SUMdx)/Seg_Total)/400;
+			dy = ((1000*SUMdy)/Seg_Total)/400;
+			
+			// calculate slope
+			if (SUMdx == 0)
+			{
+				//line is vertical, slope undefined (infinity)
+				line_type = 2;
+			}
+			else 
+			{
+				slope = (float)SUMdy/SUMdx;
+			
+				// does this line go through the origin?
+				float intercept = y0 - (slope*x0);
+				
+				if ((intercept < 1L) && (intercept > -1L))
+				{
+					// this line passes through the origin and has pos slope
+					line_type = 1;
+				}
+				else if (SUMdy == 0)
+				{
+					// horizontal line 
+					line_type = 4;
+				}
+				else
+				{
+					// normal everday line
+					line_type = 3;
+				}
+			}
+			return(2);
+		break;
+		
+		/// State 2 starts movement towards initial point
+		case 2:
+			Initial_Point->Get_There(x0,y0);
+			return(3);
+		break;
+		
+		/// State 3 waits for attainment of initial point
+		case 3:
+			counter++;
+			if ( Initial_Point->Are_We_There() ) 
+			{
+				// if not yet started making line, drop pen, raise flag, and reset counter
+				if (moving == false)
+				{
+					counter = 0;
+					moving = true;
+					operate_pen->Fine_Line();
+				}
+			}
+			
+			//waiting counter allows time for pen to get down, then starts motor initialization
+			if ((counter >= 50UL) && moving)
+			{
+				moving = false;
+				// set line type
+				switch (line_type)
+				{
+					// line through origin
+					case 1:
+						return (4);
+					break;
+					
+					// vertical line
+					case 2:
+						SUMdy = y0 + dy;
+						current_segment = 0;
+						return(5);
+					break;
+					
+					// normal line
+					case 3:
+						SUMdx = ((int32_t)x0) + ((int32_t)dx);
+						SUMdy = ((int32_t)y0) + ((int32_t)dy);
+						current_segment = 0;
+						return(6);
+					break;
+					
+					//  horizontal line 
+					case 4:
+						SUMdx = x0 + dx;
+						current_segment = 0;
+						return(7);
+					break;
+				}
+			}
+			return (STL_NO_TRANSITION);
+		break;
+		
+		/// state 4 draws line which would pass through origin
+		case 4:
+			if (moving == false)
+			{
+				moving = true;
+				Initial_Point->Get_There(xf, yf);
+				return (STL_NO_TRANSITION);
+			}
+			else if ( Initial_Point->Are_We_There() )
+			{
+				moving = false;
+				operate_pen->Pen_Up();
+				divide_lines = false;
+				if (signature == true)
+				{
+					send_home = true;
+					return(9);
+				}
+				else
+					return(0);
+			}
+			else
+				return (STL_NO_TRANSITION);
+		break;
+		
+		/// state 5 draws vertical lines
+		case 5:
+			// if segments are all drawn, raise pen and go to wait state
+			if (current_segment >= Seg_Total)
+			{
+				
+				divide_lines = false;
+				PID_1->stop();
+				PID_2->stop();
+				operate_pen->Pen_Up();
+				if (signature == true)
+				{
+					send_home = true;
+					return(9);
+				}
+				return(0);
+			}
+			// line is not done
+			else
+			{
+				// if line segment is not started, start it
+				if (moving == false)
+				{
+					moving = true;
+					Initial_Point->Get_There(x0, (int16_t)SUMdy);
+					return (STL_NO_TRANSITION);
+				}
+				// if at end of segment, increment seg count and setpoint value, lower moving flag
+				else if ( Initial_Point->Are_We_There() )
+				{
+					SUMdy += dy;
+					current_segment++;
+					moving = false;
+					return (STL_NO_TRANSITION);
+				}
+			}
+		return(STL_NO_TRANSITION);
+		break;
+		
+		/// state 6 draws normal lines
+		case 6:
+			// if segments are all drawn, raise pen and go to wait state
+			if (current_segment >= Seg_Total)
+			{
+				PID_1->stop();
+				PID_2->stop();
+				divide_lines = false;
+				operate_pen->Pen_Up();
+				if (signature == true)
+				{
+					send_home = true;
+					return(9);
+				}
+				return(0);
+			}
+			// line is not done
+			else
+			{
+				// if line segment not started, ...
+				if (moving == false)
+				{
+					moving = true;
+					SUMdx_16 = ((uint16_t)(SUMdx));
+					SUMdy_16 = ((uint16_t)(SUMdy));
+					Initial_Point->Get_There(SUMdx_16, SUMdy_16);
+					return (STL_NO_TRANSITION);
+				}
+				// if at segment end, ...
+				else if ( Initial_Point->Are_We_There() )
+				{
+					SUMdx += dx;
+					SUMdy += dy;
+					current_segment++;
+					moving = false;
+					return (STL_NO_TRANSITION);
+				}
+			}
+		return (STL_NO_TRANSITION);
+		break;
+		
+		/// state 7 draws horizontal lines
+		case 7:
+			// if segments are all drawn, raise pen and go to wait state
+			if (current_segment >= Seg_Total)
+			{
+				PID_1->stop();
+				PID_2->stop();
+				divide_lines = false;
+				operate_pen->Pen_Up();
+				if (signature == true)
+				{
+					send_home = true;
+					return(9);
+				}
+				return(0);
+			}
+			// line not done
+			else
+			{
+				// if line segment not started, ..
+				if (moving == false)
+				{
+					moving = true;
+					Initial_Point->Get_There((int16_t)SUMdx, y0);
+					return(STL_NO_TRANSITION);
+				}
+				// if at a segment end, ...
+				else if ( Initial_Point->Are_We_There() )
+				{
+					SUMdx += dx;
+					current_segment++;
+					moving = false;
+					return (STL_NO_TRANSITION);
+				}
+			}
+		return(STL_NO_TRANSITION);
+		break;
+		
+		/// draw our signature!
+		case 8: 
+			
+			if (sig_count == 0)
+			{
+				sig_count ++; // increment the signature counter to 1
+				set_coords(60, 20, 85, 45); // load up the coordinates for the first line of the signature
+				return(1); // go to state 1 to start drawing the line
+			}
+			
+			else if (sig_count == 1)
+			{
+				sig_count ++; // increment the signature counter to 2
+				set_coords(60, 20, 105, 35); // load up the coordinates for the first line of the signature
+				return(1); // go to state 1 to start drawing the line
+			}
+			
+			else if (sig_count == 2)
+			{
+				sig_count ++; // increment the signature counter to 3
+				set_coords(82, 24, 75, 30); // load up the coordinates for the first line of the signature
+				return(1); // go to state 1 to start drawing the line
+			}
+			
+			else if (sig_count == 3)
+			{
+				sig_count = 0; // re-initialize sig_count to 0, more checks to sign
+				set_coords(77, 30, 95, 39); // load up the coordinates for the first line of the signature
+				signature = false; // makes sure the signature printing sequence stops at the end
+				return(1); // go to state 1 to start drawing the last line
+			}
+		break;
+		
+		/// home the machine after each line in our signature. A tad more code and it could work for all lines
+		case 9:
+			// if Go_Home hasn't raised the I'm home flag, wait for it.
+			if (send_home)
+				return (STL_NO_TRANSITION);
+			else
+				return(8);
+		break;
+	}
+}

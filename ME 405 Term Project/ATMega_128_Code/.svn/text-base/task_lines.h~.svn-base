@@ -1,0 +1,42 @@
+//======================================================================================
+/** \file  task_lines.h
+ *	PID.h contains specifications necessary for the Proportional Integral Differential (PID)
+ *	controller. Also file scope variables and simple in line methods are defined here.
+ *  Revisions:
+
+ *    \li  05-10-11  Began tearing and hacking at our lab_5 code.
+*	  \li  05-22-11	 That was the hardest 12 days of our lives. It aint perfect, but it works
+ *
+ *  License:
+ *    This file released under the Lesser GNU Public License. The program is intended
+ *    for educational use only, but its use is not restricted thereto. 
+ */
+//======================================================================================
+
+/// This define prevents this .h file from being included more than once in a .cpp file
+#ifndef _task_lines_H_
+#define _task_lines_H_
+
+
+//-------------------------------------------------------------------------------------
+
+ 
+
+class task_lines : public stl_task
+{
+	protected:
+		
+		/// pointer to a serial port object for printing purposes
+		base_text_serial* ptr_2_serial;
+
+	public:
+
+		task_lines (base_text_serial* p_serial_port, task_timer& a_timer, time_stamp& t_stamp);
+		
+		char run(char);
+		
+
+};
+	//-------------------------------------------------------------------------------------
+
+#endif // _lines_H_

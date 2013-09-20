@@ -1,0 +1,65 @@
+\hypertarget{_go___home_8cpp}{\section{Go\-\_\-\-Home.\-cpp File Reference}
+\label{_go___home_8cpp}\index{Go\-\_\-\-Home.\-cpp@{Go\-\_\-\-Home.\-cpp}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}rs232int.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stl\-\_\-timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stl\-\_\-task.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Master.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}da\-\_\-motor.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task\-\_\-\-P\-I\-D.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}servo.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}point.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}task\-\_\-lines.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Go\-\_\-\-Home.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_go___home_8cpp_a98a290ada01eb27fd2ff4564371566e5}{\hyperlink{_go___home_8cpp_a98a290ada01eb27fd2ff4564371566e5}{I\-S\-R} (I\-N\-T4\-\_\-vect)}\label{_go___home_8cpp_a98a290ada01eb27fd2ff4564371566e5}
+
+\begin{DoxyCompactList}\small\item\em Cart switch is attached to pin E4. \end{DoxyCompactList}\item 
+\hypertarget{_go___home_8cpp_a6225c50fbafa01589351ed487223aacb}{\hyperlink{_go___home_8cpp_a6225c50fbafa01589351ed487223aacb}{I\-S\-R} (I\-N\-T5\-\_\-vect)}\label{_go___home_8cpp_a6225c50fbafa01589351ed487223aacb}
+
+\begin{DoxyCompactList}\small\item\em Arm switch is attached to pin E5. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{_go___home_8cpp_a1a86d1fb39f2f090a750796fc9e7a8f2}{Home\-\_\-\-Request}
+\begin{DoxyCompactList}\small\item\em $<$ Include header for the A/\-D class \end{DoxyCompactList}\item 
+\hypertarget{_go___home_8cpp_a3c23a7cea2de48ee42dd23dffa2e344d}{bool \hyperlink{_go___home_8cpp_a3c23a7cea2de48ee42dd23dffa2e344d}{cart\-\_\-switch} = false}\label{_go___home_8cpp_a3c23a7cea2de48ee42dd23dffa2e344d}
+
+\begin{DoxyCompactList}\small\item\em interrupt driven switch tells whether cart is at r=0 \end{DoxyCompactList}\item 
+\hypertarget{_go___home_8cpp_af65a64fdc999fc8d8b0dc4f8c5ce5fbf}{bool \hyperlink{_go___home_8cpp_af65a64fdc999fc8d8b0dc4f8c5ce5fbf}{arm\-\_\-switch} = false}\label{_go___home_8cpp_af65a64fdc999fc8d8b0dc4f8c5ce5fbf}
+
+\begin{DoxyCompactList}\small\item\em interrupt driven switch tells whether arm is at Theta=0. (note\-: r must be zero also!) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+is a task which finds home (R=0, T\-H\-E\-T\-A=0) for our plotter
+
+Revisions\-: \begin{DoxyItemize}
+\item 05-\/26-\/11 Began tearing and hacking at our lab\-\_\-5 code.\end{DoxyItemize}
+License\-: This file released under the Lesser G\-N\-U Public License. The program is intended for educational use only, but its use is not restricted thereto.
+
+is a task which finds home (R=0, T\-H\-E\-T\-A=0) for our plotter
+
+\begin{DoxyVerb}Revisions:
+  \li  05-26-11  Included specification for the method "read_a_few" within avr_adc.cpp
+\end{DoxyVerb}
+ t. \begin{DoxyVerb}License:
+  This file released under the Lesser GNU Public License. The program is intended
+  for educational use only, but its use is not restricted thereto. \end{DoxyVerb}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_go___home_8cpp_a1a86d1fb39f2f090a750796fc9e7a8f2}{\index{Go\-\_\-\-Home.\-cpp@{Go\-\_\-\-Home.\-cpp}!Home\-\_\-\-Request@{Home\-\_\-\-Request}}
+\index{Home\-\_\-\-Request@{Home\-\_\-\-Request}!Go_Home.cpp@{Go\-\_\-\-Home.\-cpp}}
+\subsubsection[{Home\-\_\-\-Request}]{\setlength{\rightskip}{0pt plus 5cm}bool Home\-\_\-\-Request}}\label{_go___home_8cpp_a1a86d1fb39f2f090a750796fc9e7a8f2}
+
+
+$<$ Include header for the A/\-D class 
+
+$<$ Include standard library header files You'll need this for S\-F\-R and bit names $<$ Interrupt handling functions $<$ so \hyperlink{classtask__lines}{task\-\_\-lines} doesn't get mad $<$ Include header for serial port class allows \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} to be scheduled allows \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} to be scheduledexternally settable bool triggers homing operation 

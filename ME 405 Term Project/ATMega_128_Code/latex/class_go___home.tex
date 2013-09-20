@@ -1,0 +1,132 @@
+\hypertarget{class_go___home}{\section{Go\-\_\-\-Home Class Reference}
+\label{class_go___home}\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}}
+}
+
+
+This define prevents this .h file from being included more than once in a .cpp file.  
+
+
+
+
+{\ttfamily \#include $<$Go\-\_\-\-Home.\-h$>$}
+
+Inheritance diagram for Go\-\_\-\-Home\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_go___home}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_go___home_a080085bcc6207561d5309d5f861b10cf}{Go\-\_\-\-Home} (base\-\_\-text\-\_\-serial $\ast$, task\-\_\-timer \&, time\-\_\-stamp \&, \hyperlink{classda__motor}{da\-\_\-motor} $\ast$, \hyperlink{class_master}{Master} $\ast$, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$, \hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$, \hyperlink{classtask__lines}{task\-\_\-lines} $\ast$)
+\item 
+char \hyperlink{class_go___home_ae1421efd3ca49627022675f74534ced6}{run} (char state)
+\item 
+void \hyperlink{class_go___home_a1c22463a7cca8fd6a8ab4c5c9ecee6ff}{S\-E\-T\-\_\-\-Home\-\_\-\-Request} (void)
+\item 
+bool \hyperlink{class_go___home_a23ee51618c74f918af0ddf4555c7ff04}{Is\-\_\-\-Home} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_go___home_aaf0a0c125f002315ced04f6a2520faff}{base\-\_\-text\-\_\-serial $\ast$ \hyperlink{class_go___home_aaf0a0c125f002315ced04f6a2520faff}{ptr\-\_\-2\-\_\-serial}}\label{class_go___home_aaf0a0c125f002315ced04f6a2520faff}
+
+\begin{DoxyCompactList}\small\item\em The homing class needs a pointer to the serial port used to output to the terminal. \end{DoxyCompactList}\item 
+\hypertarget{class_go___home_a27906c7ed2cef0678fe85e7024252795}{\hyperlink{classda__motor}{da\-\_\-motor} $\ast$ \hyperlink{class_go___home_a27906c7ed2cef0678fe85e7024252795}{Vtec\-\_\-wins}}\label{class_go___home_a27906c7ed2cef0678fe85e7024252795}
+
+\begin{DoxyCompactList}\small\item\em a motor controller object allows \hyperlink{class_go___home}{Go\-\_\-\-Home} to initiate movement \end{DoxyCompactList}\item 
+\hypertarget{class_go___home_a43872cca289815689ac830135c3d58f1}{\hyperlink{class_master}{Master} $\ast$ \hyperlink{class_go___home_a43872cca289815689ac830135c3d58f1}{Wipe\-\_\-\-Slave}}\label{class_go___home_a43872cca289815689ac830135c3d58f1}
+
+\begin{DoxyCompactList}\small\item\em a \hyperlink{class_master}{Master} object allows the slave chip to be cleared upon homing \end{DoxyCompactList}\item 
+\hypertarget{class_go___home_a57ef328cc70eabbb8668c048aad96a8d}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{class_go___home_a57ef328cc70eabbb8668c048aad96a8d}{Wipe\-\_\-\-Master1}}\label{class_go___home_a57ef328cc70eabbb8668c048aad96a8d}
+
+\begin{DoxyCompactList}\small\item\em P\-I\-D object 1 allows errors and encoder counts on \hyperlink{class_master}{Master} to be cleared. \end{DoxyCompactList}\item 
+\hypertarget{class_go___home_adf786b11550fc9149035ed7edc398133}{\hyperlink{classtask___p_i_d}{task\-\_\-\-P\-I\-D} $\ast$ \hyperlink{class_go___home_adf786b11550fc9149035ed7edc398133}{Wipe\-\_\-\-Master2}}\label{class_go___home_adf786b11550fc9149035ed7edc398133}
+
+\begin{DoxyCompactList}\small\item\em P\-I\-D object 2 allows errors and encoder counts on \hyperlink{class_master}{Master} to be cleared. \end{DoxyCompactList}\item 
+\hypertarget{class_go___home_a5e9d6df4b4ee935e5266487bc9ce2fda}{\hyperlink{classtask__lines}{task\-\_\-lines} $\ast$ \hyperlink{class_go___home_a5e9d6df4b4ee935e5266487bc9ce2fda}{L\-I\-N\-E\-S}}\label{class_go___home_a5e9d6df4b4ee935e5266487bc9ce2fda}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{classtask__lines}{task\-\_\-lines} object allows communication so lines can initiate homing after a line is made \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This define prevents this .h file from being included more than once in a .cpp file. 
+
+Following are the headers of the constructor and methods contained in \hyperlink{class_go___home}{Go\-\_\-\-Home}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_go___home_a080085bcc6207561d5309d5f861b10cf}{\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!Go\-\_\-\-Home@{Go\-\_\-\-Home}}
+\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!Go_Home@{Go\-\_\-\-Home}}
+\subsubsection[{Go\-\_\-\-Home}]{\setlength{\rightskip}{0pt plus 5cm}Go\-\_\-\-Home\-::\-Go\-\_\-\-Home (
+\begin{DoxyParamCaption}
+\item[{base\-\_\-text\-\_\-serial $\ast$}]{p\-\_\-serial\-\_\-port, }
+\item[{task\-\_\-timer \&}]{a\-\_\-timer, }
+\item[{time\-\_\-stamp \&}]{t\-\_\-stamp, }
+\item[{{\bf da\-\_\-motor} $\ast$}]{Vortec, }
+\item[{{\bf Master} $\ast$}]{Clear\-\_\-\-Slave, }
+\item[{{\bf task\-\_\-\-P\-I\-D} $\ast$}]{Clear\-\_\-\-Massah1, }
+\item[{{\bf task\-\_\-\-P\-I\-D} $\ast$}]{Clear\-\_\-\-Massah2, }
+\item[{{\bf task\-\_\-lines} $\ast$}]{liner}
+\end{DoxyParamCaption}
+)}}\label{class_go___home_a080085bcc6207561d5309d5f861b10cf}
+This constructor enables the interrupts necessary for the bump stop switches on our plotter to operate, initializes control booleans, and saves object pointers locally.
+
+This constructor enables the interrupts necessary for the bump stop switches on our plotter to operate, initializes control booleans, and saves object pointers locally. 
+\begin{DoxyParams}{Parameters}
+{\em p\-\_\-serial\-\_\-port} & Allows screen printouts \\
+\hline
+{\em a\-\_\-timer,\-:} & Assists in sceduling \\
+\hline
+{\em t\-\_\-stamp,\-:} & Assists in sceduling \\
+\hline
+{\em Vortec,\-:} & A motor object \\
+\hline
+{\em Clear\-\_\-\-Slave} & An S\-P\-I master object \\
+\hline
+{\em Clear\-\_\-\-Massah1} & P\-I\-D object for motor 1 \\
+\hline
+{\em Clear\-\_\-\-Massah2} & P\-I\-D object for motor 2 \\
+\hline
+{\em liner} & task lines object so it can call home \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_go___home_a23ee51618c74f918af0ddf4555c7ff04}{\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!Is\-\_\-\-Home@{Is\-\_\-\-Home}}
+\index{Is\-\_\-\-Home@{Is\-\_\-\-Home}!Go_Home@{Go\-\_\-\-Home}}
+\subsubsection[{Is\-\_\-\-Home}]{\setlength{\rightskip}{0pt plus 5cm}bool Go\-\_\-\-Home\-::\-Is\-\_\-\-Home (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_go___home_a23ee51618c74f918af0ddf4555c7ff04}
+Is\-\_\-home returns a flag which is true if machine is done homing. \hypertarget{class_go___home_ae1421efd3ca49627022675f74534ced6}{\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!run@{run}}
+\index{run@{run}!Go_Home@{Go\-\_\-\-Home}}
+\subsubsection[{run}]{\setlength{\rightskip}{0pt plus 5cm}char Go\-\_\-\-Home\-::run (
+\begin{DoxyParamCaption}
+\item[{char}]{state}
+\end{DoxyParamCaption}
+)}}\label{class_go___home_ae1421efd3ca49627022675f74534ced6}
+run is the main method in \hyperlink{class_go___home}{Go\-\_\-\-Home} and it performs the actual homing operation of the two degree of freedom system. 
+\begin{DoxyParams}{Parameters}
+{\em state,\-:} & S\-T\-L\-\_\-task is used for scheduling \\
+\hline
+\end{DoxyParams}
+state 0 does nothing unless homing is requested by user key press or \hyperlink{classtask__lines}{task\-\_\-lines}
+
+state 1 initiates movement of the arm towards home if cart has reached r=0
+
+state 2 concludes homing once arm reaches T\-H\-E\-T\-A=0. \hypertarget{class_go___home_a1c22463a7cca8fd6a8ab4c5c9ecee6ff}{\index{Go\-\_\-\-Home@{Go\-\_\-\-Home}!S\-E\-T\-\_\-\-Home\-\_\-\-Request@{S\-E\-T\-\_\-\-Home\-\_\-\-Request}}
+\index{S\-E\-T\-\_\-\-Home\-\_\-\-Request@{S\-E\-T\-\_\-\-Home\-\_\-\-Request}!Go_Home@{Go\-\_\-\-Home}}
+\subsubsection[{S\-E\-T\-\_\-\-Home\-\_\-\-Request}]{\setlength{\rightskip}{0pt plus 5cm}void Go\-\_\-\-Home\-::\-S\-E\-T\-\_\-\-Home\-\_\-\-Request (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_go___home_a1c22463a7cca8fd6a8ab4c5c9ecee6ff}
+Set home request allows homing to be initiated by other tasks 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Go\-\_\-\-Home.\-h\item 
+\hyperlink{_go___home_8cpp}{Go\-\_\-\-Home.\-cpp}\end{DoxyCompactItemize}

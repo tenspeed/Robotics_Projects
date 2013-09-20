@@ -1,0 +1,158 @@
+//======================================================================================
+	/** \file task_PID.cpp is a Proportional Integral Differential (PID) controller. It can
+	* 	control two motors currently.
+	
+	*  Revisions:
+	*    \li  05-10-11  Began tearing and hacking at our lab_4 code.				
+	*	 \li  05-22-11	That was the hardest 12 days of our lives. It aint perfect, but it works
+	*  License:
+	*    This file released under the Lesser GNU Public License. The program is intended
+	*    for educational use only, but its use is not restricted thereto. 
+	*/
+	//======================================================================================
+
+	// System headers included with < >
+	#include <stdlib.h>							//!< Standard C library
+	#include <avr/io.h>							//!< Input-output ports, special registers
+	#include <avr/interrupt.h>					//!< Interrupt handling functions
+	
+	// User written headers included with " "
+	#include "rs232int.h"						//!< Include header for serial port class
+	#include "stl_timer.h"						//!< allows task_PID to be scheduled
+	#include "stl_task.h"						//!< allows task_PID to be scheduled
+	
+	bool divide_lines;
+
+	int32_t x = 0;
+	int32_t y = 0;
+	int32_t x1 = 0; // INITIALIZE TO NON-ZERO NUMBERS FOR DEBUGGING
+	int32_t y1 = 0; // INITIALIZE TO NON-ZERO NUMBERS FOR DEBUGGING
+	int32_t x2 = 100; // INITIALIZE TO NON-ZERO NUMBERS FOR DEBUGGING
+	int32_t y2 = 100; // INITIALIZE TO NON-ZERO NUMBERS FOR DEBUGGING
+	int32_t dx = 0;
+	int32_t dy = 0;
+	int32_t num = 0;
+	int32_t den = 0;
+	int32_t numadd = 0;
+	int32_t num_pixels = 0;
+	int32_t current_pixel = 0;
+	//int32_t Set_Points[][][][];
+	
+	
+//-----------------------------------------------------------------------------------------
+
+
+task_lines::task_lines (base_text_serial* p_serial_port, task_timer& a_timer, time_stamp& t_stamp) : stl_task (a_timer, t_stamp)
+{
+	ptr_2_serial = p_serial_port;
+	// Say hello
+	*ptr_2_serial << "Bangin' 7 gram rocks"<< motor_num << endl;
+	
+	
+	divide_lines = true; // FOR DEBUGGING PURPOSES ONLY
+	
+		
+}
+
+char task_lines::run(char state)
+{
+	switch (state)
+	{
+
+		case 0: 			//wait state
+	
+			if (divide_lines == true)
+			{
+				return (1);
+			}
+			else
+				
+			{
+				return (STL_NO_TRANSITION);
+			}
+			
+		case 1:				// break up a line into smaller segments
+				
+			dx = abs(x2 - x1);        // The difference between the x's
+			dy = abs(y2 - y1);        // The difference between the y's
+			x = x1;                       // Start x off at the first pixel
+			y = y1;                       // Start y off at the first pixel
+
+			if (x2 >= x1)                 // The x-values are increasing
+			{
+			xinc1 = 1;
+			xinc2 = 1;
+			}
+			else                          // The x-values are decreasing
+			{
+			xinc1 = -1;
+			xinc2 = -1
+			}
+
+			if (y2 >= y1)                 // The y-values are increasing
+			{
+			yinc1 = 1;
+			yinc2 = 1;
+			}
+			else                          // The y-values are decreasing
+			{
+			yinc1 = -1;
+			yinc2 = -1;
+			}
+
+			if (dx >= dy)         // There is at least one x-value for every y-value
+			{
+			xinc1 = 0;                  // Don't change the x when numerator >= denominator
+			yinc2 = 0;                  // Don't change the y for every iteration
+			den = dx;
+			num = dx / 2;
+			numadd = dy;
+			num_pixels = dx;         // There are more x-values than y-values
+			}
+			else                          // There is at least one y-value for every x-value
+			{
+			xinc2 = 0;                  // Don't change the x for every iteration
+			yinc1 = 0;                  // Don't change the y when numerator >= denominator
+			den = dy;
+			num = dy / 2;
+			numadd = dx;
+			num_pixels = dy;         // There are more y-values than x-values
+			}
+			
+			int8_t Line_Segments[num_pixels][2];  // create an array
+			
+			for (current_pixel = 0; current_pixel <= num_pixels; current_pixel++)
+			{
+			Line_Segments[current_pixel][1] = x;     // load current x value into array
+			Line_Segments[current_pixel][2] = y;	 // load current y value into array
+			num += numadd;              // Increase the numerator by the top of the fraction
+			if (num >= den)             // Check if numerator >= denominator
+			{
+				num -= den;               // Calculate the new numerator value
+				x += xinc1;               // Change the x as appropriate
+				y += yinc1;               // Change the y as appropriate
+			}
+			x += xinc2;                 // Change the x as appropriate
+			y += yinc2;                 // Change the y as appropriate
+			}
+			
+		return(2);
+		
+		case 2:
+			*ptr_2_serial << "START" << endl;
+			*ptr_2_serial << Line_Segments[1][1] << ", " << Line_Segments[1][2] << endl;
+			*ptr_2_serial << Line_Segments[2][1] << ", " << Line_Segments[2][2] << endl;
+			*ptr_2_serial << Line_Segments[3][1] << ", " << Line_Segments[3][2] << endl;
+			*ptr_2_serial << Line_Segments[4][1] << ", " << Line_Segments[4][2] << endl;
+			*ptr_2_serial << Line_Segments[5][1] << ", " << Line_Segments[5][2] << endl;
+			*ptr_2_serial << Line_Segments[6][1] << ", " << Line_Segments[6][2] << endl;
+			*ptr_2_serial << Line_Segments[7][1] << ", " << Line_Segments[7][2] << endl;
+			*ptr_2_serial << Line_Segments[8][1] << ", " << Line_Segments[8][2] << endl;
+			*ptr_2_serial << Line_Segments[9][1] << ", " << Line_Segments[9][2] << endl;
+			*ptr_2_serial << "STOP" << endl;
+			
+			// conversion from cartesian coordinates to polar coordinates goes here
+			// conversion to appropriate encoder ticks for the cart and arm happen here as well
+			// when finished, this task should set a flag or something to make giddyup true
+			
+		return (0);

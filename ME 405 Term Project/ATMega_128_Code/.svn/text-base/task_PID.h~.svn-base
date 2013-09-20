@@ -1,0 +1,126 @@
+//======================================================================================
+/** \file  task_PID.h
+ *	PID.h contains specifications necessary for the Proportional Integral Differential (PID)
+ *	controller. Also file scope variables and simple in line methods are defined here.
+ *  Revisions:
+
+ *    \li  05-10-11  Began tearing and hacking at our lab_5 code.
+*	  \li  05-22-11	 That was the hardest 12 days of our lives. It aint perfect, but it works
+ *
+ *  License:
+ *    This file released under the Lesser GNU Public License. The program is intended
+ *    for educational use only, but its use is not restricted thereto. 
+ */
+//======================================================================================
+
+/// This define prevents this .h file from being included more than once in a .cpp file
+#ifndef _task_PID_H_
+#define _task_PID_H_
+
+
+//-------------------------------------------------------------------------------------
+
+ 
+
+class task_PID : public stl_task
+{
+	protected:
+		/// pointer to a serial port object for printing purposes
+		base_text_serial* ptr_2_serial;
+		/// pointer of type Master to an SPI object
+		Master* func_READ_ENCODER;					
+		/// pointer of type da_motor to a motor object
+		da_motor* func_UPDATE_MOTOR;				
+		/// tell motor to stop or go
+		bool giddyup;								
+		/// a constant for each PID which controls which motor and encoder we use each time the PID is called
+		uint8_t motor_num;							
+		/// A flag which indicates an SPI transfer error				
+		uint8_t Checksum_Error_flag;
+		/// stupid counting variable
+		uint8_t dummy;								
+		/// name pretty well says it
+		uint8_t duty_cycle;							
+		/// proportional gain
+		uint16_t K_p;								
+		/// integral gain
+		uint16_t K_i;								
+		/// differential gain
+		uint16_t K_d;								
+		/// used for differential feedback
+		int32_t prev_error;							
+		/// used for integral feedback
+		int32_t E_sum_old;						
+		/// encoder reading
+		int32_t encoder;						
+		/// the set point
+		int32_t Set_Point;							
+		
+		
+						
+		
+		
+
+		
+		
+		
+
+	public:
+		/** The constructor task_PID creates a new PID object.
+		*	@param p_serial_port	Allows screen printouts
+		*	@param a_timer:			Assists in sceduling
+		*	@param t_stamp:			Assists in sceduling
+		*	@param master_object	An SPI master object
+		*	@param motor_object:	A motor object
+		*	@param Which_Channel: 	Gives the newborn PID its motor assignment. For life.
+		*/
+		task_PID (base_text_serial* p_serial_port, task_timer& a_timer, time_stamp& t_stamp, Master* master_object, 
+				  da_motor* motor_object, uint8_t which_Channel);
+		
+		/** run is a 2 state PID controller. State 0 is an idle state which wits for the go bool giddyup to be true. State 1
+		*	gets an encoder count, does necessary feedback calculations and sets motor duty cycle.
+		*	@param state is a state variable controlled by STL_task
+		*/
+		char run(char);
+		
+		/** go sets a bool which allows motors to operate
+		*/
+		void go(void);
+		
+		/**	stop sets a bool low which stops motors from turning
+		*/
+		void stop(void);
+		
+		/** CLEAR clears out archived feedback calculation values
+		*/
+		void CLEAR(void);
+		
+		// These three in line methods allow a user to set gains from other tasks.
+			
+		/// set K_p @param kp_val: the value you wish to set the gain to
+		void set_kp(uint16_t kp_val) { K_p = kp_val; }
+		/// set K_i @param ki_val: the value you wish to set the gain to
+		void set_ki(uint16_t ki_val) { K_i = ki_val; }
+		/// set K_d @param kd_val: the value you wish to set the gain to
+		void set_kd(uint16_t kd_val) { K_d = kd_val; }	
+		
+		// These three in line methods return K values so they can be displayed
+		/// returns K_p 
+		uint16_t GET_Kp(void) {return K_p;}
+		/// returns K_i
+		uint16_t GET_Ki(void) {return K_i;}
+		/// returns K_d
+		uint16_t GET_Kd(void) {return K_d;}
+		
+		/** set_setpoint sets the setpoint
+		*	@param s_pt the set point you desire
+		*/
+		void set_setpoint(int32_t s_pt) {Set_Point = s_pt;}
+		
+		/** Get_Encoder gets an encoder reading
+	*/
+		int32_t Get_Encoder(void){ return(encoder);	}
+};
+	//-------------------------------------------------------------------------------------
+
+#endif // _PID_H_

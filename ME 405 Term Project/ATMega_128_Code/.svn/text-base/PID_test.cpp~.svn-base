@@ -1,0 +1,131 @@
+	//======================================================================================
+	/** \file PID_test.cpp
+	
+	*  Revisions:
+	*    \li  05-10-11  Began tearing and hacking at our lab_4 code.				
+	*	 \li  05-22-11  That was really an ordeal. PID finally working.
+	*  License:
+	*    This file released under the Lesser GNU Public License. The program is intended
+	*    for educational use only, but its use is not restricted thereto. 
+	*/
+	//======================================================================================
+
+	// System headers included with < >
+	#include <stdlib.h>							//!< Standard C library
+	#include <avr/io.h>							//!< Input-output ports, special registers
+	#include <avr/interrupt.h>					//!< Interrupt handling functions
+	#include "rs232int.h"						//!< Include header for serial port class
+	#include "stl_timer.h"						//!< Microsecond-resolution timer
+	#include "stl_task.h"						//!< Base class for all task classes
+
+	// User written headers included with " "
+	#include "da_motor.h"						//!< allows motor control to occur
+	#include "Master.h"							//!< allows SPI communications to operate
+	#include "task_PID.h"						//!< allow PID control
+	#include "task_read.h"						//!< allow user input
+	#include "task_print.h"						//!< allow messages and errors to print to screen
+	#include "task_lines.h"						//!< breaks up a line into small segments
+
+	//--------------------------------------------------------------------------------------
+	/** The main function is the "entry point" of every C program, the one which runs first
+	*  (after standard setup code has finished). For mechatronics programs, main() runs an
+	*  infinite loop and never exits. 
+	*/
+
+	int main ()
+	{
+		volatile uint32_t dummy = 0;			//!< counter to control rate of SPI communication
+		uint16_t error_1 = 0;					//!< counts number of transfer errors for encoder 1
+		uint16_t error_2 = 0;					//!< counts number of transfer errors for encoder 2
+		int32_t encoder_1 = 0;					//!< number of ticks counted by encoder 1
+		int32_t encoder_2 = 0;					//!< number of ticks counted by encoder 2
+		uint8_t select = 1;						//!< Used to choose motor/encoder 1 or 2
+		uint8_t duty_1 = 0;						//!< contains the duty cycle of motor 1 [0 -->255]
+		uint8_t duty_2 = 0; 					//!< contains the duty cycle of motor 2 [0 -->255]
+		uint8_t mode_1 = 3;						//!< contains the mode # of motor 1 [fwd, rev, brake]
+		uint8_t mode_2 = 3;						//!< contains the mode # of motor 2 [fwd, rev, brake]
+		char input_char = 0;					//!< a buffer to hold a key value after input
+		int32_t set_point_1 = 0;				//!< set point for motor 1
+		int32_t set_point_2 = 0;				//!< set point for motor 2
+		uint16_t x = 0;							//!< initialize x coordinate [TEMPORARY]
+		uint16_t y = 0;							//!< initialize y coordinate [TEMPORARY]
+		uint8_t print_mode = 0;					//!< controls what is printed to screen
+		
+		
+		// Create a serial port object. Test voltages will be printed to this port, which
+		// should be hooked up to a dumb terminal program like minicom or GTKterm
+		rs232 the_serial_port (9600, 1);
+
+		// Say hello
+		the_serial_port << endl << "SPI: Master Driver test v0.001" << endl;
+
+		// Create a MASTER object, "request". This object must be given a
+		// pointer to the serial port object so that it can print debugging information
+		// Pointers to encoder variables and transfer error variables are also given so
+		// Master can store those values in main. Also, a encoder_select pointer is passed 
+		// to help determine where to store data.
+		Master request (&the_serial_port);
+		
+		// Create a motor. This object must be given a pointer to the serial port object so that 
+		// it can print debugging and motor operation information.
+		da_motor my_motor (&the_serial_port);
+				
+		// Create a time stamp which holds the interval between runs of the motor task
+		// The time stamp is initialized with a number of seconds, then microseconds
+		time_stamp interval_time_1 (0, 20000);		// set PIDS to run at 20 ms intervals
+		
+		time_stamp interval_time_2 (0, 10000);     // set task_lines to run at 10 ms intervals
+		
+		// Create a microsecond-resolution timer
+		task_timer the_timer;
+		
+		// Create a PID object for motor 1
+		task_PID motor_1 (&the_serial_port, the_timer, interval_time_1, &request, &my_motor, 1);
+		
+		// Create a PID object for motor 2
+		task_PID motor_2 (&the_serial_port, the_timer, interval_time_1, &request, &my_motor, 2); 
+	
+		// Create a user interface object which takes in input
+		task_read keyboard(&the_serial_port, &motor_1, &motor_2, &print_mode, &x, &y, &request); 
+										
+		// Create a user interface object which prints to screen
+		task_print screen_print(&the_serial_port, &print_mode);
+		
+		task_lines line_segments(&the_serial_port, the_timer, interval_time_2);
+		
+		
+		
+		// Say hello
+		the_serial_port << endl << "PID Controller test v0.001" << endl;
+		
+		sei();
+		
+		// Enter infinite main loop
+		while (true)
+		{
+			
+			keyboard.run();						// Get user input if there is any
+			if (print_mode == 0xFF)				// If the user entered a q, or Q print this stuff uncooperatively
+			{
+				// commit set point values
+				set_point_1 = 500UL*x;
+				set_point_2 =500UL*y;
+				motor_1.set_setpoint(set_point_1);
+				motor_2.set_setpoint(set_point_2);
+				
+				// current gain and set point values
+				the_serial_port << "1)p: "<< motor_1.GET_Kp() <<"  i: "<< motor_1.GET_Ki() <<"   d: "<< motor_1.GET_Kd() <<endl;
+				the_serial_port << "2)p: "<< motor_2.GET_Kp() <<"  i: "<< motor_2.GET_Ki() <<"   d: "<< motor_2.GET_Kd() <<endl;
+				the_serial_port << "x*500: "<<set_point_1<<endl<<"y*500: "<<set_point_2<<endl;
+ 				the_serial_port << "enc1="<< motor_1.Get_Encoder()<<"  enc2="<< motor_2.Get_Encoder()<<endl;
+				
+				print_mode = 0;					// reset print_mode
+			}
+			screen_print.run();					// print any errors/propmpts/menus necessary
+			motor_1.schedule ();				// run PID #1 as scheduled
+			motor_2.schedule ();				// run PID #2 as scheduled
+			line_segments.schedule();			// break up some lines
+		}
+		return (0);
+	
+	}

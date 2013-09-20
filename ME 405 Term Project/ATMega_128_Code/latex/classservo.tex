@@ -1,0 +1,95 @@
+\hypertarget{classservo}{\section{servo Class Reference}
+\label{classservo}\index{servo@{servo}}
+}
+
+
+This define prevents this .h file from being included more than once in a .cpp file.  
+
+
+
+
+{\ttfamily \#include $<$servo.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classservo_a7b755565320b23fbbb6f503592576451}{servo} (base\-\_\-text\-\_\-serial $\ast$p\-\_\-serial\-\_\-port)
+\begin{DoxyCompactList}\small\item\em $<$ include own header file \end{DoxyCompactList}\item 
+void \hyperlink{classservo_a0c3ccbb231e64ef9d4d594b6a257fede}{Set\-\_\-\-Angle} (uint16\-\_\-t angle)
+\item 
+\hypertarget{classservo_a0f6663b0fba3ed965886d1b7b2c096ff}{void \hyperlink{classservo_a0f6663b0fba3ed965886d1b7b2c096ff}{Pen\-\_\-\-Up} (void)}\label{classservo_a0f6663b0fba3ed965886d1b7b2c096ff}
+
+\begin{DoxyCompactList}\small\item\em Pen\-\_\-\-Up raises the pen. \end{DoxyCompactList}\item 
+\hypertarget{classservo_aa896489169396a9627cf91a69866c314}{void \hyperlink{classservo_aa896489169396a9627cf91a69866c314}{Fine\-\_\-\-Line} (void)}\label{classservo_aa896489169396a9627cf91a69866c314}
+
+\begin{DoxyCompactList}\small\item\em Fine\-\_\-\-Line touches pen to paper softly. \end{DoxyCompactList}\item 
+\hypertarget{classservo_a0fdfeb3b032f684bf02e1d8c2f631a89}{void \hyperlink{classservo_a0fdfeb3b032f684bf02e1d8c2f631a89}{Heavy\-\_\-\-Line} (void)}\label{classservo_a0fdfeb3b032f684bf02e1d8c2f631a89}
+
+\begin{DoxyCompactList}\small\item\em Heavy\-\_\-\-Line plants the pen hard. \end{DoxyCompactList}\item 
+\hypertarget{classservo_abf07bb1d2a9a8cbadcabf3f12da09ffc}{void \hyperlink{classservo_abf07bb1d2a9a8cbadcabf3f12da09ffc}{Change\-\_\-\-Pen} (void)}\label{classservo_abf07bb1d2a9a8cbadcabf3f12da09ffc}
+
+\begin{DoxyCompactList}\small\item\em Change\-\_\-\-Pen raises the pen extra high to change it easier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classservo_af0e4b202a4463029ce78ed775985ef46}{base\-\_\-text\-\_\-serial $\ast$ \hyperlink{classservo_af0e4b202a4463029ce78ed775985ef46}{ptr\-\_\-2\-\_\-serial}}\label{classservo_af0e4b202a4463029ce78ed775985ef46}
+
+\begin{DoxyCompactList}\small\item\em This servo driver class needs a pointer to the serial port so it can talk. \end{DoxyCompactList}\item 
+\hypertarget{classservo_a9ba9dab8211cd41e05b3ec233fdf27d7}{uint8\-\_\-t \hyperlink{classservo_a9ba9dab8211cd41e05b3ec233fdf27d7}{Servo\-Set}}\label{classservo_a9ba9dab8211cd41e05b3ec233fdf27d7}
+
+\begin{DoxyCompactList}\small\item\em buffer for converting angle to P\-W\-M duty cycle \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This define prevents this .h file from being included more than once in a .cpp file. 
+
+Servo.\-cpp is a simple file which allows a user to run a single hobby servo. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classservo_a7b755565320b23fbbb6f503592576451}{\index{servo@{servo}!servo@{servo}}
+\index{servo@{servo}!servo@{servo}}
+\subsubsection[{servo}]{\setlength{\rightskip}{0pt plus 5cm}servo\-::servo (
+\begin{DoxyParamCaption}
+\item[{base\-\_\-text\-\_\-serial $\ast$}]{p\-\_\-serial\-\_\-port}
+\end{DoxyParamCaption}
+)}}\label{classservo_a7b755565320b23fbbb6f503592576451}
+
+
+$<$ include own header file 
+
+C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R initializes P\-W\-M output for a R\-C servo motor. and sets pen height to a safe value. Servo output pins are A0 \& A1 
+\begin{DoxyParams}{Parameters}
+{\em p\-\_\-serial\-\_\-port} & Serial object so we can write to screen\\
+\hline
+\end{DoxyParams}
+Servo.\-cpp is a simple file which allows a user to run a single hobby servo.$<$ Standard C library Input-\/output ports, special registers $<$ Interrupt handling functions $<$ Include header for serial port class\-C\-O\-N\-S\-T\-R\-U\-C\-T\-O\-R initializes P\-W\-M output for a R\-C servo motor. and sets pen height to a safe value. Servo output pins are A0 \& A1 
+\begin{DoxyParams}{Parameters}
+{\em p\-\_\-serial\-\_\-port} & Serial object so we can write to screen \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classservo_a0c3ccbb231e64ef9d4d594b6a257fede}{\index{servo@{servo}!Set\-\_\-\-Angle@{Set\-\_\-\-Angle}}
+\index{Set\-\_\-\-Angle@{Set\-\_\-\-Angle}!servo@{servo}}
+\subsubsection[{Set\-\_\-\-Angle}]{\setlength{\rightskip}{0pt plus 5cm}void servo\-::\-Set\-\_\-\-Angle (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{angle}
+\end{DoxyParamCaption}
+)}}\label{classservo_a0c3ccbb231e64ef9d4d594b6a257fede}
+Set\-\_\-\-Angle sets the angle of the servo. 
+\begin{DoxyParams}{Parameters}
+{\em angle,\-:} & an angle from 0 to 360 degrees is accepted\\
+\hline
+\end{DoxyParams}
+Set\-\_\-\-Angle sets the angle of the servo 
+\begin{DoxyParams}{Parameters}
+{\em angle} & sets the servo angle between 0 and 360 degrees \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+servo.\-h\item 
+servo.\-cpp\end{DoxyCompactItemize}
