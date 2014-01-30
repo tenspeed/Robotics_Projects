@@ -213,3 +213,12 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#############
+## C++
+#############
+
+*.hex
+*.bin
+*.lst
+*.elf
