@@ -30,7 +30,7 @@
 # program will automatically figure out how to compile and link your C or C++ files 
 # from the list of object files. TARGET will be the name of the downloadable program.
 TARGET = hello_world
-OBJS = $(TARGET).o
+OBJS = $(TARGET).o blink.o
 
 # Clock frequency of the CPU, in Hz. This number should be an unsigned long integer.
 # For example, 16 MHz would be represented as 16000000UL. For ME405 boards, clocks are

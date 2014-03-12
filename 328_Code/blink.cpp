@@ -1,8 +1,8 @@
 //======================================================================================
-/** \file TWI_Master.cpp
+/** \file blink.cpp
  
  *  Revisions:
- *    \li  03-12-14  Began working on TWI_Master.cpp
+ *    \li  03-12-14  Began working on blink.cpp
  *
  *  License:
  *    This file released under the Lesser GNU Public License. The program is intended
@@ -17,64 +17,50 @@
 
 											// User written headers included with " "
 #include "rs232int.h"						//!< Include header for serial port class
-#include "TWI_Master.h"
+#include "blink.h"
 
 //--------------------------------------------------------------------------------------
-
-TWI_Master::TWI_Master()
+blink::blink(void)
 {
-	// the constructor for the TWI_Master class.
+	// set PortC Pin3 as output
+	DDRC |= (1<<PIN3);\
+	// initialize LED off
+	PORTC |= (0<<PIN3);
 }
 
-void TWIInit(void)
+void blink::delay_ms(uint8_t ms)
 {
-	//set SCL to 500kHz
-	TWSR = 0X00;
-	TWBR = 0X0C;
-	//enable TWI
-	TWCR = (1<<TWEN);
-}
-
-void TWIStart(void)
-{
-	TWCR = (1<<TWINT)|(1<<TWSTA)|(1<<TWEN);
-	while ((TWCR & (1<<TWINT)) == 0);
-}
-
-void TWIStop(void)
-{
-	TWCR = (1<<TWINT)|(1<<TWSTO)|(1<<TWEN);
-}
-
-void TWIWrite(uint8_t data)
-{
-	TWDR = data;
-	TWCR = (1<<TWINT)|(1<<TWEN);
-	while ((TWCR & (1<<TWINT)) == 0);
-}
-
-uint8_t TWIReadACK(void)
-{
-	TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
-	while ((TWCR & (1<<TWINT)) == 0);
-	return TWDR;
-}
-
-uint8_t TWIReadNACK(void)
-{
-	TWCR = (1<<TWINT)|(1<<TWEN);
-	while ((TWCR & (1<<TWINT)) == 0);
-	return TWDR;
-}
-
-void delay_ms(uint8_t ms)
-{
+	// set a delay counter proportional to the mcu clock speed
 	uint16_t delay_count = F_CPU/1000;
 	volatile uint16_t i;
 		
 	while (ms != 0)
 	{
+		// this loop should eat up 1 ms of time
+		// it runs until the ms counter is zero
 		for(i = 0; i != delay_count; i++);
 		ms--;
+	}
+}
+
+void blink::blink_LED(uint8_t num_blink, uint8_t delay)
+{
+	uint8_t blink_count = num_blink;
+	uint8_t the_delay = delay;
+
+	// this code is poorly written and will block the mcu from doing anything else
+	// but I don't care too much at this point.
+	while (blink_count != 0)
+	{
+		// turn LED on
+		PORTC |= (1<<PIN3);
+		// wait
+		delay_ms(the_delay);
+		// turn LED off
+		PORTC &= ~(1<<PIN3);
+		// wait
+		delay_ms(the_delay);
+		// decrement the number of blinks remaining
+		blink_count--;
 	}
 }
