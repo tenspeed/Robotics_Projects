@@ -1,7 +1,7 @@
 //======================================================================================
-/** \file TWI_Master.h
- *	TWI_Master.h contains specifications necessary for a Master MCU to control the flow
- *	of two-wire communication between itself and any number of Slave MCU's.
+/** \file TWI_Slave.h
+ *	TWI_Slave.h contains specifications necessary for a Slave MCU to communicate with
+ *	 a Master MCU on a two-wire serial bus.
  * 
  *  License:
  *    This file released under the Lesser GNU Public License. The program is intended
@@ -9,31 +9,21 @@
  */
 //======================================================================================
 // This define prevents this .h file from being included more than once in a .cpp file
-#ifndef _TWI_Master_H_
-#define _TWI_Master_H_
+#ifndef _TWI_Slave_H_
+#define _TWI_Slave_H_
 //-------------------------------------------------------------------------------------
  /** blink.cpp is a class for blinking an LED connected to an output pin.
  */
-class TWI_Master
+class TWI_Slave
 {
 	protected:
 		blink* blink_obj;
 	public:
 		/** The constructor blink creates a new blink object.
 		*/
-		TWI_Master(blink* blink_object);
-		
+		TWI_Slave(blink* blink_object);
+
 		void TWIInit(void);
-
-		void TWIStart(void);
-
-		void TWIStop(void);
-
-		void TWIWrite(uint8_t data);
-
-		uint8_t TWIReadACK(void);
-
-		uint8_t TWIReadNACK(void);
 };
 	//-------------------------------------------------------------------------------------
-#endif // _TWI_Master_H_
+#endif // _TWI_Slave_H_
